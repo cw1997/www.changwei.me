@@ -1,0 +1,31 @@
+@import "src/styles/common"
+
+.container
+  @include page
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  margin: 0 auto
+  min-height: 100vh
+  padding: 64px 32px
+  @include on-mobile()
+    padding: 24px
+
+.main
+  width: 100%
+
+.skill
+  margin-top: 64px
+
+.logo
+  @include radius()
+  @include transition()
+  padding: 4px 8px
+  border: 1px solid rgba($color-gray-3, 0)
+  &:hover
+    border: 1px solid $color-gray-3
+
+@media (prefers-color-scheme: dark)
+  .logo_img
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)

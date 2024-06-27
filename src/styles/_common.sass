@@ -1,0 +1,235 @@
+//constant
+$size-height-header: 64px
+$size-height-navbar: 32px
+$size-padding-page: 24px
+$size-padding-top-page: $size-height-header + $size-height-navbar
+$size-height-page: calc(100vh - #{$size-padding-top-page})
+
+//color
+$gray-1 : #ffffff
+$gray-2 : #fafafa
+$gray-3 : #f5f5f5
+$gray-4 : #f0f0f0
+$gray-5 : #d9d9d9
+$gray-6 : #bfbfbf
+$gray-7 : #8c8c8c
+$gray-8 : #595959
+$gray-9 : #434343
+$gray-10: #262626
+$gray-11: #1f1f1f
+$gray-12: #141414
+$gray-13: #000000
+
+//color
+$color-1 : #000000
+$color-2 : #262626
+$color-3 : #595959
+$color-4 : #8c8c8c
+$color-5 : #adadad
+$color-6 : #bbbbbb
+$color-7 : #f1efef
+$color-8 : #fefefe
+
+$color-gray-0: #FAFAFA
+$color-gray-1: #F2F2F2
+$color-gray-2: #CDCDCD
+$color-gray-3: #CDCDCD
+
+$color-font-0: #333333
+$color-font-1: #1F1F1F
+$color-font-2: #5E5E5E
+$color-font-3: #8D8D8D
+$color-font-4: #AFAFAF
+$color-font-content: #797979
+
+//$color-border: $gray-5
+$color-border: #dedede
+$color-border-0: #DADADA
+$color-border-1: #e0e0e0
+$color-border-2: #eaeaea
+
+$color-button-border: #CCCCCC
+$color-button-background: #FAFAFA
+
+$color-link: #0052d9 // #3861F4
+
+$color-description: #8F8F8F
+$color-split-line: #D9D9D9
+
+//mixin
+
+=clickable
+  cursor: pointer
+
+=no-warp
+  white-space: nowrap
+
+=border($color: $color-border, $width: 1px, $style: solid)
+  border: $width $style $color
+
+=border-position($position, $color: $color-border, $width: 1px, $style: solid)
+  border-#{$position}: $width $style $color
+
+=box-shadow($offset-x: 0, $offset-y: 0, $blur-radius: 12px, $spread-radius: 0, $color: $gray-5)
+  box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color
+
+=box-shadow-0
+  box-shadow: 0 0 16px 0 #FAFAFA
+=box-shadow-1
+  box-shadow: 0 0 16px 0 #EAEAEA
+=box-shadow-2
+  box-shadow: 0 0 16px 0 #CECECE
+
+=link
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+=control
+  user-select: none
+
+=radius($size: 8px, $hidden: true)
+  border-radius: $size
+  @if($hidden)
+    overflow: hidden
+
+=circle($size, $hidden: true)
+  @include radius($size, $hidden)
+  width: $size
+  height: $size
+
+=square($size)
+  width: $size
+  height: $size
+
+=size($size, $radius: false)
+  width: $size
+  height: $size
+  @if($radius)
+    overflow: hidden
+    border-radius: $size
+
+=full-size
+  @include size(100%)
+
+=split-margin($position, $size: 8px)
+  &:not(:last-child)
+    margin-#{$position}: $size
+
+=split-padding($position, $size: 8px)
+  //padding-#{$position}: $size
+  &:not(:last-child)
+    padding-#{$position}: $size
+
+=split-line($position, $size: 16px, $color: $color-border-2, $width: 1px, $type: solid)
+  &:not(:last-child)
+    margin-#{$position}: $size
+    padding-#{$position}: $size
+    border-#{$position}: $width $type $color
+
+=border-line($position, $size: 16px, $color: $color-border-2, $width: 1px, $type: solid)
+  margin-#{$position}: $size
+  padding-#{$position}: $size
+  border-#{$position}: $width $type $color
+
+=child-line($position, $color: $color-border-2, $width: 1px, $type: solid)
+  &:not(:last-child)
+    border-#{$position}: $width $type $color
+
+=flex($justify-content: center, $align-items: center, $flex-direction: row, $flex-wrap: nowrap)
+  display: flex
+  justify-content: $justify-content
+  align-items: $align-items
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+
+=flex-start($align-items: baseline, $flex-direction: row, $flex-wrap: nowrap)
+  display: flex
+  //justify-content: $justify-content
+  align-items: $align-items
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+
+=inline-flex($justify-content: center, $align-items: center, $flex-direction: row, $flex-wrap: nowrap)
+  display: inline-flex
+  justify-content: $justify-content
+  align-items: $align-items
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+
+=transition($duration: 200ms, $property: all)
+  transition: $property $duration
+
+=font($size, $line-height: 1.75)
+  font:
+    size: $size
+  line-height: $line-height
+
+// a11y
+=focus()
+  outline-offset: 0
+  outline: 2px dotted rgba($color-4, 0)
+  &:focus-within
+    outline-offset: 1px
+    outline: 2px dotted rgba($color-4, 1)
+
+// typography
+=line-spacing($horizontal: 0.5em)
+  margin-block-start: $horizontal
+  margin-block-end: $horizontal
+
+=title-layout-page
+  @include font(32px)
+  color: $color-font-1
+
+=title-section
+  @include font(24px)
+  color: $color-font-1
+
+=title_0
+  @include font(48px)
+  color: $color-font-0
+
+=title_1
+  @include font(36px)
+  color: $color-font-1
+
+=title_2
+  @include font(28px)
+  color: $color-font-2
+
+=description
+  @include font(14px)
+  color: #8F8F8F
+
+=container($background-color: #FFFFFF)
+  background-color: $background-color
+  width: 100%
+
+=page
+  margin: 0 auto
+  max-width: 1280px
+  //width: 100%
+
+=page-padding
+  @include page
+  padding: 32px $size-padding-page
+
+
+// responsive layout
+$mobile: 768px
+$desktop: 1023px
+$wide: 1215px
+$full: 1407px
+
+$max-desktop: 960px
+$max-wide: 1152px
+$max-full: 1344px
+
+@mixin on-desktop($min-width: $mobile + 1)
+  @media screen and (min-width: $min-width)
+    @content
+
+@mixin on-mobile($max-width: $mobile)
+  @media screen and (max-width: $max-width)
+    @content

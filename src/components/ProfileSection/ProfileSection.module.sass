@@ -1,0 +1,75 @@
+@import "src/styles/common"
+
+.profile
+  width: 100%
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  &_info
+    &_name
+      @include split-line(bottom)
+      width: 100%
+      &_key
+        font-size: 16px
+        color: $color-font-3
+      &_value
+        font-size: 24px
+        font-weight: 300
+        color: $color-font-1
+        strong
+          color: $color-font-0
+          font-weight: 500
+    &_list
+      font-size: 16px
+      @include split-line(bottom)
+      &_item
+        //width: 100%
+        //display: grid
+        //grid-template-columns: repeat(auto-fill, auto)
+        //margin-top: 4px
+        &_key
+          text-align: right
+          padding: 4px 8px
+          color: $color-font-3
+        &_value
+          color: $color-font-2
+  &_contact
+    &_list
+      font-size: 14px
+      margin-bottom: 8px
+      &_item
+        &_key
+          padding: 4px 8px
+          color: $color-font-3
+        &_value
+          color: $color-font-2
+  &_location
+    @include border-line(top, 4px, $color-border-1, 1px, dashed)
+    &_list
+      font-size: 14px
+      margin-bottom: 8px
+      &_item
+        &_key
+          padding: 4px 8px
+          color: $color-font-3
+        &_value
+          color: $color-font-2
+          padding-left: 28px
+  &_photo
+    margin: 16px
+    max-width: 384px
+    @include on-mobile()
+      margin: 0
+    &_image
+      width: 100%
+    &_info
+      &_list
+        font-size: 13px
+        margin-bottom: 8px
+        &_item
+          &_key
+            padding: 2px 4px
+            color: $color-font-4
+            //vertical-align: top
+          &_value
+            color: $color-font-3

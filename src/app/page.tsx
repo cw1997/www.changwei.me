@@ -1,95 +1,115 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./page.module.sass";
+import {Space, Tag} from "antd";
+import {OutsideLink} from "@/components/OutsideLink";
+import photo_image from './changwei_at_google_taipei.jpg'
+import {MailOutlined} from "@ant-design/icons";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <div className={styles.profile}>
+          <div className={styles.profile_info}>
+            <h1>
+              <Space split={'/'}>
+                <Space>
+                  <strong>Chang Wei</strong>
+                  <Tag>en</Tag>
+                </Space>
+                <Space>
+                  <strong>昌维</strong>
+                  <Tag>zh-Hans</Tag>
+                </Space>
+                <Space>
+                  <strong>昌維</strong>
+                  <Tag>zh-Hant</Tag>
+                </Space>
+              </Space>
+            </h1>
+            <table className={styles.profile_info_list}>
+              <tbody>
+                <tr className={styles.profile_info_list_item}>
+                  <td className={styles.profile_info_list_item_key}>Birthday:</td>
+                  <td className={styles.profile_info_list_item_value}>1997/10/06</td>
+                </tr>
+                <tr className={styles.profile_info_list_item}>
+                  <td className={styles.profile_info_list_item_key}>Major:</td>
+                  <td className={styles.profile_info_list_item_value}>Electrical and Computer Engineering</td>
+                </tr>
+                <tr className={styles.profile_info_list_item}>
+                  <td className={styles.profile_info_list_item_key}>School:</td>
+                  <td className={styles.profile_info_list_item_value}>NTUST(National Taiwan University of Science and Technology)</td>
+                </tr>
+                <tr className={styles.profile_info_list_item}>
+                  <td className={styles.profile_info_list_item_key}>Work:</td>
+                  <td className={styles.profile_info_list_item_value}>RisingWave Labs (Web Front-End Engineer)</td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <MailOutlined/> Email: changwei1006@gmail.com
+            </div>
+            <div>
+              <MailOutlined/> Email (Chinese mainland): changwei1006@qq.com
+            </div>
+          </div>
+          
+          <div className={styles.profile_photo}>
+            <img src={photo_image.src} alt={'Chang Wei at Google Taipei office'} width={256}/>
+          </div>
         </div>
-      </div>
+        
+        <div className={styles.skill}>
+          <Space>
+            {[
+              {name: 'TypeScript',},
+              {name: 'Sass',},
+              {name: 'React',},
+              {name: 'Vue',},
+              {name: 'Webpack',},
+              {name: 'Glup',},
+            ].map((item) => (
+              <div key={item.name}>{item.name}</div>
+            ))}
+          </Space>
+        </div>
+      </main>
+      
+      <footer>
+        <div>
+          <PoweredByVercel/>
+        </div>
+      </footer>
+    </div>
+  );
+}
 
-      <div className={styles.center}>
+const PoweredByVercel = () => {
+  return (
+    <Space align={'center'}>
+      Powered By
+      <OutsideLink className={styles.logo} href={'https://vercel.com'}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src={require('./icons/vercel.svg')}
+          alt="Vercel Logo"
+          className={styles.logo_img}
+          // width={100}
+          height={16}
           priority
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      </OutsideLink>
+      And
+      <OutsideLink className={styles.logo} href={'https://nextjs.org/'}>
+        <Image
+          src={require('./icons/next.svg')}
+          alt="NextJS Logo"
+          className={styles.logo_img}
+          // width={100}
+          height={16}
+          priority
+        />
+      </OutsideLink>
+    </Space>
+  )
 }

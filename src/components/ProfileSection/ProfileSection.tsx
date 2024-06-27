@@ -50,7 +50,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
               <td className={styles.profile_info_list_item_key}>Homeplace:</td>
               <td className={styles.profile_info_list_item_value}>
                 <OutsideLink href={'https://map.baidu.com/search/%E5%90%89%E5%B7%9E%E5%8C%BA/@12789893.52945679,3124670.185,12.7z?querytype=s&da_src=shareurl&wd=%E5%90%89%E5%B7%9E%E5%8C%BA&c=9002&src=0&wd2=%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA&pn=0&sug=1&l=15&b=(13523606.739607658,2856687.76226769;13540382.739607658,2863967.76226769)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&sug_forward=fb92f2f75515957842afe6c6&device_ratio=1'}>
-                  Chinese mainland (+86), JiangXi Province, Ji'an City (343000), Ji’zhou District
+                    {"Chinese mainland (+86), JiangXi Province, Ji'an City (343000), Ji’zhou District"}
                 </OutsideLink>
               </td>
             </tr>
@@ -105,7 +105,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
             <div className={styles.profile_location_list_item}>
               <div className={styles.profile_location_list_item_key}><EnvironmentOutlined /> Address (English) (Accept package and mail[postcard exchange is available]): </div>
               <div className={styles.profile_location_list_item_value}>
-                <OutsideLink href={'https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8'}>No.43, Keelung Rd., Sec.4, Da'an Dist., Taipei City 106335, Taiwan (R.O.C.), <br/>
+                <OutsideLink href={'https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8'}>{"No.43, Keelung Rd., Sec.4, Da'an Dist., Taipei City 106335, Taiwan (R.O.C.), "}<br/>
                   National Taiwan University of Science and Technology, Dorm.1</OutsideLink>
               </div>
             </div>

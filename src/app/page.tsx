@@ -1,3 +1,4 @@
+import {ContactItem} from "@/components/ContactItem/ContactItem";
 import Image from "next/image";
 import styles from "./page.module.sass";
 import {Space, Tag} from "antd";
@@ -47,12 +48,22 @@ export default function Home() {
                 </tr>
               </tbody>
             </table>
-            <div>
-              <MailOutlined/> Email: changwei1006@gmail.com
-            </div>
-            <div>
-              <MailOutlined/> Email (Chinese mainland): changwei1006@qq.com
-            </div>
+            {/*<Space direction="vertical">*/}
+            {/*  {[*/}
+            {/*    {icon: <MailOutlined />, label: 'Email', value: 'changwei1006@gmail.com', },*/}
+            {/*    {icon: <MailOutlined />, label: 'Email', value: 'changwei1006@qq.com', },*/}
+            {/*  ].map((item, index) => (*/}
+            {/*    <ContactItem key={index} {...item} />*/}
+            {/*  ))}*/}
+            {/*</Space>*/}
+            <Space direction={'vertical'} className={styles.profile_info_contact}>
+              <div>
+                <MailOutlined/> Email (全球): <OutsideLink href={'mailto:changwei1006@gmail.com'}>changwei1006@gmail.com</OutsideLink>
+              </div>
+              <div>
+                <MailOutlined/> Email (中国大陆): <OutsideLink href={'mailto:changwei1006@qq.com'}>changwei1006@qq.com</OutsideLink>
+              </div>
+            </Space>
           </div>
           
           <div className={styles.profile_photo}>

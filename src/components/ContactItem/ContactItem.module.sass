@@ -1,0 +1,50 @@
+@import "src/styles/common"
+
+.container
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  padding: 6rem
+  min-height: 100vh
+
+.profile
+  display: flex
+  justify-content: space-between
+  &_info
+    h1
+      @include split-line(bottom)
+      font-size: 24px
+      font-weight: 300
+      color: $color-font-0
+      strong
+        font-weight: 500
+    &_list
+      @include split-line(bottom)
+      &_item
+        //width: 100%
+        //display: grid
+        //grid-template-columns: repeat(auto-fill, auto)
+        //margin-top: 4px
+        &_key
+          text-align: right
+          padding: 4px 8px
+          color: $color-font-2
+        &_value
+          color: $color-font-1
+  &_photo
+    margin: 16px
+    img
+      width: 384px
+
+.logo
+  @include radius()
+  @include transition()
+  padding: 4px 8px
+  border: 1px solid rgba($color-gray-3, 0)
+  &:hover
+    border: 1px solid $color-gray-3
+
+@media (prefers-color-scheme: dark)
+  .logo_img
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)

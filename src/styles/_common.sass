@@ -208,9 +208,28 @@ $color-split-line: #D9D9D9
 
 =page
   margin: 0 auto
-  max-width: 1440px
+  max-width: 1280px
   //width: 100%
 
 =page-padding
   @include page
   padding: 32px $size-padding-page
+
+
+// responsive layout
+$mobile: 768px
+$desktop: 1023px
+$wide: 1215px
+$full: 1407px
+
+$max-desktop: 960px
+$max-wide: 1152px
+$max-full: 1344px
+
+@mixin on-desktop($min-width: $mobile + 1)
+  @media screen and (min-width: $min-width)
+    @content
+
+@mixin on-mobile($max-width: $mobile)
+  @media screen and (max-width: $max-width)
+    @content

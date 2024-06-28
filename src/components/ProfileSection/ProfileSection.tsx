@@ -16,7 +16,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
         <Space className={styles.profile_info_name}>
           <div className={styles.profile_info_name_key}>True Name:</div>
           <h1 className={styles.profile_info_name_value}>
-            <Space split={'/'}>
+            <Space split={'/'} wrap>
               <Space>
                 <strong>Chang Wei</strong>
                 <Tag>en</Tag>

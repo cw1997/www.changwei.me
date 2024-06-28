@@ -121,7 +121,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (props)
           <Space className={styles.category_skills} size={16} wrap>
             {category.skills.map((skill) => (
               <Tooltip key={skill.name} title={skill.name}>
-                <img style={{height: 48, width: 'auto'}} {...skill.icon} alt={skill.name} />
+                <img style={{height: 32, width: 'auto'}} {...skill.icon} alt={skill.name} />
               </Tooltip>
             ))}
           </Space>

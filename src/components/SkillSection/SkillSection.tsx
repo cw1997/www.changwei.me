@@ -2,46 +2,92 @@ import {Space, Tooltip} from "antd";
 import React from "react";
 import styles from "./SkillSection.module.sass";
 
-import javascript_logo from '@/assets/images/logo/JavaScript-logo.png'
-import typescript_logo from '@/assets/images/logo/Typescript_logo_2020.svg'
-import react_logo from '@/assets/images/logo/React-icon.svg'
-import sass_logo from '@/assets/images/logo/Sass_Logo_Color.svg'
-import vue_logo from '@/assets/images/logo/Vue.js_Logo_2.svg'
-import vite_logo from '@/assets/images/logo/vite-logo-with-shadow.png'
-import webpack_logo from '@/assets/images/logo/webpack_icon.svg'
-import gulp_logo from '@/assets/images/logo/gulp.svg'
-import babel_logo from '@/assets/images/logo/Babel_Logo.svg'
+import html5_logo from '@/assets/images/logo/frontend/html5-badge-h-solo.png'
+import css3_logo from '@/assets/images/logo/frontend/CSS3_logo.svg'
+import ecmascript_logo from '@/assets/images/logo/frontend/es-ecmascript-logo.png'
+import javascript_logo from '@/assets/images/logo/frontend/JavaScript-logo.png'
+import typescript_logo from '@/assets/images/logo/frontend/Typescript_logo_2020.svg'
+import react_logo from '@/assets/images/logo/frontend/React-icon.svg'
+import sass_logo from '@/assets/images/logo/frontend/Sass_Logo_Color.svg'
+import less_logo from '@/assets/images/logo/frontend/LESS_Logo.svg'
+import styled_component_logo from '@/assets/images/logo/frontend/styled-components.png'
+import redux_logo from '@/assets/images/logo/frontend/redux-logo.svg'
+import vue_logo from '@/assets/images/logo/frontend/Vue.js_Logo_2.svg'
+import vite_logo from '@/assets/images/logo/frontend/vite-logo-with-shadow.png'
+import webpack_logo from '@/assets/images/logo/frontend/webpack_icon.svg'
+import gulp_logo from '@/assets/images/logo/frontend/gulp.svg'
+import babel_logo from '@/assets/images/logo/frontend/Babel_Logo.svg'
+import jquery_logo from '@/assets/images/logo/frontend/JQuery-Logo.svg'
+import storybook_logo from '@/assets/images/logo/frontend/storybook.svg'
+import eslint_logo from '@/assets/images/logo/frontend/ESLint_logo.svg'
+import ant_design_logo from '@/assets/images/logo/frontend/ant-design.svg'
+import tailwind_css_logo from '@/assets/images/logo/frontend/Tailwind_CSS_Logo.svg'
+import tdesign_logo from '@/assets/images/logo/frontend/tdesign_logo.svg'
+import expo_logo from '@/assets/images/logo/frontend/expo.png'
 
-import postgres_logo from '@/assets/images/logo/Postgresql_elephant.svg'
-import mysql_logo from '@/assets/images/logo/Mysql_logo.png'
-import redis_logo from '@/assets/images/logo/Node.js_logo.svg'
-import sql_server_logo from '@/assets/images/logo/microsoft-sql-server-logo.svg'
+import nodejs_logo from '@/assets/images/logo/backend/Node.js_logo.svg'
+import nestjs_logo from '@/assets/images/logo/backend/nestjs.svg'
+import php_logo from '@/assets/images/logo/backend/PHP-logo.svg'
+import laravel_logo from '@/assets/images/logo/backend/laravel.png'
+import java_logo from '@/assets/images/logo/backend/Java-Logo.svg'
+import spring_framework_logo from '@/assets/images/logo/backend/spring.svg'
+import golang_logo from '@/assets/images/logo/backend/Go-Logo_Blue.png'
+import gin_logo from '@/assets/images/logo/backend/gin-color.png'
+import python_logo from '@/assets/images/logo/backend/Python-logo-notext.svg'
+import flask_logo from '@/assets/images/logo/backend/Flask_logo.svg'
+
+import postgres_logo from '@/assets/images/logo/database/Postgresql_elephant.svg'
+import mysql_logo from '@/assets/images/logo/database/Mysql_logo.png'
+import mariadb_logo from '@/assets/images/logo/database/mariadb-horizontal-blue.svg'
+import sql_server_logo from '@/assets/images/logo/database/microsoft-sql-server-logo.svg'
+import access_logo from '@/assets/images/logo/database/Microsoft_Office_Access_(2019-present).svg'
+import mongodb_logo from '@/assets/images/logo/database/MongoDB_Logo.svg'
+import redis_logo from '@/assets/images/logo/database/redis-logo.svg'
+import memcached_logo from '@/assets/images/logo/database/memcached.svg'
+import elasticsearch_logo from '@/assets/images/logo/database/Elasticsearch_logo.svg'
+import dbeaver_logo from '@/assets/images/logo/database/dbeaver.png'
 
 const data = [
   {
     category_name: "Front End",
     skills: [
+      {name: 'HTML5', icon: html5_logo},
+      {name: 'CSS3', icon: css3_logo},
+      {name: 'ECMAScript', icon: ecmascript_logo},
       {name: 'JavaScript', icon: javascript_logo},
       {name: 'TypeScript', icon: typescript_logo},
       {name: 'React', icon: react_logo},
       {name: 'Vue', icon: vue_logo},
-      {name: 'Vite', icon: vite_logo},
       {name: 'Sass', icon: sass_logo},
+      {name: 'less', icon: styled_component_logo},
+      {name: 'styled-components', icon: less_logo},
+      {name: 'Redux', icon: redux_logo},
+      {name: 'Vite', icon: vite_logo},
       {name: 'Webpack', icon: webpack_logo},
       {name: 'Gulp.js', icon: gulp_logo},
       {name: 'Babel', icon: babel_logo},
+      {name: 'jQuery', icon: jquery_logo},
+      {name: 'StoryBook', icon: storybook_logo},
+      {name: 'ESLint', icon: eslint_logo},
+      {name: 'Ant-Design', icon: ant_design_logo},
+      {name: 'Tailwind CSS', icon: tailwind_css_logo},
+      {name: 'TDesign', icon: tdesign_logo},
+      {name: 'Expo', icon: expo_logo},
     ],
   },
   {
     category_name: "Back End",
     skills: [
-      {name: 'JavaScript', icon: javascript_logo},
-      {name: 'TypeScript', icon: typescript_logo},
-      {name: 'React', icon: react_logo},
-      {name: 'Sass', icon: sass_logo},
-      {name: 'Vue', icon: vue_logo},
-      {name: 'Webpack', icon: webpack_logo},
-      // {name: 'Glup', icon: webpack_logo},
+      {name: 'Node.js', icon: nodejs_logo},
+      {name: 'Nest.js', icon: nestjs_logo},
+      {name: 'PHP', icon: php_logo},
+      {name: 'Laravel', icon: laravel_logo},
+      {name: 'Java', icon: java_logo},
+      {name: 'Spring Framework', icon: spring_framework_logo},
+      {name: 'Golang', icon: golang_logo},
+      {name: 'Gin', icon: gin_logo},
+      {name: 'Python', icon: python_logo},
+      {name: 'Flask', icon: flask_logo},
     ],
   },
   {
@@ -49,11 +95,14 @@ const data = [
     skills: [
       {name: 'Postgres', icon: postgres_logo},
       {name: 'MySQL', icon: mysql_logo},
-      {name: 'Redis', icon: redis_logo},
+      {name: 'MariaDB', icon: mariadb_logo},
       {name: 'SQL Server', icon: sql_server_logo},
-      {name: 'Vue', icon: vue_logo},
-      {name: 'Webpack', icon: webpack_logo},
-      // {name: 'Glup', icon: webpack_logo},
+      {name: 'Microsoft Access', icon: access_logo},
+      {name: 'MongoDB', icon: mongodb_logo},
+      {name: 'Redis', icon: redis_logo},
+      {name: 'Memcached', icon: memcached_logo},
+      {name: 'Elasticsearch', icon: elasticsearch_logo},
+      {name: 'DBeaver', icon: dbeaver_logo},
     ],
   },
 ]
@@ -67,17 +116,16 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (props)
       <h2 className={styles.title}>Skill</h2>
       <Space direction={'vertical'} size={16}>
       {data.map((category) => (
-        <Space key={category.category_name} className={styles.category} size={16}>
+        <div key={category.category_name} className={styles.category}>
           <div className={styles.category_name}>{category.category_name}: </div>
-          <Space className={styles.category_skills} size={16}>
+          <Space className={styles.category_skills} size={16} wrap>
             {category.skills.map((skill) => (
               <Tooltip key={skill.name} title={skill.name}>
                 <img style={{height: 48, width: 'auto'}} {...skill.icon} alt={skill.name} />
               </Tooltip>
             ))}
           </Space>
-          
-        </Space>
+        </div>
       ))}
     </Space>
     </div>

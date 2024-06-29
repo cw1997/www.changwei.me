@@ -1,5 +1,11 @@
-export const OutsideLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => {
-  const {target, rel, ...rest} = props
+import React from "react"
+
+export interface IPropsOutsideLink extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+
+}
+
+export const OutsideLink: React.FC<IPropsOutsideLink> = (props) => {
+  const {target, rel, children, ...rest} = props
   return (
     <a
       {...rest}

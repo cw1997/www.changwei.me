@@ -22,17 +22,32 @@
     &_list
       font-size: 16px
       @include split-line(bottom)
-      &_item
-        //width: 100%
-        //display: grid
-        //grid-template-columns: repeat(auto-fill, auto)
-        //margin-top: 4px
-        &_key
-          text-align: right
-          padding: 4px 8px
-          color: $color-font-3
-        &_value
-          color: $color-font-2
+      &_desktop
+        @include on-mobile()
+          display: none
+        &_item
+          //width: 100%
+          //display: grid
+          //grid-template-columns: repeat(auto-fill, auto)
+          //margin-top: 4px
+          vertical-align: text-top
+          &_key
+            padding: 4px 8px
+            text-align: right
+            color: $color-font-3
+          &_value
+            color: $color-font-2
+      &_mobile
+        @include on-desktop()
+          display: none
+        &_item
+          vertical-align: text-top
+          &_key
+            text-align: left
+            color: $color-font-3
+          &_value
+            padding: 4px 8px
+            color: $color-font-2
   &_contact
     &_list
       font-size: 14px
@@ -46,6 +61,8 @@
   &_location
     @include border-line(top, 4px, $color-border-1, 1px, dashed)
     &_list
+      @include on-mobile()
+        margin-bottom: 32px
       font-size: 14px
       margin-bottom: 8px
       &_item
@@ -56,7 +73,9 @@
           color: $color-font-2
           padding-left: 28px
   &_photo
-    margin: 16px
+    @include radius(8px)
+    border: 1px solid $color-border
+    margin: 8px 32px
     max-width: 384px
     @include on-mobile()
       margin: 0
@@ -69,13 +88,17 @@
       //font-weight: 300
       color: $color-font-3
     &_info
+      padding: 8px
       &_list
         font-size: 12px
         margin-bottom: 8px
         &_item
+          vertical-align: text-top
           &_key
-            padding: 2px 4px
+            @include no-warp
+            padding: 4px
             color: $color-font-4
+            text-align: right
             //vertical-align: top
           &_value
             color: $color-font-3

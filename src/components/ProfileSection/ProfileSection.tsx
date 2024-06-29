@@ -1,6 +1,6 @@
 import photo_image from "@/app/changwei_at_google_taipei.jpg";
 import {OutsideLink} from "@/components/OutsideLink";
-import {EnvironmentOutlined, MailOutlined} from "@ant-design/icons";
+import {CameraOutlined, ClockCircleOutlined, EnvironmentOutlined, MailOutlined} from "@ant-design/icons";
 import {Divider, Space, Tag} from "antd";
 import React from "react";
 import styles from "./ProfileSection.module.sass";
@@ -78,7 +78,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
   return (
     <div className={styles.profile}>
       <div className={styles.profile_info}>
-        <Space className={styles.profile_info_name}>
+        <Space className={styles.profile_info_name} wrap>
           <div className={styles.profile_info_name_key}>True Name:</div>
           <h1 className={styles.profile_info_name_value}>
             <Space split={'/'} wrap>
@@ -98,12 +98,24 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
           </h1>
         </Space>
         <table className={styles.profile_info_list}>
-          <tbody>
+          <tbody className={styles.profile_info_list_desktop}>
             {profile.map((item) => (
-              <tr key={item.key} className={styles.profile_info_list_item}>
-                <td className={styles.profile_info_list_item_key}>{item.key}:</td>
-                <td className={styles.profile_info_list_item_value}>{item.value}</td>
+              <tr key={item.key} className={styles.profile_info_list_desktop_item}>
+                <td className={styles.profile_info_list_desktop_item_key}>{item.key}:</td>
+                <td className={styles.profile_info_list_desktop_item_value}>{item.value}</td>
               </tr>
+            ))}
+          </tbody>
+          <tbody className={styles.profile_info_list_mobile}>
+            {profile.map((item) => (
+              <>
+                <tr key={item.key} className={styles.profile_info_list_mobile_item}>
+                  <td className={styles.profile_info_list_mobile_item_key}>{item.key}:</td>
+                </tr>
+                <tr key={item.key} className={styles.profile_info_list_mobile_item}>
+                  <td className={styles.profile_info_list_mobile_item_value}>{item.value}</td>
+                </tr>
+              </>
             ))}
           </tbody>
         </table>
@@ -132,7 +144,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
           </Space>
         </div>
         <div className={styles.profile_location}>
-          <Space className={styles.profile_location_list} direction={'vertical'}>
+          <Space className={styles.profile_location_list} direction={'vertical'} wrap>
             <div className={styles.profile_location_list_item}>
               <div className={styles.profile_location_list_item_key}><EnvironmentOutlined /> Address (English) (Accept package and mail[postcard exchange is available]): </div>
               <div className={styles.profile_location_list_item_value}>
@@ -203,18 +215,18 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
       <div className={styles.profile_photo}>
         <img className={styles.profile_photo_image} src={photo_image.src} alt={'Chang Wei at Google Taipei office'}/>
         <div className={styles.profile_photo_description}>
-          Chang Wei attended to the event {'<'}GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team{'>'} at Google Taipei office. <br/>
+          Chang Wei attended to the event {'<'}GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team{'>'} at Google Taipei office in TAIPEI 101. <br/>
           {/*This photo was taken on Tuesday, June 11, at the Taipei 101 14F (visitor center of Google Taipei office)*/}
         </div>
         <div className={styles.profile_photo_info}>
           <table className={styles.profile_photo_info_list}>
             <tbody>
             <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}>Datetime:</td>
+              <td className={styles.profile_photo_info_list_item_key}><ClockCircleOutlined /> Datetime:</td>
               <td className={styles.profile_photo_info_list_item_value}>June 11, 2024, Tuesday 21:11</td>
             </tr>
             <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}>Location:</td>
+              <td className={styles.profile_photo_info_list_item_key}><EnvironmentOutlined /> Location:</td>
               <td className={styles.profile_photo_info_list_item_value}>
                 <OutsideLink href={'https://www.google.com/maps/place/Da%E2%80%99an+District,+Taipei+City,+106/@25.026306,121.5232035,14z/data=!3m1!4b1!4m6!3m5!1s0x3442aa2c1969f84d:0x6ea0b5cbf2d9955d!8m2!3d25.0249441!4d121.5433783!16zL20vMDJfNDY3?entry=ttu'}>
                   Taiwan (+886), Taipei City (106), Xinyi District, <br/>Taipei 101 14F (visitor center of Google Taipei office) <br/>(25.033487,121.564922)
@@ -222,7 +234,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
               </td>
             </tr>
             <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}>EXIF:</td>
+              <td className={styles.profile_photo_info_list_item_key}><CameraOutlined /> EXIF:</td>
               <td className={styles.profile_photo_info_list_item_value}>
                 Xiaomi 12S Ultra (Sony IMX989) <br/>
                 f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash

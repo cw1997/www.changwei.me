@@ -1,6 +1,5 @@
 import {Space, Tooltip} from "antd";
 import React from "react";
-import styles from "./SkillSection.module.sass";
 
 import html5_logo from '@/assets/images/logo/frontend/html5-badge-h-solo.png'
 import css3_logo from '@/assets/images/logo/frontend/CSS3_logo.svg'
@@ -35,6 +34,7 @@ import golang_logo from '@/assets/images/logo/backend/Go-Logo_Blue.png'
 import gin_logo from '@/assets/images/logo/backend/gin-color.png'
 import python_logo from '@/assets/images/logo/backend/Python-logo-notext.svg'
 import flask_logo from '@/assets/images/logo/backend/Flask_logo.svg'
+import asp_dotnet_logo from '@/assets/images/logo/backend/Asp.net.svg'
 
 import postgres_logo from '@/assets/images/logo/database/Postgresql_elephant.svg'
 import mysql_logo from '@/assets/images/logo/database/Mysql_logo.png'
@@ -46,6 +46,25 @@ import redis_logo from '@/assets/images/logo/database/redis-logo.svg'
 import memcached_logo from '@/assets/images/logo/database/memcached.svg'
 import elasticsearch_logo from '@/assets/images/logo/database/Elasticsearch_logo.svg'
 import dbeaver_logo from '@/assets/images/logo/database/dbeaver.png'
+
+import csharp_logo from '@/assets/images/logo/desktop/Logo_C_sharp.svg'
+import vb6_logo from '@/assets/images/logo/desktop/Microsoft_Visual_Basic_for_Applications_logo.svg'
+import winform_logo from '@/assets/images/logo/desktop/winforms-logo.png'
+import dotnet_logo from '@/assets/images/logo/desktop/Microsoft-dot-net-logo.png'
+
+import docker_logo from '@/assets/images/logo/operations/docker-logo-blue.svg'
+import docker_compose_logo from '@/assets/images/logo/operations/docker-compose.svg'
+import ansible_logo from '@/assets/images/logo/operations/Ansible_logo.svg'
+import linux_logo from '@/assets/images/logo/operations/Linux_Logo.jpg'
+import bash_shell_logo from '@/assets/images/logo/operations/Gnu-bash-logo.svg'
+import ubuntu_logo from '@/assets/images/logo/operations/Logo-ubuntu_cof-orange-hex.svg'
+import centos_logo from '@/assets/images/logo/operations/Centos-logo-light.svg'
+import fedora_logo from '@/assets/images/logo/operations/Fedora_logo.svg'
+import windows_server_logo from '@/assets/images/logo/operations/Windows_Server_logo.svg'
+import reactos_logo from '@/assets/images/logo/operations/ReactOS_logo.svg'
+
+import styles from "./SkillSection.module.sass";
+
 
 const data = [
   {
@@ -88,6 +107,7 @@ const data = [
       {name: 'Gin', icon: gin_logo},
       {name: 'Python', icon: python_logo},
       {name: 'Flask', icon: flask_logo},
+      {name: 'ASP.NET', icon: asp_dotnet_logo},
     ],
   },
   {
@@ -103,6 +123,30 @@ const data = [
       {name: 'Memcached', icon: memcached_logo},
       {name: 'Elasticsearch', icon: elasticsearch_logo},
       {name: 'DBeaver', icon: dbeaver_logo},
+    ],
+  },
+  {
+    category_name: "Desktop Application",
+    skills: [
+      {name: 'C#', icon: csharp_logo},
+      {name: 'Visual Basic 6.0', icon: vb6_logo},
+      {name: 'WinForm', icon: winform_logo},
+      {name: '.NET', icon: dotnet_logo},
+    ],
+  },
+  {
+    category_name: "Operations",
+    skills: [
+      {name: 'Docker', icon: docker_logo},
+      {name: 'Docker Compose', icon: docker_compose_logo},
+      {name: 'Ansible', icon: ansible_logo},
+      {name: 'Bash shell', icon: bash_shell_logo},
+      {name: 'Linux', icon: linux_logo},
+      {name: 'Ubuntu', icon: ubuntu_logo},
+      {name: 'CentOS', icon: centos_logo},
+      {name: 'Fedora', icon: fedora_logo},
+      {name: 'Windows Server', icon: windows_server_logo},
+      {name: 'ReactOS', icon: reactos_logo},
     ],
   },
 ]
@@ -121,7 +165,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (props)
           <Space className={styles.category_skills} size={16} wrap>
             {category.skills.map((skill) => (
               <Tooltip key={skill.name} title={skill.name}>
-                <img style={{height: 32, width: 'auto'}} {...skill.icon} alt={skill.name} />
+                <img style={{height: 32, width: 'auto'}} src={skill.icon.src} alt={skill.name} />
               </Tooltip>
             ))}
           </Space>

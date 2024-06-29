@@ -46,6 +46,9 @@ import redis_logo from '@/assets/images/logo/database/redis-logo.svg'
 import memcached_logo from '@/assets/images/logo/database/memcached.svg'
 import elasticsearch_logo from '@/assets/images/logo/database/Elasticsearch_logo.svg'
 import dbeaver_logo from '@/assets/images/logo/database/dbeaver.png'
+import mysql_workbench_logo from '@/assets/images/logo/database/mysql-workbench.png'
+import pgadmin_logo from '@/assets/images/logo/database/pgadmin.svg'
+import powerdesign_logo from '@/assets/images/logo/database/logo-powerdesigner.png'
 
 import csharp_logo from '@/assets/images/logo/desktop/Logo_C_sharp.svg'
 import vb6_logo from '@/assets/images/logo/desktop/Microsoft_Visual_Basic_for_Applications_logo.svg'
@@ -62,13 +65,66 @@ import centos_logo from '@/assets/images/logo/operations/Centos-logo-light.svg'
 import fedora_logo from '@/assets/images/logo/operations/Fedora_logo.svg'
 import windows_server_logo from '@/assets/images/logo/operations/Windows_Server_logo.svg'
 import reactos_logo from '@/assets/images/logo/operations/ReactOS_logo.svg'
+// import windows2k_logo from '@/assets/images/logo/operations/microsoft-windows-2000.svg'
+
+import git_logo from '@/assets/images/logo/development-tools/Git-logo.svg'
+import vscode_logo from '@/assets/images/logo/development-tools/vscode.png'
+import sublime_text_logo from '@/assets/images/logo/development-tools/sublime_text.png'
+import webstorm_logo from '@/assets/images/logo/development-tools/WebStorm_Icon.svg'
+import intellij_idea_logo from '@/assets/images/logo/development-tools/IntelliJ_IDEA_Icon.svg'
+import goland_logo from '@/assets/images/logo/development-tools/goland.png'
+import pycharm_logo from '@/assets/images/logo/development-tools/PyCharm_Icon.svg'
+import phpstorm_logo from '@/assets/images/logo/development-tools/PhpStorm_Icon.svg'
+import visual_studio_logo from '@/assets/images/logo/development-tools/visual-studio.png'
+import sourcetree_logo from '@/assets/images/logo/development-tools/sourcetree.svg'
+import winscp_logo from '@/assets/images/logo/development-tools/WinSCP_Logo.png'
+import xshell_logo from '@/assets/images/logo/development-tools/xshell.png'
+import xftp_logo from '@/assets/images/logo/development-tools/xftp.png'
+import thunderbird_logo from '@/assets/images/logo/development-tools/Thunderbird_2023_icon.png'
+
+import altera_logo from '@/assets/images/logo/electric/Altera_logo.svg'
+import arduino_logo from '@/assets/images/logo/electric/Arduino_Logo.svg'
+// import arm_logo from '@/assets/images/logo/electric/Arm-logo-black-pms432.svg'
+import arm_logo from '@/assets/images/logo/electric/Arm-logo-blue-pms313.svg'
+// import arm_logo from '@/assets/images/logo/electric/Arm-logo-reverse-white.svg'
+import intel_logo from '@/assets/images/logo/electric/Intel_logo_2023.svg'
+import keil_logo from '@/assets/images/logo/electric/keil.webp'
+import kicad_logo from '@/assets/images/logo/electric/KiCad-Logo.svg'
+import stm32cubeide_logo from '@/assets/images/logo/electric/logo-stm32cubeide.png'
+import mips_logo from '@/assets/images/logo/electric/MIPS_Logo_v2.0_Final_Primary.svg'
+import quartus_logo from '@/assets/images/logo/electric/quartus.png'
+import raspberrypi_logo from '@/assets/images/logo/electric/raspberry-pi.png'
+import risc_v_logo from '@/assets/images/logo/electric/RISC-V-logo-square.svg'
+// import _logo from '@/assets/images/logo/electric/RISC_V-Logo-1-300x199.webp'
+import stm32_logo from '@/assets/images/logo/electric/stm32-logo.png'
+import systemverilog_logo from '@/assets/images/logo/electric/SystemVerilog_logo.gif'
+// import _logo from '@/assets/images/logo/electric/vivado.jpg'
+import vivado_logo from '@/assets/images/logo/electric/vivado.png'
+import xilinx_logo from '@/assets/images/logo/electric/Xilinx.svg'
+import stc_logo from '@/assets/images/logo/electric/stc_logo_c.png'
+import wch_logo from '@/assets/images/logo/electric/wch-logo.png'
+import easyeda_logo from '@/assets/images/logo/electric/easyeda.png'
+import altium_designer_logo from '@/assets/images/logo/electric/Altium.Designer.23.webp'
+
+import figma_logo from '@/assets/images/logo/design/figma.png'
+import xd_logo from '@/assets/images/logo/design/Adobe_XD_CC_icon.svg'
+import axure_logo from '@/assets/images/logo/design/Axure.svg'
+import illustrator_logo from '@/assets/images/logo/design/Adobe_Illustrator_CC_icon.svg'
+import photoshop_logo from '@/assets/images/logo/design/Adobe_Photoshop_CC_icon.svg'
+import after_effects_logo from '@/assets/images/logo/design/Adobe_After_Effects_CC_icon.svg'
+import animate_logo from '@/assets/images/logo/design/Adobe_Animate_CC_icon_(2020).svg'
+import flash_logo from '@/assets/images/logo/design/Adobe_Flash_Professional_CS6_Icon.svg'
+import indesign_logo from '@/assets/images/logo/design/Adobe_InDesign_CC_icon.svg'
+import premiere_logo from '@/assets/images/logo/design/Adobe_Premiere_Pro_CC_icon.svg'
+import diagrams_logo from '@/assets/images/logo/design/Diagrams.net_Logo.svg'
+import visio_logo from '@/assets/images/logo/design/Microsoft_Office_Visio_(2019).svg'
 
 import styles from "./SkillSection.module.sass";
 
 
 const data = [
   {
-    category_name: "Front End",
+    category_name: "Frontend",
     skills: [
       {name: 'HTML5', icon: html5_logo},
       {name: 'CSS3', icon: css3_logo},
@@ -95,7 +151,7 @@ const data = [
     ],
   },
   {
-    category_name: "Back End",
+    category_name: "Backend",
     skills: [
       {name: 'Node.js', icon: nodejs_logo},
       {name: 'Nest.js', icon: nestjs_logo},
@@ -111,7 +167,7 @@ const data = [
     ],
   },
   {
-    category_name: "Database / Storage",
+    category_name: "Database",
     skills: [
       {name: 'Postgres', icon: postgres_logo},
       {name: 'MySQL', icon: mysql_logo},
@@ -123,10 +179,13 @@ const data = [
       {name: 'Memcached', icon: memcached_logo},
       {name: 'Elasticsearch', icon: elasticsearch_logo},
       {name: 'DBeaver', icon: dbeaver_logo},
+      {name: 'MySQL Workbench', icon: mysql_workbench_logo},
+      {name: 'pgAdmin', icon: pgadmin_logo},
+      {name: 'SAP PowerDesigner', icon: powerdesign_logo},
     ],
   },
   {
-    category_name: "Desktop Application",
+    category_name: "Desktop application",
     skills: [
       {name: 'C#', icon: csharp_logo},
       {name: 'Visual Basic 6.0', icon: vb6_logo},
@@ -149,6 +208,66 @@ const data = [
       {name: 'ReactOS', icon: reactos_logo},
     ],
   },
+  {
+    category_name: "Development tools",
+    skills: [
+      {name: 'Git', icon: git_logo},
+      {name: 'Visual Studio Code', icon: vscode_logo},
+      {name: 'Sublime Text', icon: sublime_text_logo},
+      {name: 'WebStorm', icon: webstorm_logo},
+      {name: 'IntelliJ IDEA', icon: intellij_idea_logo},
+      {name: 'GoLand', icon: goland_logo},
+      {name: 'PyCharm', icon: pycharm_logo},
+      {name: 'PhpStorm', icon: phpstorm_logo},
+      {name: 'Visual Studio', icon: visual_studio_logo},
+      {name: 'Sourcetree', icon: sourcetree_logo},
+      {name: 'WinSCP', icon: winscp_logo},
+      {name: 'Xshell', icon: xshell_logo},
+      {name: 'Xftp', icon: xftp_logo},
+      {name: 'Thunderbird', icon: thunderbird_logo},
+    ],
+  },
+  {
+    category_name: "Electronic Engineering / Embedded system development",
+    skills: [
+      {name: 'Altera', icon: altera_logo},
+      {name: 'Xilinx', icon: xilinx_logo},
+      {name: 'Arduino', icon: arduino_logo},
+      {name: 'ARM', icon: arm_logo},
+      {name: 'Intel', icon: intel_logo},
+      {name: 'Keil', icon: keil_logo},
+      {name: 'EasyEDA', icon: easyeda_logo},
+      {name: 'Altium Designer', icon: altium_designer_logo},
+      {name: 'KiCad', icon: kicad_logo},
+      {name: 'MIPS', icon: mips_logo},
+      {name: 'Quartus', icon: quartus_logo},
+      {name: 'Raspberry Pi', icon: raspberrypi_logo},
+      {name: 'RISC-V', icon: risc_v_logo},
+      {name: 'SystemVerilogHDL', icon: systemverilog_logo},
+      {name: 'Vivado', icon: vivado_logo},
+      {name: 'STM32CubeIDE', icon: stm32cubeide_logo},
+      {name: 'STM32', icon: stm32_logo},
+      // {name: 'STC', icon: stc_logo},
+      // {name: 'WCH', icon: wch_logo},
+    ],
+  },
+  {
+    category_name: "Design / User Interface / User Experience",
+    skills: [
+      {name: 'Figma', icon: figma_logo},
+      {name: 'Axure RP', icon: axure_logo},
+      {name: 'Adobe XD', icon: xd_logo},
+      {name: 'Adobe Illustrator', icon: illustrator_logo},
+      {name: 'Adobe Photoshop', icon: photoshop_logo},
+      {name: 'Adobe AfterEffects', icon: after_effects_logo},
+      {name: 'Adobe Animate', icon: animate_logo},
+      {name: 'Adobe Flash', icon: flash_logo},
+      {name: 'Adobe Indesign', icon: indesign_logo},
+      {name: 'Adobe Premiere', icon: premiere_logo},
+      {name: 'Diagrams.net (draw.io)', icon: diagrams_logo},
+      {name: 'Microsoft Visio', icon: visio_logo},
+    ],
+  },
 ]
 
 export interface IPropsSkillSection {
@@ -165,7 +284,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (props)
           <Space className={styles.category_skills} size={16} wrap>
             {category.skills.map((skill) => (
               <Tooltip key={skill.name} title={skill.name}>
-                <img style={{height: 32, width: 'auto'}} src={skill.icon.src} alt={skill.name} />
+                <img style={{height: 32, width: 'auto', }} src={skill.icon.src} alt={skill.name} />
               </Tooltip>
             ))}
           </Space>

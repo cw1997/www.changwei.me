@@ -3,12 +3,36 @@
 
 .container
   width: 100%
-  padding: 64px 32px
   background-color: #EFEFEF
 
 .content
   @include page
-  text-align: center
+  padding: 32px
+  //text-align: center
+  color: $color-font-2
+  font-size: 14px
+  p
+    margin-bottom: 4px
+
+//.copyright
+
+.nerd_info
+  margin-top: 8px
+  &_github
+    display: flex
+    flex-wrap: wrap
+    a
+      line-height: 20px
+    img
+      margin-left: 4px
+
+.powered_by
+  &_list
+    display: flex
+    align-items: center
+  &_item
+    display: flex
+    align-items: center
 
 .logo
   @include radius()

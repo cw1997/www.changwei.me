@@ -1,5 +1,5 @@
-import {Divider, Space} from "antd";
 import React from "react";
+import {Divider, Space} from "antd";
 import Image from "next/image";
 
 import {OutsideLink} from "@/components/OutsideLink";
@@ -50,7 +50,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
         </div>
         <Divider/>
         <div className={styles.powered_by}>
-          <Space align={'center'} className={styles.powered_by_list} split={<Divider type={'vertical'}/>}>
+          <Space align={'center'} className={styles.powered_by_list} split={<Divider type={'vertical'}/>} wrap>
             <div className={styles.powered_by_item}>
               Powered by
               <OutsideLink className={styles.logo} href={'https://nextjs.org/'}>

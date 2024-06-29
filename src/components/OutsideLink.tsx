@@ -11,6 +11,8 @@ export const OutsideLink: React.FC<IPropsOutsideLink> = (props) => {
       {...rest}
       target={target ?? "_blank"}
       rel={rel ?? "noopener noreferrer"}
-    />
+    >
+      {children ?? props.href}
+    </a>
   )
 }

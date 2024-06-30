@@ -272,7 +272,7 @@ const data = [
       {name: 'Microsoft Visio', icon: visio_logo},
     ],
   },
-]
+] as const
 
 export interface IPropsSkillSection {
 }

@@ -1,7 +1,7 @@
+import {AntdRegistry} from "@ant-design/nextjs-registry";
+import {GoogleTagManager} from '@next/third-parties/google'
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
-import {AntdRegistry} from "@ant-design/nextjs-registry";
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import "@/app/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -46,7 +46,7 @@ export default function RootLayout({
           {children}
         </AntdRegistry>
       </body>
-      <GoogleAnalytics gaId={'G-GPVC7Z21XH'} />
+      {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>
   );
 }

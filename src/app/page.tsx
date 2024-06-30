@@ -11,9 +11,9 @@ export default function Home() {
     <div className={styles.container}>
       <Space className={styles.main} direction={'vertical'} size={48}>
         <ProfileSection />
+        <ContactSection />
         <SkillSection />
         <ExperienceSection />
-        <ContactSection />
       </Space>
       
       <Footer />

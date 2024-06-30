@@ -19,6 +19,7 @@ const data = [
         icon: ntust_logo,
         name: 'Master degree',
         organization: 'National Taiwan University of Science and Technology',
+        organization_url: 'https://www.ntust.edu.tw/',
         time_range: {
           start: '2021-09',
           end: 'now',
@@ -63,6 +64,7 @@ const data = [
         icon: ntust_logo,
         name: 'Bachelor degree',
         organization: 'National Taiwan University of Science and Technology',
+        organization_url: 'https://www.ntust.edu.tw/',
         time_range: {
           start: '2018-09',
           end: '2021-08',
@@ -138,6 +140,7 @@ const data = [
         icon: wspc_logo,
         name: 'Junior college',
         organization: 'Wuhan Institute of Shipbuilding Technology',
+        organization_url: 'https://www.wspc.edu.cn/',
         time_range: {
           start: '2015-09',
           end: '2018-07',
@@ -192,6 +195,7 @@ const data = [
         icon: risingwave_logo,
         name: 'Intern (2nd)',
         organization: 'RisingWave Labs',
+        organization_url: 'https://risingwave.com/',
         time_range: {
           start: '2024-05',
           end: 'now',
@@ -230,6 +234,7 @@ const data = [
         icon: pingcap_logo,
         name: 'Intern (1st)',
         organization: 'PingCAP',
+        organization_url: 'https://www.pingcap.com/',
         time_range: {
           start: '2020-10',
           end: '2024-05',
@@ -302,15 +307,18 @@ export const ExperienceSection: React.FunctionComponent<IPropsExperienceSection>
                   {/*<div className={styles.item_info_name}>{item.name}</div>*/}
                   <div className={styles.item_info_organization}>{item.organization}</div>
                   <div className={styles.item_info_name}>
-                    <Space split={<Divider type={'vertical'} />} size={[0, 4]} wrap>
+                    <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
                       <div>{item.name}</div>
                       <div>{item.position}</div>
                     </Space>
                   </div>
+                  <div className={styles.item_info_organization_url}>
+                    <OutsideLink href={item.organization_url}/>
+                  </div>
                   <div className={styles.item_info_meta}>
-                    <Space split={<Divider type={'vertical'} />} size={[0, 4]} wrap>
-                      <div><ClockCircleOutlined /> {item.time_range.start} ~ {item.time_range.end}</div>
-                      <div><EnvironmentOutlined /> {item.location}</div>
+                    <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                      <div><ClockCircleOutlined/> {item.time_range.start} ~ {item.time_range.end}</div>
+                      <div><EnvironmentOutlined/> {item.location}</div>
                     </Space>
                   </div>
                   {/*<div className={styles.item_info_location}>{item.location}</div>*/}

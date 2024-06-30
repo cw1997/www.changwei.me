@@ -80,7 +80,7 @@ const profile = [
       </Space>
     ),
   },
-]
+] as const
 
 export interface IPropsSkillSection {
 }

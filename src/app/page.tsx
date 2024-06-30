@@ -1,3 +1,4 @@
+import {ContactSection} from "@/components/ContactSection/ContactSection";
 import {ExperienceSection} from "@/components/ExperienceSection/ExperienceSection";
 import {Footer} from "@/components/Footer/Footer";
 import {ProfileSection} from "@/components/ProfileSection/ProfileSection";
@@ -10,6 +11,7 @@ export default function Home() {
     <div className={styles.container}>
       <Space className={styles.main} direction={'vertical'} size={48}>
         <ProfileSection />
+        <ContactSection />
         <SkillSection />
         <ExperienceSection />
       </Space>

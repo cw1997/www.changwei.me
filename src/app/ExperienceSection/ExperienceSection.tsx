@@ -313,7 +313,7 @@ export const ExperienceSection: React.FunctionComponent<IPropsExperienceSection>
                     </Space>
                   </div>
                   <div className={styles.item_info_organization_url}>
-                    <OutsideLink href={item.organization_url}/>
+                    <LinkOutlined /> <OutsideLink href={item.organization_url}/>
                   </div>
                   <div className={styles.item_info_meta}>
                     <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>

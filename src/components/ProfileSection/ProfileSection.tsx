@@ -108,14 +108,14 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
           </tbody>
           <tbody className={styles.profile_info_list_mobile}>
             {profile.map((item) => (
-              <>
-                <tr key={item.key} className={styles.profile_info_list_mobile_item}>
+              <React.Fragment key={item.key}>
+                <tr className={styles.profile_info_list_mobile_item}>
                   <td className={styles.profile_info_list_mobile_item_key}>{item.key}:</td>
                 </tr>
-                <tr key={item.key} className={styles.profile_info_list_mobile_item}>
+                <tr className={styles.profile_info_list_mobile_item}>
                   <td className={styles.profile_info_list_mobile_item_value}>{item.value}</td>
                 </tr>
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>
@@ -221,31 +221,31 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
         <div className={styles.profile_photo_info}>
           <table className={styles.profile_photo_info_list}>
             <tbody>
-            <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}><ClockCircleOutlined /> Datetime:</td>
-              <td className={styles.profile_photo_info_list_item_value}>June 11, 2024, Tuesday 21:11</td>
-            </tr>
-            <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}><EnvironmentOutlined /> Location:</td>
-              <td className={styles.profile_photo_info_list_item_value}>
-                <OutsideLink href={'https://www.google.com/maps/place/Da%E2%80%99an+District,+Taipei+City,+106/@25.026306,121.5232035,14z/data=!3m1!4b1!4m6!3m5!1s0x3442aa2c1969f84d:0x6ea0b5cbf2d9955d!8m2!3d25.0249441!4d121.5433783!16zL20vMDJfNDY3?entry=ttu'}>
-                  Taiwan (+886), Taipei City (106), Xinyi District, <br/>Taipei 101 14F (visitor center of Google Taipei office) <br/>(25.033487,121.564922)
-                </OutsideLink>
-              </td>
-            </tr>
-            <tr className={styles.profile_photo_info_list_item}>
-              <td className={styles.profile_photo_info_list_item_key}><CameraOutlined /> EXIF:</td>
-              <td className={styles.profile_photo_info_list_item_value}>
-                Xiaomi 12S Ultra (Sony IMX989) <br/>
-                f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash
-              </td>
-            </tr>
-            {/*<tr className={styles.profile_photo_info_list_item}>*/}
-            {/*  <td className={styles.profile_photo_info_list_item_key}>Note:</td>*/}
-            {/*  <td className={styles.profile_photo_info_list_item_value}>*/}
-            {/*    GDG events*/}
-            {/*  </td>*/}
-            {/*</tr>*/}
+              <tr className={styles.profile_photo_info_list_item}>
+                <td className={styles.profile_photo_info_list_item_key}><ClockCircleOutlined /> Datetime:</td>
+                <td className={styles.profile_photo_info_list_item_value}>June 11, 2024, Tuesday 21:11</td>
+              </tr>
+              <tr className={styles.profile_photo_info_list_item}>
+                <td className={styles.profile_photo_info_list_item_key}><EnvironmentOutlined /> Location:</td>
+                <td className={styles.profile_photo_info_list_item_value}>
+                  <OutsideLink href={'https://www.google.com/maps/place/Da%E2%80%99an+District,+Taipei+City,+106/@25.026306,121.5232035,14z/data=!3m1!4b1!4m6!3m5!1s0x3442aa2c1969f84d:0x6ea0b5cbf2d9955d!8m2!3d25.0249441!4d121.5433783!16zL20vMDJfNDY3?entry=ttu'}>
+                    Taiwan (+886), Taipei City (106), Xinyi District, <br/>Taipei 101 14F (visitor center of Google Taipei office) <br/>(25.033487,121.564922)
+                  </OutsideLink>
+                </td>
+              </tr>
+              <tr className={styles.profile_photo_info_list_item}>
+                <td className={styles.profile_photo_info_list_item_key}><CameraOutlined /> EXIF:</td>
+                <td className={styles.profile_photo_info_list_item_value}>
+                  Xiaomi 12S Ultra (Sony IMX989) <br/>
+                  f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash
+                </td>
+              </tr>
+              {/*<tr className={styles.profile_photo_info_list_item}>*/}
+              {/*  <td className={styles.profile_photo_info_list_item_key}>Note:</td>*/}
+              {/*  <td className={styles.profile_photo_info_list_item_value}>*/}
+              {/*    GDG events*/}
+              {/*  </td>*/}
+              {/*</tr>*/}
             </tbody>
           </table>
         </div>

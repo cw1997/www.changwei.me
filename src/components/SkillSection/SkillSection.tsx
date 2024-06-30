@@ -61,6 +61,7 @@ import ansible_logo from '@/assets/images/logo/operations/Ansible_logo.svg'
 import linux_logo from '@/assets/images/logo/operations/Linux_Logo.jpg'
 import bash_shell_logo from '@/assets/images/logo/operations/Gnu-bash-logo.svg'
 import ubuntu_logo from '@/assets/images/logo/operations/Logo-ubuntu_cof-orange-hex.svg'
+import debian_logo from '@/assets/images/logo/operations/debian-logo-1024x576.png'
 import centos_logo from '@/assets/images/logo/operations/Centos-logo-light.svg'
 import fedora_logo from '@/assets/images/logo/operations/Fedora_logo.svg'
 import windows_server_logo from '@/assets/images/logo/operations/Windows_Server_logo.svg'
@@ -202,6 +203,7 @@ const data = [
       {name: 'Bash shell', icon: bash_shell_logo},
       {name: 'Linux', icon: linux_logo},
       {name: 'Ubuntu', icon: ubuntu_logo},
+      {name: 'Debian', icon: debian_logo},
       {name: 'CentOS', icon: centos_logo},
       {name: 'Fedora', icon: fedora_logo},
       {name: 'Windows Server', icon: windows_server_logo},

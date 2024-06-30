@@ -6,8 +6,19 @@ import "@/app/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chang Wei",
-  description: "Chang Wei's personal website",
+  title: "Chang Wei / 昌维 / 昌維",
+  description: "Chang Wei's personal website / 昌维的网站",
+  authors: [{name: 'Chang Wei', url: 'https://github.com/cw1997'}],
+  keywords: [
+    'Chang Wei',
+    '昌维',
+    '昌維',
+    '个人网站',
+    'profile',
+    'cw1997',
+    'changwei1006',
+    'changwei1997',
+  ],
 };
 
 export default function RootLayout({

@@ -1,5 +1,5 @@
-import {Space, Tooltip} from "antd";
 import React from "react";
+import {Space, Tooltip} from "antd";
 
 import html5_logo from '@/assets/images/logo/frontend/html5-badge-h-solo.png'
 import css3_logo from '@/assets/images/logo/frontend/CSS3_logo.svg'
@@ -61,7 +61,7 @@ import ansible_logo from '@/assets/images/logo/operations/Ansible_logo.svg'
 import linux_logo from '@/assets/images/logo/operations/Linux_Logo.jpg'
 import bash_shell_logo from '@/assets/images/logo/operations/Gnu-bash-logo.svg'
 import ubuntu_logo from '@/assets/images/logo/operations/Logo-ubuntu_cof-orange-hex.svg'
-import debian_logo from '@/assets/images/logo/operations/debian-logo-1024x576.png'
+import debian_logo from '@/assets/images/logo/operations/Openlogo-debianV2.svg'
 import centos_logo from '@/assets/images/logo/operations/Centos-logo-light.svg'
 import fedora_logo from '@/assets/images/logo/operations/Fedora_logo.svg'
 import windows_server_logo from '@/assets/images/logo/operations/Windows_Server_logo.svg'
@@ -81,7 +81,7 @@ import sourcetree_logo from '@/assets/images/logo/development-tools/sourcetree.s
 import winscp_logo from '@/assets/images/logo/development-tools/WinSCP_Logo.png'
 import xshell_logo from '@/assets/images/logo/development-tools/xshell.png'
 import xftp_logo from '@/assets/images/logo/development-tools/xftp.png'
-import thunderbird_logo from '@/assets/images/logo/development-tools/Thunderbird_2023_icon.png'
+import thunderbird_logo from '@/assets/images/logo/development-tools/Thunderbird_Logo,_2018.svg'
 
 import altera_logo from '@/assets/images/logo/electric/Altera_logo.svg'
 import arduino_logo from '@/assets/images/logo/electric/Arduino_Logo.svg'
@@ -90,11 +90,12 @@ import arm_logo from '@/assets/images/logo/electric/Arm-logo-blue-pms313.svg'
 // import arm_logo from '@/assets/images/logo/electric/Arm-logo-reverse-white.svg'
 import intel_logo from '@/assets/images/logo/electric/Intel_logo_2023.svg'
 import keil_logo from '@/assets/images/logo/electric/keil.webp'
+import keil_arm_logo from '@/assets/images/logo/electric/Keil_logo.svg'
 import kicad_logo from '@/assets/images/logo/electric/KiCad-Logo.svg'
 import stm32cubeide_logo from '@/assets/images/logo/electric/logo-stm32cubeide.png'
 import mips_logo from '@/assets/images/logo/electric/MIPS_Logo_v2.0_Final_Primary.svg'
 import quartus_logo from '@/assets/images/logo/electric/quartus.png'
-import raspberrypi_logo from '@/assets/images/logo/electric/raspberry-pi.png'
+import raspberrypi_logo from '@/assets/images/logo/electric/Raspberry_Pi_Logo.svg'
 import risc_v_logo from '@/assets/images/logo/electric/RISC-V-logo-square.svg'
 // import _logo from '@/assets/images/logo/electric/RISC_V-Logo-1-300x199.webp'
 import stm32_logo from '@/assets/images/logo/electric/stm32-logo.png'
@@ -238,6 +239,7 @@ const data = [
       {name: 'ARM', icon: arm_logo},
       {name: 'Intel', icon: intel_logo},
       {name: 'Keil', icon: keil_logo},
+      {name: 'Keil for ARM', icon: keil_arm_logo},
       {name: 'EasyEDA', icon: easyeda_logo},
       {name: 'Altium Designer', icon: altium_designer_logo},
       {name: 'KiCad', icon: kicad_logo},

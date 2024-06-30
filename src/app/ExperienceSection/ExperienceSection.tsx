@@ -4,7 +4,7 @@ import {Divider, Space, Tag, Tooltip} from "antd";
 import React from "react";
 
 import ntust_logo from '@/assets/images/logo/ntust.png'
-import wspc_logo from '@/assets/images/logo/wspc.gif'
+import wspc_logo from '@/assets/images/logo/wspc.jpg'
 import pingcap_logo from '@/assets/images/logo/PingCAP.svg'
 import risingwave_logo from '@/assets/images/logo/risingwave.jpg'
 

@@ -1,12 +1,11 @@
-import {OutsideLink} from "@/components/OutsideLink";
-import {ClockCircleFilled, ClockCircleOutlined, EnvironmentOutlined, GithubOutlined, LinkOutlined, TagsOutlined, ZhihuCircleFilled, ZhihuOutlined} from "@ant-design/icons";
-import {Divider, Space, Tag, Tooltip} from "antd";
-import React from "react";
-
 import ntust_logo from '@/assets/images/logo/ntust.png'
-import wspc_logo from '@/assets/images/logo/wspc.jpg'
 import pingcap_logo from '@/assets/images/logo/PingCAP.svg'
-import risingwave_logo from '@/assets/images/logo/risingwave.jpg'
+import risingwave_logo from '@/assets/images/logo/risingwave.png'
+import wspc_logo from '@/assets/images/logo/wspc.jpg'
+import {OutsideLink} from "@/components/OutsideLink";
+import {ClockCircleOutlined, EnvironmentOutlined, GithubOutlined, LinkOutlined, TagsOutlined, ZhihuCircleFilled} from "@ant-design/icons";
+import {Divider, Space, Tag} from "antd";
+import React from "react";
 
 import styles from "./ExperienceSection.module.sass";
 

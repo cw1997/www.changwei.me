@@ -1,3 +1,4 @@
+import {ContactSection} from "@/components/ContactSection/ContactSection";
 import {ExperienceSection} from "@/components/ExperienceSection/ExperienceSection";
 import {Footer} from "@/components/Footer/Footer";
 import {ProfileSection} from "@/components/ProfileSection/ProfileSection";
@@ -12,6 +13,7 @@ export default function Home() {
         <ProfileSection />
         <SkillSection />
         <ExperienceSection />
+        <ContactSection />
       </Space>
       
       <Footer />

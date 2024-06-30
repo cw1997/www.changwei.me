@@ -1,4 +1,5 @@
 import photo_image from "@/app/changwei_at_google_taipei.jpg";
+import {Now} from "@/app/Now";
 import {OutsideLink} from "@/components/OutsideLink";
 import {CameraOutlined, ClockCircleOutlined, EnvironmentOutlined, MailOutlined} from "@ant-design/icons";
 import {Divider, Space, Tag} from "antd";
@@ -47,6 +48,14 @@ const profile = [
         <OutsideLink href={'https://risingwave.com'}>
           RisingWave Labs
         </OutsideLink> (Web Front-End Engineer)
+      </>
+    ),
+  },
+  {
+    key: 'Timezone',
+    value: (
+      <>
+        Asia/Taipei (UTC+08:00), <Now />
       </>
     ),
   },

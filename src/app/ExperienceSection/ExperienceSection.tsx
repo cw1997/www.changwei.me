@@ -12,6 +12,102 @@ import styles from "./ExperienceSection.module.sass";
 
 const data = [
   {
+    category_name: "Work",
+    items: [
+      {
+        icon: risingwave_logo,
+        name: 'Intern (2nd)',
+        organization: 'RisingWave Labs',
+        organization_url: 'https://risingwave.com/',
+        time_range: {
+          start: '2024-05',
+          end: 'now',
+        },
+        location: 'Remote',
+        position: 'Frontend',
+        note: (
+          <>
+            <ul>
+              <li>
+                Develop and maintain the official website <LinkOutlined /> <OutsideLink href={'https://risingwave.com/'} />
+              </li>
+            </ul>
+          </>
+        ),
+        tags: [
+          'React',
+          'Node.js',
+          'JavaScript',
+          'TypeScript',
+          'jQuery',
+          'Next.js',
+          'TailwindCSS',
+          'Tailwind UI',
+          'GitHub',
+          'Git',
+          'Github Actions',
+          'WordPress',
+          'PHP',
+          'MySQL',
+          'Linux',
+          'Docker',
+        ],
+      },
+      {
+        icon: pingcap_logo,
+        name: 'Intern (1st)',
+        organization: 'PingCAP',
+        organization_url: 'https://www.pingcap.com/',
+        time_range: {
+          start: '2020-10',
+          end: '2024-05',
+        },
+        location: 'Chinese mainland (+86), Beijing City, Haidian District',
+        position: 'Frontend',
+        note: (
+          <>
+            <ul>
+              <li>
+                Develop and maintain the Chinese official website <LinkOutlined /> <OutsideLink href={'https://cn.pingcap.com/'} /> and <LinkOutlined /> <OutsideLink href={'https://pingcap.cn/'} />
+              </li>
+              <li>
+                Develop and maintain the TiDB developer community website <LinkOutlined /> <OutsideLink href={'https://tidb.net/'} /> , <br/>
+                it is a source available project and its GitHub repository is <GithubOutlined /> <OutsideLink href={'https://github.com/pingcap-inc/tidb.io'} />
+              </li>
+            </ul>
+          </>
+        ),
+        tags: [
+          'React',
+          'Node.js',
+          'JavaScript',
+          'TypeScript',
+          'Webpack',
+          'Next.js',
+          'Storybook',
+          'Ramda',
+          'Lodash',
+          'ahooks',
+          'Gatsby.js',
+          'GraphQL',
+          'Strapi',
+          'GitHub',
+          'Git',
+          'Github Actions',
+          'Ant-Design',
+          'Sass',
+          'styled-component',
+          'Rollup',
+          'WordPress',
+          'PHP',
+          'MySQL',
+          'Linux',
+          'Docker',
+        ],
+      },
+    ],
+  },
+  {
     category_name: "Education",
     items: [
       {
@@ -183,102 +279,6 @@ const data = [
           'jQuery',
           'Vue.js',
           'React',
-        ],
-      },
-    ],
-  },
-  {
-    category_name: "Work",
-    items: [
-      {
-        icon: risingwave_logo,
-        name: 'Intern (2nd)',
-        organization: 'RisingWave Labs',
-        organization_url: 'https://risingwave.com/',
-        time_range: {
-          start: '2024-05',
-          end: 'now',
-        },
-        location: 'Remote',
-        position: 'Frontend',
-        note: (
-          <>
-            <ul>
-              <li>
-                Develop and maintain the official website <LinkOutlined /> <OutsideLink href={'https://risingwave.com/'} />
-              </li>
-            </ul>
-          </>
-        ),
-        tags: [
-          'React',
-          'Node.js',
-          'JavaScript',
-          'TypeScript',
-          'jQuery',
-          'Next.js',
-          'TailwindCSS',
-          'Tailwind UI',
-          'GitHub',
-          'Git',
-          'Github Actions',
-          'WordPress',
-          'PHP',
-          'MySQL',
-          'Linux',
-          'Docker',
-        ],
-      },
-      {
-        icon: pingcap_logo,
-        name: 'Intern (1st)',
-        organization: 'PingCAP',
-        organization_url: 'https://www.pingcap.com/',
-        time_range: {
-          start: '2020-10',
-          end: '2024-05',
-        },
-        location: 'Chinese mainland (+86), Beijing City, Haidian District',
-        position: 'Frontend',
-        note: (
-          <>
-            <ul>
-              <li>
-                Develop and maintain the Chinese official website <LinkOutlined /> <OutsideLink href={'https://cn.pingcap.com/'} /> and <LinkOutlined /> <OutsideLink href={'https://pingcap.cn/'} />
-              </li>
-              <li>
-                Develop and maintain the TiDB developer community website <LinkOutlined /> <OutsideLink href={'https://tidb.net/'} /> , <br/>
-                it is a source available project and its GitHub repository is <GithubOutlined /> <OutsideLink href={'https://github.com/pingcap-inc/tidb.io'} />
-              </li>
-            </ul>
-          </>
-        ),
-        tags: [
-          'React',
-          'Node.js',
-          'JavaScript',
-          'TypeScript',
-          'Webpack',
-          'Next.js',
-          'Storybook',
-          'Ramda',
-          'Lodash',
-          'ahooks',
-          'Gatsby.js',
-          'GraphQL',
-          'Strapi',
-          'GitHub',
-          'Git',
-          'Github Actions',
-          'Ant-Design',
-          'Sass',
-          'styled-component',
-          'Rollup',
-          'WordPress',
-          'PHP',
-          'MySQL',
-          'Linux',
-          'Docker',
         ],
       },
     ],

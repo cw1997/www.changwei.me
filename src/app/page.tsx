@@ -1,9 +1,11 @@
-import {ContactSection} from "@/components/ContactSection/ContactSection";
-import {ExperienceSection} from "@/components/ExperienceSection/ExperienceSection";
-import {Footer} from "@/components/Footer/Footer";
-import {ProfileSection} from "@/components/ProfileSection/ProfileSection";
-import {SkillSection} from "@/components/SkillSection/SkillSection";
 import {Space} from "antd";
+
+import {Footer} from "@/components/Footer/Footer";
+
+import {ContactSection} from "./ContactSection/ContactSection";
+import {ExperienceSection} from "./ExperienceSection/ExperienceSection";
+import {ProfileSection} from "./ProfileSection/ProfileSection";
+import {SkillSection} from "./SkillSection/SkillSection";
 import styles from "./page.module.sass";
 
 export default function Home() {

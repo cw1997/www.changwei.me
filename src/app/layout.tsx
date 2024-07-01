@@ -7,8 +7,8 @@ import "@/app/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chang Wei / 昌维 / 昌維",
-  description: "Chang Wei's personal website / 昌维的网站",
+  title: "Chang Wei / 昌维 / 昌維 - Chang Wei's personal website / 昌维的网站",
+  // description: "Chang Wei's personal website / 昌维的网站",
   authors: [{name: 'Chang Wei', url: 'https://github.com/cw1997'}],
   keywords: [
     'Chang Wei',

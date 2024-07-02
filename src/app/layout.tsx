@@ -1,5 +1,6 @@
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {GoogleTagManager} from '@next/third-parties/google'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "@/app/globals.scss";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <AntdRegistry>
           {children}
         </AntdRegistry>
+        <SpeedInsights/>
       </body>
       {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>

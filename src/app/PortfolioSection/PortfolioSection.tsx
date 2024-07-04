@@ -1,113 +1,50 @@
-import ntust_logo from '@/assets/images/logo/ntust.png'
-import pingcap_logo from '@/assets/images/logo/PingCAP.svg'
-import risingwave_logo from '@/assets/images/logo/risingwave.png'
-import wspc_logo from '@/assets/images/logo/wspc.jpg'
-import {OutsideLink} from "@/components/OutsideLink";
-import {ClockCircleOutlined, EnvironmentOutlined, GithubOutlined, LinkOutlined, TagsOutlined, ZhihuCircleFilled} from "@ant-design/icons";
-import {Divider, Space, Tag} from "antd";
 import React from "react";
+import {ClockCircleOutlined, LinkOutlined, TagsOutlined} from "@ant-design/icons";
+import {Divider, Space, Tag} from "antd";
+
+import {OutsideLink} from "@/components/OutsideLink";
 
 import styles from "./PortfolioSection.module.sass";
+import ntust_lib_icon from './ntust_lib_icon.png'
 
 
-const data = [
-  {
-    category_name: "Work",
-    items: [
-      {
-        icon: risingwave_logo,
-        name: 'Intern (2nd)',
-        organization: 'RisingWave Labs',
-        organization_url: 'https://risingwave.com/',
-        time_range: {
-          start: '2024-05',
-          end: 'now',
-        },
-        location: 'Remote',
-        position: 'Frontend',
-        note: (
-          <>
-            <ul>
-              <li>
-                Develop and maintain the official website <LinkOutlined /> <OutsideLink href={'https://risingwave.com/'} />
-              </li>
-            </ul>
-          </>
-        ),
-        tags: [
-          'React',
-          'Node.js',
-          'JavaScript',
-          'TypeScript',
-          'jQuery',
-          'Next.js',
-          'TailwindCSS',
-          'Tailwind UI',
-          'GitHub',
-          'Git',
-          'Github Actions',
-          'WordPress',
-          'PHP',
-          'MySQL',
-          'Linux',
-          'Docker',
-        ],
-      },
-      {
-        icon: pingcap_logo,
-        name: 'Intern (1st)',
-        organization: 'PingCAP',
-        organization_url: 'https://www.pingcap.com/',
-        time_range: {
-          start: '2020-10',
-          end: '2024-05',
-        },
-        location: 'Chinese mainland (+86), Beijing City, Haidian District',
-        position: 'Frontend',
-        note: (
-          <>
-            <ul>
-              <li>
-                Develop and maintain the Chinese official website <LinkOutlined /> <OutsideLink href={'https://cn.pingcap.com/'} /> and <LinkOutlined /> <OutsideLink href={'https://pingcap.cn/'} />
-              </li>
-              <li>
-                Develop and maintain the TiDB developer community website <LinkOutlined /> <OutsideLink href={'https://tidb.net/'} /> , <br/>
-                it is a source available project and its GitHub repository is <GithubOutlined /> <OutsideLink href={'https://github.com/pingcap-inc/tidb.io'} />
-              </li>
-            </ul>
-          </>
-        ),
-        tags: [
-          'React',
-          'Node.js',
-          'JavaScript',
-          'TypeScript',
-          'Webpack',
-          'Next.js',
-          'Storybook',
-          'Ramda',
-          'Lodash',
-          'ahooks',
-          'Gatsby.js',
-          'GraphQL',
-          'Strapi',
-          'GitHub',
-          'Git',
-          'Github Actions',
-          'Ant-Design',
-          'Sass',
-          'styled-component',
-          'Rollup',
-          'WordPress',
-          'PHP',
-          'MySQL',
-          'Linux',
-          'Docker',
-        ],
-      },
-    ],
-  },
-] as const
+const data = {
+  items: [
+    {
+      icon: ntust_lib_icon,
+      name: 'NTUST LIB',
+      type: 'Mobile App',
+      url: 'https://library.ntust.edu.tw/p/405-1049-110462,c11171.php?Lang=zh-tw',
+      source_code_url: undefined,
+      create_datetime: '2022-07',
+      // update_datetime: '2024-07',
+      note: (
+        <>
+          <ul>
+            <li>『台灣科技大學圖書館APP』(NTUST LIB) 為讀者在行動裝置上提供圖書館服務，其支援iOS、Android作業系統，包括個人借閱情況查詢、館藏資料查詢、圖書館最新消息、活動行事曆、館內導覽、樓層空間分佈情況查詢、經典與暢銷書籍推薦、圖書推薦QRcode感應入館、登記座位、櫃台借書與智慧空間與討論小間借用等多項功能服務，可免費下載至智慧型手機或平板裝置上，歡迎多加利用!!</li>
+            <li>APP 前端基於 React Native with Expo SDK 開發，使用 TypeScript 程式語言。支援跨平台使用『iOS、Android 作業系統』</li>
+            <li>APP 後端基於 Nest.js 開發，使用 TypeScript 程式語言。使用 MySQL 作為 Database。</li>
+          </ul>
+        </>
+      ),
+      tags: [
+        'React',
+        'React Native',
+        'Expo',
+        'Node.js',
+        'JavaScript',
+        'TypeScript',
+        'GitHub',
+        'Git',
+        'Github Actions',
+        'Linux',
+        'Docker',
+        'Nest.js',
+        'MySQL',
+      ],
+    },
+  ],
+} as const
 
 export interface IPropsPortfolioSection {
 }
@@ -116,47 +53,39 @@ export const PortfolioSection: React.FunctionComponent<IPropsPortfolioSection> =
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Portfolio</h2>
-      <Space direction={'vertical'} size={32}>
-      {data.map((category) => (
-        <div key={category.category_name} className={styles.category}>
-          <div className={styles.category_name}>{category.category_name}: </div>
-          <Space className={styles.list} direction={'vertical'} size={32} wrap>
-            {category.items.map((item) => (
-              <div key={item.name} className={styles.item}>
-                <div className={styles.item_icon}>
-                  <img style={{width: 64, height: 'auto'}} src={item.icon.src} alt={item.name}/>
-                </div>
-                <div className={styles.item_info}>
-                  {/*<div className={styles.item_info_name}>{item.name}</div>*/}
-                  <div className={styles.item_info_organization}>{item.organization}</div>
-                  <div className={styles.item_info_name}>
-                    <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
-                      <div>{item.name}</div>
-                      <div>{item.position}</div>
-                    </Space>
-                  </div>
-                  <div className={styles.item_info_organization_url}>
-                    <LinkOutlined /> <OutsideLink href={item.organization_url}/>
-                  </div>
-                  <div className={styles.item_info_meta}>
-                    <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
-                      <div><ClockCircleOutlined/> {item.time_range.start} ~ {item.time_range.end}</div>
-                      <div><EnvironmentOutlined/> {item.location}</div>
-                    </Space>
-                  </div>
-                  {/*<div className={styles.item_info_location}>{item.location}</div>*/}
-                  {item.note && <div className={styles.item_info_note}>{item.note}</div>}
-                  {(item.tags?.length ?? 0) > 0 && (
-                    <Space className={styles.item_info_tags} wrap>
-                      <TagsOutlined/> {item.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-                    </Space>
-                  )}
-                </div>
+      <Space className={styles.list} direction={'vertical'} size={32} wrap>
+        {data.items.map((item) => (
+          <div key={item.name} className={styles.item}>
+            <div className={styles.item_icon}>
+              <img style={{width: 64, height: 'auto'}} src={item.icon.src} alt={item.name}/>
+            </div>
+            <div className={styles.item_info}>
+              {/*<div className={styles.item_info_name}>{item.name}</div>*/}
+              <div className={styles.item_info_organization}>{item.name}</div>
+              <div className={styles.item_info_name}>
+                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                  <div>{item.type}</div>
+                </Space>
               </div>
-            ))}
-          </Space>
-        </div>
-      ))}
+              <div className={styles.item_info_organization_url}>
+                <LinkOutlined /> <OutsideLink href={item.url}/>
+              </div>
+              <div className={styles.item_info_meta}>
+                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                  <div><ClockCircleOutlined/> {item.create_datetime}</div>
+                  {/*<div><EnvironmentOutlined/> {item.location}</div>*/}
+                </Space>
+              </div>
+              {/*<div className={styles.item_info_location}>{item.location}</div>*/}
+              {item.note && <div className={styles.item_info_note}>{item.note}</div>}
+              {(item.tags?.length ?? 0) > 0 && (
+                <Space className={styles.item_info_tags} wrap>
+                  <TagsOutlined/> {item.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                </Space>
+              )}
+            </div>
+          </div>
+        ))}
       </Space>
     </div>
   )

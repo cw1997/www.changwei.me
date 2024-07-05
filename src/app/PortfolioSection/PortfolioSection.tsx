@@ -6,6 +6,7 @@ import {OutsideLink} from "@/components/OutsideLink";
 
 import styles from "./PortfolioSection.module.sass";
 import ntust_lib_icon from './ntust_lib_icon.png'
+import sdram_controller_icon from './dram.jpg'
 
 
 const data = {
@@ -41,6 +42,40 @@ const data = {
         'Docker',
         'Nest.js',
         'MySQL',
+      ],
+    },
+    {
+      icon: sdram_controller_icon,
+      name: 'SDRAM Controller',
+      type: 'IP Core, written by SystemVerilogHDL ',
+      url: undefined,
+      source_code_url: 'https://github.com/cw1997/SDRAM-Controller',
+      create_datetime: '2021-04',
+      // update_datetime: '2024-07',
+      note: (
+        <>
+          <ul>
+            <li>使用 SystemVerilogHDL 编写的 SDRAM(Synchronous dynamic random-access memory) 内存控制器</li>
+            <li>内存控制器通常集成于计算机的北桥芯片或者CPU中(after AMD Athlon X2, after Intel Nehalem)，用于按照特定的控制时序去控制内存颗粒芯片的读写操作以及Auto refresh操作和排程</li>
+            <li>本设计在基于 Alter Cyclone II EP2C35F672 芯片的 Terasic DE2(de2-35) FPGA 开发板上验证通过</li>
+          </ul>
+        </>
+      ),
+      tags: [
+        'SDRAM(Synchronous dynamic random-access memory)',
+        'SDRAM Controller',
+        'DRAM(Dynamic random-access memory)',
+        'DRAM Controller',
+        'RAM(Random-access memory)',
+        'RAM Controller',
+        'IP Core',
+        'FPGA(Field Programmable Gate Arrays)',
+        'SystemVerilogHDL',
+        'Verilog',
+        'VerilogHDL',
+        'HDL(Hardware description language)',
+        'Digital logic',
+        'Digital IC',
       ],
     },
   ],

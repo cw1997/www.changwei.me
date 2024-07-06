@@ -1,5 +1,5 @@
 import React from "react";
-import {ClockCircleOutlined, LinkOutlined, TagsOutlined} from "@ant-design/icons";
+import {ClockCircleOutlined, GithubOutlined, LinkOutlined, TagsOutlined} from "@ant-design/icons";
 import {Divider, Space, Tag} from "antd";
 
 import {OutsideLink} from "@/components/OutsideLink";
@@ -7,6 +7,7 @@ import {OutsideLink} from "@/components/OutsideLink";
 import styles from "./PortfolioSection.module.sass";
 import ntust_lib_icon from './ntust_lib_icon.png'
 import sdram_controller_icon from './dram.jpg'
+import ez_react_icon from '@/assets/images/logo/frontend/React-icon.svg'
 
 
 const data = {
@@ -45,9 +46,69 @@ const data = {
       ],
     },
     {
+      icon: ez_react_icon,
+      name: 'ez-react',
+      type: 'Frontend',
+      url: 'https://ez-react.changwei.me/',
+      source_code_url: 'https://github.com/cw1997/ez-react',
+      create_datetime: '2021-04',
+      // update_datetime: '2024-07',
+      note: (
+        <>
+          <ul>
+            <li>React 是一个可以根据页面状态变化而自动重新渲染 UI 的 JavaScript 视图框架。该框架(ez-react)使用 TypeScript 编写，实现了一个功能上非常接近官方版 React 框架。</li>
+            <li>
+              ez-react 框架总共包括以下两个 npm package
+              <ul>
+                <li>
+                  @cw1997/ez-react 实现了 react 的主要核心功能
+                  <ul>
+                    <li>实现了 react 的功能</li>
+                    <li>createElement 函数返回 VirtualDOM 对象。JSX 语法在经过 babel 等 transplier 转换后会产生存储视图描述结构的对象(类似于DOM结构，该对象成员包括 element 名称，属性，children 等)，而该 package 主要维护视图节点对象的类型声明</li>
+                    <li>ClassComponent 类组件和 FunctionComponent 函数组件的类型声明</li>
+                  </ul>
+                </li>
+                <li>
+                  @cw1997/ez-react-dom 实现了 react-dom/client 的主要核心功能
+                  <ul>
+                    <li>react-dom/client 主要用于在 Web Browser 端渲染 react 输出的视图节点对象，并且在组件属性变更或者事件(event)触发以及副作用(effect)导致状态(state)变化时自动执行组件的 render 函数，重新渲染受影响的视图，实现单向数据流变更导致子视图变更，确保数据和视图之间的一致性。数据变更的业务逻辑代码和视图渲染的描述代码分离有助于前端开发工程师编写更加高内聚低耦合与可维护性更强的代码，这也是目前绝大多数前端框架的开发理念。</li>
+                    <li>实现了 ClassComponent 类组件的生命周期</li>
+                    <li>实现了 ClassComponent 类组件的 ref 功能，允许类成员持有 DOM 节点的对象引用</li>
+                    <li>实现了朴素 diff 算法，能够在执行 setState 函数之后自动比对原有真实 DOM 和 即将更新的 VirtualDOM 之间的差异，并且更新差异部分。支持使用 key 属性加速包含列表数组的更新，如果新旧 DOM 存在相同 key，则会保留而不会重新创建，确保性能最优。</li>
+                    <li><strong>[Experimental] 额外</strong>实现了 ClassComponent 类组件的事件处理函数自动绑定 this 指针功能(Bind `this` of the instance of the class component to the event handler functions automatically which are belong to the component )，其将自动绑定类组件的事件处理函数内部的 this 指针到类组件的实例</li>
+                  </ul>
+                </li>
+                <li>
+                  @cw1997/ez-react-demo 主要用于演示 ez-react 的基本功能
+                  <ul>
+                    <li><OutsideLink href={'https://ez-react.changwei.me/'} /> 搭建在 GitHub Pages</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </>
+      ),
+      tags: [
+        'React',
+        'React.js',
+        'React DOM',
+        'react',
+        'react-dom',
+        'react-dom/client',
+        'ez-react',
+        'ez-react-dom',
+        'ez-react-demo',
+        'JavaScript',
+        'TypeScript',
+        'JavaScript Framework',
+        'View layer',
+      ],
+    },
+    {
       icon: sdram_controller_icon,
       name: 'SDRAM Controller',
-      type: 'IP Core, written by SystemVerilogHDL ',
+      type: 'IP Core, written by SystemVerilogHDL',
       url: undefined,
       source_code_url: 'https://github.com/cw1997/SDRAM-Controller',
       create_datetime: '2021-04',
@@ -103,7 +164,10 @@ export const PortfolioSection: React.FunctionComponent<IPropsPortfolioSection> =
                 </Space>
               </div>
               <div className={styles.item_info_organization_url}>
-                <LinkOutlined /> <OutsideLink href={item.url}/>
+                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                  {item.url && <div><LinkOutlined/> <OutsideLink href={item.url}/></div>}
+                  {item.source_code_url && <div><GithubOutlined/> <OutsideLink href={item.source_code_url}/></div>}
+                </Space>
               </div>
               <div className={styles.item_info_meta}>
                 <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>

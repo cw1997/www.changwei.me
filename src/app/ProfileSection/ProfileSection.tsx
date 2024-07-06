@@ -1,5 +1,4 @@
-// import photo_image from "@/app/changwei_at_google_taipei.jpg"
-import photo_image from "@/app/changwei_at_google_taipei.webp"
+import photo_image from "@/app/changwei_at_google_taipei.jpg"
 import {Now} from "@/app/Now";
 import {OutsideLink} from "@/components/OutsideLink";
 import {CameraOutlined, ClockCircleOutlined, EnvironmentOutlined, MailOutlined} from "@ant-design/icons";

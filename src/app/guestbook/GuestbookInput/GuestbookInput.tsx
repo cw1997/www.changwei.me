@@ -24,6 +24,8 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
           timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         }),
       })
+      Modal.success({title: 'Submit successful', content: 'You submit the content to the guestbook successful!'})
+      form.resetFields()
     } catch (error) {
       Modal.error({title: 'System error', content: 'Occur error while submitting content to the guestbook, please try again later.'})
     } finally {

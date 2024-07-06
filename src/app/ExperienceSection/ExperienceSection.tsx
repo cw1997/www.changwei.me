@@ -178,7 +178,6 @@ const data = [
                   <li><ZhihuCircleFilled /> <OutsideLink href={'https://zhuanlan.zhihu.com/p/350625869'}>从零开始写一个操作系统（三） —— 任务切换器</OutsideLink></li>
                   <li><ZhihuCircleFilled /> <OutsideLink href={'https://zhuanlan.zhihu.com/p/351781211'}>从零开始写一个操作系统（四） —— 任务切换的时机</OutsideLink></li>
                   <li><ZhihuCircleFilled /> <OutsideLink href={'https://zhuanlan.zhihu.com/p/361465834'}>从零开始写一个操作系统（五） —— 让程序睡一会儿</OutsideLink></li>
-                  <li><ZhihuCircleFilled /> <OutsideLink href={'https://zhuanlan.zhihu.com/p/361465834'}>从零开始写一个操作系统（五） —— 让程序睡一会儿</OutsideLink></li>
                 </ul>
               </li>
               <li>

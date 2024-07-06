@@ -1,3 +1,5 @@
+import {Footer} from "@/components/Footer/Footer";
+import {Header} from "@/components/Header/Header";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {GoogleTagManager} from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -8,7 +10,10 @@ import "@/app/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chang Wei / 昌维 / 昌維 - Chang Wei's personal website / 昌维的网站",
+  title: {
+    default: "Chang Wei's personal website / 昌维的网站",
+    template: "%s | Chang Wei's personal website / 昌维的网站",
+  },
   // description: "Chang Wei's personal website / 昌维的网站",
   authors: [{name: 'Chang Wei', url: 'https://github.com/cw1997'}],
   keywords: [
@@ -44,7 +49,9 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-GPVC7Z21XH" />
       <body className={inter.className}>
         <AntdRegistry>
+          <Header />
           {children}
+          <Footer />
         </AntdRegistry>
         <SpeedInsights/>
       </body>

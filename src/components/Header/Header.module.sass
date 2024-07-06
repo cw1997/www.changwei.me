@@ -1,0 +1,41 @@
+@import "src/styles/common"
+
+
+.container
+  width: 100%
+  background-color: #EFEFEF
+
+.content
+  @include page
+  padding: 8px 32px
+  //text-align: center
+  color: $color-font-2
+  font-size: 14px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  p
+    margin-bottom: 4px
+
+.title
+  font-size: 18px
+  line-height: 1.25
+  color: $color-font-1
+  padding-left: 8px
+
+.split
+  width: 1px
+  height: 48px
+  background-color: $color-border-0
+
+.logo
+  @include radius()
+  @include transition()
+  padding: 4px 8px
+  border: 1px solid rgba($color-gray-3, 0)
+  &:hover
+    border: 1px solid $color-gray-3
+
+@media (prefers-color-scheme: dark)
+  .logo_img
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)

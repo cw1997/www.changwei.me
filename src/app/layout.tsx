@@ -2,10 +2,11 @@ import {Footer} from "@/components/Footer/Footer";
 import {Header} from "@/components/Header/Header";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {GoogleTagManager} from '@next/third-parties/google'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "@/app/globals.scss";
+import styles from "./layout.module.sass";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,9 +50,13 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-GPVC7Z21XH" />
       <body className={inter.className}>
         <AntdRegistry>
-          <Header />
-          {children}
-          <Footer />
+          <div id={'header'}>
+            <Header/>
+          </div>
+          <div className={styles.container} id={'container'}>
+            {children}
+            <Footer/>
+          </div>
         </AntdRegistry>
         <SpeedInsights/>
       </body>

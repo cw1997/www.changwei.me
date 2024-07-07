@@ -13,7 +13,7 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
   
   return (
     <header className={styles.container}>
-      <div className={styles.content}>
+      <div className={styles.main}>
         <div>
           <Space align={'center'}>
             <Link href="/">

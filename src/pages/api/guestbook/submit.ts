@@ -23,6 +23,10 @@ export default async function handler(
   const email = body.email ?? null
   const website = body.website ?? null
   const content = body.content
+  const _private = body.private
+  const hide_name = body.hide_name
+  const hide_email = body.hide_email
+  const hide_website = body.hide_website
   const timezone = req.body.timezone
 	
 	if (name == null || name === '') {
@@ -63,9 +67,9 @@ export default async function handler(
   const create_datetime = dayjs().tz(timezone).toISOString()
   const result = await sql`
 INSERT INTO guestbook
-(name, email, website, content, ip, user_agent, create_datetime)
+(name, email, website, content, private, hide_name, hide_email, hide_website, ip, user_agent, create_datetime)
 VALUES
-(${name}, ${email}, ${website}, ${content}, ${'{' + ip?.map((item) => item).join(', ') + '}' ?? ''}, ${user_agent ?? ''}, ${create_datetime})
+(${name}, ${email}, ${website}, ${content}, ${_private}, ${hide_name}, ${hide_email}, ${hide_website}, ${'{' + ip?.map((item) => item).join(', ') + '}' ?? ''}, ${user_agent ?? ''}, ${create_datetime})
 RETURNING id;
 `;
   // console.log(result)

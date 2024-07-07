@@ -1,5 +1,6 @@
 'use client'
 
+import Script from 'next/script'
 import {SendOutlined} from "@ant-design/icons";
 import React, {useEffect, useRef, useState} from "react";
 import {Button, Col, Form, Input, Modal, Row, Spin} from "antd";
@@ -63,7 +64,7 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
   
   return (
     <Spin spinning={loadingSubmit}>
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></Script>
       <Form form={form}>
         <Row gutter={[24, 0]}>
           <Col xs={24} sm={24} md={8}>

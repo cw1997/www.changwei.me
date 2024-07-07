@@ -83,7 +83,6 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
   
   return (
     <Spin spinning={loading}>
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
       <Form form={form}>
         <Row gutter={[24, 0]}>
           <Col xs={24} sm={24} md={8}>

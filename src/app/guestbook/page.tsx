@@ -1,3 +1,4 @@
+import {GuestbookList} from "@/app/guestbook/GuestbookList/GuestbookList";
 import {Divider} from "antd";
 import {GuestbookInput} from "./GuestbookInput/GuestbookInput";
 import styles from "./page.module.sass";
@@ -9,6 +10,7 @@ export default function GuestbookPage() {
       <Divider/>
       <GuestbookInput/>
       <Divider/>
+      <GuestbookList />
     </main>
   )
 }

@@ -224,7 +224,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
       
       <div className={styles.profile_photo}>
         <OutsideLink href={photo_image.src}>
-          <Image className={styles.profile_photo_image} {...photo_image} alt={'Chang Wei at Google Taipei office'} width={2048} height={1536} quality={80} />
+          <Image className={styles.profile_photo_image} src={photo_image.src} alt={'Chang Wei at Google Taipei office'} width={2048} height={1536} quality={80} />
         </OutsideLink>
         <div className={styles.profile_photo_description}>
           Chang Wei attended to the event {'<'}GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team{'>'} at Google Taipei office in TAIPEI 101. <br/>

@@ -33,12 +33,13 @@ export default async function handler(
 	
 	const result_select = await sql`
 SELECT * FROM guestbook
-WHERE private = 'false'
+WHERE private = 'false' AND delete_datetime IS NULL
 ORDER BY create_datetime DESC
 OFFSET ${offset} LIMIT ${limit}
 ;`;
 	const result_count = await sql`
 SELECT COUNT(*) AS _count FROM guestbook
+WHERE delete_datetime IS NULL
 ;`;
 	const count = result_count.rows[0]._count
   // console.log(result)

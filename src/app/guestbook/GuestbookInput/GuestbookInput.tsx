@@ -1,11 +1,13 @@
 'use client'
 
 import {SendOutlined} from "@ant-design/icons";
-import {Button, Checkbox, Col, Divider, Form, Input, Modal, Row, Space, Spin} from "antd";
-import Script from 'next/script'
+import {Turnstile, type TurnstileInstance} from "@marsidev/react-turnstile";
+import {Button, Checkbox, Col, Form, Input, Modal, Row, Space, Spin} from "antd";
 import React, {useEffect, useRef, useState} from "react";
+import {mutate} from "swr";
 
 export interface IPropsGuestbookInput {
+  // onSubmit: () => void
 }
 
 export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (props) => {
@@ -22,24 +24,10 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
   }
   useEffect(() => {resetForm()}, [resetForm])
   
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   
-  const turnstile_token = useRef<string>()
-  const turnstile_widget_id = useRef<string>()
-  // const [turnstile_token, setTurnstile_token] = useState('')
-  useEffect(() => {
-    // if using synchronous loading, will be called once the DOM is ready
-    window.turnstile.ready(function () {
-        turnstile_widget_id.current = window.turnstile.render('#turnstile', {
-            sitekey: '0x4AAAAAAAeiWteAnXC3k3s-',
-            callback: function(token: string) {
-              setLoading(false)
-              // console.log(`Challenge Success ${token}`)
-              turnstile_token.current = token
-            },
-        });
-    });
-  }, [])
+  const turnstile_ref = useRef<TurnstileInstance>()
+  const [turnstile_token, setTurnstile_token] = useState('')
   
   // form.validateFields((err, values) => {})
   const handleSubmit = async () => {
@@ -57,11 +45,13 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
           hide_email: form.getFieldValue('hide_email'),
           hide_website: form.getFieldValue('hide_website'),
           timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          turnstile_token: turnstile_token.current,
+          turnstile_token,
         }),
       })
       const json = await result.json()
       if (result.ok) {
+        // props.onSubmit?.()
+        await mutate(['guestbook/list', 0, 20])
         Modal.success({title: 'Submit successful', content: 'You submit the content to the guestbook successful!'})
         // form.resetFields()
         resetForm()
@@ -73,10 +63,10 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
     } finally {
       // alert('window.turnstile.isExpired(turnstile_widget_id.current):' + window.turnstile.isExpired(turnstile_widget_id.current))
       /*if (window.turnstile.isExpired(turnstile_widget_id.current)) {
-        console.debug('[DEBUG] turnstile token is expired')
+        console.debug('[DEBUG] turnstile turnstile_token is expired')
         window.turnstile.reset(turnstile_widget_id.current)
       }*/
-      window.turnstile.reset(turnstile_widget_id.current)
+      turnstile_ref.current?.reset()
       setLoading(false)
     }
   }
@@ -105,7 +95,7 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (pr
           <Input.TextArea rows={3}/>
         </Form.Item>
         <Form.Item>
-          <div id={'turnstile'} style={{width: '100%'}} />
+          <Turnstile ref={turnstile_ref} siteKey='0x4AAAAAAAeiWteAnXC3k3s-' onSuccess={setTurnstile_token} />
         </Form.Item>
         <Space wrap size={32}>
           <Form.Item>

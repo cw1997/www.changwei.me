@@ -7,12 +7,14 @@ import React, {type MutableRefObject, useRef} from "react";
 
 import styles from "./Header.module.sass";
 
+// export const element_id = 'header'
+
 export interface IPropsHeader {
 }
 
 export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
   return (
-    <header className={styles.container} id={'header'}>
+    <header className={styles.container}>
       <div className={styles.main}>
         <div>
           <Space align={'center'}>

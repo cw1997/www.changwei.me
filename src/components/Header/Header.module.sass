@@ -8,7 +8,7 @@
   backdrop-filter: blur(4px)
   position: fixed
   top: 0
-  z-index: 99999
+  z-index: 99998
 
 .main
   @include page
@@ -40,6 +40,14 @@
   border: 1px solid rgba($color-gray-3, 0)
   &:hover
     border: 1px solid $color-gray-3
+
+.menu
+  &_desktop
+    @include on-mobile()
+      display: none !important
+  &_mobile
+    @include on-desktop()
+      display: none !important
 
 @media (prefers-color-scheme: dark)
   .logo_img

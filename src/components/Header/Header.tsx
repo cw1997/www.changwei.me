@@ -1,8 +1,9 @@
 import logo_image from '@/assets/images/changwei-logo.svg'
+import {HeaderMenu} from "@/components/Header/HeaderMenu";
 import {Space} from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {type MutableRefObject, useRef} from "react";
 
 import styles from "./Header.module.sass";
 
@@ -10,9 +11,8 @@ export interface IPropsHeader {
 }
 
 export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
-  
   return (
-    <header className={styles.container}>
+    <header className={styles.container} id={'header'}>
       <div className={styles.main}>
         <div>
           <Space align={'center'}>
@@ -28,11 +28,7 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
           </Space>
         </div>
         <div>
-          <Space align={'center'}>
-            <Link href="/guestbook" className={styles.menu_item}>
-              Guestbook
-            </Link>
-          </Space>
+          <HeaderMenu />
         </div>
       </div>
     </header>

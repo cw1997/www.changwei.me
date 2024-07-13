@@ -4,7 +4,7 @@ import {Divider, Space, Tag} from "antd";
 
 import {OutsideLink} from "@/components/OutsideLink";
 
-import styles from "./PortfolioSection.module.sass";
+import styles from "./page.module.sass";
 import ntust_lib_icon from './ntust_lib_icon.png'
 import sdram_controller_icon from './dram.jpg'
 import ez_react_icon from '@/assets/images/logo/frontend/React-icon.svg'
@@ -142,50 +142,53 @@ const data = {
   ],
 } as const
 
-export interface IPropsPortfolioSection {
+export interface IPropsPortfolioPage {
 }
 
-export const PortfolioSection: React.FunctionComponent<IPropsPortfolioSection> = (props) => {
+const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Portfolio</h2>
-      <Space className={styles.list} direction={'vertical'} size={32} wrap>
-        {data.items.map((item) => (
-          <div key={item.name} className={styles.item}>
-            <div className={styles.item_icon}>
-              <img style={{width: 64, height: 'auto'}} src={item.icon.src} alt={item.name}/>
+      <main className={styles.main}>
+        <h2 className={styles.title}>Portfolio</h2>
+        <Space className={styles.list} direction={'vertical'} size={32} wrap>
+          {data.items.map((item) => (
+            <div key={item.name} className={styles.item}>
+              <div className={styles.item_icon}>
+                <img style={{width: 64, height: 'auto'}} src={item.icon.src} alt={item.name}/>
+              </div>
+              <div className={styles.item_info}>
+                {/*<div className={styles.item_info_name}>{item.name}</div>*/}
+                <div className={styles.item_info_organization}>{item.name}</div>
+                <div className={styles.item_info_name}>
+                  <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                    <div>{item.type}</div>
+                  </Space>
+                </div>
+                <div className={styles.item_info_organization_url}>
+                  <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                    {item.url && <div><LinkOutlined/> <OutsideLink href={item.url}/></div>}
+                    {item.source_code_url && <div><GithubOutlined/> <OutsideLink href={item.source_code_url}/></div>}
+                  </Space>
+                </div>
+                <div className={styles.item_info_meta}>
+                  <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
+                    <div><ClockCircleOutlined/> {item.create_datetime}</div>
+                    {/*<div><EnvironmentOutlined/> {item.location}</div>*/}
+                  </Space>
+                </div>
+                {/*<div className={styles.item_info_location}>{item.location}</div>*/}
+                {item.note && <div className={styles.item_info_note}>{item.note}</div>}
+                {(item.tags?.length ?? 0) > 0 && (
+                  <Space className={styles.item_info_tags} wrap>
+                    <TagsOutlined/> {item.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                  </Space>
+                )}
+              </div>
             </div>
-            <div className={styles.item_info}>
-              {/*<div className={styles.item_info_name}>{item.name}</div>*/}
-              <div className={styles.item_info_organization}>{item.name}</div>
-              <div className={styles.item_info_name}>
-                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
-                  <div>{item.type}</div>
-                </Space>
-              </div>
-              <div className={styles.item_info_organization_url}>
-                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
-                  {item.url && <div><LinkOutlined/> <OutsideLink href={item.url}/></div>}
-                  {item.source_code_url && <div><GithubOutlined/> <OutsideLink href={item.source_code_url}/></div>}
-                </Space>
-              </div>
-              <div className={styles.item_info_meta}>
-                <Space split={<Divider type={'vertical'}/>} size={[0, 4]} wrap>
-                  <div><ClockCircleOutlined/> {item.create_datetime}</div>
-                  {/*<div><EnvironmentOutlined/> {item.location}</div>*/}
-                </Space>
-              </div>
-              {/*<div className={styles.item_info_location}>{item.location}</div>*/}
-              {item.note && <div className={styles.item_info_note}>{item.note}</div>}
-              {(item.tags?.length ?? 0) > 0 && (
-                <Space className={styles.item_info_tags} wrap>
-                  <TagsOutlined/> {item.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-                </Space>
-              )}
-            </div>
-          </div>
-        ))}
-      </Space>
+          ))}
+        </Space>
+      </main>
     </div>
   )
 }
+export default PortfolioPage

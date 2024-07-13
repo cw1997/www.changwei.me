@@ -1,7 +1,7 @@
 'use client'
 
 import {MenuOutlined} from "@ant-design/icons";
-import {Button, Divider, Dropdown, Space} from "antd";
+import {Button, ConfigProvider, Divider, Dropdown, Space} from "antd";
 import Link from "next/link";
 import React from "react";
 
@@ -44,17 +44,28 @@ export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (props) 
 export const HeaderMenuMobile: React.FunctionComponent<IPropsHeader> = (props) => {
   
   return (
-    <Dropdown
-      // getPopupContainer={(element) => document.getElementById('header')}
-      menu={{ items: data.items.map((item) => ({key: item.url, label: (
-        <Link key={item.url} href={item.url} className={styles.menu_item}>
-          {item.label}
-        </Link>
-      )})) }}
-      className={styles.menu_mobile} overlayStyle={{zIndex: 99999}}
-      trigger={['click']}
+    <ConfigProvider
+      theme={{
+        components: {
+          Dropdown: {
+            paddingBlock: 8,
+            fontSize: 16,
+          },
+        },
+      }}
     >
-      <Button icon={<MenuOutlined />} />
-    </Dropdown>
+      <Dropdown
+        // getPopupContainer={(element) => document.getElementById('header')}
+        menu={{ items: data.items.map((item) => ({key: item.url, label: (
+          <Link key={item.url} href={item.url} className={styles.menu_item}>
+            {item.label}
+          </Link>
+        )})) }}
+        className={styles.menu_mobile} overlayStyle={{zIndex: 99999}}
+        trigger={['click']}
+      >
+        <Button icon={<MenuOutlined />} size={'large'} />
+      </Dropdown>
+    </ConfigProvider>
   )
 }

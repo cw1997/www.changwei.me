@@ -1,7 +1,7 @@
 'use client'
 
 import {MenuOutlined} from "@ant-design/icons";
-import {Button, Dropdown, Space} from "antd";
+import {Button, Divider, Dropdown, Space} from "antd";
 import Link from "next/link";
 import React from "react";
 
@@ -10,6 +10,7 @@ import styles from "./Header.module.sass";
 const data = {
   items: [
     {label: 'Guestbook', url: '/guestbook'},
+    {label: 'Portfolio', url: '/portfolio'},
   ]
 }
 
@@ -30,7 +31,7 @@ export const HeaderMenu: React.FunctionComponent<IPropsHeader> = (props) => {
 export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (props) => {
   
   return (
-    <Space align={'center'} className={styles.menu_desktop}>
+    <Space align={'center'} className={styles.menu_desktop} split={<Divider type={'vertical'} />}>
       {data.items.map((item) => (
         <Link key={item.url} href={item.url} className={styles.menu_item}>
           {item.label}

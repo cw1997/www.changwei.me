@@ -1,0 +1,71 @@
+@import "src/styles/common"
+
+.container
+
+.main
+  @include page-padding
+
+.title
+  font-size: 24px
+  font-weight: 500
+  margin-bottom: 16px
+
+.category
+  &_name
+    @include no-warp
+    margin-bottom: 8px
+    font-size: 18px
+    color: $color-font-2
+
+.list
+  width: 100%
+
+.item
+  @include radius(16px)
+  //@include box-shadow-1
+  @include border()
+  border-color: #F0F0F0
+  background-color: #FFFFFF
+  padding: 24px
+  display: flex
+  width: 100%
+  @include on-mobile()
+    flex-direction: column
+    padding: 16px
+  &_info
+    @include on-mobile()
+      margin-left: 0
+      margin-top: 16px
+    margin-left: 24px
+    color: $color-font-2
+    &_organization_url
+      margin-top: 6px
+      font-size: 13px
+      color: $color-font-4
+      a
+        @include link
+    &_organization
+      font-size: 20px
+      color: $color-font-1
+    &_name
+      margin-top: 4px
+      font-size: 16px
+      color: $color-font-2
+    &_meta
+      margin-top: 12px
+      font-size: 13px
+      color: $color-font-3
+    //&_location
+    //  font-size: 16px
+    &_note
+      //color: $color-font-2
+      margin-top: 8px
+      //font-weight: 300
+      font-size: 14px
+      line-height: 1.5
+      ul
+        padding-left: 24px
+        li
+          margin-top: 4px
+    &_tags
+      margin-top: 24px

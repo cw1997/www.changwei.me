@@ -1,17 +1,13 @@
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
-  title: "Guestbook 留言板",
+  title: 'Portfolio 作品集',
 };
 
-export default function GuestbookPageLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      {children}
-    </>
-  )
+  return children
 }

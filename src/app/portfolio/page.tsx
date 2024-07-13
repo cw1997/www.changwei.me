@@ -6,7 +6,9 @@ import {OutsideLink} from "@/components/OutsideLink";
 
 import styles from "./page.module.sass";
 import ntust_lib_icon from './ntust_lib_icon.png'
+import rtos_icon from './rtos_icon.png'
 import sdram_controller_icon from './dram.jpg'
+import inetutils_icon from './inetutils_icon.png'
 import ez_react_icon from '@/assets/images/logo/frontend/React-icon.svg'
 
 
@@ -137,6 +139,77 @@ const data = {
         'HDL(Hardware description language)',
         'Digital logic',
         'Digital IC',
+      ],
+    },
+    {
+      icon: rtos_icon,
+      name: 'ez-rtos',
+      type: 'System',
+      url: undefined,
+      source_code_url: 'https://github.com/cw1997/ez-rtos',
+      create_datetime: '2021-02',
+      // update_datetime: '2024-07',
+      note: (
+        <>
+          <ul>
+            <li>Real-time Operating System 是实时操作系统，其能够在指定的时间内执行特定操作，具有基本的多任务执行和切换功能，主要应用在嵌入式系统中。</li>
+            <li>
+              该 ez-rtos 系统在基于 ARM Cortex-M3 内核的 MCU(Micro Controller) STM32F103ZET6 上测试通过
+              <ul>
+                <li>
+                  该 RTOS 支持如下功能
+                  <ul>
+                    <li>任务切换（基于 ARM Cortex-M3 SysTick 时钟中断）</li>
+                    <li>delay 延迟函数（允许某个任务暂停执行，任务切换调度器将让出时间片给其他任务执行）</li>
+                    <li>内存分配器（支持 C 语言标准库的 malloc(size_t) 和 free(void *) 函数）</li>
+                    <li>关键区段，该区段内将禁止全部中断，确保该区段内的代码执行不被中断，通常用于执行一些对时序要求极其严格的操作，例如外设驱动等</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </>
+      ),
+      tags: [
+        'RTOS',
+        'Real-time OS',
+        'Real-time Operating System',
+        'OS',
+        'Operating System',
+      ],
+    },
+    {
+      icon: inetutils_icon,
+      name: 'inetutils',
+      type: 'Computer Network',
+      url: undefined,
+      source_code_url: 'https://github.com/cw1997/inetutils',
+      create_datetime: '2021-05',
+      // update_datetime: '2024-07',
+      note: (
+        <>
+          <ul>
+            <li>inetutils 是使用 C 语言开发的 GNU 网络实用程序，其包括一系列程序，例如常用的 ping、ping6(ping for IPv6)、traceroute 等等</li>
+            <li>cw1997/inetutils 这个项目是本人参考 GNU 的官方版本 inetutils 功能后，使用 C 语言编写的一个类似的开源工具，其实现了 ping 和 traceroute 这两个命令工具</li>
+            <li>该项目主要使用了 SOL_SOCKET 原始套接字功能实现 C 语言发送 network layer 网络层数据包，进而能够发送 ping 和 traceroute 所使用的 ICMP 协议数据包</li>
+            <li>该项目使用 cmake 编译，使用 GitHub Actions 进行 CI 构建并生成 Linux X86 平台下的可执行程序</li>
+          </ul>
+        </>
+      ),
+      tags: [
+        'network',
+        'computer network',
+        'ICMP(Internet Control Message Protocol)',
+        'ping',
+        'traceroute',
+        '3-Layer',
+        'network layer',
+        'inetutils',
+        'cmake',
+        'linux',
+        'socket',
+        'POSIX',
+        'SOL_SOCKET',
       ],
     },
   ],

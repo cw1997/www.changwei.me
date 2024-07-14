@@ -18,5 +18,10 @@ export const data: {
       name: '目标网',
       url: 'https://www.mubiao.org/',
     },
+    {
+      icon: undefined,
+      name: 'Jiawei Du',
+      url: 'https://www.jiaweidu.top/',
+    },
   ],
 } as const

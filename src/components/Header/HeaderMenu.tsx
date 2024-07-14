@@ -11,6 +11,7 @@ const data = {
   items: [
     {label: <>Portfolio<br/>(作品集)</>, url: '/portfolio'},
     {label: <>Guestbook<br/>(留言板)</>, url: '/guestbook'},
+    {label: <>Friendly Link<br/>(友情链接)</>, url: '/friendly-link'},
   ]
 }
 

@@ -12,7 +12,7 @@
 
 .main
   @include page
-  padding: 8px 32px
+  padding: 8px
   //text-align: center
   color: $color-font-2
   font-size: 14px
@@ -48,6 +48,9 @@
   &_mobile
     @include on-desktop()
       display: none !important
+  &_item
+    //@include link
+    text-align: center
 
 @media (prefers-color-scheme: dark)
   .logo_img

@@ -3,6 +3,7 @@
 import {MenuOutlined} from "@ant-design/icons";
 import {Button, ConfigProvider, Divider, Dropdown, Space} from "antd";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 import React from "react";
 
 import styles from "./Header.module.sass";
@@ -30,14 +31,17 @@ export const HeaderMenu: React.FunctionComponent<IPropsHeader> = (props) => {
 
 
 export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (props) => {
-  
+  const pathname = usePathname()
   return (
     <Space align={'center'} className={styles.menu_desktop} split={<Divider type={'vertical'} />}>
-      {data.items.map((item) => (
-        <Link key={item.url} href={item.url} className={styles.menu_item}>
-          {item.label}
-        </Link>
-      ))}
+      {data.items.map((item) => {
+        const is_current = pathname?.startsWith(item.url)
+        return (
+          <Link key={item.url} href={item.url} className={styles.menu_item} style={{fontWeight: is_current ? '700' : '400', textDecoration: is_current ? 'underline' : ''}}>
+            {item.label}
+          </Link>
+        )
+      })}
     </Space>
   )
 }

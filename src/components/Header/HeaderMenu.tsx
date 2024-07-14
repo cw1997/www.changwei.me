@@ -9,8 +9,8 @@ import styles from "./Header.module.sass";
 
 const data = {
   items: [
-    {label: 'Guestbook', url: '/guestbook'},
-    {label: 'Portfolio', url: '/portfolio'},
+    {label: <>Portfolio<br/>(作品集)</>, url: '/portfolio'},
+    {label: <>Guestbook<br/>(留言板)</>, url: '/guestbook'},
   ]
 }
 

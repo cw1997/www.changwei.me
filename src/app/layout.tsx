@@ -4,11 +4,8 @@ import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {GoogleTagManager} from '@next/third-parties/google'
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
 import "@/app/globals.scss";
 import styles from "./layout.module.sass";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +45,7 @@ export default function RootLayout({
       {/*  `.split('\n').map(t => t.trim()).join('')}} />*/}
       {/*</head>*/}
       <GoogleTagManager gtmId="G-GPVC7Z21XH" />
-      <body className={inter.className}>
+      <body>
         <AntdRegistry>
           <div id={'header'}>
             <Header/>

@@ -1,11 +1,14 @@
-import {Footer} from "@/components/Footer/Footer";
-import {Header} from "@/components/Header/Header";
+import type {Metadata} from "next";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {GoogleTagManager} from '@next/third-parties/google'
+import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from "@vercel/speed-insights/next"
-import type {Metadata} from "next";
-import "@/app/globals.scss";
+
+import {Footer} from "@/components/Footer/Footer";
+import {Header} from "@/components/Header/Header";
+
 import styles from "./layout.module.sass";
+import "@/app/globals.scss";
 
 export const metadata: Metadata = {
   title: {
@@ -56,6 +59,7 @@ export default function RootLayout({
           </div>
         </AntdRegistry>
         <SpeedInsights/>
+        <Analytics/>
       </body>
       {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>

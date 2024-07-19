@@ -1,10 +1,9 @@
-import photo_image from "@/app/changwei_at_google_taipei.jpg"
+import photo_image from "./changwei_at_google_taipei.jpg"
 import {Now} from "@/app/Now";
 import {OutsideLink} from "@/components/OutsideLink";
 import {CameraOutlined, ClockCircleOutlined, EnvironmentOutlined, MailOutlined} from "@ant-design/icons";
-import {Divider, Space, Tag} from "antd";
+import {Divider, Space, Tag, Image} from "antd";
 import React from "react";
-import Image from 'next/image'
 import styles from "./ProfileSection.module.sass";
 
 const profile = [
@@ -223,9 +222,9 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (prop
       </div>
       
       <div className={styles.profile_photo}>
-        <OutsideLink href={photo_image.src}>
-          <Image className={styles.profile_photo_image} src={photo_image.src} alt={'Chang Wei at Google Taipei office'} width={2048} height={1536} quality={80} />
-        </OutsideLink>
+        {/*<OutsideLink href={photo_image.src}>*/}
+          <Image rootClassName={styles.profile_photo_image} src={photo_image.src} alt={'Chang Wei at Google Taipei office'} />
+        {/*</OutsideLink>*/}
         <div className={styles.profile_photo_description}>
           Chang Wei attended to the event {'<'}GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team{'>'} at Google Taipei office in TAIPEI 101. <br/>
           {/*This photo was taken on Tuesday, June 11, at the Taipei 101 14F (visitor center of Google Taipei office)*/}

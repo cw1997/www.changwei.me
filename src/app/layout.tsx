@@ -11,7 +11,7 @@ import {Header} from "@/components/Header/Header";
 import styles from "./layout.module.sass";
 import "@/app/globals.scss";
 
-const title = "Chang Wei's website / 昌维的网站 / 昌維的网站"
+const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"
 
 export const metadata: Metadata = {
   title: {

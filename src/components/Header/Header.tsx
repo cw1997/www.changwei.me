@@ -24,7 +24,7 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
             <div className={styles.split}/>
             <Link href="/">
               <div className={styles.title}>
-                昌维的网站 <br/> {"Chang Wei's website"}
+                昌维的网站 / 昌維的網站 <br/> {"Chang Wei's website"}
               </div>
             </Link>
           </Space>

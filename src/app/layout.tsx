@@ -1,7 +1,7 @@
 import React from "react";
 import type {Metadata} from "next";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
-import {GoogleTagManager} from '@next/third-parties/google'
+// import {GoogleTagManager} from '@next/third-parties/google'
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from "@vercel/speed-insights/next"
 
@@ -47,18 +47,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/*<head>*/}
-      {/*  /!*<!-- Google tag (gtag.js) -->*!/*/}
-      {/*  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"></script>*/}
-      {/*  <script dangerouslySetInnerHTML={{__html: `*/}
-      {/*    window.dataLayer = window.dataLayer || [];*/}
-      {/*    function gtag(){dataLayer.push(arguments);}*/}
-      {/*    gtag('js', new Date());*/}
-      {/*  */}
-      {/*    gtag('config', 'G-GPVC7Z21XH');*/}
-      {/*  `.split('\n').map(t => t.trim()).join('')}} />*/}
-      {/*</head>*/}
-      <GoogleTagManager gtmId="G-GPVC7Z21XH" />
+      <head>
+        {/*<!-- Google tag (gtag.js) -->*/}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"></script>
+        <script dangerouslySetInnerHTML={{__html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-GPVC7Z21XH');
+        `.split('\n').map(t => t.trim()).join('')}} />
+      </head>
+      {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
       <body>
         <AntdRegistry>
           <div id={'header'}>

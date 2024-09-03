@@ -1,9 +1,9 @@
 import {Space} from "antd"
 
-import {ContactSection} from "./ContactSection/ContactSection"
-import {ExperienceSection} from "./ExperienceSection/ExperienceSection"
-import {ProfileSection} from "./ProfileSection/ProfileSection"
-import {SkillSection} from "./SkillSection/SkillSection"
+import {ContactSection} from "./(home)/ContactSection/ContactSection"
+import {ExperienceSection} from "./(home)/ExperienceSection/ExperienceSection"
+import {ProfileSection} from "./(home)/ProfileSection/ProfileSection"
+import {SkillSection} from "./(home)/SkillSection/SkillSection"
 import styles from "./page.module.sass"
 
 export default function HomePage() {

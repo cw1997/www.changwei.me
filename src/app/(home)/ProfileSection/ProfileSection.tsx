@@ -1,5 +1,5 @@
 import photo_image from "./changwei_at_google_taipei.jpg"
-import {Now} from "@/app/Now"
+import {Now} from "./Now"
 import {OutsideLink} from "@/components/OutsideLink"
 import {
   CameraOutlined,

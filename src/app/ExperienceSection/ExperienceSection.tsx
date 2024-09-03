@@ -119,7 +119,7 @@ const data = [
           start: '2021-09',
           end: 'now',
         },
-        location: 'Taiwan (+886), Taipei City (106), Da’an District',
+        location: "Taiwan (+886), Taipei City (106), Da'an District",
         position: 'ECE (Electrical and Computer Engineering)',
         note: (
           <>
@@ -164,7 +164,7 @@ const data = [
           start: '2018-09',
           end: '2021-08',
         },
-        location: 'Taiwan (+886), Taipei City (106), Da’an District',
+        location: "Taiwan (+886), Taipei City (106), Da'an District",
         position: 'ECE (Electrical and Computer Engineering)',
         note: (
           <>

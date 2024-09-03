@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, {useEffect, useState} from "react"
 import dayjs from "dayjs"
@@ -8,9 +8,7 @@ import timezone from "dayjs/plugin/timezone"
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-export interface IProps extends React.ComponentPropsWithoutRef<'div'> {
-
-}
+export interface IProps extends React.ComponentPropsWithoutRef<"div"> {}
 
 export const Now: React.FC<IProps> = (props) => {
   const {children, className, ...rest} = props
@@ -18,5 +16,5 @@ export const Now: React.FC<IProps> = (props) => {
   useEffect(() => {
     setInterval(() => setNow(dayjs()), 1000)
   }, [])
-  return now.tz("Asia/Taipei").format('dddd YYYY-MM-DD HH:mm:ss')
+  return now.tz("Asia/Taipei").format("dddd YYYY-MM-DD HH:mm:ss")
 }

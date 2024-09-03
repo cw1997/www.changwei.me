@@ -93,6 +93,10 @@ const profile = [
       </Space>
     ),
   },
+  {
+    key: "Motto",
+    value: "Stay Hungry, Stay Foolish",
+  },
 ] as const
 
 export interface IPropsSkillSection {}

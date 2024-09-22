@@ -44,14 +44,17 @@ const profile = [
   },
   {
     key: "Major",
-    value: <>Electrical and Computer Engineering</>,
+    value: (
+      <OutsideLink href={"https://ece.ntust.edu.tw/"}>
+        Electrical and Computer Engineering
+      </OutsideLink>
+    ),
   },
   {
     key: "School",
     value: (
       <OutsideLink href={"https://www.ntust.edu.tw/"}>
-        NTUST (National Taiwan University of Science and Technology, Taiwan
-        Tech)
+        NTUST (National Taiwan University of Science and Technology, Taiwan Tech)
       </OutsideLink>
     ),
   },
@@ -70,7 +73,9 @@ const profile = [
     key: "Timezone",
     value: (
       <>
-        Asia/Taipei (UTC+08:00), <Now />
+        <OutsideLink href={"https://timezonedb.com/time-zones/Asia/Taipei"}>
+          Asia/Taipei (UTC+08:00)
+        </OutsideLink>, <Now />
       </>
     ),
   },
@@ -200,8 +205,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
           >
             <div className={styles.profile_location_list_item}>
               <div className={styles.profile_location_list_item_key}>
-                <EnvironmentOutlined /> Address (English) (Accept package and
-                mail[postcard exchange is available]):{" "}
+                <EnvironmentOutlined /> Address (English) (Accept package and mail[postcard exchange is available]):{" "}
               </div>
               <div className={styles.profile_location_list_item_value}>
                 <OutsideLink href={"https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8"}>
@@ -215,13 +219,11 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
             </div>
             <div className={styles.profile_location_list_item}>
               <div className={styles.profile_location_list_item_key}>
-                <EnvironmentOutlined /> Address (中文)
-                (接受物品包裹和信封[明信片交換可使用該地址]):{" "}
+                <EnvironmentOutlined /> Address (中文) (接受物品包裹和信封[明信片交換可使用該地址]):{" "}
               </div>
               <div className={styles.profile_location_list_item_value}>
                 <OutsideLink href={"https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8"}>
-                  106335 臺北市大安區基隆路 4 段43 號 國立台灣科技大學
-                  第一學生宿舍
+                  106335 臺北市大安區基隆路 4 段43 號 國立台灣科技大學 第一學生宿舍
                 </OutsideLink>
               </div>
             </div>
@@ -288,9 +290,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
         />
         {/*</OutsideLink>*/}
         <div className={styles.profile_photo_description}>
-          Chang Wei attended to the event {"<"}GDG Cloud Taipei AI Techtalk:
-          Meet Google Cloud DevRel Team{">"} at Google Taipei office in TAIPEI
-          101. <br />
+          Chang Wei attended to the event {"<"}GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team{">"} at Google Taipei office in TAIPEI 101. <br />
           {/*This photo was taken on Tuesday, June 11, at the Taipei 101 14F (visitor center of Google Taipei office)*/}
         </div>
         <div className={styles.profile_photo_info}>
@@ -315,8 +315,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
                     }
                   >
                     Taiwan (+886), Taipei City (106), Xinyi District, <br />
-                    Taipei 101 14F (visitor center of Google Taipei office){" "}
-                    <br />
+                    Taipei 101 14F (visitor center of Google Taipei office){" "}<br />
                     (25.033487,121.564922)
                   </OutsideLink>
                 </td>
@@ -327,8 +326,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
                 </td>
                 <td className={styles.profile_photo_info_list_item_value}>
                   Xiaomi 12S Ultra (Sony IMX989) <br />
-                  f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm)
-                  No-flash
+                  f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash
                 </td>
               </tr>
               {/*<tr className={styles.profile_photo_info_list_item}>*/}

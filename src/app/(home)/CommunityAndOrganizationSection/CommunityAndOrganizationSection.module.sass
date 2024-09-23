@@ -1,0 +1,37 @@
+@import "src/styles/common"
+
+.container
+
+.title
+  font-size: 24px
+  font-weight: 500
+  margin-bottom: 16px
+
+.item
+  @include transition()
+  @include radius(8px)
+  //@include box-shadow-1
+  @include border()
+  //@include link
+  border-color: #F0F0F0
+  background-color: #FFFFFF
+  padding: 16px
+  display: flex
+  width: 100%
+  color: $color-font-2
+  line-height: 1.25
+  height: 100%
+  &:hover
+    @include box-shadow-1
+  &_info
+    margin-left: 8px
+    color: $color-font-2
+    &_name
+      margin-top: 4px
+      font-weight: 500
+      font-size: 16px
+      color: $color-font-1
+    &_role
+      margin-top: 4px
+      font-size: 13px
+      color: $color-font-3

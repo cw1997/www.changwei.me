@@ -306,7 +306,7 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
 ) => {
   return (
     <div className={styles.container}>
-      {/*<h2 className={styles.title}>Social and Contact</h2>*/}
+      <h2 className={styles.title}>Social and Contact</h2>
       <Space direction={"vertical"} size={16}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>

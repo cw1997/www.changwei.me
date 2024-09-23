@@ -1,6 +1,8 @@
 "use client"
 
+import {OutsideLink} from "@/components/OutsideLink";
 import {Col, Row, Space} from "antd"
+import Link from "next/link";
 import React from "react"
 import Image from "next/image"
 
@@ -26,32 +28,38 @@ const data: {
   {
     icon: <Image src={ntu_gdsc_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Google Developer Groups on Campus (National Taiwan University)",
-    role: "Speaker (Efficiency Engineering & Devtools & DevOps)"
+    role: "Speaker (Efficiency Engineering & Devtools & DevOps)",
+    url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-taipei-taiwan/",
   },
   {
     icon: <Image src={ntust_gdsc_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Google Developer Groups on Campus (National Taiwan University of Science and Technology)",
-    role: "Speaker (Web Front-end)"
+    role: "Speaker (Web Front-end)",
+    url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-of-science-and-technology-taipei-taiwan/",
   },
   {
     icon: <Image src={ntust_student_council_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Student Council (National Taiwan University of Science and Technology)",
-    role: "Vice-President"
+    role: "Vice-President",
+    url: "https://www.facebook.com/ntustsc/",
   },
   {
     icon: <Image src={risingwave_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "RisingWave Labs",
-    role: "Web Front-end Developer (Intern)"
+    role: "Web Front-end Developer (Intern)",
+    url: "https://risingwave.com/",
   },
   {
     icon: <Image src={ntust_ece_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
-    role: "Master degree"
+    role: "Master degree",
+    url: "https://ece.ntust.edu.tw/",
   },
   {
     icon: <Image src={ntust_piano_club_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Piano club (National Taiwan University of Science and Technology)",
-    role: "Member"
+    role: "Member",
+    url: "",
   },
 ] as const
 
@@ -70,7 +78,7 @@ export const CommunityAndOrganizationSection: React.FunctionComponent<IPropsComm
               <Space align={"start"}>
                 <div className={styles.item_icon}>{item.icon}</div>
                 <div className={styles.item_info}>
-                  <div className={styles.item_info_name}>{item.name}</div>
+                  <OutsideLink href={item.url} className={styles.item_info_name}>{item.name}</OutsideLink>
                   <div className={styles.item_info_role}>{item.role}</div>
                 </div>
               </Space>

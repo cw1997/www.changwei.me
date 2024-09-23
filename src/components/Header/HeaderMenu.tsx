@@ -13,6 +13,16 @@ const data = {
     {
       label: (
         <>
+          Home
+          <br />
+          (首页)
+        </>
+      ),
+      url: "/",
+    },
+    {
+      label: (
+        <>
           Portfolio
           <br />
           (作品集)

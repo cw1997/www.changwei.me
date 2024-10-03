@@ -56,14 +56,21 @@ export default function RootLayout({
     <head>
       {/*open graph*/}
       {/*<meta property="twitter:image" content="Twitter link preview image URL"/>*/}
+      <meta name="twitter:image" content="<generated>"/>
+      <meta name="twitter:image:type" content="<generated>"/>
+      <meta name="twitter:image:width" content="<generated>"/>
+      <meta name="twitter:image:height" content="<generated>"/>
       <meta property="twitter:card" content="summary_large_image"/>
-      {/*<meta property="twitter:title" content="Twitter link preview title"/>*/}
-      {/*<meta property="twitter:description" content="Twitter link preview description"/>*/}
-      {/*<meta property="og:image" content="Link preview image URL"/>*/}
-      {/*<meta property="og:site_name" content="Link preview site name"/>*/}
-      {/*<meta property="og:title" content="Link preview title"/>*/}
-      {/*<meta property="og:description" content="Link preview description"/>*/}
-      {/*<meta property="og:url" content="Canonical link preview URL"/>*/}
+      <meta property="twitter:title" content="<generated>"/>
+      <meta property="twitter:description" content="<generated>"/>
+      <meta property="og:image" content="<generated>"/>{/*Link preview image URL*/}
+      <meta property="og:image:type" content="<generated>"/>
+      <meta property="og:image:width" content="<generated>"/>
+      <meta property="og:image:height" content="<generated>"/>
+      <meta property="og:site_name" content="<generated>"/>{/*Link preview site name*/}
+      <meta property="og:title" content="<generated>"/>{/*Link preview title*/}
+      <meta property="og:description" content="<generated>"/>{/*Link preview description*/}
+      <meta property="og:url" content="<generated>"/>{/*Canonical link preview URL*/}
       
       {/*<!-- Google tag (gtag.js) -->*/}
       <script
@@ -87,11 +94,11 @@ export default function RootLayout({
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
     <body className={`${font_Noto_Sans_TC.className} ${font_Noto_Sans_SC.className}`}>
-        <AntdRegistry>
-          <div id={"header"}>
-            <Header />
-          </div>
-          <div className={styles.container} id={"container"}>
+    <AntdRegistry>
+      <div id={"header"}>
+        <Header/>
+      </div>
+      <div className={styles.container} id={"container"}>
             {children}
             <Footer />
           </div>

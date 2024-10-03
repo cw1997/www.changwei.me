@@ -24,7 +24,7 @@ export const data: {
       url: "https://www.jiaweidu.top/",
     },
     {
-      icon: "https://imuslab.com/favicon.png,
+      icon: "https://imuslab.com/favicon.png",
       name: "imuslab - 托比的創客實驗室",
       url: "https://imuslab.com/",
     },

@@ -79,7 +79,7 @@ export default async function handler(
 INSERT INTO guestbook
 (name, email, website, content, private, hide_name, hide_email, hide_website, ip, user_agent, create_datetime)
 VALUES
-(${name}, ${email}, ${website}, ${content}, ${_private}, ${hide_name}, ${hide_email}, ${hide_website}, ${"{" + ip?.map((item) => item).join(", ") + "}" ?? ""}, ${user_agent ?? ""}, ${create_datetime})
+(${name}, ${email}, ${website}, ${content}, ${_private}, ${hide_name}, ${hide_email}, ${hide_website}, ${ip ? "{" + ip?.map((item) => item).join(", ") + "}" : ""}, ${user_agent ?? ""}, ${create_datetime})
 RETURNING id;
 `
   // console.log(result)

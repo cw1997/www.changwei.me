@@ -9,6 +9,7 @@ import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
 
+// import pictureImage from "@/app/(hmoe)/ProfileSection/changwei_at_google_taipei.jpg"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
 
@@ -52,29 +53,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/*<!-- Google tag (gtag.js) -->*/}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+    <head>
+      {/*open graph*/}
+      {/*<meta property="twitter:image" content="Twitter link preview image URL"/>*/}
+      <meta property="twitter:card" content="summary_large_image"/>
+      {/*<meta property="twitter:title" content="Twitter link preview title"/>*/}
+      {/*<meta property="twitter:description" content="Twitter link preview description"/>*/}
+      {/*<meta property="og:image" content="Link preview image URL"/>*/}
+      {/*<meta property="og:site_name" content="Link preview site name"/>*/}
+      {/*<meta property="og:title" content="Link preview title"/>*/}
+      {/*<meta property="og:description" content="Link preview description"/>*/}
+      {/*<meta property="og:url" content="Canonical link preview URL"/>*/}
+      
+      {/*<!-- Google tag (gtag.js) -->*/}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
           gtag('config', 'G-GPVC7Z21XH');
         `
-              .split("\n")
-              .map((t) => t.trim())
-              .join(""),
-          }}
-        />
-      </head>
-      {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
-      <body className={`${font_Noto_Sans_TC.className} ${font_Noto_Sans_SC.className}`}>
+            .split("\n")
+            .map((t) => t.trim())
+            .join(""),
+        }}
+      />
+    </head>
+    {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
+    <body className={`${font_Noto_Sans_TC.className} ${font_Noto_Sans_SC.className}`}>
         <AntdRegistry>
           <div id={"header"}>
             <Header />

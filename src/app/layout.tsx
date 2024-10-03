@@ -60,7 +60,7 @@ export default function RootLayout({
       {/*<meta name="twitter:image:type" content="<generated>"/>*/}
       {/*<meta name="twitter:image:width" content="<generated>"/>*/}
       {/*<meta name="twitter:image:height" content="<generated>"/>*/}
-      {/*<meta property="twitter:card" content="summary_large_image"/>*/}
+      <meta property="twitter:card" content="summary"/>
       {/*<meta property="twitter:title" content="<generated>"/>*/}
       {/*<meta property="twitter:description" content="<generated>"/>*/}
       {/*<meta property="og:image" content="<generated>"/>/!*Link preview image URL*!/*/}

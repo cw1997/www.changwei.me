@@ -1,3 +1,4 @@
+import {Noto_Sans_SC, Noto_Sans_TC} from "next/font/google"
 import React from "react"
 import type {Metadata} from "next"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
@@ -41,6 +42,9 @@ export const metadata: Metadata = {
   ],
 }
 
+const font_Noto_Sans_TC = Noto_Sans_TC({subsets: ["latin"]})
+const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin"]})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,7 +74,7 @@ export default function RootLayout({
         />
       </head>
       {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
-      <body>
+      <body className={`${font_Noto_Sans_TC.className} ${font_Noto_Sans_SC.className}`}>
         <AntdRegistry>
           <div id={"header"}>
             <Header />

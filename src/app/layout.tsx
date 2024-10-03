@@ -55,22 +55,22 @@ export default function RootLayout({
     <html lang="en">
     <head>
       {/*open graph*/}
-      {/*<meta property="twitter:image" content="Twitter link preview image URL"/>*/}
-      <meta name="twitter:image" content="<generated>"/>
-      <meta name="twitter:image:type" content="<generated>"/>
-      <meta name="twitter:image:width" content="<generated>"/>
-      <meta name="twitter:image:height" content="<generated>"/>
-      <meta property="twitter:card" content="summary_large_image"/>
-      <meta property="twitter:title" content="<generated>"/>
-      <meta property="twitter:description" content="<generated>"/>
-      <meta property="og:image" content="<generated>"/>{/*Link preview image URL*/}
-      <meta property="og:image:type" content="<generated>"/>
-      <meta property="og:image:width" content="<generated>"/>
-      <meta property="og:image:height" content="<generated>"/>
-      <meta property="og:site_name" content="<generated>"/>{/*Link preview site name*/}
-      <meta property="og:title" content="<generated>"/>{/*Link preview title*/}
-      <meta property="og:description" content="<generated>"/>{/*Link preview description*/}
-      <meta property="og:url" content="<generated>"/>{/*Canonical link preview URL*/}
+      {/*/!*<meta property="twitter:image" content="Twitter link preview image URL"/>*!/*/}
+      {/*<meta name="twitter:image" content="<generated>"/>*/}
+      {/*<meta name="twitter:image:type" content="<generated>"/>*/}
+      {/*<meta name="twitter:image:width" content="<generated>"/>*/}
+      {/*<meta name="twitter:image:height" content="<generated>"/>*/}
+      {/*<meta property="twitter:card" content="summary_large_image"/>*/}
+      {/*<meta property="twitter:title" content="<generated>"/>*/}
+      {/*<meta property="twitter:description" content="<generated>"/>*/}
+      {/*<meta property="og:image" content="<generated>"/>/!*Link preview image URL*!/*/}
+      {/*<meta property="og:image:type" content="<generated>"/>*/}
+      {/*<meta property="og:image:width" content="<generated>"/>*/}
+      {/*<meta property="og:image:height" content="<generated>"/>*/}
+      {/*<meta property="og:site_name" content="<generated>"/>/!*Link preview site name*!/*/}
+      {/*<meta property="og:title" content="<generated>"/>/!*Link preview title*!/*/}
+      {/*<meta property="og:description" content="<generated>"/>/!*Link preview description*!/*/}
+      {/*<meta property="og:url" content="<generated>"/>/!*Canonical link preview URL*!/*/}
       
       {/*<!-- Google tag (gtag.js) -->*/}
       <script

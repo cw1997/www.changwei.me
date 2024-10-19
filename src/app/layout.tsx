@@ -14,14 +14,15 @@ import styles from "./layout.module.sass"
 import "@/app/globals.scss"
 
 const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"
+const description = "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。"
+const url = "https://www.changwei.me"
 
 export const metadata: Metadata = {
   title: {
     default: title,
     template: "%s | " + title,
   },
-  description:
-    "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。",
+  description,
   authors: [{name: "Chang Wei", url: "https://github.com/cw1997"}],
   keywords: [
     "Chang Wei",
@@ -41,6 +42,21 @@ export const metadata: Metadata = {
     "Curriculum Vitae",
     "Resume",
   ],
+  
+  openGraph: {
+    siteName: title,
+    title,
+    description,
+    url,
+    images: "/opengraph-image.png",
+  },
+  
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: "/twitter-image.png",
+  },
 }
 
 const font_Noto_Sans_TC = Noto_Sans_TC({subsets: ["latin"]})
@@ -55,22 +71,16 @@ export default function RootLayout({
     <html lang="en">
     <head>
       {/*open graph*/}
-      {/*/!*<meta property="twitter:image" content="Twitter link preview image URL"/>*!/*/}
-      {/*<meta name="twitter:image" content="<generated>"/>*/}
-      {/*<meta name="twitter:image:type" content="<generated>"/>*/}
-      {/*<meta name="twitter:image:width" content="<generated>"/>*/}
-      {/*<meta name="twitter:image:height" content="<generated>"/>*/}
-      <meta property="twitter:card" content="summary"/>
-      {/*<meta property="twitter:title" content="<generated>"/>*/}
-      {/*<meta property="twitter:description" content="<generated>"/>*/}
-      {/*<meta property="og:image" content="<generated>"/>/!*Link preview image URL*!/*/}
-      {/*<meta property="og:image:type" content="<generated>"/>*/}
-      {/*<meta property="og:image:width" content="<generated>"/>*/}
-      {/*<meta property="og:image:height" content="<generated>"/>*/}
-      {/*<meta property="og:site_name" content="<generated>"/>/!*Link preview site name*!/*/}
-      {/*<meta property="og:title" content="<generated>"/>/!*Link preview title*!/*/}
-      {/*<meta property="og:description" content="<generated>"/>/!*Link preview description*!/*/}
-      {/*<meta property="og:url" content="<generated>"/>/!*Canonical link preview URL*!/*/}
+      <meta property="og:image" content="<generated>"/>
+      <meta property="og:image:type" content="<generated>"/>
+      <meta property="og:image:width" content="<generated>"/>
+      <meta property="og:image:height" content="<generated>"/>
+      
+      {/*twitter*/}
+      <meta name="twitter:image" content="<generated>"/>
+      <meta name="twitter:image:type" content="<generated>"/>
+      <meta name="twitter:image:width" content="<generated>"/>
+      <meta name="twitter:image:height" content="<generated>"/>
       
       {/*<!-- Google tag (gtag.js) -->*/}
       <script
@@ -99,14 +109,14 @@ export default function RootLayout({
         <Header/>
       </div>
       <div className={styles.container} id={"container"}>
-            {children}
-            <Footer />
-          </div>
-        </AntdRegistry>
-        <SpeedInsights />
-        <Analytics />
-      </body>
-      {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
+        {children}
+        <Footer/>
+      </div>
+    </AntdRegistry>
+    <SpeedInsights/>
+    <Analytics/>
+    </body>
+    {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>
   )
 }

@@ -30,7 +30,7 @@ export const GuestbookInput: React.FunctionComponent<IPropsGuestbookInput> = (
 
   const [loading, setLoading] = useState(false)
 
-  const turnstile_ref = useRef<TurnstileInstance>()
+  const turnstile_ref = useRef<TurnstileInstance>(undefined)
   const [turnstile_token, setTurnstile_token] = useState("")
 
   // form.validateFields((err, values) => {})

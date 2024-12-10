@@ -119,7 +119,7 @@ import flash_logo from "@/assets/images/logo/design/Adobe_Flash_Professional_CS6
 import indesign_logo from "@/assets/images/logo/design/Adobe_InDesign_CC_icon.svg"
 import premiere_logo from "@/assets/images/logo/design/Adobe_Premiere_Pro_CC_icon.svg"
 import diagrams_logo from "@/assets/images/logo/design/Diagrams.net_Logo.svg"
-import visio_logo from "@/assets/images/logo/design/Microsoft_Office_Visio_(2019).svg"
+import visio_logo from "@/assets/images/logo/design/Microsoft_Office_Visio_(2013–2019).svg"
 
 import styles from "./SkillSection.module.sass"
 

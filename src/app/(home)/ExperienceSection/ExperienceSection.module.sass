@@ -1,6 +1,6 @@
 @use "@/styles/common" as *
 
-.container
+//.container
 
 .title
   font-size: 24px
@@ -21,20 +21,20 @@
   @include radius(16px)
   //@include box-shadow-1
   @include border()
+  @include on-mobile()
+    flex-direction: column
+    padding: 16px
   border-color: #F0F0F0
   background-color: #FFFFFF
   padding: 24px
   display: flex
   width: 100%
-  @include on-mobile()
-    flex-direction: column
-    padding: 16px
   &_info
+    margin-left: 24px
+    color: $color-font-2
     @include on-mobile()
       margin-left: 0
       margin-top: 16px
-    margin-left: 24px
-    color: $color-font-2
     &_organization_url
       margin-top: 6px
       font-size: 13px

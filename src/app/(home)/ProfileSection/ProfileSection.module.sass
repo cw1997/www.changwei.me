@@ -20,8 +20,8 @@
           color: $color-font-0
           font-weight: 500
     &_list
-      font-size: 16px
       @include split-line(bottom)
+      font-size: 16px
       &_desktop
         @include on-mobile()
           display: none
@@ -73,10 +73,10 @@
           color: $color-font-2
           padding-left: 28px
   &_photo
-    @include radius(8px)
     border: 1px solid $color-border
     margin: 8px 32px
     max-width: 384px
+    @include radius(8px)
     @include on-mobile()
       margin: 0
     &_image

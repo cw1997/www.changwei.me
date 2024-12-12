@@ -3,7 +3,7 @@ import {HeaderMenu} from "@/components/Header/HeaderMenu"
 import {Space} from "antd"
 import Image from "next/image"
 import Link from "next/link"
-import React, {type MutableRefObject, useRef} from "react"
+import React from "react"
 
 import styles from "./Header.module.sass"
 

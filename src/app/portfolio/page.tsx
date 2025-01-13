@@ -179,7 +179,7 @@ const data = {
               refresh操作和排程
             </li>
             <li>
-              本设计在基于 Alter Cyclone II EP2C35F672 芯片的 Terasic
+              本设计在基于 Altera Cyclone II EP2C35F672 芯片的 Terasic
               DE2(de2-35) FPGA 开发板上验证通过
             </li>
           </ul>

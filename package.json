@@ -1,7 +1,15 @@
 {
-  "name": "changwei.me",
+  "name": "www.changwei.me",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "changwei's homepage",
+  "homepage": "https://www.changwei.me/",
+  "keywords": [],
+  "author": {
+    "name": "Chang Wei",
+    "email": "changwei1006@gmail.com",
+    "url": "https://www.changwei.me/"
+  },
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",

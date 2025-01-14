@@ -1,15 +1,12 @@
-import {Noto_Sans_SC, Noto_Sans_TC} from "next/font/google"
-import React from "react"
-import type {Metadata} from "next"
+import {Footer} from "@/components/Footer/Footer"
+import {Header} from "@/components/Header/Header"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
 // import {GoogleTagManager} from '@next/third-parties/google'
 import {Analytics} from "@vercel/analytics/react"
 import {SpeedInsights} from "@vercel/speed-insights/next"
-
-import {Footer} from "@/components/Footer/Footer"
-import {Header} from "@/components/Header/Header"
-
-// import pictureImage from "@/app/(hmoe)/ProfileSection/changwei_at_google_taipei.jpg"
+import type {Metadata} from "next"
+import {Noto_Sans_SC} from "next/font/google"
+import React from "react"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
 
@@ -59,8 +56,7 @@ export const metadata: Metadata = {
   },
 }
 
-const font_Noto_Sans_TC = Noto_Sans_TC({subsets: ["latin"]})
-const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin"]})
+const font_Noto_Sans_SC = Noto_Sans_SC()
 
 export default function RootLayout({
   children,
@@ -103,7 +99,7 @@ export default function RootLayout({
       />
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
-    <body className={`${font_Noto_Sans_TC.className} ${font_Noto_Sans_SC.className}`}>
+    <body className={`${font_Noto_Sans_SC.className}`}>
     <AntdRegistry>
       <div id={"header"}>
         <Header/>

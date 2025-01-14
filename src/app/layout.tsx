@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
 }
 
-const font_Noto_Sans_SC = Noto_Sans_SC()
+const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin-ext"]})
 
 export default function RootLayout({
   children,

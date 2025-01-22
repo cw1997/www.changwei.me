@@ -15,6 +15,7 @@ const description = "Chang Wei's personal website, including profile, contacts, 
 const url = "https://www.changwei.me"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.changwei.me"),
   title: {
     default: title,
     template: "%s | " + title,

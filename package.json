@@ -42,14 +42,24 @@
     "swr": "^2.3.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@next/eslint-plugin-next": "^15.1.7",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "19.0.0-beta-30d8a17-20250209",
     "eslint": "^9",
     "eslint-config-next": "^15.1.7",
     "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-compiler": "19.0.0-beta-30d8a17-20250209",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-turbo": "^2.4.2",
+    "globals": "^15.15.0",
     "prettier": "^3.5.1",
     "sass": "^1.85.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.24.0"
   }
 }

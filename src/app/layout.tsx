@@ -9,6 +9,7 @@ import {Noto_Sans_SC} from "next/font/google"
 import React from "react"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
+import "@ant-design/v5-patch-for-react-19"
 
 const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"
 const description = "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。"

@@ -14,7 +14,7 @@ import styles from "./ProfileSection.module.sass"
 const profile = [
   {
     key: "Birthday",
-    value: "1997/10/06",
+    value: "1997/10/06 UTC+08:00 (CST, China Standard Time)",
   },
   {
     key: "Location",

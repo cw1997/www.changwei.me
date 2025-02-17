@@ -61,5 +61,18 @@
     "sass": "^1.85.0",
     "typescript": "^5",
     "typescript-eslint": "^8.24.0"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@sentry/cli",
+      "@vercel/speed-insights",
+      "bufferutil",
+      "sharp"
+    ]
   }
 }

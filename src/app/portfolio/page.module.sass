@@ -1,7 +1,5 @@
 @use "@/styles/common" as *
 
-.container
-
 .main
   @include page-padding
 
@@ -33,11 +31,11 @@
     flex-direction: column
     padding: 16px
   &_info
+    margin-left: 24px
+    color: $color-font-2
     @include on-mobile()
       margin-left: 0
       margin-top: 16px
-    margin-left: 24px
-    color: $color-font-2
     &_organization_url
       margin-top: 6px
       font-size: 13px

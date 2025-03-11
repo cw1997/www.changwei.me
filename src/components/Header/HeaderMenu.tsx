@@ -50,6 +50,16 @@ const data = {
       ),
       url: "/friendly-link",
     },
+    {
+      label: (
+        <>
+          Resume
+          <br />
+          (简历)
+        </>
+      ),
+      url: "https://github.com/cw1997/resume/releases/download/latest/resume-wei_chang.pdf",
+    },
   ],
 }
 
@@ -85,6 +95,8 @@ export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (
               fontWeight: is_current ? "700" : "400",
               textDecoration: is_current ? "underline" : "",
             }}
+            target={item.url.startsWith("http") ? "_blank" : ""}
+            rel={item.url.startsWith("http") ? "noopener noreferrer" : ""}
           >
             {item.label}
           </Link>

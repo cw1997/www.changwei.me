@@ -10,6 +10,7 @@ import React from "react"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
 import "@ant-design/v5-patch-for-react-19"
+import Script from "next/script";
 
 const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"
 const description = "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。"
@@ -81,11 +82,13 @@ export default function RootLayout({
       <meta name="twitter:image:height" content="<generated>"/>
       
       {/*<!-- Google tag (gtag.js) -->*/}
-      <script
+      <Script
+        id={"googletagmanager"}
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
-      ></script>
-      <script
+      />
+      <Script
+        id={"gtag"}
         dangerouslySetInnerHTML={{
           __html: `
           window.dataLayer = window.dataLayer || [];

@@ -10,6 +10,7 @@
     "email": "changwei1006@gmail.com",
     "url": "https://www.changwei.me/"
   },
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
@@ -29,28 +30,28 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@marsidev/react-turnstile": "^1.1.0",
-    "@next/third-parties": "^15.2.1",
-    "@sentry/nextjs": "^9.5.0",
+    "@next/third-parties": "^15.2.4",
+    "@sentry/nextjs": "^9.9.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
-    "antd": "^5.24.3",
+    "antd": "^5.24.5",
     "dayjs": "^1.11.13",
-    "next": "^15.2.1",
+    "next": "^15.2.4",
     "react": "^19",
     "react-dom": "^19",
     "sharp": "^0.33.5",
     "swr": "^2.3.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@next/eslint-plugin-next": "^15.2.1",
+    "@eslint/js": "^9.23.0",
+    "@next/eslint-plugin-next": "^15.2.4",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "19.0.0-beta-bafa41b-20250307",
     "eslint": "^9",
-    "eslint-config-next": "^15.2.1",
+    "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.4",
@@ -59,11 +60,11 @@
     "eslint-plugin-turbo": "^2.4.4",
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
-    "sass": "^1.85.1",
+    "sass": "^1.86.0",
     "typescript": "^5",
-    "typescript-eslint": "^8.26.1"
+    "typescript-eslint": "^8.28.0"
   },
-  "packageManager": "pnpm@10.6.2",
+  "packageManager": "pnpm@10.7.0",
   "engines": {
     "node": ">=22.14.0"
   },

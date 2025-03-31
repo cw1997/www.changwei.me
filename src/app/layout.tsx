@@ -2,7 +2,7 @@ import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
 // import {GoogleTagManager} from '@next/third-parties/google'
-import {Analytics} from "@vercel/analytics/react"
+import {Analytics} from "@vercel/analytics/next"
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next"
 import {Noto_Sans_SC} from "next/font/google"
@@ -105,17 +105,17 @@ export default function RootLayout({
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
     <body className={`${font_Noto_Sans_SC.className}`}>
-    <AntdRegistry>
-      <div id={"header"}>
-        <Header/>
-      </div>
-      <div className={styles.container} id={"container"}>
-        {children}
-        <Footer/>
-      </div>
-    </AntdRegistry>
-    <SpeedInsights/>
-    <Analytics/>
+      <AntdRegistry>
+        <div id={"header"}>
+          <Header/>
+        </div>
+        <div className={styles.container} id={"container"}>
+          {children}
+          <Footer/>
+        </div>
+      </AntdRegistry>
+      <SpeedInsights/>
+      <Analytics/>
     </body>
     {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>

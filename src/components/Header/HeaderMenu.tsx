@@ -58,7 +58,7 @@ const data = {
           (简历)
         </>
       ),
-      url: "https://github.com/cw1997/resume/releases/download/latest/resume-wei_chang.pdf",
+      url: "/resume", // url_resume_pdf,
     },
   ],
 }

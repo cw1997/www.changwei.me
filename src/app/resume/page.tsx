@@ -12,7 +12,7 @@ const ResumePage: React.FunctionComponent<IPropsResumePage> = (props) => {
     <div className={styles.container}>
       <main className={styles.main}>
         <h2 className={styles.title}>Resume 简历</h2>
-        <Space>
+        <Space wrap size={"large"}>
           <OutsideLink href={url_resume_pdf_mirror}>
             <Button type="primary" icon={<DownloadOutlined />}>下载简历 Download</Button>
           </OutsideLink>

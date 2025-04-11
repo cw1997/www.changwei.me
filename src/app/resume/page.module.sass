@@ -1,0 +1,39 @@
+@use "@/styles/common" as *
+
+//.container
+
+.main
+  @include page-padding
+
+.title
+  font-size: 24px
+  font-weight: 500
+  margin-bottom: 16px
+
+.category
+  &_name
+    @include no-warp
+    margin-bottom: 8px
+    font-size: 18px
+    color: $color-font-2
+
+.list
+  width: 100%
+  padding-left: 32px
+
+.item
+  //@include radius(16px)
+  //@include box-shadow-1
+  //@include border()
+  //border-color: #F0F0F0
+  //background-color: #FFFFFF
+  //padding: 24px
+  @include font(16px, 1)
+  margin-bottom: 16px
+  width: 100%
+  &_name
+    color: $color-font-1
+  &_split
+    color: $color-font-4
+  &_url
+    color: $color-font-2

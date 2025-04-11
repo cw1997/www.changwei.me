@@ -1,11 +1,11 @@
 // app/api/proxy/resume/route.ts
 
 import { NextResponse } from 'next/server';
-import {url_resume_pdf} from "@/data";
+import {url_resume_pdf_github} from "@/data";
 
 export async function GET() {
   try {
-    const res = await fetch(url_resume_pdf);
+    const res = await fetch(url_resume_pdf_github);
 
     if (!res.ok) {
       return NextResponse.json(
@@ -14,12 +14,11 @@ export async function GET() {
       );
     }
 
-    // 读取响应体为 Buffer
     const buffer = await res.arrayBuffer();
     const headers = new Headers({
       'Content-Type': 'application/pdf',
       'Content-Disposition': 'inline; filename="resume-wei_chang.pdf"',
-      'Cache-Control': 'public, max-age=3600',
+      // 'Cache-Control': 'public, max-age=3600',
     });
 
     return new NextResponse(buffer, { headers });

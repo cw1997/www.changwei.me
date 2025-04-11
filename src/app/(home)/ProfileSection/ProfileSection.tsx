@@ -75,7 +75,7 @@ const profile = [
       <>
         <OutsideLink href={"https://timezonedb.com/time-zones/Asia/Taipei"}>
           Asia/Taipei (UTC+08:00)
-        </OutsideLink>, <Now />
+        </OutsideLink>, <Now suppressHydrationWarning />
       </>
     ),
   },

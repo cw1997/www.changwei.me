@@ -4,6 +4,12 @@ import {withSentryConfig} from "@sentry/nextjs"
 const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
+    webpackBuildWorker: true,
+    parallelServerBuildTraces: true,
+    parallelServerCompiles: true,
+    typedRoutes: true,
+    useLightningcss: true,
+    inlineCss: true,
   }
 }
 

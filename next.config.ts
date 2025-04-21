@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
-    typedRoutes: true,
+    typedRoutes: false,
     useLightningcss: true,
     inlineCss: true,
   }

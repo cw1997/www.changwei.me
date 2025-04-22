@@ -1,12 +1,11 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tseslint from "typescript-eslint";
-import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import { config as baseConfig } from "./base.js";
-import reactCompiler from "eslint-plugin-react-compiler";
+import * as reactHooks from 'eslint-plugin-react-hooks';
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -43,23 +42,5 @@ export const nextJsConfig = [
       "@next/next/no-img-element": "off",
     },
   },
-  {
-    plugins: {
-      "react-hooks": pluginReactHooks,
-    },
-    settings: { react: { version: "detect" } },
-    rules: {
-      ...pluginReactHooks.configs.recommended.rules,
-      // React scope no longer necessary with new JSX transform.
-      "react-hooks/exhaustive-deps": "off",
-    },
-  },
-  {
-    plugins: {
-      'react-compiler': reactCompiler,
-    },
-    rules: {
-      'react-compiler/react-compiler': 'error',
-    },
-  },
+  reactHooks.configs.recommended,
 ];

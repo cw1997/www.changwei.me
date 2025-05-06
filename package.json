@@ -31,11 +31,11 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@marsidev/react-turnstile": "^1.1.0",
     "@next/third-parties": "^15.3.1",
-    "@sentry/nextjs": "^9.14.0",
+    "@sentry/nextjs": "^9.15.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
-    "antd": "^5.24.8",
+    "antd": "^5.24.9",
     "dayjs": "^1.11.13",
     "next": "^15.3.1",
     "react": "^19",
@@ -44,7 +44,7 @@
     "swr": "^2.3.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.1",
+    "@eslint/js": "^9.26.0",
     "@next/eslint-plugin-next": "^15.3.1",
     "@types/node": "^22",
     "@types/react": "^19",
@@ -61,7 +61,7 @@
     "prettier": "^3.5.3",
     "sass": "^1.87.0",
     "typescript": "^5",
-    "typescript-eslint": "^8.31.0"
+    "typescript-eslint": "^8.32.0"
   },
   "packageManager": "pnpm@10.10.0",
   "engines": {

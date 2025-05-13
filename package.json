@@ -31,7 +31,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@marsidev/react-turnstile": "^1.1.0",
     "@next/third-parties": "^15.3.2",
-    "@sentry/nextjs": "^9.17.0",
+    "@sentry/nextjs": "^9.18.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -59,11 +59,11 @@
     "eslint-plugin-turbo": "^2.5.3",
     "globals": "^16.1.0",
     "prettier": "^3.5.3",
-    "sass": "^1.87.0",
+    "sass": "^1.88.0",
     "typescript": "^5",
-    "typescript-eslint": "^8.32.0"
+    "typescript-eslint": "^8.32.1"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
     "node": ">=22.15.0"
   },

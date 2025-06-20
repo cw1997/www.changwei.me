@@ -59,7 +59,7 @@ const data: {
     icon: <Image src={ntust_piano_club_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
     name: "Piano club (National Taiwan University of Science and Technology)",
     role: "Member",
-    url: "",
+    url: "https://www.instagram.com/ntust_piano/",
   },
 ] as const
 

@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
     typedRoutes: false,
     useLightningcss: true,
     inlineCss: true,
-  }
+  },
+  productionBrowserSourceMaps: true,
 }
 
 export default withSentryConfig(nextConfig, {

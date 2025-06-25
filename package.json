@@ -35,7 +35,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
-    "antd": "^5.26.1",
+    "antd": "^5.26.2",
     "dayjs": "^1.11.13",
     "next": "^15.3.4",
     "react": "^19",
@@ -58,12 +58,12 @@
     "eslint-plugin-react-hooks": "^6.0.0-rc.1",
     "eslint-plugin-turbo": "^2.5.4",
     "globals": "^16.2.0",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.1",
     "sass": "^1.89.2",
     "typescript": "^5",
     "typescript-eslint": "^8.35.0"
   },
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.12.3",
   "engines": {
     "node": ">=22.15.0"
   },

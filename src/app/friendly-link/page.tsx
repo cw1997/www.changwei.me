@@ -1,5 +1,5 @@
 import {ExportOutlined} from "@ant-design/icons"
-import {Space} from "antd"
+import {Divider, Space} from "antd"
 import React from "react"
 
 import {OutsideLink} from "@/components/OutsideLink"
@@ -15,7 +15,8 @@ const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = (
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>FriendlyLink</h2>
+        <h2 className={styles.title}>FriendlyLink 友情链接</h2>
+        <Divider />
         <ul className={styles.list}>
           {data.items.map((item) => (
             <li key={item.name}>

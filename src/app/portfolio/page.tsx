@@ -309,7 +309,8 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>Portfolio</h2>
+        <h2 className={styles.title}>Portfolio 作品集</h2>
+        <Divider />
         <Space className={styles.list} direction={"vertical"} size={32} wrap>
           {data.items.map((item) => (
             <div key={item.name} className={styles.item}>

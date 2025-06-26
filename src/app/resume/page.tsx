@@ -25,7 +25,8 @@ const ResumePage: React.FunctionComponent<IPropsResumePage> = (props) => {
           </OutsideLink>
         </Space>
         <div className={styles.resume}>
-          <iframe src={url_resume_pdf_mirror} style={{border: 0, width: "100%", height: "100vh", /*height: "calc(100vh - 156px)", */}} />
+          <embed src={url_resume_pdf_mirror} width="100%" height="800px" type="application/pdf"/>
+          {/*<iframe src={url_resume_pdf_mirror} style={{border: 0, width: "100%", height: "100vh", /*height: "calc(100vh - 156px)", *!/}/>*/}
           {/*<PdfViewer url={"/api/download-resume"} />*/}
         </div>
       </main>

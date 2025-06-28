@@ -16,5 +16,5 @@ export const Now: React.FC<IProps> = (props) => {
   useEffect(() => {
     setInterval(() => setNow(dayjs()), 1000)
   }, [])
-  return now.tz("Asia/Taipei").format("dddd YYYY-MM-DD HH:mm:ss")
+  return <span suppressHydrationWarning>{now.tz("Asia/Taipei").format("dddd YYYY-MM-DD HH:mm:ss")}</span>
 }

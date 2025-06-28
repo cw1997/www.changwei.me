@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
     typedRoutes: false,
-    useLightningcss: false,
+    useLightningcss: true,
     inlineCss: true,
   },
   productionBrowserSourceMaps: true,

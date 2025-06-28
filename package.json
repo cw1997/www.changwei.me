@@ -32,19 +32,16 @@
     "@marsidev/react-turnstile": "^1.1.0",
     "@next/third-parties": "^15.3.4",
     "@sentry/nextjs": "^9.33.0",
-    "@tailwindcss/postcss": "^4.1.11",
     "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
     "antd": "^5.26.2",
     "dayjs": "^1.11.13",
     "next": "^15.3.4",
-    "postcss": "^8.5.6",
     "react": "^19",
     "react-dom": "^19",
     "sharp": "^0.34.2",
-    "swr": "^2.3.3",
-    "tailwindcss": "^4.1.11"
+    "swr": "^2.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

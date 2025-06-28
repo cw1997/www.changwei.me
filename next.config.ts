@@ -54,4 +54,10 @@ export default withSentryConfig(nextConfig, {
   // https://docs.sentry.io/product/crons/
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
+
+  headers: {
+    key: "Document-Policy",
+    value: "js-profiling",
+  },
+
 })

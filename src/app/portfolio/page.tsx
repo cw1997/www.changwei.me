@@ -311,7 +311,7 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
       <main className={styles.main}>
         <h2 className={styles.title}>Portfolio 作品集</h2>
         <Divider />
-        <Space className={styles.list} direction={"vertical"} size={32} wrap>
+        <Space className={styles.list} direction={"vertical"} size={32}>
           {data.items.map((item) => (
             <div key={item.name} className={styles.item}>
               <div className={styles.item_icon}>
@@ -334,23 +334,17 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
                   </Space>
                 </div>
                 <div className={styles.item_info_organization_url}>
-                  <Space
-                    split={<Divider type={"vertical"} />}
-                    size={[0, 4]}
-                    wrap
-                  >
-                    {item.url && (
-                      <div>
-                        <LinkOutlined /> <OutsideLink href={item.url} />
-                      </div>
-                    )}
-                    {item.source_code_url && (
-                      <div>
-                        <GithubOutlined />{" "}
-                        <OutsideLink href={item.source_code_url} />
-                      </div>
-                    )}
-                  </Space>
+                  {item.url && (
+                    <div>
+                      <LinkOutlined /> <OutsideLink href={item.url} />
+                    </div>
+                  )}
+                  {item.source_code_url && (
+                    <div>
+                      <GithubOutlined />{" "}
+                      <OutsideLink href={item.source_code_url} />
+                    </div>
+                  )}
                 </div>
                 <div className={styles.item_info_meta}>
                   <Space

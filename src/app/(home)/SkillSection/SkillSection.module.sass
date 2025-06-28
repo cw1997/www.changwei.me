@@ -13,3 +13,15 @@
     margin-bottom: 8px
     font-size: 16px
     color: $color-font-2
+  &_skills
+    &_item
+      @include transition()
+      @include border()
+      @include radius(8px)
+      border-color: rgba($color-gray-3, 0)
+      padding: 4px
+      &:hover
+        @include box-shadow-2
+        border-color: rgba($color-gray-3, 1)
+        background-color: #FFFFFF
+        transform: scale(1.5)

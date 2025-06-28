@@ -375,7 +375,7 @@ export const ExperienceSection: React.FunctionComponent<
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Experience</h2>
-      <Space direction={"vertical"} size={32}>
+      <Space direction={"vertical"} size={32} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <div className={styles.category_name}>
@@ -385,7 +385,6 @@ export const ExperienceSection: React.FunctionComponent<
               className={styles.list}
               direction={"vertical"}
               size={32}
-              wrap
             >
               {category.items.map((item) => (
                 <div key={item.name} className={styles.item}>

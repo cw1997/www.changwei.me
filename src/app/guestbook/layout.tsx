@@ -9,5 +9,5 @@ export default function GuestbookPageLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <>{children}</>
+  return children
 }

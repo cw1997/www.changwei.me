@@ -82,7 +82,7 @@ const profile = [
   {
     key: "Language",
     value: (
-      <Space direction={"vertical"} wrap>
+      <Space direction={"vertical"}>
         <div>
           <Tag>zh-Hans-CN</Tag>
           <span>Chinese (Simplified Han) 简体中文（中国大陆）</span>

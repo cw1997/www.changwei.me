@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   productionBrowserSourceMaps: true,
+  output: "standalone",
 }
 
 export default withSentryConfig(nextConfig, {

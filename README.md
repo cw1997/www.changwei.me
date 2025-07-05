@@ -3,6 +3,12 @@ This is Chang Wei's website. URL is [https://www.changwei.me/](https://www.chang
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Run with Docker in local
+```bash
+sudo docker build --no-cache -t changwei-homepage:latest .
+sudo docker run --name changwei-homepage -p3000:3000 changwei-homepage:latest
+```
+
 ## Getting Started
 
 First, run the development server:

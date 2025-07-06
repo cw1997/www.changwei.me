@@ -26,8 +26,9 @@ a {
   @include link;
 }
 
-@media (prefers-color-scheme: dark) {
+// comment the following lines to solve the problem with some svg images which are displayed incorrect in dark mode
+/*@media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+}*/

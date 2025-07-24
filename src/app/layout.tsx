@@ -102,6 +102,13 @@ export default function RootLayout({
             .join(""),
         }}
       />
+
+      {/*react scan*/}
+      <script
+        crossOrigin="anonymous"
+        src="//unpkg.com/react-scan/dist/auto.global.js"
+      />
+
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
     <body className={`${font_Noto_Sans_SC.className}`}>

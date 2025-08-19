@@ -17,7 +17,7 @@ export async function GET() {
     const buffer = await res.arrayBuffer();
     const headers = new Headers({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'inline; filename="chang_wei-resume.pdf"',
+      'Content-Disposition': 'inline; filename="changwei-resume.pdf"',
       // 'Cache-Control': 'public, max-age=3600',
     });
 

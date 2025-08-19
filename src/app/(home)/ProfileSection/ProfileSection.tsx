@@ -24,7 +24,7 @@ const profile = [
           "https://www.google.com/maps/place/Da%E2%80%99an+District,+Taipei+City,+106/@25.026306,121.5232035,14z/data=!3m1!4b1!4m6!3m5!1s0x3442aa2c1969f84d:0x6ea0b5cbf2d9955d!8m2!3d25.0249441!4d121.5433783!16zL20vMDJfNDY3?entry=ttu"
         }
       >
-        {"Taiwan (+886), Taipei City (106), Da'an District"}
+        {"Taiwan (+886), Taipei City, Da'an District (臺灣台北市大安區)"}
       </OutsideLink>
     ),
   },
@@ -37,28 +37,28 @@ const profile = [
         }
       >
         {
-          "Chinese mainland (+86), JiangXi Province, Ji'an City (343000), Ji'zhou District"
+          "Chinese mainland (+86), JiangXi Province, Ji'an City, Ji'zhou District (江西省吉安市吉州区)"
         }
       </OutsideLink>
     ),
   },
   {
-    key: "Major",
+    key: "Major & Degree",
     value: (
-      <OutsideLink href={"https://ece.ntust.edu.tw/"}>
-        Electrical and Computer Engineering
+      <OutsideLink href={"https://www.ace.ntnu.edu.tw/"}>
+        Department of Adult and Continuing Education, Ph.D. (社會教育學系博士班)
       </OutsideLink>
     ),
   },
   {
     key: "School",
     value: (
-      <OutsideLink href={"https://www.ntust.edu.tw/"}>
-        NTUST (National Taiwan University of Science and Technology, Taiwan Tech)
+      <OutsideLink href={"https://www.ntnu.edu.tw/"}>
+        National Taiwan Normal University (NTNU, 國立臺灣師範大學)
       </OutsideLink>
     ),
   },
-  {
+  /*{
     key: "Work",
     value: (
       <>
@@ -68,7 +68,7 @@ const profile = [
         (Web Front-End Engineer)
       </>
     ),
-  },
+  },*/
   {
     key: "Timezone",
     value: (

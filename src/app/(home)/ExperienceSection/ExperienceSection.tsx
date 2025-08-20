@@ -1,3 +1,4 @@
+import ntnu_logo from "@/assets/images/logo/ntnu_blue.png"
 import ntust_logo from "@/assets/images/logo/ntust.png"
 import pingcap_logo from "@/assets/images/logo/PingCAP.svg"
 import risingwave_logo from "@/assets/images/logo/risingwave.png"
@@ -26,11 +27,12 @@ const data = [
         organization: "RisingWave Labs",
         organization_url: "https://risingwave.com/",
         time_range: {
-          start: "2024-05",
-          end: "now",
+          start: "2024/05",
+          end: "2025/02",
         },
         location: "Remote",
-        position: "Frontend",
+        department: "Web Frontend",
+        department_url: "",
         note: (
           <>
             <ul>
@@ -66,11 +68,12 @@ const data = [
         organization: "PingCAP",
         organization_url: "https://www.pingcap.com/",
         time_range: {
-          start: "2020-10",
-          end: "2024-05",
+          start: "2020/10",
+          end: "2024/04",
         },
         location: "Chinese mainland (+86), Beijing City, Haidian District",
-        position: "Frontend",
+        department: "Web Frontend",
+        department_url: "",
         note: (
           <>
             <ul>
@@ -125,16 +128,38 @@ const data = [
     category_name: "Education",
     items: [
       {
-        icon: ntust_logo,
-        name: "Master degree",
-        organization: "National Taiwan University of Science and Technology",
-        organization_url: "https://www.ntust.edu.tw/",
+        icon: ntnu_logo,
+        name: "Ph.D.",
+        organization: "National Taiwan Normal University",
+        organization_url: "https://www.ntnu.edu.tw/",
         time_range: {
-          start: "2021-09",
+          start: "2025/09",
           end: "now",
         },
         location: "Taiwan (+886), Taipei City (106), Da'an District",
-        position: "ECE (Electrical and Computer Engineering)",
+        department: "ACE (Adult and Continuing Education)",
+        department_url: "https://ace.ntnu.edu.tw/",
+        note: (
+          <>
+            <ul>
+            </ul>
+          </>
+        ),
+        tags: [
+        ],
+      },
+      {
+        icon: ntust_logo,
+        name: "Master's degree",
+        organization: "National Taiwan University of Science and Technology",
+        organization_url: "https://www.ntust.edu.tw/",
+        time_range: {
+          start: "2021/09",
+          end: "2025/08",
+        },
+        location: "Taiwan (+886), Taipei City (106), Da'an District",
+        department: "ECE (Electrical and Computer Engineering)",
+        department_url: "https://ece.ntust.edu.tw/",
         note: (
           <>
             <ul>
@@ -174,15 +199,16 @@ const data = [
       },
       {
         icon: ntust_logo,
-        name: "Bachelor degree",
+        name: "Bachelor's degree",
         organization: "National Taiwan University of Science and Technology",
         organization_url: "https://www.ntust.edu.tw/",
         time_range: {
-          start: "2018-09",
-          end: "2021-08",
+          start: "2018/09",
+          end: "2021/08",
         },
         location: "Taiwan (+886), Taipei City (106), Da'an District",
-        position: "ECE (Electrical and Computer Engineering)",
+        department: "ECE (Electrical and Computer Engineering)",
+        department_url: "https://ece.ntust.edu.tw/",
         note: (
           <>
             <ul>
@@ -317,12 +343,13 @@ const data = [
         organization: "Wuhan Institute of Shipbuilding Technology",
         organization_url: "https://www.wspc.edu.cn/",
         time_range: {
-          start: "2015-09",
-          end: "2018-07",
+          start: "2015/09",
+          end: "2018/07",
         },
         location:
           "Chinese mainland (+86), Hubei Province, Wuhan City (430000), Hanyang District",
-        position: "Software Engineering",
+        department: "Software Engineering",
+        department_url: "",
         note: (
           <>
             <ul>
@@ -407,7 +434,13 @@ export const ExperienceSection: React.FunctionComponent<
                         wrap
                       >
                         <div>{item.name}</div>
-                        <div>{item.position}</div>
+                        <div>{item.department_url ? (
+                          <OutsideLink href={item.department_url} style={{color: "unset"}}>
+                            {item.department}
+                          </OutsideLink>
+                        ) : (
+                          item.department
+                        )}</div>
                       </Space>
                     </div>
                     <div className={styles.item_info_organization_url}>

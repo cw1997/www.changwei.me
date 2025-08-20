@@ -29,6 +29,11 @@
   @include on-mobile()
     flex-direction: column
     padding: 16px
+  &_icon
+    img
+      @include transition()
+      &:hover
+        transform: scale(1.5)
   &_info
     margin-left: 24px
     color: $color-font-2

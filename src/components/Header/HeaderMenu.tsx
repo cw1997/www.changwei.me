@@ -61,7 +61,7 @@ const data = {
       url: "/resume", // url_resume_pdf,
     },
   ],
-}
+} as const
 
 export interface IPropsHeader {}
 

@@ -7,12 +7,12 @@ const nextConfig: NextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
-    typedRoutes: false,
     useLightningcss: true,
     inlineCss: true,
   },
   productionBrowserSourceMaps: true,
   output: "standalone",
+  typedRoutes: true,
 }
 
 export default withSentryConfig(nextConfig, {

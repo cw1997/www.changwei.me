@@ -204,12 +204,11 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
                 <EnvironmentOutlined /> Address (English) (Accept package and mail[postcard exchange is available]):{" "}
               </div>
               <div className={styles.profile_location_list_item_value}>
-                <OutsideLink href={"https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8"}>
+                <OutsideLink href={"https://maps.app.goo.gl/nXxbx9iaARZxa5hEA"}>
                   {
-                    "No.43, Keelung Rd., Sec.4, Da'an Dist., Taipei City 106335, Taiwan (R.O.C.), "
+                    "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan"
+                    // "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)"
                   }
-                  <br />
-                  National Taiwan University of Science and Technology, Dorm.1
                 </OutsideLink>
               </div>
             </div>
@@ -218,63 +217,13 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
                 <EnvironmentOutlined /> Address (中文) (接受物品包裹和信封[明信片交換可使用該地址]):{" "}
               </div>
               <div className={styles.profile_location_list_item_value}>
-                <OutsideLink href={"https://maps.app.goo.gl/K3w6u1CK9MiyGu9N8"}>
-                  106335 臺北市大安區基隆路 4 段43 號 國立台灣科技大學 第一學生宿舍
+                <OutsideLink href={"https://maps.app.goo.gl/nXxbx9iaARZxa5hEA"}>
+                  106311 臺北市大安區師大路 9 號
                 </OutsideLink>
               </div>
             </div>
           </Space>
         </div>
-        {/*<Space direction="vertical">*/}
-        {/*  {[*/}
-        {/*    {icon: <MailOutlined />, label: 'Email', value: 'changwei1006@gmail.com', },*/}
-        {/*    {icon: <MailOutlined />, label: 'Email', value: 'changwei1006@qq.com', },*/}
-        {/*  ].map((item, index) => (*/}
-        {/*    <ContactItem key={index} {...item} />*/}
-        {/*  ))}*/}
-        {/*</Space>*/}
-        {/*<table className={styles.profile_contact_list}>*/}
-        {/*  <tbody>*/}
-        {/*    <tr className={styles.profile_contact_list_item}>*/}
-        {/*      <td className={styles.profile_contact_list_item_key}><MailOutlined/> Email (Global):</td>*/}
-        {/*      <td className={styles.profile_contact_list_item_value}><OutsideLink href={'mailto:changwei1006@gmail.com'}>changwei1006@gmail.com</OutsideLink></td>*/}
-        {/*    </tr>*/}
-        {/*    <tr className={styles.profile_contact_list_item}>*/}
-        {/*      <td className={styles.profile_contact_list_item_key}><MailOutlined/> Email (中国大陆):</td>*/}
-        {/*      <td className={styles.profile_contact_list_item_value}><OutsideLink href={'mailto:changwei1006@qq.com'}>changwei1006@qq.com</OutsideLink></td>*/}
-        {/*    </tr>*/}
-        {/*  </tbody>*/}
-        {/*</table>*/}
-        {/*<table className={styles.profile_contact_list}>*/}
-        {/*  <tbody>*/}
-        {/*  <tr className={styles.profile_contact_list_item}>*/}
-        {/*    <td className={styles.profile_contact_list_item_key}><EnvironmentOutlined/>Location (Accept package and mail[postcard exchange is available]):</td>*/}
-        {/*    <td className={styles.profile_contact_list_item_value}><OutsideLink href={'mailto:changwei1006@gmail.com'}>No.43, Keelung Rd., Sec.4, Da'an Dist., Taipei City 106335, Taiwan (R.O.C.), National Taiwan University of Science and Technology, Dorm.1</OutsideLink></td>*/}
-        {/*  </tr>*/}
-        {/*  <tr className={styles.profile_contact_list_item}>*/}
-        {/*    <td className={styles.profile_contact_list_item_key}><EnvironmentOutlined/>收件位置 (接受物品包裹和信封[明信片交換可使用該地址]):</td>*/}
-        {/*    <td className={styles.profile_contact_list_item_value}><OutsideLink href={'mailto:changwei1006@gmail.com'}>106335 臺北市大安區基隆路 4 段43 號 國立台灣科技大學 第一學生宿舍</OutsideLink></td>*/}
-        {/*  </tr>*/}
-        {/*  </tbody>*/}
-        {/*</table>*/}
-        {/*<Space direction={'vertical'} className={styles.profile_info_contact}>*/}
-        {/*  <Space className={styles.profile_info_contact_item}>*/}
-        {/*    <div className={styles.profile_info_contact_item_key}>*/}
-        {/*      <MailOutlined/> Email (Global):*/}
-        {/*    </div>*/}
-        {/*    <div className={styles.profile_info_contact_item_value}>*/}
-        {/*      <OutsideLink href={'mailto:changwei1006@gmail.com'}>changwei1006@gmail.com</OutsideLink>*/}
-        {/*    </div>*/}
-        {/*  </Space>*/}
-        {/*  <Space className={styles.profile_info_contact_item}>*/}
-        {/*    <div className={styles.profile_info_contact_item_key}>*/}
-        {/*      <MailOutlined/> Email (中国大陆):*/}
-        {/*    </div>*/}
-        {/*    <div className={styles.profile_info_contact_item_value}>*/}
-        {/*      <OutsideLink href={'mailto:changwei1006@qq.com'}>changwei1006@qq.com</OutsideLink>*/}
-        {/*    </div>*/}
-        {/*  </Space>*/}
-        {/*</Space>*/}
       </div>
 
       <div className={styles.profile_photo}>

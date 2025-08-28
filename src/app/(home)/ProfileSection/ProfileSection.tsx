@@ -24,7 +24,7 @@ const profile = [
           "https://www.google.com/maps/place/Da%E2%80%99an+District,+Taipei+City,+106/@25.026306,121.5232035,14z/data=!3m1!4b1!4m6!3m5!1s0x3442aa2c1969f84d:0x6ea0b5cbf2d9955d!8m2!3d25.0249441!4d121.5433783!16zL20vMDJfNDY3?entry=ttu"
         }
       >
-        {"Taiwan (+886), Taipei City, Da'an District (臺灣台北市大安區)"}
+        {"Taiwan (+886), Taipei City, Da'an District (臺灣臺北市大安區)"}
       </OutsideLink>
     ),
   },
@@ -89,7 +89,7 @@ const profile = [
         </div>
         <div>
           <Tag>zh-Hant-TW</Tag>
-          <span>Chinese (Traditional Han) 繁體中文/正體中文（台灣）</span>
+          <span>Chinese (Traditional Han) 繁體中文/正體中文（臺灣）</span>
         </div>
         <div>
           <Tag>en</Tag>

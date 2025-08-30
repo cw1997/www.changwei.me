@@ -206,8 +206,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
               <div className={styles.profile_location_list_item_value}>
                 <OutsideLink href={"https://maps.app.goo.gl/nXxbx9iaARZxa5hEA"}>
                   {
-                    "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan"
-                    // "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)"
+                    "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)"
                   }
                 </OutsideLink>
               </div>

@@ -45,7 +45,7 @@
     "swr": "^2.3.6"
   },
   "devDependencies": {
-    "@eslint/js": "^9.35.0",
+    "@eslint/js": "^9.36.0",
     "@next/eslint-plugin-next": "^15.5.3",
     "@types/node": "^24",
     "@types/react": "^19",

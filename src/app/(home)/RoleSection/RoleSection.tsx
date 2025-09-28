@@ -5,7 +5,7 @@ import {Col, Row, Space} from "antd"
 import React from "react"
 import Image from "next/image"
 
-import styles from "./CommunityAndOrganizationSection.module.sass"
+import styles from "./RoleSection.module.sass"
 import ntnu_logo_image from "@/assets/images/logo/ntnu_red.png"
 import ntnu_gdsc_logo_image from "@/assets/images/logo/ntnu_gdsc_logo.jpg"
 import ntu_gdsc_logo_image from "@/assets/images/logo/ntu_gdsc_logo_with_padding.png"
@@ -83,14 +83,14 @@ const data: {
   },
 ] as const
 
-export interface IPropsCommunityAndOrganizationSection {}
+export interface IPropsRoleSection {}
 
-export const CommunityAndOrganizationSection: React.FunctionComponent<IPropsCommunityAndOrganizationSection> = (
+export const RoleSection: React.FunctionComponent<IPropsRoleSection> = (
   props,
 ) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Community and organization</h2>
+      <h2 className={styles.title}>Role</h2>
       <Row gutter={[16, 16]} align={"stretch"}>
         {data.map((item) => (
           <Col key={item.name} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>

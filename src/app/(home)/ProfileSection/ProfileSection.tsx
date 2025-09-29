@@ -112,18 +112,35 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
           <div className={styles.profile_info_name_key}>True Name:</div>
           <h1 className={styles.profile_info_name_value}>
             <Space split={"/"} wrap>
-              <Space>
-                <strong>Chang Wei</strong>
-                <Tag>en</Tag>
+              <div>
+                <div className={styles.pronounce}>[tʃɑŋ weɪ]</div>
+                <Space>
+                  <strong>Chang, Wei</strong>
+                  <Tag>en</Tag>
+                </Space>
+              </div>
+              <div>
+                <div className={styles.pronounce}>Chāng Wéi</div>
+                <Space>
+                  <strong>昌维</strong>
+                  <Tag>zh-Hans</Tag>
+                </Space>
+              </div>
+              <div>
+                <div className={styles.pronounce}>ㄔㄤ ㄨㄟˊ</div>
+                <Space>
+                  <strong>昌維</strong>
+                  <Tag>zh-Hant</Tag>
+                </Space>
+              </div>
+              {/*<Space>
+                <strong>Chāng Wéi</strong>
+                <Tag>Pinyin</Tag>
               </Space>
               <Space>
-                <strong>昌维</strong>
-                <Tag>zh-Hans</Tag>
-              </Space>
-              <Space>
-                <strong>昌維</strong>
-                <Tag>zh-Hant</Tag>
-              </Space>
+                <strong>ㄔㄤ ㄨㄟˊ</strong>
+                <Tag>注音</Tag>
+              </Space>*/}
             </Space>
           </h1>
         </Space>

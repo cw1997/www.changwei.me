@@ -284,9 +284,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (
       <Space direction={"vertical"} size={16} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
-            <div className={styles.category_name}>
-              {category.category_name}:{" "}
-            </div>
+            <h3 className={styles.category_name}>{category.category_name}</h3>
             <Space className={styles.category_skills} size={8} wrap>
               {category.skills.map((skill) => (
                 <Tooltip key={skill.name} title={skill.name} placement={"top"}>

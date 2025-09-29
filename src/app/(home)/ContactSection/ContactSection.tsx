@@ -310,9 +310,7 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
       <Space direction={"vertical"} size={16}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
-            <div className={styles.category_name}>
-              {category.category_name}:
-            </div>
+            <h3 className={styles.category_name}>{category.category_name}</h3>
             <Space className={styles.list} size={8} wrap>
               {category.items.map((item, index) => (
                 <Popover

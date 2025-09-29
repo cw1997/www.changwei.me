@@ -405,9 +405,7 @@ export const ExperienceSection: React.FunctionComponent<
       <Space direction={"vertical"} size={32} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
-            <div className={styles.category_name}>
-              {category.category_name}:{" "}
-            </div>
+            <h3 className={styles.category_name}>{category.category_name}</h3>
             <Space
               className={styles.list}
               direction={"vertical"}

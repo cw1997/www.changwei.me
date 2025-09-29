@@ -35,8 +35,8 @@ $color-gray-1: #F2F2F2
 $color-gray-2: #CDCDCD
 $color-gray-3: #CDCDCD
 
-$color-font-0: #333333
-$color-font-1: #1F1F1F
+$color-font-0: #1F1F1F
+$color-font-1: #333333
 $color-font-2: #5E5E5E
 $color-font-3: #8D8D8D
 $color-font-4: #AFAFAF
@@ -188,15 +188,21 @@ $color-split-line: #D9D9D9
   color: $color-font-1
 
 =title_0
-  @include font(48px)
+  font-size: 24px
+  font-weight: 500 !important
+  margin-bottom: 16px
   color: $color-font-0
 
 =title_1
-  @include font(36px)
-  color: $color-font-1
+  font-size: 18px
+  font-weight: 400 !important
+  margin-bottom: 12px
+  color: $color-font-2
 
 =title_2
-  @include font(28px)
+  font-size: 18px
+  font-weight: 300 !important
+  margin-bottom: 8px
   color: $color-font-2
 
 =description

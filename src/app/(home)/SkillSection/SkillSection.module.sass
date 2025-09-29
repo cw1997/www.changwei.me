@@ -3,16 +3,11 @@
 //.container
 
 .title
-  font-size: 24px
-  font-weight: 500
-  margin-bottom: 16px
+  @include title_0
 
 .category
   &_name
-    @include no-warp
-    margin-bottom: 8px
-    font-size: 16px
-    color: $color-font-2
+    @include title_1
   &_skills
     &_item
       @include transition()

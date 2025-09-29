@@ -3,16 +3,11 @@
 //.container
 
 .title
-  font-size: 24px
-  font-weight: 500
-  margin-bottom: 16px
+  @include title_0
 
-.title_2
-  font-size: 18px
-  font-weight: 400
-  margin-bottom: 8px
-  white-space: nowrap
-  color: #5e5e5e
+.category
+  &_name
+    @include title_1
 
 .item
   @include transition()

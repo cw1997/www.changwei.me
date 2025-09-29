@@ -138,7 +138,7 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = (
       <Space direction={"vertical"} size={24}>
         {data.map((category) => (
           <div key={category.name}>
-            <h3 className={styles.title_2}>{category.name}</h3>
+            <h3 className={styles.category_name}>{category.name}</h3>
             <Row gutter={[16, 16]} align={"stretch"}>
               {category.items.map((item) => (
                 <Col key={item.name} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>

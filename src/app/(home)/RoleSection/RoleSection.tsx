@@ -6,6 +6,7 @@ import React from "react"
 import Image from "next/image"
 
 import styles from "./RoleSection.module.sass"
+import Open_House_NTUs_logo_image from "@/assets/images/logo/Open_House_NTUs.png"
 import ntnu_logo_image from "@/assets/images/logo/ntnu_red.png"
 import ntnu_gdsc_logo_image from "@/assets/images/logo/ntnu_gdsc_logo.jpg"
 import ntu_gdsc_logo_image from "@/assets/images/logo/ntu_gdsc_logo_with_padding.png"
@@ -15,6 +16,7 @@ import ntust_student_association_logo_image from "@/assets/images/logo/ntust_stu
 import risingwave_logo_image from "@/assets/images/logo/risingwave.png"
 import pingcap_logo_image from "@/assets/images/logo/PingCAP.svg"
 import ntust_ece_logo_image from "@/assets/images/logo/ntust_ece.png"
+import ntust_logo_image from "@/assets/images/logo/ntust.png"
 import ntust_piano_club_logo_image from "@/assets/images/logo/ntust_piano_club.jpg"
 
 type t_role_item =  {
@@ -51,9 +53,15 @@ const data: {
         url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/",
       },
       {
+        icon: <Image src={Open_House_NTUs_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
+        name: "打開台大｜Open House NTUs ",
+        role: "Volunteer (Activities Section)",
+        url: "https://www.facebook.com/openhousentus/?locale=zh_TW",
+      },
+      {
         icon: <Image src={ntnu_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
-        name: "National Taiwan Normal University",
-        role: "Ph.D. student (Department of Adult and Continuing Education)",
+        name: "National Taiwan Normal University (Department of Adult and Continuing Education)",
+        role: "Ph.D. student",
         url: "https://www.ace.ntnu.edu.tw/",
       },
       {
@@ -110,7 +118,7 @@ const data: {
         url: "https://ece.ntust.edu.tw/",
       },
       {
-        icon: <Image src={ntust_ece_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
+        icon: <Image src={ntust_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
         name: "Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
         role: "Bachelor's degree student",
         url: "https://ece.ntust.edu.tw/",

@@ -104,10 +104,10 @@ export default function RootLayout({
       />
 
       {/*react scan*/}
-      <script
-        crossOrigin="anonymous"
-        src="//unpkg.com/react-scan/dist/auto.global.js"
-      />
+      {/*<script*/}
+      {/*  crossOrigin="anonymous"*/}
+      {/*  src="//unpkg.com/react-scan/dist/auto.global.js"*/}
+      {/*/>*/}
 
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}

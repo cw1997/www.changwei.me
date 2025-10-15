@@ -25,6 +25,9 @@ import tdesign_logo from "@/assets/images/logo/frontend/tdesign_logo.svg"
 import expo_logo from "@/assets/images/logo/frontend/expo.png"
 
 import nodejs_logo from "@/assets/images/logo/backend/Node.js_logo.svg"
+import fastify_logo from "@/assets/images/logo/backend/fastify_black.png"
+import expressjs_logo from "@/assets/images/logo/backend/expressjs.png"
+import koajs_logo from "@/assets/images/logo/backend/koajs.jpg"
 import nestjs_logo from "@/assets/images/logo/backend/nestjs.svg"
 import php_logo from "@/assets/images/logo/backend/PHP-logo.svg"
 import laravel_logo from "@/assets/images/logo/backend/laravel.png"
@@ -155,6 +158,9 @@ const data = [
     category_name: "Backend",
     skills: [
       {name: "Node.js", icon: nodejs_logo},
+      {name: "Fastify", icon: fastify_logo},
+      {name: "Express.js", icon: expressjs_logo},
+      {name: "Koa.js", icon: koajs_logo},
       {name: "Nest.js", icon: nestjs_logo},
       {name: "PHP", icon: php_logo},
       {name: "Laravel", icon: laravel_logo},

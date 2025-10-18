@@ -92,7 +92,8 @@ const data: {
         icon: <Image src={ntu_gdsc_logo_image.src} alt={""} width={logo_size} height={logo_size} />,
         name: "谷歌學生開發者社群｜Google Developer Groups on Campus (National Taiwan University)",
         role: "Lecture Speaker (Efficiency Engineering & Devtools & DevOps)",
-        url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-taipei-taiwan/",
+        url: "https://www.instagram.com/gdg.ntu/",
+        // url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-taipei-taiwan/",
       },
       {
         icon: <Image src={ntust_gdsc_logo_image.src} alt={""} width={logo_size} height={logo_size} />,

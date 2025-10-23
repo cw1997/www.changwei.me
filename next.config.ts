@@ -3,7 +3,6 @@ import {withSentryConfig} from "@sentry/nextjs"
 
 const nextConfig: NextConfig = {
   experimental: {
-    reactCompiler: true,
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
@@ -13,6 +12,7 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
   output: "standalone",
   typedRoutes: true,
+  reactCompiler: true,
 }
 
 export default withSentryConfig(nextConfig, {

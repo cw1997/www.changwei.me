@@ -2,13 +2,6 @@ import type {NextConfig} from "next";
 import {withSentryConfig} from "@sentry/nextjs"
 
 const nextConfig: NextConfig = {
-  experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
-    useLightningcss: true,
-    inlineCss: true,
-  },
   productionBrowserSourceMaps: true,
   output: "standalone",
   typedRoutes: true,

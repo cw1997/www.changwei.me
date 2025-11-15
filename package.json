@@ -31,35 +31,35 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.0",
     "@giscus/react": "^3.1.0",
-    "@sentry/nextjs": "^10.23.0",
+    "@sentry/nextjs": "^10.25.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "antd": "^5.28.0",
+    "antd": "^5.28.1",
     "dayjs": "^1.11.19",
-    "next": "^16.0.1",
+    "next": "^16.0.3",
     "react": "^19",
     "react-dom": "^19",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@next/eslint-plugin-next": "^16.0.1",
+    "@next/eslint-plugin-next": "^16.0.3",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "eslint": "^9",
-    "eslint-config-next": "^16.0.1",
+    "eslint-config-next": "^16.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-turbo": "^2.6.0",
+    "eslint-plugin-turbo": "^2.6.1",
     "globals": "^16.5.0",
     "prettier": "^3.6.2",
-    "sass": "^1.93.3",
+    "sass": "^1.94.0",
     "typescript": "^5",
-    "typescript-eslint": "^8.46.3"
+    "typescript-eslint": "^8.46.4"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.22.0"
 }

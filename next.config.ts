@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   output: "standalone",
   typedRoutes: true,
   reactCompiler: true,
+  experimental: {
+    typedEnv: true,
+    serverSourceMaps: true,
+    inlineCss: true,
+    useLightningcss: true,
+  }
 }
 
 export default withSentryConfig(nextConfig, {

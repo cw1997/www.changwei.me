@@ -135,7 +135,7 @@ export const HeaderMenuMobile: React.FunctionComponent<IPropsHeader> = (
               ),
             })),
           }}
-          overlayStyle={{zIndex: 99999}}
+          styles={{root: {zIndex: 99999}}}
           trigger={["click"]}
         >
           <Button icon={<MenuOutlined />} size={"large"} />

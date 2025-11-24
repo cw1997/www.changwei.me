@@ -24,7 +24,6 @@
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
     "@ant-design/nextjs-registry": "^1.2.0",
-    "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
@@ -34,7 +33,7 @@
     "@sentry/nextjs": "^10.26.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "antd": "^5.29.1",
+    "antd": "^6.0.0",
     "dayjs": "^1.11.19",
     "next": "^16.0.3",
     "react": "^19",
@@ -61,5 +60,5 @@
     "typescript": "^5",
     "typescript-eslint": "^8.47.0"
   },
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.23.0"
 }

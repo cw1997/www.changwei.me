@@ -188,7 +188,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
         <div className={styles.profile_contact}>
           <Space
             className={styles.profile_contact_list}
-            split={<Divider type={"vertical"} />}
+            split={<Divider orientation={"vertical"} />}
           >
             <div className={styles.profile_contact_list_item}>
               <span className={styles.profile_contact_list_item_key}>

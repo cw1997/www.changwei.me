@@ -95,7 +95,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
           <Space
             align={"center"}
             className={styles.powered_by_list}
-            split={<Divider orientation={"vertical"} />}
+            separator={<Divider orientation={"vertical"} />}
             wrap
           >
             <div className={styles.powered_by_item}>

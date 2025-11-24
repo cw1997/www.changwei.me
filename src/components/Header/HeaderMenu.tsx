@@ -82,7 +82,7 @@ export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (
     <Space
       align={"center"}
       className={styles.menu_desktop}
-      split={<Divider orientation={"vertical"} />}
+      separator={<Divider orientation={"vertical"} />}
     >
       {data.items.map((item) => {
         const is_current = pathname?.startsWith(item.url)

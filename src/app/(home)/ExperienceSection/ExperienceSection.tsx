@@ -427,7 +427,7 @@ export const ExperienceSection: React.FunctionComponent<
                     </div>
                     <div className={styles.item_info_name}>
                       <Space
-                        split={<Divider orientation={"vertical"} />}
+                        separator={<Divider orientation={"vertical"} />}
                         size={[0, 4]}
                         wrap
                       >
@@ -447,7 +447,7 @@ export const ExperienceSection: React.FunctionComponent<
                     </div>
                     <div className={styles.item_info_meta}>
                       <Space
-                        split={<Divider orientation={"vertical"} />}
+                        separator={<Divider orientation={"vertical"} />}
                         size={[0, 4]}
                         wrap
                       >

@@ -111,7 +111,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
         <Space className={styles.profile_info_name} wrap>
           <div className={styles.profile_info_name_key}>True Name:</div>
           <h1 className={styles.profile_info_name_value}>
-            <Space split={"/"} wrap>
+            <Space separator={"/"} wrap>
               <div>
                 <div className={styles.pronounce}>[tʃɑŋ weɪ]</div>
                 <Space>
@@ -188,7 +188,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
         <div className={styles.profile_contact}>
           <Space
             className={styles.profile_contact_list}
-            split={<Divider orientation={"vertical"} />}
+            separator={<Divider orientation={"vertical"} />}
           >
             <div className={styles.profile_contact_list_item}>
               <span className={styles.profile_contact_list_item_key}>

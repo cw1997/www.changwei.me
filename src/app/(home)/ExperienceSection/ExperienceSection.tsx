@@ -142,6 +142,7 @@ const data = [
         note: (
           <>
             <ul>
+              <li>Research Assistant, focusing on topics related to the integration of Education and AI. (Technology stack: Dify + Next.js).</li>
             </ul>
           </>
         ),

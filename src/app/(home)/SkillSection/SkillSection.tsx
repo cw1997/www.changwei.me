@@ -301,6 +301,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (
                       alt={skill.name}
                       width={32}
                       height={32}
+                      style={{objectFit: "contain"}}
                     />
                   </div>
                 </Tooltip>

@@ -421,6 +421,7 @@ export const ExperienceSection: React.FunctionComponent<
                       alt={item.name}
                       width={64}
                       height={64}
+                      style={{objectFit: "contain"}}
                     />
                   </div>
                   <div className={styles.item_info}>

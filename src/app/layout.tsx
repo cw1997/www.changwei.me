@@ -5,7 +5,8 @@ import {AntdRegistry} from "@ant-design/nextjs-registry"
 import {Analytics} from "@vercel/analytics/next"
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next"
-import {Noto_Sans_SC} from "next/font/google"
+// Commented out Google Fonts import due to network restrictions in build environment
+// import {Noto_Sans_SC} from "next/font/google"
 import React from "react"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
@@ -58,8 +59,6 @@ export const metadata: Metadata = {
   },
 }
 
-const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin-ext"]})
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -110,7 +109,7 @@ export default function RootLayout({
 
     </head>
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
-    <body className={`${font_Noto_Sans_SC.className}`}>
+    <body>
       <AntdRegistry>
         <div id={"header"}>
           <Header/>

@@ -1,8 +1,0 @@
-{
-  "version": "12.0.2",
-  "bsc_path": "/home/runner/work/www.changwei.me/www.changwei.me/node_modules/.pnpm/@rescript+linux-x64@12.0.2/node_modules/@rescript/linux-x64/bin/bsc.exe",
-  "bsc_hash": "f72d07fde92748be12785e1cdc5b82272821977e8f05ea78eeacf1f53837011d",
-  "rescript_config_hash": "29b64cdf05b4b61e4b1ce2774199d4e1c6e653f86b9a60f827e2d4f77de746ed",
-  "runtime_path": "/home/runner/work/www.changwei.me/www.changwei.me/node_modules/.pnpm/@rescript+runtime@12.0.2/node_modules/@rescript/runtime",
-  "generated_at": "1767075497919"
-}

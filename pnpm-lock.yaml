@@ -66,6 +66,12 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^16.1.1
         version: 16.1.1
+      '@rescript/core':
+        specifier: ^1.6.1
+        version: 1.6.1(rescript@12.0.2)
+      '@rescript/react':
+        specifier: ^0.14.0
+        version: 0.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@types/node':
         specifier: ^25.0.3
         version: 25.0.3
@@ -105,6 +111,9 @@ importers:
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
+      rescript:
+        specifier: ^12.0.2
+        version: 12.0.2
       sass:
         specifier: ^1.97.1
         version: 1.97.1
@@ -1136,6 +1145,50 @@ packages:
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
+
+  '@rescript/core@1.6.1':
+    resolution: {integrity: sha512-vyb5k90ck+65Fgui+5vCja/mUfzKaK3kOPT4Z6aAJdHLH1eljEi1zKhXroCiCtpNLSWp8k4ulh1bdB5WS0hvqA==}
+    peerDependencies:
+      rescript: '>=11.1.0'
+
+  '@rescript/darwin-arm64@12.0.2':
+    resolution: {integrity: sha512-GcfiPE0L2N7smWXMBEW4pvlcqblSbKh2tisZTuOaLPr9+WmaXnBLap6OUT+XoEWzTY0RA4QURfpNJLAgqZPrzw==}
+    engines: {node: '>=20.11.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@rescript/darwin-x64@12.0.2':
+    resolution: {integrity: sha512-di4eucoDdLsLqz86h7Cwywsmt+xFup7rpVlkx8L7i22RTqyTw+CD6aGjFj1Ddj2sVUd5SSFiE9Hj86QggzUgbg==}
+    engines: {node: '>=20.11.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@rescript/linux-arm64@12.0.2':
+    resolution: {integrity: sha512-x6WOyimX0kw9DGADQ02R2rmvKu8SQOrskfYrKREfc2CgDT+FOKAH+qxvpUiljKhrvthoHkVBJOXtlKk854OdjQ==}
+    engines: {node: '>=20.11.0'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@rescript/linux-x64@12.0.2':
+    resolution: {integrity: sha512-5QHE+Ca1h3qXxDkw343923WTEdEyBeXphrv+8SZLhLOFNabQ5t6m4rWf52RluDqQpa67j6GB8kVAZpqc2rA2Qw==}
+    engines: {node: '>=20.11.0'}
+    cpu: [x64]
+    os: [linux]
+
+  '@rescript/react@0.14.0':
+    resolution: {integrity: sha512-ncOHWK7ujQmff+QMYKRmtwETvJVolzkwRpDa0MFenEXdUz9ZYywNbq+xH9F9RDQeSwC3/4s9JeUQVyTu4fMpHw==}
+    peerDependencies:
+      react: '>=19.0.0'
+      react-dom: '>=19.0.0'
+
+  '@rescript/runtime@12.0.2':
+    resolution: {integrity: sha512-Jma1QEgns/WlWeVap/Mv6dVbFEKmftPOrmwQbzLQnnrQ9z6PJjorHIvDMQUigQKnvM/4RhRJ3LiG+CsNtgS9ww==}
+
+  '@rescript/win32-x64@12.0.2':
+    resolution: {integrity: sha512-QcNQiok3H2Xd+cReB1kpH4hlPXnT7DA6ETsJfZugTUOKOdAYLTJ+Imynv+ojuafkUrwa2v0tZAiqHaQsDjf9IQ==}
+    engines: {node: '>=20.11.0'}
+    cpu: [x64]
+    os: [win32]
 
   '@rollup/plugin-commonjs@28.0.1':
     resolution: {integrity: sha512-+tNWdlWKbpB3WgBN7ijjYkq9X5uhjmcvyjEght4NmH5fAU++zfQzAJ6wumLS+dNcvwEZhKx2Z+skY8m7v0wGSA==}
@@ -2923,6 +2976,11 @@ packages:
     resolution: {integrity: sha512-QT7FVMXfWOYFbeRBF6nu+I6tr2Tf3u0q8RIEjNob/heKY/nh7drD/k7eeMFmSQgnTtCzLDcCu/XEnpW2wk4xCQ==}
     engines: {node: '>=9.3.0 || >=8.10.0 <9.0.0'}
 
+  rescript@12.0.2:
+    resolution: {integrity: sha512-H1K9ovIxg2BVwJcXN1cZv0Q1pJEyFgNcUDKHSkmKmv5eBZMpXBASTZ2+grDt0zFFNoeFA1B9abAjSf+oTTi7hg==}
+    engines: {node: '>=20.11.0'}
+    hasBin: true
+
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -4476,6 +4534,32 @@ snapshots:
       clsx: 2.1.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
+
+  '@rescript/core@1.6.1(rescript@12.0.2)':
+    dependencies:
+      rescript: 12.0.2
+
+  '@rescript/darwin-arm64@12.0.2':
+    optional: true
+
+  '@rescript/darwin-x64@12.0.2':
+    optional: true
+
+  '@rescript/linux-arm64@12.0.2':
+    optional: true
+
+  '@rescript/linux-x64@12.0.2':
+    optional: true
+
+  '@rescript/react@0.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
+  '@rescript/runtime@12.0.2': {}
+
+  '@rescript/win32-x64@12.0.2':
+    optional: true
 
   '@rollup/plugin-commonjs@28.0.1(rollup@4.53.3)':
     dependencies:
@@ -6487,6 +6571,16 @@ snapshots:
       module-details-from-path: 1.0.4
     transitivePeerDependencies:
       - supports-color
+
+  rescript@12.0.2:
+    dependencies:
+      '@rescript/runtime': 12.0.2
+    optionalDependencies:
+      '@rescript/darwin-arm64': 12.0.2
+      '@rescript/darwin-x64': 12.0.2
+      '@rescript/linux-arm64': 12.0.2
+      '@rescript/linux-x64': 12.0.2
+      '@rescript/win32-x64': 12.0.2
 
   resolve-from@4.0.0: {}
 

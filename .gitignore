@@ -35,6 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# rescript
+/lib/bs
+/lib/ocaml
+lib/rescript.lock
+
 # editor
 /.idea
 

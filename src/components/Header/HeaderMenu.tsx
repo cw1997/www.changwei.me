@@ -120,16 +120,18 @@ export const HeaderMenuMobile: React.FunctionComponent<IPropsHeader> = (
         },
       }}
     >
-      <div
-        className={styles.menu_mobile}
-      >
+      <div className={styles.menu_mobile}>
         <Dropdown
           // getPopupContainer={(element) => document.getElementById('header')}
           menu={{
             items: data.items.map((item) => ({
               key: item.url,
               label: (
-                <Link key={item.url} href={item.url} className={styles.menu_item}>
+                <Link
+                  key={item.url}
+                  href={item.url}
+                  className={styles.menu_item}
+                >
                   {item.label}
                 </Link>
               ),

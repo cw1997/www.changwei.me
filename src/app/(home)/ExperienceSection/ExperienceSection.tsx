@@ -142,12 +142,15 @@ const data = [
         note: (
           <>
             <ul>
-              <li>Research Assistant, focusing on topics related to the integration of Education and AI. (Technology stack: Dify + Next.js).</li>
+              <li>
+                Research Assistant, focusing on topics related to the
+                integration of Education and AI. (Technology stack: Dify +
+                Next.js).
+              </li>
             </ul>
           </>
         ),
-        tags: [
-        ],
+        tags: [],
       },
       {
         icon: ntust_logo,
@@ -407,11 +410,7 @@ export const ExperienceSection: React.FunctionComponent<
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <h3 className={styles.category_name}>{category.category_name}</h3>
-            <Space
-              className={styles.list}
-              direction={"vertical"}
-              size={32}
-            >
+            <Space className={styles.list} direction={"vertical"} size={32}>
               {category.items.map((item) => (
                 <div key={item.name} className={styles.item}>
                   <div className={styles.item_icon}>
@@ -433,13 +432,18 @@ export const ExperienceSection: React.FunctionComponent<
                         wrap
                       >
                         <div>{item.name}</div>
-                        <div>{item.department_url ? (
-                          <OutsideLink href={item.department_url} style={{color: "unset"}}>
-                            {item.department}
-                          </OutsideLink>
-                        ) : (
-                          item.department
-                        )}</div>
+                        <div>
+                          {item.department_url ? (
+                            <OutsideLink
+                              href={item.department_url}
+                              style={{color: "unset"}}
+                            >
+                              {item.department}
+                            </OutsideLink>
+                          ) : (
+                            item.department
+                          )}
+                        </div>
                       </Space>
                     </div>
                     <div className={styles.item_info_organization_url}>

@@ -1,0 +1,25 @@
+{
+  "name": "www.changwei.me",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "suffix": ".res.js",
+  "jsx": {
+    "version": 4,
+    "mode": "automatic"
+  },
+  "dependencies": [
+    "@rescript/react",
+    "@rescript/core"
+  ],
+  "compiler-flags": ["-open RescriptCore"]
+}

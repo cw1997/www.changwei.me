@@ -89,3 +89,8 @@ module GlobalOutlined = {
   @react.component @module("@ant-design/icons")
   external make: (~className: string=?) => React.element = "GlobalOutlined"
 }
+
+module CodeOutlined = {
+  @react.component @module("@ant-design/icons")
+  external make: (~className: string=?) => React.element = "CodeOutlined"
+}

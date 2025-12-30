@@ -140,3 +140,29 @@ module List = {
     external make: (~children: React.element=?, ~className: string=?) => React.element = "Item"
   }
 }
+
+// Row component
+module Row = {
+  @react.component @module("antd")
+  external make: (
+    ~gutter: array<int>=?,
+    ~align: string=?,
+    ~className: string=?,
+    ~children: React.element=?,
+  ) => React.element = "Row"
+}
+
+// Col component
+module Col = {
+  @react.component @module("antd")
+  external make: (
+    ~xs: int=?,
+    ~sm: int=?,
+    ~md: int=?,
+    ~lg: int=?,
+    ~xl: int=?,
+    ~xxl: int=?,
+    ~className: string=?,
+    ~children: React.element=?,
+  ) => React.element = "Col"
+}

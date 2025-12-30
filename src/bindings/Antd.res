@@ -42,19 +42,10 @@ module Button = {
 
 // Dropdown component
 module Dropdown = {
-  type menuItem = {
-    key: string,
-    label: React.element,
-  }
-
-  type menu = {items: array<menuItem>}
-
-  type styles = {root: ReactDOM.Style.t}
-
   @react.component @module("antd")
   external make: (
-    ~menu: menu=?,
-    ~styles: styles=?,
+    ~menu: {..}=?,
+    ~styles: {..}=?,
     ~trigger: array<string>=?,
     ~className: string=?,
     ~children: React.element=?,
@@ -63,17 +54,8 @@ module Dropdown = {
 
 // ConfigProvider component
 module ConfigProvider = {
-  type componentConfig = {
-    \"Dropdown": {
-      "paddingBlock": int,
-      "fontSize": int,
-    },
-  }
-
-  type theme = {components: componentConfig}
-
   @react.component @module("antd")
-  external make: (~theme: theme=?, ~children: React.element=?) => React.element =
+  external make: (~theme: {..}=?, ~children: React.element=?) => React.element =
     "ConfigProvider"
 }
 

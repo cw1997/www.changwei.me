@@ -9,10 +9,11 @@ import {Noto_Sans_SC} from "next/font/google"
 import React from "react"
 import styles from "./layout.module.sass"
 import "@/app/globals.scss"
-import Script from "next/script";
+import Script from "next/script"
 
 const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"
-const description = "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。"
+const description =
+  "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more. 昌维的个人网站，包括个人资料，联系方式，教育经历和工作经历，作品集等。"
 const url = "https://www.changwei.me"
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     "Curriculum Vitae",
     "Resume",
   ],
-  
+
   openGraph: {
     siteName: title,
     title,
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     url,
     images: "/opengraph-image.png",
   },
-  
+
   twitter: {
     card: "summary_large_image",
     title,
@@ -67,63 +68,62 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
-      {/*open graph*/}
-      <meta property="og:image" content="<generated>"/>
-      <meta property="og:image:type" content="<generated>"/>
-      <meta property="og:image:width" content="<generated>"/>
-      <meta property="og:image:height" content="<generated>"/>
-      
-      {/*twitter*/}
-      <meta name="twitter:image" content="<generated>"/>
-      <meta name="twitter:image:type" content="<generated>"/>
-      <meta name="twitter:image:width" content="<generated>"/>
-      <meta name="twitter:image:height" content="<generated>"/>
-      
-      {/*<!-- Google tag (gtag.js) -->*/}
-      <Script
-        id={"googletagmanager"}
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
-      />
-      <Script
-        id={"gtag"}
-        dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        {/*open graph*/}
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
+
+        {/*twitter*/}
+        <meta name="twitter:image" content="<generated>" />
+        <meta name="twitter:image:type" content="<generated>" />
+        <meta name="twitter:image:width" content="<generated>" />
+        <meta name="twitter:image:height" content="<generated>" />
+
+        {/*<!-- Google tag (gtag.js) -->*/}
+        <Script
+          id={"googletagmanager"}
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
+        />
+        <Script
+          id={"gtag"}
+          dangerouslySetInnerHTML={{
+            __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
           gtag('config', 'G-GPVC7Z21XH');
         `
-            .split("\n")
-            .map((t) => t.trim())
-            .join(""),
-        }}
-      />
+              .split("\n")
+              .map((t) => t.trim())
+              .join(""),
+          }}
+        />
 
-      {/*react scan*/}
-      {/*<script*/}
-      {/*  crossOrigin="anonymous"*/}
-      {/*  src="//unpkg.com/react-scan/dist/auto.global.js"*/}
-      {/*/>*/}
-
-    </head>
-    {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
-    <body className={`${font_Noto_Sans_SC.className}`}>
-      <AntdRegistry>
-        <div id={"header"}>
-          <Header/>
-        </div>
-        <div className={styles.container} id={"container"}>
-          {children}
-          <Footer/>
-        </div>
-      </AntdRegistry>
-      <SpeedInsights/>
-      <Analytics/>
-    </body>
-    {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
+        {/*react scan*/}
+        {/*<script*/}
+        {/*  crossOrigin="anonymous"*/}
+        {/*  src="//unpkg.com/react-scan/dist/auto.global.js"*/}
+        {/*/>*/}
+      </head>
+      {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
+      <body className={`${font_Noto_Sans_SC.className}`}>
+        <AntdRegistry>
+          <div id={"header"}>
+            <Header />
+          </div>
+          <div className={styles.container} id={"container"}>
+            {children}
+            <Footer />
+          </div>
+        </AntdRegistry>
+        <SpeedInsights />
+        <Analytics />
+      </body>
+      {/*<GoogleAnalytics gaId={'G-GPVC7Z21XH'} />*/}
     </html>
   )
 }

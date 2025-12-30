@@ -417,7 +417,6 @@ export const ExperienceSection: React.FunctionComponent<
                 <div key={item.name} className={styles.item}>
                   <div className={styles.item_icon}>
                     <Image
-                      style={{width: 64, height: "auto"}}
                       src={item.icon}
                       alt={item.name}
                       width={64}

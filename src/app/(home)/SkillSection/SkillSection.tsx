@@ -297,7 +297,6 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (
                 <Tooltip key={skill.name} title={skill.name} placement={"top"}>
                   <div className={styles.category_skills_item}>
                     <Image
-                      style={{height: 32, width: "auto"}}
                       src={skill.icon}
                       alt={skill.name}
                       width={32}

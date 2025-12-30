@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons"
 import {Divider, Space, Tag} from "antd"
 import React from "react"
+import Image from "next/image"
 
 import styles from "./ExperienceSection.module.sass"
 
@@ -415,10 +416,12 @@ export const ExperienceSection: React.FunctionComponent<
               {category.items.map((item) => (
                 <div key={item.name} className={styles.item}>
                   <div className={styles.item_icon}>
-                    <img
+                    <Image
                       style={{width: 64, height: "auto"}}
-                      src={item.icon.src}
+                      src={item.icon}
                       alt={item.name}
+                      width={64}
+                      height={64}
                     />
                   </div>
                   <div className={styles.item_info}>

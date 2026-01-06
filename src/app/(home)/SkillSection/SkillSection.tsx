@@ -1,5 +1,6 @@
 import React from "react"
 import {Space, Tooltip} from "antd"
+import Image from "next/image"
 
 import html5_logo from "@/assets/images/logo/frontend/html5-badge-h-solo.png"
 import css3_logo from "@/assets/images/logo/frontend/CSS3_logo.svg"
@@ -295,10 +296,12 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (
               {category.skills.map((skill) => (
                 <Tooltip key={skill.name} title={skill.name} placement={"top"}>
                   <div className={styles.category_skills_item}>
-                    <img
-                      style={{height: 32, width: "auto"}}
-                      src={skill.icon.src}
+                    <Image
+                      src={skill.icon}
                       alt={skill.name}
+                      width={32}
+                      height={32}
+                      style={{objectFit: "contain"}}
                     />
                   </div>
                 </Tooltip>

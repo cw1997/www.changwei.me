@@ -42,5 +42,10 @@ export const nextJsConfig = [
       "@next/next/no-img-element": "off",
     },
   },
-  reactHooks.configs.recommended,
+  {
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: reactHooks.configs.recommended.rules,
+  },
 ];

@@ -3,14 +3,26 @@ import {withSentryConfig} from "@sentry/nextjs"
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
+
   output: "standalone",
+
   typedRoutes: true,
+
   reactCompiler: true,
+
   experimental: {
     typedEnv: true,
+
     serverSourceMaps: true,
+
     inlineCss: true,
+
     useLightningcss: true,
+
+    // Enable filesystem caching for `next dev`
+    turbopackFileSystemCacheForDev: true,
+    // Enable filesystem caching for `next build`
+    turbopackFileSystemCacheForBuild: true,
   }
 }
 

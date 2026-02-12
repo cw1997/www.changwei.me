@@ -2,7 +2,7 @@ import type {StaticImageData} from "next/image"
 
 export const data: {
   items: {
-    icon?: StaticImageData|string
+    icon?: StaticImageData | string
     name: string
     url: string
   }[]

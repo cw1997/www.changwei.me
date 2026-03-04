@@ -1,5 +1,6 @@
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
+import {ThemeProvider} from "@/components/ThemeProvider"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
 // import {GoogleTagManager} from '@next/third-parties/google'
 import {Analytics} from "@vercel/analytics/next"
@@ -112,6 +113,7 @@ export default function RootLayout({
     {/*<GoogleTagManager gtmId="G-GPVC7Z21XH" />*/}
     <body className={`${font_Noto_Sans_SC.className}`}>
       <AntdRegistry>
+        <ThemeProvider>
         <div id={"header"}>
           <Header/>
         </div>
@@ -119,6 +121,7 @@ export default function RootLayout({
           {children}
           <Footer/>
         </div>
+        </ThemeProvider>
       </AntdRegistry>
       <SpeedInsights/>
       <Analytics/>

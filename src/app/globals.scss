@@ -12,23 +12,27 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --color-bg-body: #fafafa;
+  --color-bg-header: rgba(255, 255, 255, 0.75);
+  --color-bg-footer: #efefef;
+  --color-bg-card: #ffffff;
+  --color-border-card: #f0f0f0;
+}
+
+[data-theme="dark"] {
+  --color-bg-body: #141414;
+  --color-bg-header: rgba(31, 31, 31, 0.75);
+  --color-bg-footer: #1f1f1f;
+  --color-bg-card: #1f1f1f;
+  --color-border-card: #303030;
+}
+
 body {
-  /*color: rgb(var(--foreground-rgb));*/
-  /*background: linear-gradient(*/
-  /*    to bottom,*/
-  /*    transparent,*/
-  /*    rgb(var(--background-end-rgb))*/
-  /*  )*/
-  /*  rgb(var(--background-start-rgb));*/
+  background-color: var(--color-bg-body);
 }
 
 a {
   @include link;
 }
 
-// comment the following lines to solve the problem with some svg images which are displayed incorrect in dark mode
-/*@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}*/

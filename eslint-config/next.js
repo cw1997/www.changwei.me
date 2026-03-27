@@ -5,7 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import { config as baseConfig } from "./base.js";
-import * as reactHooks from 'eslint-plugin-react-hooks';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -42,5 +42,5 @@ export const nextJsConfig = [
       "@next/next/no-img-element": "off",
     },
   },
-  reactHooks.configs.recommended,
+  reactHooks.configs.flat.recommended,
 ];

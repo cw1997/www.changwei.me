@@ -1,5 +1,6 @@
 import logo_image from "@/assets/images/changwei-logo.svg"
 import {HeaderMenu} from "@/components/Header/HeaderMenu"
+import {HeaderDarkModeToggle} from "@/components/Header/HeaderDarkModeToggle"
 import {Space} from "antd"
 import Image from "next/image"
 import Link from "next/link"
@@ -33,7 +34,10 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
           </Space>
         </div>
         <div>
-          <HeaderMenu />
+          <Space align={"center"}>
+            <HeaderDarkModeToggle />
+            <HeaderMenu />
+          </Space>
         </div>
       </div>
     </header>

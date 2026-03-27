@@ -3,7 +3,7 @@
 
 .container
   width: 100%
-  background-color: #EFEFEF
+  background-color: var(--color-bg-footer)
 
 .content
   @include page
@@ -43,5 +43,9 @@
     border: 1px solid $color-gray-3
 
 @media (prefers-color-scheme: dark)
+  .logo_img
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)
+
+:global([data-theme="dark"])
   .logo_img
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)

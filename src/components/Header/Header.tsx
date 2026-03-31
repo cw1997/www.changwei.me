@@ -20,10 +20,11 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
             <Link href="/">
               <div className={styles.logo}>
                 <Image
-                  src={logo_image.src}
-                  width={48}
-                  height={48}
-                  style={{height: "auto"}}
+                  src={logo_image}
+                  width={logo_image.width}
+                  height={logo_image.height}
+                  style={{height: 48, width: "auto"}}
+                  className={styles.logo_img}
                   alt={""}
                 />
               </div>

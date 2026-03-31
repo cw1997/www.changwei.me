@@ -12,7 +12,7 @@ import styles from "./Footer.module.sass"
 
 export interface IPropsFooter {}
 
-export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
+export const Footer: React.FunctionComponent<IPropsFooter> = () => {
   const year = new Date().getFullYear()
 
   return (
@@ -44,30 +44,44 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   <img
                     alt="GitHub Repo stars"
                     src="https://img.shields.io/github/stars/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub Repo watchers"
                     src="https://img.shields.io/github/watchers/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub Repo forks"
                     src="https://img.shields.io/github/forks/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub branch status"
                     src="https://img.shields.io/github/checks-status/cw1997/www.changwei.me/main"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub last commit"
                     src="https://img.shields.io/github/last-commit/cw1997/www.changwei.me?style=flat"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub Created At"
                     src="https://img.shields.io/github/created-at/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub repo size"
                     src="https://img.shields.io/github/repo-size/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </Space>
               </div>
@@ -76,14 +90,20 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   <img
                     alt="GitHub followers"
                     src="https://img.shields.io/github/followers/cw1997"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="GitHub User's stars"
                     src="https://img.shields.io/github/stars/cw1997"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     alt="X (formerly Twitter) Follow"
                     src="https://img.shields.io/twitter/follow/changwei1006"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </Space>
               </div>
@@ -107,7 +127,6 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   className={styles.logo_img}
                   // width={100}
                   height={16}
-                  priority
                 />
               </OutsideLink>
             </div>
@@ -120,7 +139,6 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   className={styles.logo_img}
                   // width={100}
                   height={16}
-                  priority
                 />
               </OutsideLink>
             </div>
@@ -136,7 +154,6 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   className={styles.logo_img}
                   // width={100}
                   height={32}
-                  priority
                 />
               </OutsideLink>
             </div>

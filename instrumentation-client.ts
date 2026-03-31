@@ -22,7 +22,6 @@ Sentry.init({
 
     // Add browser profiling integration to the list of integrations
     Sentry.browserTracingIntegration(),
-    Sentry.browserProfilingIntegration(),
   ],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
@@ -33,23 +32,6 @@ Sentry.init({
   tracesSampleRate: 1.0,
   // Set `tracePropagationTargets` to control for which URLs trace propagation should be enabled
   // tracePropagationTargets: ["localhost", /^https:\/\/(www\.)?changwei\.me/i],
-  // Set profilesSampleRate to 1.0 to profile every transaction.
-  // Since profilesSampleRate is relative to tracesSampleRate,
-  // the final profiling rate can be computed as tracesSampleRate * profilesSampleRate
-  // For example, a tracesSampleRate of 0.5 and profilesSampleRate of 0.5 would
-  // result in 25% of transactions being profiled (0.5*0.5=0.25)
-  profileSessionSampleRate: 1.0,
-  // Controls when browser profiling sessions are started and stopped.
-  // Valid values:
-  //   - "trace": (default) Profile the entire duration of a trace/transaction.
-  //   - "session": Profile the entire user session, not just a single trace.
-  // See: https://docs.sentry.io/platforms/javascript/profiling/configuration/#profilelifecycle the new option for controlling profiling sample rate.
-  // It replaces profilesSampleRate for newer versions of the Sentry SDK.
-  // Use profileSessionSampleRate to set the percentage of sessions to be profiled.
-  // If both profilesSampleRate and profileSessionSampleRate are set, profileSessionSampleRate takes precedence.
-  // See: https://docs.sentry.io/platforms/javascript/guides/nextjs/profiling/
-  profileLifecycle: "trace",
-
   // Define how likely Replay events are sampled.
   // This sets the sample rate to be 10%. You may want this to be 100% while
   // in development and sample at a lower rate in production

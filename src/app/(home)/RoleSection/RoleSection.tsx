@@ -143,7 +143,7 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = (
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Role</h2>
-      <Space direction={"vertical"} size={24}>
+      <Space orientation={"vertical"} size={24}>
         {data.map((category) => (
           <div key={category.name}>
             <h3 className={styles.category_name}>{category.name}</h3>

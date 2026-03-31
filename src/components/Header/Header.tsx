@@ -19,7 +19,13 @@ export const Header: React.FunctionComponent<IPropsHeader> = (props) => {
           <Space align={"center"}>
             <Link href="/">
               <div className={styles.logo}>
-                <Image src={logo_image.src} width={48} height={48} alt={""} />
+                <Image
+                  src={logo_image.src}
+                  width={48}
+                  height={48}
+                  style={{height: "auto"}}
+                  alt={""}
+                />
               </div>
             </Link>
             <div className={styles.split} />

@@ -105,8 +105,9 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   src={next_logo}
                   alt="NextJS Logo"
                   className={styles.logo_img}
-                  // width={100}
-                  height={16}
+                  width={next_logo.width}
+                  height={next_logo.height}
+                  style={{height: 16, width: "auto"}}
                   priority
                 />
               </OutsideLink>
@@ -118,8 +119,9 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   src={vercel_logo}
                   alt="Vercel Logo"
                   className={styles.logo_img}
-                  // width={100}
-                  height={16}
+                  width={vercel_logo.width}
+                  height={vercel_logo.height}
+                  style={{height: 16, width: "auto"}}
                   priority
                 />
               </OutsideLink>
@@ -134,8 +136,9 @@ export const Footer: React.FunctionComponent<IPropsFooter> = (props) => {
                   src={cloudflare_logo}
                   alt="CloudFlare Logo"
                   className={styles.logo_img}
-                  // width={100}
-                  height={32}
+                  width={cloudflare_logo.width}
+                  height={cloudflare_logo.height}
+                  style={{height: 32, width: "auto"}}
                   priority
                 />
               </OutsideLink>

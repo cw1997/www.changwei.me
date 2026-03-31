@@ -287,7 +287,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = (
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Skill</h2>
-      <Space direction={"vertical"} size={16} style={{width: "100%"}}>
+      <Space orientation={"vertical"} size={16} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <h3 className={styles.category_name}>{category.category_name}</h3>

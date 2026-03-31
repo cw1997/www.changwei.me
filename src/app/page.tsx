@@ -9,7 +9,7 @@ import styles from "./page.module.css"
 
 export default function HomePage() {
   return (
-    <Space className={styles.main} direction={"vertical"} size={48}>
+    <Space className={styles.main} orientation={"vertical"} size={48}>
       <ProfileSection />
       <RoleSection />
       <ContactSection />

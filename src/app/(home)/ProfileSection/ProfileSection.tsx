@@ -82,7 +82,7 @@ const profile = [
   {
     key: "Language",
     value: (
-      <Space direction={"vertical"}>
+      <Space orientation={"vertical"}>
         <div>
           <Tag>zh-Hans-CN</Tag>
           <span>Chinese (Simplified Han) 简体中文（中国大陆）</span>
@@ -213,7 +213,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = (
         <div className={styles.profile_location}>
           <Space
             className={styles.profile_location_list}
-            direction={"vertical"}
+            orientation={"vertical"}
             wrap
           >
             <div className={styles.profile_location_list_item}>

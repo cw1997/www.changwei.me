@@ -307,7 +307,7 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Social and Contact</h2>
-      <Space direction={"vertical"} size={16}>
+      <Space orientation={"vertical"} size={16}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <h3 className={styles.category_name}>{category.category_name}</h3>
@@ -324,10 +324,10 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
                     </Space>
                   }
                   content={
-                    <Space direction={"vertical"} className={styles.item_popup}>
+                    <Space orientation={"vertical"} className={styles.item_popup}>
                       <Typography.Text copyable>{item.contact}</Typography.Text>
                       {item.url && (
-                        <Space direction={"vertical"}>
+                        <Space orientation={"vertical"}>
                           <QRCode
                             errorLevel="H"
                             value={item.url}

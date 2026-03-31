@@ -311,7 +311,7 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
       <main className={styles.main}>
         <h2 className={styles.title}>Portfolio 作品集</h2>
         <Divider />
-        <Space className={styles.list} direction={"vertical"} size={32}>
+        <Space className={styles.list} orientation={"vertical"} size={32}>
           {data.items.map((item) => (
             <div key={item.name} className={styles.item}>
               <div className={styles.item_icon}>
@@ -319,6 +319,8 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = (props) => {
                   style={{width: 64, height: "auto"}}
                   src={item.icon.src}
                   alt={item.name}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className={styles.item_info}>

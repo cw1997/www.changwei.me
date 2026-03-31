@@ -1,0 +1,191 @@
+@use "@/styles/common" as *
+
+.page
+  @include page
+  position: relative
+  overflow: hidden
+  min-height: calc(100vh - 220px)
+  padding: 48px 16px 72px
+  display: flex
+  align-items: center
+  justify-content: center
+
+  @include on-mobile()
+    min-height: calc(100vh - 180px)
+    padding: 24px 12px 48px
+
+.page_fullscreen
+  max-width: none
+  min-height: 100vh
+  width: 100%
+
+.backdrop
+  position: absolute
+  inset: 0
+  pointer-events: none
+  background: radial-gradient(circle at 8% 10%, rgba(#ffd666, 0.28) 0%, rgba(#ffd666, 0) 42%), radial-gradient(circle at 88% 16%, rgba(#40a9ff, 0.2) 0%, rgba(#40a9ff, 0) 40%), radial-gradient(circle at 75% 88%, rgba(#73d13d, 0.18) 0%, rgba(#73d13d, 0) 36%), linear-gradient(145deg, rgba(#ffffff, 0.85), rgba(#f5faff, 0.92))
+
+.card
+  @include radius(20px)
+  @include box-shadow(0, 20px, 50px, -28px, rgba(#262626, 0.5))
+  position: relative
+  width: min(700px, 100%)
+  border: 1px solid rgba(#ffffff, 0.95)
+  background: rgba(#ffffff, 0.88)
+  backdrop-filter: blur(6px)
+  padding: 28px 26px 24px
+
+  @include on-mobile()
+    padding: 20px 18px
+
+.badge
+  display: inline-flex
+  align-items: center
+  padding: 6px 12px
+  border-radius: 999px
+  font-size: 13px
+  letter-spacing: 0.03em
+  color: #8d4b00
+  background-color: #fff7e6
+  border: 1px solid #ffd591
+
+.title
+  margin-top: 16px
+  font-size: 34px
+  line-height: 1.2
+  color: #1f1f1f
+
+  @include on-mobile()
+    font-size: 28px
+
+.description
+  margin-top: 12px
+  color: #5e5e5e
+  font-size: 16px
+  line-height: 1.8
+
+.meme_box
+  margin-top: 18px
+  padding: 14px 16px
+  border: 1px dashed #91caff
+  border-radius: 14px
+  background: linear-gradient(140deg, #f0f9ff, #f6ffed)
+
+.meme_title
+  font-size: 14px
+  font-weight: 600
+  color: #003a8c
+
+.meme_text
+  margin-top: 6px
+  color: #1f1f1f
+  line-height: 1.7
+
+.meme_face
+  margin-top: 10px
+  color: #434343
+  font-size: 18px
+
+.joke
+  margin-top: 14px
+  color: #434343
+  font-size: 14px
+  line-height: 1.75
+
+.meta
+  margin-top: 10px
+  color: #8c8c8c
+  font-size: 12px
+  line-height: 1.6
+
+.loading_row
+  margin-top: 18px
+  display: flex
+  align-items: center
+  gap: 12px
+
+.spinner
+  width: 22px
+  height: 22px
+  border-radius: 999px
+  border: 3px solid #91caff
+  border-top-color: #1677ff
+  animation: spin 700ms linear infinite
+
+.loading_text
+  color: #1f1f1f
+  font-size: 15px
+  letter-spacing: 0.02em
+
+.loading_dots
+  margin-top: 12px
+  display: inline-flex
+  gap: 6px
+
+  span
+    width: 8px
+    height: 8px
+    border-radius: 999px
+    background-color: #69b1ff
+    animation: blink 1s ease-in-out infinite
+
+  span:nth-child(2)
+    animation-delay: 120ms
+
+  span:nth-child(3)
+    animation-delay: 240ms
+
+.actions
+  margin-top: 22px
+  display: flex
+  flex-wrap: wrap
+  gap: 10px
+
+.button
+  @include transition(180ms)
+  @include radius(12px, false)
+  appearance: none
+  border: 1px solid transparent
+  font-size: 14px
+  font-weight: 500
+  line-height: 1
+  padding: 12px 16px
+  cursor: pointer
+  text-decoration: none
+
+  &:hover
+    transform: translateY(-1px)
+    text-decoration: none
+
+.button_primary
+  background-color: #1677ff
+  border-color: #1677ff
+  color: #ffffff
+
+  &:hover
+    background-color: #0958d9
+    border-color: #0958d9
+    color: #ffffff
+
+.button_ghost
+  background-color: #ffffff
+  border-color: #d9d9d9
+  color: #262626
+
+  &:hover
+    border-color: #1677ff
+    color: #1677ff
+
+@keyframes spin
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)
+
+@keyframes blink
+  0%, 80%, 100%
+    transform: translateY(0)
+    opacity: 0.35
+  40%
+    transform: translateY(-4px)
+    opacity: 1

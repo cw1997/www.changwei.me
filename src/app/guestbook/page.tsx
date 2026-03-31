@@ -2,7 +2,7 @@
 
 import {Divider} from "antd"
 import React from "react"
-import styles from "./page.module.sass"
+import styles from "./page.module.css"
 import Giscus from "@giscus/react"
 
 export default function GuestbookPage() {

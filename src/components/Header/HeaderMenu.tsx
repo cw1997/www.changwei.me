@@ -6,7 +6,7 @@ import Link from "next/link"
 import {usePathname} from "next/navigation"
 import React from "react"
 
-import styles from "./Header.module.sass"
+import styles from "./Header.module.css"
 
 const data = {
   items: [

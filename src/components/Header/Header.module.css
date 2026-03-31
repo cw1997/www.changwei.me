@@ -1,0 +1,52 @@
+@reference "../../app/globals.css";
+
+.container {
+  @apply fixed top-0 z-[99998] w-full bg-[rgba(255,255,255,0.75)] backdrop-blur;
+  box-shadow: 0 0 16px 0 #eaeaea;
+}
+
+.main {
+  @apply mx-auto flex w-full max-w-[1280px] items-center justify-between p-2 text-sm text-[#5E5E5E];
+}
+
+.main p {
+  @apply mb-1;
+}
+
+.title {
+  @apply pl-2 text-lg font-medium leading-[1.2] text-[#333333];
+}
+
+.split {
+  @apply h-12 w-px bg-[#DADADA];
+}
+
+.logo {
+  @apply overflow-hidden rounded-lg border border-[rgba(205,205,205,0)] px-2 py-1 transition-all duration-200;
+}
+
+.logo:hover {
+  @apply border-[#CDCDCD];
+}
+
+@media (max-width: 768px) {
+  .menu_desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu_mobile {
+    display: none !important;
+  }
+}
+
+.menu_item {
+  @apply text-center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo_img {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}

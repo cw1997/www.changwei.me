@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./page.module.sass"
+import styles from "./page.module.css"
 import {Button, Divider, Space} from "antd";
 import {DownloadOutlined, EyeOutlined, GithubOutlined} from "@ant-design/icons";
 import {OutsideLink} from "@/components/OutsideLink";

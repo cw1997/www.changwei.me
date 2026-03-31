@@ -8,7 +8,7 @@ import next_logo from "@/assets/images/logo/frontend/next.svg"
 import vercel_logo from "@/assets/images/logo/frontend/vercel.svg"
 import cloudflare_logo from "@/assets/images/logo/Cloudflare_Logo.svg"
 
-import styles from "./Footer.module.sass"
+import styles from "./Footer.module.css"
 
 export interface IPropsFooter {}
 

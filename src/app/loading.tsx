@@ -1,5 +1,5 @@
 import {LoadingOutlined} from "@ant-design/icons";
-import styles from "./loading.module.sass";
+import styles from "./loading.module.css";
 
 export default function Loading() {
   // Or a custom loading skeleton component

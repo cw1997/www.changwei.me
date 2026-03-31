@@ -7,8 +7,8 @@ import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next"
 import {Noto_Sans_SC} from "next/font/google"
 import React from "react"
-import styles from "./layout.module.sass"
-import "@/app/globals.scss"
+import styles from "./layout.module.css"
+import "@/app/globals.css"
 import Script from "next/script";
 
 const title = "Chang Wei's website / 昌维的网站 / 昌維的網站"

@@ -1,0 +1,13 @@
+@reference "../globals.css";
+
+.container {
+  @apply mx-auto w-full max-w-[1280px] px-6 py-8;
+}
+
+.main {
+  @apply w-full;
+}
+
+.title {
+  @apply mb-4 text-2xl font-medium;
+}

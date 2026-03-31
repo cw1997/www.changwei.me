@@ -9,7 +9,7 @@ import {Divider, Space, Tag} from "antd"
 
 import {OutsideLink} from "@/components/OutsideLink"
 
-import styles from "./page.module.sass"
+import styles from "./page.module.css"
 import ntust_lib_icon from "./ntust_lib_icon.png"
 import rtos_icon from "./rtos_icon.png"
 import sdram_controller_icon from "./dram.jpg"

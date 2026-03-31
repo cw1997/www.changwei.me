@@ -1,0 +1,63 @@
+@reference "../../app/globals.css";
+
+.container {
+  @apply w-full bg-[#EFEFEF];
+}
+
+.content {
+  @apply mx-auto w-full max-w-[1280px] p-8 text-sm text-[#5E5E5E];
+}
+
+.content p {
+  @apply mb-1;
+}
+
+.text {
+  @apply w-full;
+}
+
+.copyright {
+  @apply text-[#5E5E5E];
+}
+
+.copyright_github {
+  @apply flex flex-wrap;
+}
+
+.copyright_github a {
+  line-height: 20px;
+}
+
+.copyright_github img {
+  @apply ml-1;
+}
+
+.nerd_info {
+  @apply mt-2;
+}
+
+.powered_by {
+  @apply w-full;
+}
+
+.powered_by_list {
+  @apply flex items-center;
+}
+
+.powered_by_item {
+  @apply flex items-center;
+}
+
+.logo {
+  @apply overflow-hidden rounded-lg border border-[rgba(205,205,205,0)] px-2 py-1 transition-all duration-200;
+}
+
+.logo:hover {
+  @apply border-[#CDCDCD];
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo_img {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}

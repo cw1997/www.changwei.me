@@ -1,0 +1,22 @@
+@reference "../../globals.css";
+
+.container {
+  @apply w-full;
+}
+
+.title {
+  @apply mb-4 text-2xl font-medium text-[#1F1F1F];
+}
+
+.category_name {
+  @apply mb-3 text-lg font-normal text-[#5E5E5E];
+}
+
+.category_skills_item {
+  @apply flex items-center justify-center rounded-lg border border-[rgba(205,205,205,0)] p-1 transition-all duration-200;
+}
+
+.category_skills_item:hover {
+  @apply border-[rgba(205,205,205,1)] bg-white shadow-[0_0_16px_0_#CECECE];
+  transform: scale(1.5);
+}

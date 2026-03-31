@@ -34,7 +34,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {Popover, QRCode, Space, Typography} from "antd"
 import React from "react"
 
-import styles from "./ContactSection.module.sass"
+import styles from "./ContactSection.module.css"
 
 const data: {
   category_name: string

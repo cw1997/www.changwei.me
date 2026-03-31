@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons"
 import {Divider, Space, Tag, Image} from "antd"
 import React from "react"
-import styles from "./ProfileSection.module.sass"
+import styles from "./ProfileSection.module.css"
 
 const profile = [
   {

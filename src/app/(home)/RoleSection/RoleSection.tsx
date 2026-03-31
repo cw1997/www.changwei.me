@@ -5,7 +5,7 @@ import {Col, Row, Space} from "antd"
 import React from "react"
 import Image from "next/image"
 
-import styles from "./RoleSection.module.sass"
+import styles from "./RoleSection.module.css"
 import Open_House_NTUs_logo_image from "@/assets/images/logo/Open_House_NTUs.png"
 import ntnu_logo_image from "@/assets/images/logo/ntnu_red.png"
 import ntnu_gdsc_logo_image from "@/assets/images/logo/ntnu_gdsc_logo.jpg"

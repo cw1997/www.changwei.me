@@ -124,7 +124,7 @@ import premiere_logo from "@/assets/images/logo/design/Adobe_Premiere_Pro_CC_ico
 import diagrams_logo from "@/assets/images/logo/design/Diagrams.net_Logo.svg"
 import visio_logo from "@/assets/images/logo/design/Microsoft_Office_Visio_(2013–2019).svg"
 
-import styles from "./SkillSection.module.sass"
+import styles from "./SkillSection.module.css"
 
 const data = [
   {

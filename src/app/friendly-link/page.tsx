@@ -5,7 +5,7 @@ import React from "react"
 import {OutsideLink} from "@/components/OutsideLink"
 
 import {data} from "./data"
-import styles from "./page.module.sass"
+import styles from "./page.module.css"
 
 export interface IPropsFriendlyLinkPage {}
 

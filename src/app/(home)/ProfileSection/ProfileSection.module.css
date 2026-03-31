@@ -1,0 +1,161 @@
+@reference "../../globals.css";
+
+.pronounce {
+  @apply text-sm text-[#5E5E5E];
+}
+
+.profile {
+  @apply flex w-full flex-wrap justify-between;
+}
+
+.profile_info {
+  @apply min-w-0 flex-1;
+}
+
+.profile_info_name {
+  @apply mb-4 w-full border-b border-[#EAEAEA] pb-4;
+}
+
+.profile_info_name_key {
+  @apply text-base text-[#8D8D8D];
+}
+
+.profile_info_name_value {
+  @apply text-2xl font-light text-[#333333];
+}
+
+.profile_info_name_value strong {
+  @apply font-medium text-[#1F1F1F];
+}
+
+.profile_info_list {
+  @apply mb-4 border-b border-[#EAEAEA] pb-4 text-base;
+}
+
+@media (max-width: 768px) {
+  .profile_info_list_desktop {
+    display: none;
+  }
+}
+
+.profile_info_list_desktop_item {
+  vertical-align: text-top;
+}
+
+.profile_info_list_desktop_item_key {
+  @apply px-2 py-1 text-right text-[#8D8D8D];
+}
+
+.profile_info_list_desktop_item_value {
+  @apply text-[#5E5E5E];
+}
+
+.profile_info_list_mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .profile_info_list_mobile {
+    display: table-row-group;
+  }
+}
+
+.profile_info_list_mobile_item {
+  vertical-align: text-top;
+}
+
+.profile_info_list_mobile_item_key {
+  @apply text-left text-[#8D8D8D];
+}
+
+.profile_info_list_mobile_item_value {
+  @apply px-2 py-1 text-[#5E5E5E];
+}
+
+.profile_info_intro {
+  @apply text-sm;
+}
+
+.profile_info_intro_key {
+  @apply text-[#8D8D8D];
+}
+
+.profile_info_intro_value {
+  @apply text-[#5E5E5E];
+}
+
+.profile_contact_list {
+  @apply mb-2 text-sm;
+}
+
+.profile_contact_list_item_key {
+  @apply px-2 py-1 text-[#8D8D8D];
+}
+
+.profile_contact_list_item_value {
+  @apply text-[#5E5E5E];
+}
+
+.profile_location {
+  @apply mt-1 border-t border-dashed border-[#E0E0E0] pt-1;
+}
+
+.profile_location_list {
+  @apply mb-2 text-sm;
+}
+
+@media (max-width: 768px) {
+  .profile_location_list {
+    @apply mb-8;
+  }
+}
+
+.profile_location_list_item_key {
+  @apply px-2 py-1 text-[#8D8D8D];
+}
+
+.profile_location_list_item_value {
+  @apply pl-7 text-[#5E5E5E];
+}
+
+.profile_photo {
+  @apply m-2 mx-8 max-w-96 overflow-hidden rounded-lg border border-[#DEDEDE] shadow-[0_0_16px_0_#F2F2F2];
+}
+
+@media (max-width: 768px) {
+  .profile_photo {
+    @apply m-0;
+  }
+}
+
+.profile_photo_image {
+  @apply w-full;
+}
+
+.profile_photo_image img {
+  @apply h-auto w-full;
+}
+
+.profile_photo_description {
+  @apply px-8 py-2 text-center text-[13px] text-[#8D8D8D];
+}
+
+.profile_photo_info {
+  @apply p-2;
+}
+
+.profile_photo_info_list {
+  @apply mb-2 text-xs;
+}
+
+.profile_photo_info_list_item {
+  vertical-align: text-top;
+}
+
+.profile_photo_info_list_item_key {
+  @apply whitespace-nowrap p-1 text-right text-[#AFAFAF];
+}
+
+.profile_photo_info_list_item_value {
+  @apply text-[#8D8D8D];
+}

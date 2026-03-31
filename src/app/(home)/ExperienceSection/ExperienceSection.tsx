@@ -15,7 +15,7 @@ import {
 import {Divider, Space, Tag} from "antd"
 import React from "react"
 
-import styles from "./ExperienceSection.module.sass"
+import styles from "./ExperienceSection.module.css"
 
 const data = [
   {

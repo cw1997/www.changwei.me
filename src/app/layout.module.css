@@ -1,0 +1,5 @@
+@reference "./globals.css";
+
+.container {
+  @apply mx-auto flex min-h-screen w-full max-w-[1280px] flex-col justify-between bg-[#FAFAFA] pt-[72px];
+}

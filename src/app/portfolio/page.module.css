@@ -1,0 +1,82 @@
+@reference "../globals.css";
+
+.container {
+  @apply mx-auto w-full max-w-[1280px] px-6 py-8;
+}
+
+.main {
+  @apply w-full;
+}
+
+.title {
+  @apply mb-4 text-2xl font-medium;
+}
+
+.category_name {
+  @apply mb-2 whitespace-nowrap text-lg text-[#5E5E5E];
+}
+
+.list {
+  @apply w-full;
+}
+
+.item {
+  @apply flex w-full overflow-hidden rounded-2xl border border-[#F0F0F0] bg-white p-6 shadow-[0_0_16px_0_#F2F2F2];
+}
+
+@media (max-width: 768px) {
+  .item {
+    @apply flex-col p-4;
+  }
+}
+
+.item_info {
+  @apply ml-6 text-[#5E5E5E];
+}
+
+@media (max-width: 768px) {
+  .item_info {
+    @apply ml-0 mt-4;
+  }
+}
+
+.item_info_organization_url {
+  @apply mt-1.5 text-[13px] text-[#AFAFAF];
+}
+
+.item_info_organization_url a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.item_info_organization_url a:hover {
+  text-decoration: underline;
+}
+
+.item_info_organization {
+  @apply text-[20px] text-[#333333];
+}
+
+.item_info_name {
+  @apply mt-1 text-base text-[#5E5E5E];
+}
+
+.item_info_meta {
+  @apply mt-3 text-[13px] text-[#8D8D8D];
+}
+
+.item_info_note {
+  @apply mt-2 text-sm leading-[1.5];
+}
+
+.item_info_note ul {
+  @apply pl-6;
+}
+
+.item_info_note ul li {
+  @apply mt-1;
+}
+
+.item_info_tags {
+  @apply mt-6;
+}

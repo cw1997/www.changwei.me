@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-import styles from "./Header.module.sass"
+import styles from "./Header.module.css"
 
 // export const element_id = 'header'
 

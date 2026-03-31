@@ -1,0 +1,9 @@
+@reference "./globals.css";
+
+.main {
+  @apply mx-auto flex w-full max-w-[1280px] flex-col px-4 py-12;
+}
+
+.skill {
+  @apply mt-16;
+}

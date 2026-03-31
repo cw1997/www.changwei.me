@@ -403,13 +403,13 @@ export const ExperienceSection: React.FunctionComponent<
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Experience</h2>
-      <Space direction={"vertical"} size={32} style={{width: "100%"}}>
+      <Space orientation={"vertical"} size={32} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <h3 className={styles.category_name}>{category.category_name}</h3>
             <Space
               className={styles.list}
-              direction={"vertical"}
+              orientation={"vertical"}
               size={32}
             >
               {category.items.map((item) => (
@@ -419,6 +419,8 @@ export const ExperienceSection: React.FunctionComponent<
                       style={{width: 64, height: "auto"}}
                       src={item.icon.src}
                       alt={item.name}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className={styles.item_info}>

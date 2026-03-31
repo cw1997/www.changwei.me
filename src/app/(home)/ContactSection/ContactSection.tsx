@@ -67,6 +67,8 @@ const data: {
           <img
             src={instagram_qrcode_image_url.src}
             alt={"https://instagram.com/changwei1997"}
+            loading="lazy"
+            decoding="async"
           />
         ),
         qrcode_image_url: instagram_qrcode_image_url.src,
@@ -116,6 +118,8 @@ const data: {
           <img
             src={zhihu_qrcode_image_url.src}
             alt={"https://www.zhihu.com/people/changwei1006"}
+            loading="lazy"
+            decoding="async"
           />
         ),
         qrcode_image_url: zhihu_qrcode_image_url.src,
@@ -229,7 +233,14 @@ const data: {
         icon: <WechatOutlined />,
         name: "Wechat",
         contact: "changwei1006",
-        content: <img src={wechat_qrcode_image_url.src} alt={"changwei1006"} />,
+        content: (
+          <img
+            src={wechat_qrcode_image_url.src}
+            alt={"changwei1006"}
+            loading="lazy"
+            decoding="async"
+          />
+        ),
         qrcode_image_url: wechat_qrcode_image_url.src,
         url: undefined,
         note: undefined,
@@ -239,7 +250,12 @@ const data: {
         name: "Telegram",
         contact: "changwei1006",
         content: (
-          <img src={telegram_qrcode_image_url.src} alt={"changwei1006"} />
+          <img
+            src={telegram_qrcode_image_url.src}
+            alt={"changwei1006"}
+            loading="lazy"
+            decoding="async"
+          />
         ),
         qrcode_image_url: telegram_qrcode_image_url.src,
         url: "https://t.me/changwei1006",
@@ -249,7 +265,14 @@ const data: {
         icon: <QqOutlined />,
         name: "QQ",
         contact: "867597730",
-        content: <img src={qq_qrcode_image_url.src} alt={"867597730"} />,
+        content: (
+          <img
+            src={qq_qrcode_image_url.src}
+            alt={"867597730"}
+            loading="lazy"
+            decoding="async"
+          />
+        ),
         qrcode_image_url: qq_qrcode_image_url.src,
         url: undefined,
         note: undefined,
@@ -289,6 +312,8 @@ const data: {
           <img
             src={line_qrcode_image_url.src}
             alt={"https://line.me/ti/p/b_9gnmE0Ob"}
+            loading="lazy"
+            decoding="async"
           />
         ),
         qrcode_image_url: line_qrcode_image_url.src,
@@ -307,12 +332,12 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Social and Contact</h2>
-      <Space direction={"vertical"} size={16}>
+      <Space orientation={"vertical"} size={16}>
         {data.map((category) => (
           <div key={category.category_name} className={styles.category}>
             <h3 className={styles.category_name}>{category.category_name}</h3>
             <Space className={styles.list} size={8} wrap>
-              {category.items.map((item, index) => (
+              {category.items.map((item) => (
                 <Popover
                   trigger={["focus", "hover"]}
                   key={item.name}
@@ -324,10 +349,10 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
                     </Space>
                   }
                   content={
-                    <Space direction={"vertical"} className={styles.item_popup}>
+                    <Space orientation={"vertical"} className={styles.item_popup}>
                       <Typography.Text copyable>{item.contact}</Typography.Text>
                       {item.url && (
-                        <Space direction={"vertical"}>
+                        <Space orientation={"vertical"}>
                           <QRCode
                             errorLevel="H"
                             value={item.url}

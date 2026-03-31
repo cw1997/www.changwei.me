@@ -17,7 +17,7 @@
     "build": "next build",
     "build:webpack": "next build --webpack",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "format": "prettier --write ./src",
     "upgrade": "pnpx npm-check-updates -i"
   },

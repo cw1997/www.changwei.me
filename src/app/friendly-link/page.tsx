@@ -26,6 +26,8 @@ const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = (
                     style={{width: 16, height: "auto"}}
                     src={typeof item.icon === "string" ? item.icon : (item.icon?.src ?? `https://s2.googleusercontent.com/s2/favicons?domain_url=${item.url}`)}
                     alt={item.name}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className={styles.item_name}>{item.name}</div>

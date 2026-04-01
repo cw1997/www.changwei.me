@@ -4,6 +4,7 @@ import {useLocale, useTranslations} from "next-intl"
 import {useRouter, usePathname} from "@/i18n/navigation"
 import {locales, localeLabels} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
+import {Select} from "antd"
 import React, {useTransition} from "react"
 
 import styles from "./Header.module.sass"
@@ -15,26 +16,26 @@ export const LanguageSwitcher: React.FunctionComponent = () => {
   const pathname = usePathname()
   const [isPending, startTransition] = useTransition()
 
-  function onChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = e.target.value as Locale
-    startTransition(() => {
-      router.replace(pathname, {locale: nextLocale})
-    })
-  }
+  const options = locales.map((loc) => ({
+    value: loc,
+    label: localeLabels[loc],
+  }))
 
   return (
-    <select
+    <Select<Locale>
       className={styles.language_switcher}
-      value={locale}
-      onChange={onChange}
-      aria-label={t("selectLanguage")}
+      value={locale as Locale}
+      options={options}
+      size="small"
       disabled={isPending}
-    >
-      {locales.map((loc) => (
-        <option key={loc} value={loc}>
-          {localeLabels[loc]}
-        </option>
-      ))}
-    </select>
+      aria-label={t("selectLanguage")}
+      popupMatchSelectWidth={false}
+      styles={{popup: {root: {zIndex: 100_000}}}}
+      onChange={(nextLocale) => {
+        startTransition(() => {
+          router.replace(pathname, {locale: nextLocale})
+        })
+      }}
+    />
   )
 }

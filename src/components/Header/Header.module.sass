@@ -59,25 +59,26 @@
     text-align: center
 
 .language_switcher
-  padding: 4px 8px
-  border: 1px solid $color-border-0
-  border-radius: 4px
-  background-color: transparent
-  color: $color-font-2
-  font-size: 13px
-  cursor: pointer
-  outline: none
-  max-width: 160px
-  @include transition()
-  &:hover
-    border-color: $color-gray-3
-  &:focus-visible
-    border-color: $color-font-1
-    box-shadow: 0 0 0 2px rgba($color-font-1, 0.2)
+  min-width: 148px
+  max-width: 180px
+  :global(.ant-select-selector)
+    border-color: $color-border-0 !important
+    background-color: transparent !important
+    @include transition()
+  &:hover :global(.ant-select-selector)
+    border-color: $color-gray-3 !important
+  &:global(.ant-select-focused:not(.ant-select-disabled)) :global(.ant-select-selector)
+    border-color: $color-font-1 !important
+    box-shadow: 0 0 0 2px rgba($color-font-1, 0.12) !important
+  :global(.ant-select-selection-item)
+    color: $color-font-2
+    font-size: 13px
+    line-height: 26px !important
   @include on-mobile()
-    font-size: 12px
-    padding: 3px 4px
-    max-width: 130px
+    min-width: 120px
+    max-width: 148px
+    :global(.ant-select-selection-item)
+      font-size: 12px
 
 @media (prefers-color-scheme: dark)
   .logo_img

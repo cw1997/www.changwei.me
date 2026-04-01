@@ -1,26 +1,65 @@
 @use "@/styles/common" as *
 
+// 全局 on-mobile 为 768px；769–~1000px 仍用桌面导航会与站点标题抢宽重叠。头部单独用更宽的「紧凑」断点。
+$header-narrow-max: 1024px
+
+@mixin header-narrow
+  @media screen and (max-width: $header-narrow-max)
+    @content
+
+@mixin header-wide
+  @media screen and (min-width: #{$header-narrow-max + 1px})
+    @content
+
 
 .container
   @include box-shadow-1
   width: 100%
+  max-width: 100%
   background-color: rgba(#FFFFFF, 0.75)
   backdrop-filter: blur(4px)
   position: fixed
   top: 0
   z-index: 99998
+  box-sizing: border-box
 
 .main
   @include page
+  box-sizing: border-box
   padding: 8px
+  min-width: 0
+  max-width: 100%
   //text-align: center
   color: $color-font-2
   font-size: 14px
   display: flex
   justify-content: space-between
   align-items: center
+  gap: 8px
   p
     margin-bottom: 4px
+  @include header-narrow()
+    display: grid
+    grid-template-columns: minmax(0, 1fr) auto
+    align-items: center
+    column-gap: 8px
+    // 390px / iPhone 15 等：右侧栏先按内容占位，左侧 1fr 吃掉剩余空间，避免语言选择器挤出视口
+    row-gap: 0
+
+.main_left
+  min-width: 0
+
+.main_space
+  width: 100%
+  min-width: 0
+  :global(.ant-space-item:last-child)
+    flex: 1
+    min-width: 0
+
+.title_link
+  min-width: 0
+  flex: 1 1 auto
+  @include link
 
 .title
   font-weight: 500
@@ -28,6 +67,15 @@
   line-height: 1.2
   color: $color-font-1
   padding-left: 8px
+  @include header-narrow()
+    font-size: 15px
+    padding-left: 6px
+    overflow: hidden
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: 3
+    line-clamp: 3
+    word-break: break-word
 
 .split
   width: 1px
@@ -46,6 +94,10 @@
   display: flex
   align-items: center
   gap: 8px
+  flex-shrink: 0
+  @include header-narrow()
+    gap: 6px
+    min-width: 0
 
 .right_split
   margin: 0 12px
@@ -54,14 +106,31 @@
   width: 1px
   min-height: 24px
   background-color: $color-border-0
+  @include header-narrow()
+    margin: 0
+
+.language_switcher_wrap
+  @include header-narrow()
+    flex: 1 1 0
+    min-width: 0
+    // 为 Logo + 标题 + 菜单按钮 + 竖线 + 内边距预留，语言框上限随视口收窄（390 / 360 / 320 等）
+    max-width: min(148px, calc(100vw - 188px))
 
 .menu
   &_desktop
-    @include on-mobile()
+    @include header-narrow()
       display: none !important
   &_mobile
-    @include on-desktop()
+    @include header-wide()
       display: none !important
+    @include header-narrow()
+      // 略收窄菜单按钮，为语言选择器腾出横向空间（390px 档）
+      :global(.ant-btn.ant-btn-lg)
+        width: 40px
+        min-width: 40px
+        height: 36px
+        padding: 0
+        font-size: 16px
   &_item
     //@include link
     text-align: center
@@ -82,11 +151,17 @@
     color: $color-font-2
     font-size: 13px
     line-height: 26px !important
-  @include on-mobile()
-    min-width: 120px
-    max-width: 148px
+  @include header-narrow()
+    min-width: 0 !important
+    width: 100%
+    max-width: 100%
+    :global(.ant-select-selector)
+      max-width: 100%
+      overflow: hidden
     :global(.ant-select-selection-item)
       font-size: 12px
+      overflow: hidden
+      text-overflow: ellipsis
 
 @media (prefers-color-scheme: dark)
   .logo_img

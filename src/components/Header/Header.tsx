@@ -17,15 +17,15 @@ export const Header: React.FunctionComponent<IPropsHeader> = async () => {
   return (
     <header className={styles.container}>
       <div className={styles.main}>
-        <div>
-          <Space align={"center"}>
+        <div className={styles.main_left}>
+          <Space align={"center"} className={styles.main_space}>
             <Link href="/">
               <div className={styles.logo}>
                 <Image src={logo_image} width={48} height={48} alt={t("logoAlt")} />
               </div>
             </Link>
             <div className={styles.split} />
-            <Link href="/">
+            <Link href="/" className={styles.title_link}>
               <div className={styles.title}>
                 {t("siteTitleLine1")}
                 {t("siteTitleLine2") && <><br/>{t("siteTitleLine2")}</>}
@@ -38,7 +38,9 @@ export const Header: React.FunctionComponent<IPropsHeader> = async () => {
         <div className={styles.right}>
           <HeaderMenu />
           <div className={styles.right_split} aria-hidden />
-          <LanguageSwitcher />
+          <div className={styles.language_switcher_wrap}>
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </header>

@@ -1,6 +1,8 @@
+"use client"
+
 import React from "react"
 import {Space, Tooltip} from "antd"
-import {getTranslations} from "next-intl/server"
+import {useTranslations} from "next-intl"
 
 import html5_logo from "@/assets/images/logo/frontend/html5-badge-h-solo.png"
 import css3_logo from "@/assets/images/logo/frontend/CSS3_logo.svg"
@@ -210,9 +212,9 @@ const data: {category_key: SkillCategoryKey; skills: {name: string; icon: {src: 
 
 export interface IPropsSkillSection {}
 
-export const SkillSection: React.FunctionComponent<IPropsSkillSection> = async () => {
-  const tSection = await getTranslations("sections")
-  const tSkill = await getTranslations("skill")
+export const SkillSection: React.FunctionComponent<IPropsSkillSection> = () => {
+  const tSection = useTranslations("sections")
+  const tSkill = useTranslations("skill")
 
   return (
     <div className={styles.container}>

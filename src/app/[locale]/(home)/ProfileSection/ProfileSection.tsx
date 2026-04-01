@@ -1,3 +1,5 @@
+"use client"
+
 import photo_image from "./changwei_at_google_taipei.jpg"
 import {Now} from "./Now"
 import {OutsideLink} from "@/components/OutsideLink"
@@ -8,7 +10,7 @@ import {
   MailOutlined,
 } from "@ant-design/icons"
 import {Divider, Space, Tag, Image} from "antd"
-import {getTranslations} from "next-intl/server"
+import {useTranslations} from "next-intl"
 import React from "react"
 import styles from "./ProfileSection.module.sass"
 
@@ -116,8 +118,8 @@ function PhotoExifValue({t}: {t: (key: string) => string}) {
 
 export interface IPropsSkillSection {}
 
-export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = async () => {
-  const t = await getTranslations("profile")
+export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () => {
+  const t = useTranslations("profile")
   const profile = getProfileRows(t)
 
   return (

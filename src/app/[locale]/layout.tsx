@@ -1,17 +1,12 @@
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
-import {Analytics} from "@vercel/analytics/next"
-import {SpeedInsights} from "@vercel/speed-insights/next"
 import type {Metadata} from "next"
-import {Noto_Sans_SC} from "next/font/google"
-import Script from "next/script"
 import React from "react"
 import {NextIntlClientProvider} from "next-intl"
 import {getMessages, getTranslations} from "next-intl/server"
 import {notFound} from "next/navigation"
 import {routing} from "@/i18n/routing"
-import {localeHtmlLang} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
 import styles from "./layout.module.sass"
 
@@ -85,8 +80,6 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   }
 }
 
-const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin-ext"]})
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}))
 }
@@ -99,49 +92,18 @@ export default async function LocaleLayout({children, params}: Props) {
   }
 
   const messages = await getMessages()
-  const htmlLang = localeHtmlLang[locale as Locale] ?? "en"
 
   return (
-    <html lang={htmlLang}>
-      <head>
-        {/*<!-- Google tag (gtag.js) -->*/}
-        <Script
-          id={"googletagmanager"}
-          src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"
-          strategy="afterInteractive"
-        />
-        <Script
-          id={"gtag"}
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-GPVC7Z21XH');
-        `
-              .split("\n")
-              .map((t) => t.trim())
-              .join(""),
-          }}
-        />
-      </head>
-      <body className={`${font_Noto_Sans_SC.className}`}>
-        <NextIntlClientProvider messages={messages}>
-          <AntdRegistry>
-            <div id={"header"}>
-              <Header />
-            </div>
-            <div className={styles.container} id={"container"}>
-              {children}
-              <Footer />
-            </div>
-          </AntdRegistry>
-        </NextIntlClientProvider>
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <AntdRegistry>
+        <div id={"header"}>
+          <Header />
+        </div>
+        <div className={styles.container} id={"container"}>
+          {children}
+          <Footer />
+        </div>
+      </AntdRegistry>
+    </NextIntlClientProvider>
   )
 }

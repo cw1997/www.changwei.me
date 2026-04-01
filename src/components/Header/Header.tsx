@@ -37,6 +37,7 @@ export const Header: React.FunctionComponent<IPropsHeader> = async () => {
         </div>
         <div className={styles.right}>
           <HeaderMenu />
+          <div className={styles.right_split} aria-hidden />
           <LanguageSwitcher />
         </div>
       </div>

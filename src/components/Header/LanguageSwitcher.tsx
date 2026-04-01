@@ -26,7 +26,6 @@ export const LanguageSwitcher: React.FunctionComponent = () => {
       className={styles.language_switcher}
       value={locale as Locale}
       options={options}
-      size="small"
       disabled={isPending}
       aria-label={t("selectLanguage")}
       popupMatchSelectWidth={false}

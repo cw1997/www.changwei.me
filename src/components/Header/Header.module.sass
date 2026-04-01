@@ -42,6 +42,11 @@
   &:hover
     border: 1px solid $color-gray-3
 
+.right
+  display: flex
+  align-items: center
+  gap: 8px
+
 .menu
   &_desktop
     @include on-mobile()
@@ -52,6 +57,27 @@
   &_item
     //@include link
     text-align: center
+
+.language_switcher
+  padding: 4px 8px
+  border: 1px solid $color-border-0
+  border-radius: 4px
+  background-color: transparent
+  color: $color-font-2
+  font-size: 13px
+  cursor: pointer
+  outline: none
+  max-width: 160px
+  @include transition()
+  &:hover
+    border-color: $color-gray-3
+  &:focus-visible
+    border-color: $color-font-1
+    box-shadow: 0 0 0 2px rgba($color-font-1, 0.2)
+  @include on-mobile()
+    font-size: 12px
+    padding: 3px 4px
+    max-width: 130px
 
 @media (prefers-color-scheme: dark)
   .logo_img

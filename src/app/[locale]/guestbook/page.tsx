@@ -4,12 +4,18 @@ import {Divider} from "antd"
 import React from "react"
 import styles from "./page.module.sass"
 import Giscus from "@giscus/react"
+import {useTranslations, useLocale} from "next-intl"
 
 export default function GuestbookPage() {
+  const t = useTranslations("guestbook")
+  const locale = useLocale()
+
+  const giscusLang = locale === "zh-Hans" ? "zh-CN" : locale === "zh-Hant" ? "zh-TW" : "en"
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>Guestbook 留言板</h2>
+        <h2 className={styles.title}>{t("title")}</h2>
         <Divider />
         <Giscus
           id="comments"
@@ -18,12 +24,11 @@ export default function GuestbookPage() {
           category="Announcements"
           categoryId="DIC_kwDOLLaI-c4Cgdw4"
           mapping="pathname"
-          // term="Welcome to @giscus/react component!"
           reactionsEnabled="1"
           emitMetadata="0"
           inputPosition="top"
           theme="light"
-          lang="en"
+          lang={giscusLang}
           loading="lazy"
         />
       </main>

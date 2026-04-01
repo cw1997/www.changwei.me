@@ -13,13 +13,14 @@ import {
   ZhihuCircleFilled,
 } from "@ant-design/icons"
 import {Divider, Space, Tag} from "antd"
+import {getTranslations} from "next-intl/server"
 import React from "react"
 
 import styles from "./ExperienceSection.module.sass"
 
 const data = [
   {
-    category_name: "Work",
+    category_key: "work" as const,
     items: [
       {
         icon: risingwave_logo,
@@ -125,7 +126,7 @@ const data = [
     ],
   },
   {
-    category_name: "Education",
+    category_key: "education" as const,
     items: [
       {
         icon: ntnu_logo,
@@ -399,14 +400,16 @@ export interface IPropsExperienceSection {}
 
 export const ExperienceSection: React.FunctionComponent<
   IPropsExperienceSection
-> = (props) => {
+> = async () => {
+  const t = await getTranslations("sections")
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Experience</h2>
+      <h2 className={styles.title}>{t("experience")}</h2>
       <Space orientation={"vertical"} size={32} style={{width: "100%"}}>
         {data.map((category) => (
-          <div key={category.category_name} className={styles.category}>
-            <h3 className={styles.category_name}>{category.category_name}</h3>
+          <div key={category.category_key} className={styles.category}>
+            <h3 className={styles.category_name}>{t(category.category_key)}</h3>
             <Space
               className={styles.list}
               orientation={"vertical"}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "昌維的網站",
+    "titleTemplate": "{title} | 昌維的網站",
+    "description": "昌維的個人網站，包括個人資料、聯繫方式、教育經歷和工作經歷、作品集等。"
+  },
+  "nav": {
+    "home": "首頁",
+    "homeSubtitle": "(Home)",
+    "portfolio": "作品集",
+    "portfolioSubtitle": "(Portfolio)",
+    "guestbook": "留言板",
+    "guestbookSubtitle": "(Guestbook)",
+    "friendlyLink": "友情連結",
+    "friendlyLinkSubtitle": "(Friendly Link)",
+    "resume": "履歷",
+    "resumeSubtitle": "(Resume)"
+  },
+  "header": {
+    "siteTitle": "昌維的網站",
+    "siteTitleLine1": "昌維的網站",
+    "siteTitleLine2": "Chang Wei's website",
+    "siteSubtitle": "www.changwei.me",
+    "logoAlt": "昌維 logo",
+    "selectLanguage": "選擇語言"
+  },
+  "footer": {
+    "copyright": "© {year}，昌維，版權所有。",
+    "sourceCode": "原始碼",
+    "isUnder": "使用",
+    "poweredBy": "技術支持",
+    "hostedOn": "託管於",
+    "cdn": "CDN："
+  },
+  "profile": {
+    "trueName": "真實姓名：",
+    "birthday": "生日",
+    "location": "所在地",
+    "homeplace": "家鄉",
+    "majorDegree": "專業 & 學位",
+    "school": "學校",
+    "timezone": "時區",
+    "language": "語言",
+    "emailGlobal": "電子郵件（全球）：",
+    "emailChina": "電子郵件（中國大陸）：",
+    "addressEnLabel": "地址（英文）（接受包裹和信件[明信片交換可使用該地址]）：",
+    "addressZhLabel": "地址（中文）（接受物品包裹和信封[明信片交換可使用該地址]）：",
+    "photoDescription": "昌維參加了在臺北101 Google臺北辦公室舉辦的 <GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team> 活動。",
+    "datetime": "時間：",
+    "photoLocation": "地點：",
+    "exif": "EXIF："
+  },
+  "sections": {
+    "role": "角色",
+    "socialAndContact": "社群與聯繫",
+    "experience": "經歷",
+    "skill": "技能",
+    "current": "目前",
+    "former": "過去",
+    "socialNetwork": "社群網路",
+    "instantMessaging": "即時通訊",
+    "work": "工作",
+    "education": "教育"
+  },
+  "portfolio": {
+    "title": "作品集",
+    "pageTitle": "作品集"
+  },
+  "guestbook": {
+    "title": "留言板",
+    "pageTitle": "留言板"
+  },
+  "friendlyLink": {
+    "title": "友情連結",
+    "pageTitle": "友情連結"
+  },
+  "resume": {
+    "title": "履歷",
+    "pageTitle": "履歷",
+    "download": "下載履歷",
+    "downloadGithub": "從 GitHub 下載",
+    "viewSource": "查看履歷 LaTeX 原始碼"
+  },
+  "notFound": {
+    "badge": "404 任務解鎖",
+    "title": "這頁被外星貓咪叼走了",
+    "description": "你訪問的地址可能不存在，或者它剛剛搬去了另一個宇宙分支。",
+    "memeTitle": "今日迷因字幕",
+    "memeText": "當你複製了連結，但漏了最後一段路徑。",
+    "memeFace": "(╯°□°)╯︵ ┻━┻",
+    "browserTriedHard": "瀏覽器：我真的盡力了。",
+    "joke": "404 不代表你迷路，只是這條路還沒被 commit。",
+    "goHome": "返回首頁",
+    "goGuestbook": "去留言區打個卡"
+  },
+  "skill": {
+    "frontend": "前端",
+    "backend": "後端",
+    "database": "資料庫",
+    "desktopApp": "桌面應用程式",
+    "operations": "維運",
+    "devTools": "開發工具",
+    "electronic": "電子工程 / 嵌入式系統開發",
+    "design": "設計 / 使用者介面 / 使用者體驗"
+  }
+}

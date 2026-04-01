@@ -32,12 +32,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {Popover, QRCode, Space, Typography} from "antd"
+import {useTranslations} from "next-intl"
 import React from "react"
 
 import styles from "./ContactSection.module.sass"
 
 const data: {
-  category_name: string
+  category_key: "socialNetwork" | "instantMessaging"
   items: {
     icon: React.ReactNode
     name: string
@@ -49,7 +50,7 @@ const data: {
   }[]
 }[] = [
   {
-    category_name: "Social network",
+    category_key: "socialNetwork",
     items: [
       {
         icon: <FacebookOutlined />,
@@ -227,7 +228,7 @@ const data: {
     ],
   },
   {
-    category_name: "Instant Messaging",
+    category_key: "instantMessaging",
     items: [
       {
         icon: <WechatOutlined />,
@@ -326,16 +327,16 @@ const data: {
 
 export interface IPropsContactSection {}
 
-export const ContactSection: React.FunctionComponent<IPropsContactSection> = (
-  props,
-) => {
+export const ContactSection: React.FunctionComponent<IPropsContactSection> = () => {
+  const t = useTranslations("sections")
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Social and Contact</h2>
+      <h2 className={styles.title}>{t("socialAndContact")}</h2>
       <Space orientation={"vertical"} size={16}>
         {data.map((category) => (
-          <div key={category.category_name} className={styles.category}>
-            <h3 className={styles.category_name}>{category.category_name}</h3>
+          <div key={category.category_key} className={styles.category}>
+            <h3 className={styles.category_name}>{t(category.category_key)}</h3>
             <Space className={styles.list} size={8} wrap>
               {category.items.map((item) => (
                 <Popover

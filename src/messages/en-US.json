@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "Chang Wei's website",
+    "titleTemplate": "{title} | Chang Wei's website",
+    "description": "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more."
+  },
+  "nav": {
+    "home": "Home",
+    "homeSubtitle": "(Home)",
+    "portfolio": "Portfolio",
+    "portfolioSubtitle": "(Portfolio)",
+    "guestbook": "Guestbook",
+    "guestbookSubtitle": "(Guestbook)",
+    "friendlyLink": "Friendly Link",
+    "friendlyLinkSubtitle": "(Friendly Link)",
+    "resume": "Resume",
+    "resumeSubtitle": "(Resume)"
+  },
+  "header": {
+    "siteTitle": "Chang Wei's website",
+    "siteTitleLine1": "Chang Wei's website",
+    "siteTitleLine2": "",
+    "siteSubtitle": "www.changwei.me",
+    "logoAlt": "Chang Wei logo",
+    "selectLanguage": "Select language"
+  },
+  "footer": {
+    "copyright": "© {year}, Chang Wei, All rights reserved.",
+    "sourceCode": "Source code",
+    "isUnder": "is under",
+    "poweredBy": "Powered by",
+    "hostedOn": "Hosted on",
+    "cdn": "CDN:"
+  },
+  "profile": {
+    "trueName": "True Name:",
+    "birthday": "Birthday",
+    "location": "Location",
+    "homeplace": "Homeplace",
+    "majorDegree": "Major & Degree",
+    "school": "School",
+    "timezone": "Timezone",
+    "language": "Language",
+    "emailGlobal": "Email (Global):",
+    "emailChina": "Email (China Mainland):",
+    "addressEnLabel": "Address (English) (Accept package and mail[postcard exchange is available]):",
+    "addressZhLabel": "Address (中文) (接受物品包裹和信封[明信片交換可使用該地址]):",
+    "photoDescription": "Chang Wei attended to the event <GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team> at Google Taipei office in TAIPEI 101.",
+    "datetime": "Datetime:",
+    "photoLocation": "Location:",
+    "exif": "EXIF:"
+  },
+  "sections": {
+    "role": "Role",
+    "socialAndContact": "Social and Contact",
+    "experience": "Experience",
+    "skill": "Skill",
+    "current": "Current",
+    "former": "Former",
+    "socialNetwork": "Social network",
+    "instantMessaging": "Instant Messaging",
+    "work": "Work",
+    "education": "Education"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "pageTitle": "Portfolio"
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "pageTitle": "Guestbook"
+  },
+  "friendlyLink": {
+    "title": "Friendly Link",
+    "pageTitle": "Friendly Link"
+  },
+  "resume": {
+    "title": "Resume",
+    "pageTitle": "Resume",
+    "download": "Download Resume",
+    "downloadGithub": "Download from GitHub",
+    "viewSource": "View source code (LaTeX)"
+  },
+  "notFound": {
+    "badge": "404 Quest Unlocked",
+    "title": "This page was stolen by an alien cat",
+    "description": "The address you visited may not exist, or it just moved to another universe branch.",
+    "memeTitle": "Today's meme subtitle",
+    "memeText": "When you copied the link, but missed the last path segment.",
+    "memeFace": "(╯°□°)╯︵ ┻━┻",
+    "browserTriedHard": "Browser: I really tried my best.",
+    "joke": "404 doesn't mean you're lost, it just means this path hasn't been committed yet.",
+    "goHome": "Go Home",
+    "goGuestbook": "Leave a message"
+  },
+  "skill": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "desktopApp": "Desktop application",
+    "operations": "Operations",
+    "devTools": "Development tools",
+    "electronic": "Electronic Engineering / Embedded system development",
+    "design": "Design / User Interface / User Experience"
+  }
+}

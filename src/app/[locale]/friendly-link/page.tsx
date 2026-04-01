@@ -3,19 +3,20 @@ import {Divider, Space} from "antd"
 import React from "react"
 
 import {OutsideLink} from "@/components/OutsideLink"
+import {getTranslations} from "next-intl/server"
 
 import {data} from "./data"
 import styles from "./page.module.sass"
 
 export interface IPropsFriendlyLinkPage {}
 
-const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = (
-  props,
-) => {
+const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async () => {
+  const t = await getTranslations("friendlyLink")
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>FriendlyLink 友情链接</h2>
+        <h2 className={styles.title}>{t("title")}</h2>
         <Divider />
         <ul className={styles.list}>
           {data.items.map((item) => (

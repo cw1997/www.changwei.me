@@ -4,6 +4,7 @@ import {OutsideLink} from "@/components/OutsideLink"
 import {Col, Row, Space} from "antd"
 import React from "react"
 import Image from "next/image"
+import {useTranslations} from "next-intl"
 
 import styles from "./RoleSection.module.sass"
 import Open_House_NTUs_logo_image from "@/assets/images/logo/Open_House_NTUs.png"
@@ -23,19 +24,17 @@ import wspc_logo_image from "@/assets/images/logo/wspc.jpg"
 const logo_size = 64
 
 const data: {
-  name: string
+  nameKey: "current" | "former"
   items: {
     icon: React.ReactNode
     name: string
     role: string
-    // contact: string
     url?: string
     description?: React.ReactNode
-    // qrcode_image_url?: string
   }[]
 }[] = [
   {
-    name: "Current",
+    nameKey: "current",
     items: [
       {
         icon: <Image src={ntnu_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
@@ -61,10 +60,10 @@ const data: {
         role: "Member",
         url: "https://www.instagram.com/ntust_piano/",
       },
-    ] as const
+    ],
   },
   {
-    name: "Former",
+    nameKey: "former",
     items: [
       {
         icon: <Image src={risingwave_logo_image} alt={""} width={logo_size} height={logo_size} />,
@@ -83,7 +82,6 @@ const data: {
         name: "谷歌學生開發者社群｜Google Developer Groups on Campus (National Taiwan University)",
         role: "Lecture Speaker (Efficiency Engineering & Devtools & DevOps)",
         url: "https://www.instagram.com/gdg.ntu/",
-        // url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-taipei-taiwan/",
       },
       {
         icon: <Image src={ntust_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
@@ -121,22 +119,22 @@ const data: {
         role: "College student",
         url: "https://www.wspc.edu.cn/",
       },
-    ] as const
+    ],
   },
-] as const
+]
 
 export interface IPropsRoleSection {}
 
-export const RoleSection: React.FunctionComponent<IPropsRoleSection> = (
-  props,
-) => {
+export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
+  const t = useTranslations("sections")
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Role</h2>
+      <h2 className={styles.title}>{t("role")}</h2>
       <Space orientation={"vertical"} size={24}>
         {data.map((category) => (
-          <div key={category.name}>
-            <h3 className={styles.category_name}>{category.name}</h3>
+          <div key={category.nameKey}>
+            <h3 className={styles.category_name}>{t(category.nameKey)}</h3>
             <Row gutter={[16, 16]} align={"stretch"}>
               {category.items.map((item) => (
                 <Col key={item.name + item.role} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>

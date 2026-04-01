@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "昌维的网站",
+    "titleTemplate": "{title} | 昌维的网站",
+    "description": "昌维的个人网站，包括个人资料、联系方式、教育经历和工作经历、作品集等。"
+  },
+  "nav": {
+    "home": "首页",
+    "homeSubtitle": "(Home)",
+    "portfolio": "作品集",
+    "portfolioSubtitle": "(Portfolio)",
+    "guestbook": "留言板",
+    "guestbookSubtitle": "(Guestbook)",
+    "friendlyLink": "友情链接",
+    "friendlyLinkSubtitle": "(Friendly Link)",
+    "resume": "简历",
+    "resumeSubtitle": "(Resume)"
+  },
+  "header": {
+    "siteTitle": "昌维的网站",
+    "siteTitleLine1": "昌维的网站",
+    "siteTitleLine2": "Chang Wei's website",
+    "siteSubtitle": "www.changwei.me",
+    "logoAlt": "昌维 logo",
+    "selectLanguage": "选择语言"
+  },
+  "footer": {
+    "copyright": "© {year}，昌维，版权所有。",
+    "sourceCode": "源代码",
+    "isUnder": "使用",
+    "poweredBy": "技术支持",
+    "hostedOn": "托管于",
+    "cdn": "CDN："
+  },
+  "profile": {
+    "trueName": "真实姓名：",
+    "birthday": "生日",
+    "location": "所在地",
+    "homeplace": "家乡",
+    "majorDegree": "专业 & 学位",
+    "school": "学校",
+    "timezone": "时区",
+    "language": "语言",
+    "emailGlobal": "电子邮件（全球）：",
+    "emailChina": "电子邮件（中国大陆）：",
+    "addressEnLabel": "地址（英文）（接受包裹和信件[明信片交换可使用该地址]）：",
+    "addressZhLabel": "地址（中文）（接受物品包裹和信封[明信片交换可使用该地址]）：",
+    "photoDescription": "昌维参加了在台北101 Google台北办公室举办的 <GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team> 活动。",
+    "datetime": "时间：",
+    "photoLocation": "地点：",
+    "exif": "EXIF："
+  },
+  "sections": {
+    "role": "角色",
+    "socialAndContact": "社交与联系",
+    "experience": "经历",
+    "skill": "技能",
+    "current": "目前",
+    "former": "过去",
+    "socialNetwork": "社交网络",
+    "instantMessaging": "即时通讯",
+    "work": "工作",
+    "education": "教育"
+  },
+  "portfolio": {
+    "title": "作品集",
+    "pageTitle": "作品集"
+  },
+  "guestbook": {
+    "title": "留言板",
+    "pageTitle": "留言板"
+  },
+  "friendlyLink": {
+    "title": "友情链接",
+    "pageTitle": "友情链接"
+  },
+  "resume": {
+    "title": "简历",
+    "pageTitle": "简历",
+    "download": "下载简历",
+    "downloadGithub": "从 GitHub 下载",
+    "viewSource": "查看简历 LaTeX 源码"
+  },
+  "notFound": {
+    "badge": "404 任务解锁",
+    "title": "这页被外星猫咪叼走了",
+    "description": "你访问的地址可能不存在，或者它刚刚搬去了另一个宇宙分支。",
+    "memeTitle": "今日梗图字幕",
+    "memeText": "当你复制了链接，但漏了最后一段路径。",
+    "memeFace": "(╯°□°)╯︵ ┻━┻",
+    "browserTriedHard": "浏览器：我真的尽力了。",
+    "joke": "404 不代表你迷路，只是这条路还没被 commit。",
+    "goHome": "返回首页",
+    "goGuestbook": "去留言区打个卡"
+  },
+  "skill": {
+    "frontend": "前端",
+    "backend": "后端",
+    "database": "数据库",
+    "desktopApp": "桌面应用程序",
+    "operations": "运维",
+    "devTools": "开发工具",
+    "electronic": "电子工程 / 嵌入式系统开发",
+    "design": "设计 / 用户界面 / 用户体验"
+  }
+}

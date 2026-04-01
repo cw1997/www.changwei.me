@@ -1,6 +1,18 @@
 import type {Preview} from "@storybook/nextjs-vite"
+import {NextIntlClientProvider} from "next-intl"
+import React from "react"
+
+import {defaultLocale} from "../src/i18n/routing"
+import messages from "../src/messages/en-US.json"
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <NextIntlClientProvider locale={defaultLocale} messages={messages}>
+        <Story />
+      </NextIntlClientProvider>
+    ),
+  ],
   parameters: {
     controls: {
       matchers: {

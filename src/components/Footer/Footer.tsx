@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Image from "next/image"
 import {Divider, Space} from "antd"
@@ -7,15 +9,15 @@ import {OutsideLink} from "@/components/OutsideLink"
 import next_logo from "@/assets/images/logo/frontend/next.svg"
 import vercel_logo from "@/assets/images/logo/frontend/vercel.svg"
 import cloudflare_logo from "@/assets/images/logo/Cloudflare_Logo.svg"
-import {getTranslations} from "next-intl/server"
+import {useTranslations} from "next-intl"
 
 import styles from "./Footer.module.sass"
 
 export interface IPropsFooter {}
 
-export const Footer: React.FunctionComponent<IPropsFooter> = async () => {
+export const Footer: React.FunctionComponent<IPropsFooter> = () => {
   const year = new Date().getFullYear()
-  const t = await getTranslations("footer")
+  const t = useTranslations("footer")
 
   return (
     <footer className={styles.container}>

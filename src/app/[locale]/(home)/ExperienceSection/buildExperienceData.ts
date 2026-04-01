@@ -3,7 +3,6 @@ import ntust_logo from "@/assets/images/logo/ntust.png"
 import pingcap_logo from "@/assets/images/logo/PingCAP.svg"
 import risingwave_logo from "@/assets/images/logo/risingwave.png"
 import wspc_logo from "@/assets/images/logo/wspc.jpg"
-import {getLocale, getTranslations} from "next-intl/server"
 import type {Locale} from "@/i18n/routing"
 import React from "react"
 import {experienceNoteFor} from "./experienceNotes"
@@ -27,10 +26,10 @@ export type ExperienceCategory = {
   items: ExperienceItem[]
 }
 
-export async function getExperienceData(): Promise<ExperienceCategory[]> {
-  const locale = (await getLocale()) as Locale
-  const t = await getTranslations("experience")
-
+export function getExperienceData(
+  locale: Locale,
+  t: (key: string) => string,
+): ExperienceCategory[] {
   const tagsRisingwave = [
     "React",
     "Node.js",

@@ -1,4 +1,7 @@
+"use client"
+
 import {OutsideLink} from "@/components/OutsideLink"
+import type {Locale} from "@/i18n/routing"
 import {
   ClockCircleOutlined,
   EnvironmentOutlined,
@@ -6,7 +9,7 @@ import {
   TagsOutlined,
 } from "@ant-design/icons"
 import {Divider, Space, Tag} from "antd"
-import {getTranslations} from "next-intl/server"
+import {useLocale, useTranslations} from "next-intl"
 import React from "react"
 
 import styles from "./ExperienceSection.module.sass"
@@ -16,9 +19,11 @@ export interface IPropsExperienceSection {}
 
 export const ExperienceSection: React.FunctionComponent<
   IPropsExperienceSection
-> = async () => {
-  const t = await getTranslations("sections")
-  const data = await getExperienceData()
+> = () => {
+  const locale = useLocale() as Locale
+  const t = useTranslations("sections")
+  const tExperience = useTranslations("experience")
+  const data = getExperienceData(locale, tExperience)
 
   return (
     <div className={styles.container}>

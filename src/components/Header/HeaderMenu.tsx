@@ -1,67 +1,13 @@
 "use client"
 
+import styles from "./Header.module.sass"
 import {MenuOutlined} from "@ant-design/icons"
+import {Link, usePathname} from "@/i18n/navigation"
 import {Button, ConfigProvider, Divider, Dropdown, Space} from "antd"
-import Link from "next/link"
-import {usePathname} from "next/navigation"
+import {useTranslations} from "next-intl"
 import React from "react"
 
-import styles from "./Header.module.sass"
-
-const data = {
-  items: [
-    {
-      label: (
-        <>
-          Home
-          <br />
-          (首页)
-        </>
-      ),
-      url: "/",
-    },
-    {
-      label: (
-        <>
-          Portfolio
-          <br />
-          (作品集)
-        </>
-      ),
-      url: "/portfolio",
-    },
-    {
-      label: (
-        <>
-          Guestbook
-          <br />
-          (留言板)
-        </>
-      ),
-      url: "/guestbook",
-    },
-    {
-      label: (
-        <>
-          Friendly Link
-          <br />
-          (友情链接)
-        </>
-      ),
-      url: "/friendly-link",
-    },
-    {
-      label: (
-        <>
-          Resume
-          <br />
-          (简历)
-        </>
-      ),
-      url: "/resume", // url_resume_pdf,
-    },
-  ],
-} as const
+const paths = ["/", "/portfolio", "/guestbook", "/friendly-link", "/resume"] as const
 
 export interface IPropsHeader {}
 
@@ -78,25 +24,36 @@ export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (
   props,
 ) => {
   const pathname = usePathname()
+  const t = useTranslations("nav")
+
+  const items = [
+    {path: paths[0], label: t("home")},
+    {path: paths[1], label: t("portfolio")},
+    {path: paths[2], label: t("guestbook")},
+    {path: paths[3], label: t("friendlyLink")},
+    {path: paths[4], label: t("resume")},
+  ] as const
+
   return (
     <Space
       align={"center"}
       className={styles.menu_desktop}
       separator={<Divider orientation={"vertical"} />}
     >
-      {data.items.map((item) => {
-        const is_current = pathname?.startsWith(item.url)
+      {items.map((item) => {
+        const is_current =
+          item.path === "/"
+            ? pathname === "/"
+            : pathname?.startsWith(item.path)
         return (
           <Link
-            key={item.url}
-            href={item.url}
+            key={item.path}
+            href={item.path}
             className={styles.menu_item}
             style={{
               fontWeight: is_current ? "700" : "400",
               textDecoration: is_current ? "underline" : "",
             }}
-            target={item.url.startsWith("http") ? "_blank" : ""}
-            rel={item.url.startsWith("http") ? "noopener noreferrer" : ""}
           >
             {item.label}
           </Link>
@@ -109,6 +66,16 @@ export const HeaderMenuDesktop: React.FunctionComponent<IPropsHeader> = (
 export const HeaderMenuMobile: React.FunctionComponent<IPropsHeader> = (
   props,
 ) => {
+  const t = useTranslations("nav")
+
+  const items = [
+    {path: paths[0], label: t("home")},
+    {path: paths[1], label: t("portfolio")},
+    {path: paths[2], label: t("guestbook")},
+    {path: paths[3], label: t("friendlyLink")},
+    {path: paths[4], label: t("resume")},
+  ] as const
+
   return (
     <ConfigProvider
       theme={{
@@ -120,16 +87,17 @@ export const HeaderMenuMobile: React.FunctionComponent<IPropsHeader> = (
         },
       }}
     >
-      <div
-        className={styles.menu_mobile}
-      >
+      <div className={styles.menu_mobile}>
         <Dropdown
-          // getPopupContainer={(element) => document.getElementById('header')}
           menu={{
-            items: data.items.map((item) => ({
-              key: item.url,
+            items: items.map((item) => ({
+              key: item.path,
               label: (
-                <Link key={item.url} href={item.url} className={styles.menu_item}>
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={styles.menu_item}
+                >
                   {item.label}
                 </Link>
               ),

@@ -1,12 +1,14 @@
-import React from "react"
-import Image from "next/image"
-import {Divider, Space} from "antd"
-import {CodeOutlined, GithubOutlined} from "@ant-design/icons"
+"use client"
 
-import {OutsideLink} from "@/components/OutsideLink"
+import cloudflare_logo from "@/assets/images/logo/Cloudflare_Logo.svg"
 import next_logo from "@/assets/images/logo/frontend/next.svg"
 import vercel_logo from "@/assets/images/logo/frontend/vercel.svg"
-import cloudflare_logo from "@/assets/images/logo/Cloudflare_Logo.svg"
+import {OutsideLink} from "@/components/OutsideLink"
+import {CodeOutlined, GithubOutlined} from "@ant-design/icons"
+import {Divider, Space} from "antd"
+import {useTranslations} from "next-intl"
+import Image from "next/image"
+import React from "react"
 
 import styles from "./Footer.module.sass"
 
@@ -14,28 +16,30 @@ export interface IPropsFooter {}
 
 export const Footer: React.FunctionComponent<IPropsFooter> = () => {
   const year = new Date().getFullYear()
+  const t = useTranslations("footer")
 
   return (
     <footer className={styles.container}>
       <div className={styles.content}>
         <div className={styles.text}>
           <p className={styles.copyright}>
-            © {year}, Chang Wei, All rights reserved. <br />© {year}, 昌维
-            版权所有.
+            {t("copyrightEn", {year})}
+            <br />
+            {t("copyrightZh", {year})}
           </p>
           <div className={styles.nerd_info}>
             <p>
-              <CodeOutlined /> Source code [
+              <CodeOutlined /> {t("sourceIntro")}
               <OutsideLink href={"https://github.com/cw1997/www.changwei.me"}>
                 cw1997/www.changwei.me
               </OutsideLink>
-              ] is under{" "}
+              {t("sourceOutro")}{" "}
               <OutsideLink href={"https://www.apache.org/licenses/LICENSE-2.0"}>
-                Apache License, Version 2.0 (Apache 2.0)
+                {t("apache")}
               </OutsideLink>
             </p>
             <p className={styles.copyright_github}>
-              <GithubOutlined /> GitHub Repository:{" "}
+              <GithubOutlined /> {t("githubRepo")}{" "}
               <OutsideLink href={"https://github.com/cw1997/www.changwei.me"} />
             </p>
             <div style={{marginTop: 8}}>
@@ -119,31 +123,29 @@ export const Footer: React.FunctionComponent<IPropsFooter> = () => {
             wrap
           >
             <div className={styles.powered_by_item}>
-              Powered by
+              {t("poweredBy")}
               <OutsideLink className={styles.logo} href={"https://nextjs.org/"}>
                 <Image
                   src={next_logo}
                   alt="NextJS Logo"
                   className={styles.logo_img}
-                  // width={100}
                   height={16}
                 />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
-              Hosted on
+              {t("hostedOn")}
               <OutsideLink className={styles.logo} href={"https://vercel.com"}>
                 <Image
                   src={vercel_logo}
                   alt="Vercel Logo"
                   className={styles.logo_img}
-                  // width={100}
                   height={16}
                 />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
-              CDN:
+              {t("cdn")}
               <OutsideLink
                 className={styles.logo}
                 href={"https://cloudflare.com"}
@@ -152,7 +154,6 @@ export const Footer: React.FunctionComponent<IPropsFooter> = () => {
                   src={cloudflare_logo}
                   alt="CloudFlare Logo"
                   className={styles.logo_img}
-                  // width={100}
                   height={32}
                 />
               </OutsideLink>

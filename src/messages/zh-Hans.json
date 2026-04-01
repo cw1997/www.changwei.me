@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "title": "昌维的网站",
+    "description": "昌维的个人网站，包括个人资料、联系方式、教育经历、工作经历与作品集等。"
+  },
+  "header": {
+    "primary": "昌维的网站",
+    "secondary": "Chang Wei's website",
+    "subtitle": "www.changwei.me",
+    "logoAlt": "昌维网站标志"
+  },
+  "nav": {
+    "home": "首页",
+    "portfolio": "作品集",
+    "guestbook": "留言板",
+    "friendlyLink": "友情链接",
+    "resume": "简历"
+  },
+  "footer": {
+    "copyrightEn": "© {year}，Chang Wei，保留所有权利。",
+    "copyrightZh": "© {year}，昌维 版权所有。",
+    "sourceIntro": "源代码 [",
+    "sourceOutro": "] 采用",
+    "apache": "Apache License, Version 2.0（Apache 2.0）",
+    "githubRepo": "GitHub 仓库：",
+    "poweredBy": "基于",
+    "hostedOn": "托管于",
+    "cdn": "CDN："
+  },
+  "notFound": {
+    "badge": "404 成就解锁",
+    "title": "这页被外星猫咪叼走了",
+    "description": "你访问的地址可能不存在，或者它刚刚搬去了另一个宇宙分支。",
+    "memeTitle": "今日梗图字幕",
+    "memeText": "当你复制了链接，但漏了最后一段路径。\n浏览器：我真的尽力了。",
+    "joke": "404 不代表你迷路，只是这条路还没被 commit。",
+    "home": "返回首页",
+    "guestbook": "去留言区打个卡"
+  },
+  "errorPage": {
+    "badge": "500 剧情反转",
+    "title": "页面刚才绊了一跤",
+    "description": "抱歉，页面在加载时遇到了一个意外错误。我们已经记录了这个问题。",
+    "memeTitle": "调试现场",
+    "memeText": "我只改了一行代码。\n结果整个宇宙的状态都变了。",
+    "digest": "错误追踪号：",
+    "retry": "再试一次",
+    "home": "返回首页"
+  },
+  "guestbook": {
+    "title": "留言板"
+  },
+  "resume": {
+    "title": "简历",
+    "download": "下载简历",
+    "downloadGithub": "从 GitHub 下载",
+    "viewSource": "查看 LaTeX 源码"
+  },
+  "portfolio": {
+    "title": "作品集",
+    "types": {
+      "mobileApp": "移动应用",
+      "frontend": "前端",
+      "ipCore": "IP 核（SystemVerilogHDL）",
+      "system": "系统",
+      "computerNetwork": "计算机网络"
+    }
+  },
+  "friendlyLink": {
+    "title": "友情链接",
+    "items": {
+      "mooc": "www.MOOC.edu.rs（大规模开放在线课程）",
+      "mubiao": "目标网",
+      "jiawei": "Jiawei Du",
+      "imuslab": "imuslab - 托比的创客实验室"
+    }
+  },
+  "skill": {
+    "title": "技能",
+    "frontend": "前端",
+    "backend": "后端",
+    "database": "数据库",
+    "desktop": "桌面应用",
+    "operations": "运维",
+    "devTools": "开发工具",
+    "embedded": "电子工程 / 嵌入式开发",
+    "design": "设计 / 界面 / 体验"
+  },
+  "role": {
+    "title": "角色与身份",
+    "current": "当前",
+    "former": "曾经",
+    "currentItems": [
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（国立台湾师范大学）",
+        "role": "讲师（Web 前端、Python、数据库与 SQL）"
+      },
+      {"name": "打开台大｜Open House NTUs", "role": "志愿者（活动组）"},
+      {
+        "name": "社会教育学系｜Department of Adult and Continuing Education（国立台湾师范大学）",
+        "role": "博士生"
+      },
+      {
+        "name": "钢琴社｜Piano club（国立台湾科技大学）",
+        "role": "成员"
+      }
+    ],
+    "formerItems": [
+      {"name": "RisingWave Labs", "role": "Web 前端开发（实习）"},
+      {"name": "PingCAP", "role": "Web 前端开发（实习）"},
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（国立台湾大学）",
+        "role": "讲师（效能工程、开发工具与 DevOps）"
+      },
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（国立台湾科技大学）",
+        "role": "讲师（Web 前端）"
+      },
+      {
+        "name": "学生议会｜Student Council（国立台湾科技大学）",
+        "role": "副会长"
+      },
+      {
+        "name": "学生会｜Student Association（国立台湾科技大学）",
+        "role": "财务长"
+      },
+      {
+        "name": "电子工程系｜Department of Electrical and Computer Engineering（国立台湾科技大学）",
+        "role": "硕士研究生"
+      },
+      {
+        "name": "电子工程系｜Department of Electrical and Computer Engineering（国立台湾科技大学）",
+        "role": "本科生"
+      },
+      {
+        "name": "软件技术专业｜Department of Software Engineering（武汉船舶职业技术学院）",
+        "role": "专科生"
+      }
+    ]
+  },
+  "experience": {
+    "title": "经历",
+    "work": "工作",
+    "education": "教育",
+    "now": "至今",
+    "remote": "远程"
+  },
+  "contact": {
+    "title": "社交与联系",
+    "categories": {"social": "社交网络", "im": "即时通讯"},
+    "itemNames": {
+      "emailGlobal": "邮箱（全球）",
+      "emailCn": "邮箱（中国大陆）",
+      "zhihu": "知乎",
+      "weibo": "微博",
+      "douban": "豆瓣"
+    }
+  },
+  "profile": {
+    "values": {
+      "birthday": "1997/10/06 UTC+08:00（CST，中国标准时间）",
+      "location": "台湾（+886），台北市大安区",
+      "homeplace": "中国大陆（+86），江西省吉安市吉州区",
+      "major": "社会教育学系博士班",
+      "school": "国立台湾师范大学（NTNU）",
+      "timezoneSuffix": "Asia/Taipei（UTC+08:00）",
+      "addressEn": "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)",
+      "addressZh": "106311 台北市大安区师大路 9 号",
+      "photoLocation": "台湾（+886），台北市（106）信义区，台北 101 14 楼（Google 台北办公室访客中心）（25.033487,121.564922）",
+      "photoExif": "小米 12S Ultra（Sony IMX989）f/1.9 1/90s ISO 945 8.7mm（等效 23mm）无闪光灯"
+    },
+    "trueName": "姓名：",
+    "keys": {
+      "birthday": "生日",
+      "location": "所在地",
+      "homeplace": "籍贯",
+      "major": "专业与学位",
+      "school": "学校",
+      "timezone": "时区",
+      "language": "语言"
+    },
+    "language": {
+      "hansLabel": "中文（简体）",
+      "hansRegion": "中国大陆",
+      "hantLabel": "中文（繁体）",
+      "hantRegion": "台湾",
+      "en": "英语"
+    },
+    "emailGlobal": "邮箱（全球）：",
+    "emailCn": "邮箱（中国大陆）：",
+    "addressEn": "地址（英文）（可收包裹与邮件，明信片交换可使用该地址）：",
+    "addressZh": "地址（中文）（可收包裹与邮件，明信片交换可使用该地址）：",
+    "photoAlt": "昌维在 Google 台北办公室",
+    "photoCaption": "昌维参加在台北 101 Google 台北办公室举办的「GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team」活动。",
+    "photoDatetime": "时间：",
+    "photoDatetimeValue": "2024 年 6 月 11 日（周二）21:11",
+    "photoLocation": "地点：",
+    "photoExif": "EXIF："
+  }
+}

@@ -1,17 +1,21 @@
+"use client"
+
 import logo_image from "@/assets/images/changwei-logo.svg"
 import {HeaderMenu} from "@/components/Header/HeaderMenu"
+import {LocaleSwitcher} from "@/components/LocaleSwitcher/LocaleSwitcher"
+import {Link} from "@/i18n/navigation"
 import {Space} from "antd"
+import {useTranslations} from "next-intl"
 import Image from "next/image"
-import Link from "next/link"
 import React from "react"
 
 import styles from "./Header.module.sass"
 
-// export const element_id = 'header'
-
 export interface IPropsHeader {}
 
 export const Header: React.FunctionComponent<IPropsHeader> = () => {
+  const t = useTranslations("header")
+
   return (
     <header className={styles.container}>
       <div className={styles.main}>
@@ -19,21 +23,39 @@ export const Header: React.FunctionComponent<IPropsHeader> = () => {
           <Space align={"center"}>
             <Link href="/">
               <div className={styles.logo}>
-                <Image src={logo_image} width={48} height={48} alt={"Chang Wei logo"} />
+                <Image
+                  src={logo_image}
+                  width={48}
+                  height={48}
+                  alt={t("logoAlt")}
+                />
               </div>
             </Link>
             <div className={styles.split} />
             <Link href="/">
               <div className={styles.title}>
-                昌维的网站 / 昌維的網站<br/>
-                {"Chang Wei's website"}<br/>
-                <span style={{fontSize: 14, lineHeight: 1, color: "#8c8c8c"}}>{"www.changwei.me"}</span>
+                {t("primary")}
+                {t("secondary") ? (
+                  <>
+                    <br />
+                    {t("secondary")}
+                  </>
+                ) : null}
+                <br />
+                <span
+                  style={{fontSize: 14, lineHeight: 1, color: "#8c8c8c"}}
+                >
+                  {t("subtitle")}
+                </span>
               </div>
             </Link>
           </Space>
         </div>
-        <div>
-          <HeaderMenu />
+        <div className={styles.actions}>
+          <Space align={"center"} size={16} wrap>
+            <HeaderMenu />
+            <LocaleSwitcher />
+          </Space>
         </div>
       </div>
     </header>

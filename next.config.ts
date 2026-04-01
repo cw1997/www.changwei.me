@@ -1,5 +1,8 @@
 import type {NextConfig} from "next"
 import {withSentryConfig} from "@sentry/nextjs"
+import createNextIntlPlugin from "next-intl/plugin"
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts")
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
@@ -9,6 +12,31 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
 
   reactCompiler: true,
+
+  async redirects() {
+    return [
+      {
+        source: "/traditional-chinese",
+        destination: "/zh-Hant",
+        permanent: true,
+      },
+      {
+        source: "/traditional-chinese/:path*",
+        destination: "/zh-Hant/:path*",
+        permanent: true,
+      },
+      {
+        source: "/simplified-chinese",
+        destination: "/zh-Hans",
+        permanent: true,
+      },
+      {
+        source: "/simplified-chinese/:path*",
+        destination: "/zh-Hans/:path*",
+        permanent: true,
+      },
+    ]
+  },
 
   experimental: {
     typedEnv: true,
@@ -26,7 +54,7 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withSentryConfig(nextConfig, {
+export default withSentryConfig(withNextIntl(nextConfig), {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 

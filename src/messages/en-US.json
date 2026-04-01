@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "title": "Chang Wei's website",
+    "description": "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more."
+  },
+  "header": {
+    "primary": "Chang Wei's website",
+    "secondary": "",
+    "subtitle": "www.changwei.me",
+    "logoAlt": "Chang Wei logo"
+  },
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "guestbook": "Guestbook",
+    "friendlyLink": "Friendly links",
+    "resume": "Resume"
+  },
+  "footer": {
+    "copyrightEn": "© {year}, Chang Wei, All rights reserved.",
+    "copyrightZh": "© {year}, 昌维 版权所有.",
+    "sourceIntro": "Source code [",
+    "sourceOutro": "] is under",
+    "apache": "Apache License, Version 2.0 (Apache 2.0)",
+    "githubRepo": "GitHub Repository:",
+    "poweredBy": "Powered by",
+    "hostedOn": "Hosted on",
+    "cdn": "CDN:"
+  },
+  "notFound": {
+    "badge": "404 Quest Unlocked",
+    "title": "This page was taken by space cats",
+    "description": "The address may not exist, or it just moved to another branch of the multiverse.",
+    "memeTitle": "Caption of the day",
+    "memeText": "You copied the link but missed the last segment.\nThe browser: I tried.",
+    "joke": "404 doesn't mean you're lost — this path just hasn't been committed yet.",
+    "home": "Back to home",
+    "guestbook": "Leave a note in the guestbook"
+  },
+  "errorPage": {
+    "badge": "500 Plot Twist",
+    "title": "The page just tripped",
+    "description": "Sorry, something went wrong while loading. We've recorded this issue.",
+    "memeTitle": "Debug scene",
+    "memeText": "I only changed one line.\nThen the whole universe's state shifted.",
+    "digest": "Trace ID:",
+    "retry": "Try again",
+    "home": "Back to home"
+  },
+  "guestbook": {
+    "title": "Guestbook"
+  },
+  "resume": {
+    "title": "Resume",
+    "download": "Download resume",
+    "downloadGithub": "Download (GitHub)",
+    "viewSource": "View LaTeX source"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "types": {
+      "mobileApp": "Mobile App",
+      "frontend": "Frontend",
+      "ipCore": "IP Core, written by SystemVerilogHDL",
+      "system": "System",
+      "computerNetwork": "Computer Network"
+    }
+  },
+  "friendlyLink": {
+    "title": "Friendly links",
+    "items": {
+      "mooc": "www.MOOC.edu.rs (Massive Open Online Courses)",
+      "mubiao": "Mubiao.org",
+      "jiawei": "Jiawei Du",
+      "imuslab": "imuslab — Toby's Maker Lab"
+    }
+  },
+  "skill": {
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "desktop": "Desktop application",
+    "operations": "Operations",
+    "devTools": "Development tools",
+    "embedded": "Electronic engineering / Embedded system development",
+    "design": "Design / User Interface / User Experience"
+  },
+  "role": {
+    "title": "Roles",
+    "current": "Current",
+    "former": "Former",
+    "currentItems": [
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan Normal University)",
+        "role": "Lecture Speaker (Web Front-end, Python, Database & SQL)"
+      },
+      {
+        "name": "Open House NTUs",
+        "role": "Volunteer (Activities Section)"
+      },
+      {
+        "name": "Department of Adult and Continuing Education (National Taiwan Normal University)",
+        "role": "Ph.D. student"
+      },
+      {
+        "name": "Piano club (National Taiwan University of Science and Technology)",
+        "role": "Member"
+      }
+    ],
+    "formerItems": [
+      {"name": "RisingWave Labs", "role": "Web Front-end Developer (Intern)"},
+      {"name": "PingCAP", "role": "Web Front-end Developer (Intern)"},
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan University)",
+        "role": "Lecture Speaker (Efficiency Engineering, Devtools & DevOps)"
+      },
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan University of Science and Technology)",
+        "role": "Lecture Speaker (Web Front-end)"
+      },
+      {
+        "name": "Student Council (National Taiwan University of Science and Technology)",
+        "role": "VP (Vice-President)"
+      },
+      {
+        "name": "Student Association (National Taiwan University of Science and Technology)",
+        "role": "CFO (Chief Finance Officer)"
+      },
+      {
+        "name": "Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
+        "role": "Master's degree student"
+      },
+      {
+        "name": "Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
+        "role": "Bachelor's degree student"
+      },
+      {
+        "name": "Department of Software Engineering (Wuhan Institute of Shipbuilding Technology)",
+        "role": "College student"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "work": "Work",
+    "education": "Education",
+    "now": "now",
+    "remote": "Remote"
+  },
+  "contact": {
+    "title": "Social and Contact",
+    "categories": {
+      "social": "Social network",
+      "im": "Instant Messaging"
+    },
+    "itemNames": {
+      "emailGlobal": "Email (Global)",
+      "emailCn": "Email (Mainland China)",
+      "zhihu": "Zhihu",
+      "weibo": "Weibo",
+      "douban": "Douban"
+    }
+  },
+  "profile": {
+    "values": {
+      "birthday": "1997/10/06 UTC+08:00 (CST, China Standard Time)",
+      "location": "Taiwan (+886), Taipei City, Da'an District",
+      "homeplace": "Chinese mainland (+86), JiangXi Province, Ji'an City, Ji'zhou District",
+      "major": "Department of Adult and Continuing Education, Ph.D.",
+      "school": "National Taiwan Normal University (NTNU)",
+      "timezoneSuffix": "Asia/Taipei (UTC+08:00)",
+      "addressEn": "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)",
+      "addressZh": "106311 臺北市大安區師大路 9 號",
+      "photoLocation": "Taiwan (+886), Taipei City (106), Xinyi District, Taipei 101 14F (visitor center of Google Taipei office) (25.033487,121.564922)",
+      "photoExif": "Xiaomi 12S Ultra (Sony IMX989) f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash"
+    },
+    "trueName": "True Name:",
+    "keys": {
+      "birthday": "Birthday",
+      "location": "Location",
+      "homeplace": "Homeplace",
+      "major": "Major & Degree",
+      "school": "School",
+      "timezone": "Timezone",
+      "language": "Language"
+    },
+    "language": {
+      "hansLabel": "Chinese (Simplified Han)",
+      "hansRegion": "Mainland China",
+      "hantLabel": "Chinese (Traditional Han)",
+      "hantRegion": "Taiwan",
+      "en": "English"
+    },
+    "emailGlobal": "Email (Global):",
+    "emailCn": "Email (Mainland China):",
+    "addressEn": "Address (English) (Packages and mail accepted; postcard exchange welcome):",
+    "addressZh": "Address (Chinese) (接受物品包裹和信封[明信片交換可使用該地址]):",
+    "photoAlt": "Chang Wei at Google Taipei office",
+    "photoCaption": "Chang Wei at the event \"GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team\" at Google Taipei office in Taipei 101.",
+    "photoDatetime": "Datetime:",
+    "photoDatetimeValue": "June 11, 2024, Tuesday 21:11",
+    "photoLocation": "Location:",
+    "photoExif": "EXIF:"
+  }
+}

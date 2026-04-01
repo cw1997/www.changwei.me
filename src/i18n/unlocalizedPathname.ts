@@ -1,19 +1,24 @@
-import {localeUrlPrefixes, routing, type AppLocale} from "@/i18n/routing"
+import {
+  localeUrlPrefixes,
+  type AppLocale,
+  type PrefixedAppLocale,
+} from "@/i18n/routing"
 
-/** 从 pathname 首段解析当前地区（大小写不敏感），无法识别时返回 undefined。 */
+const prefixedLocales = Object.keys(localeUrlPrefixes) as PrefixedAppLocale[]
+
+/** 从 pathname 首段解析当前地区（大小写不敏感）；无前缀路径视为 `en-US`。 */
 export function localeFromPathname(pathname: string | null): AppLocale | undefined {
   if (pathname == null || pathname === "") return undefined
   const pathOnly = pathname.split("?")[0] ?? pathname
-  const firstLower = pathOnly.split("/").filter(Boolean)[0]?.toLowerCase()
-  if (!firstLower) return undefined
+  const segments = pathOnly.split("/").filter(Boolean)
+  if (segments.length === 0) return "en-US"
 
-  for (const loc of routing.locales) {
-    const slug = localeUrlPrefixes[loc as keyof typeof localeUrlPrefixes]
-      .replace(/^\//, "")
-      .toLowerCase()
-    if (firstLower === slug) return loc as AppLocale
+  const firstLower = segments[0].toLowerCase()
+  for (const loc of prefixedLocales) {
+    const slug = localeUrlPrefixes[loc].replace(/^\//, "").toLowerCase()
+    if (firstLower === slug) return loc
   }
-  return undefined
+  return "en-US"
 }
 
 /**
@@ -28,14 +33,14 @@ export function toUnlocalizedPathname(pathname: string): string {
 
   const firstLower = segments[0].toLowerCase()
 
-  for (const loc of routing.locales) {
-    const prefix = localeUrlPrefixes[loc as keyof typeof localeUrlPrefixes]
-    const slug = prefix.replace(/^\//, "").toLowerCase()
+  for (const loc of prefixedLocales) {
+    const slug = localeUrlPrefixes[loc].replace(/^\//, "").toLowerCase()
     if (firstLower === slug) {
       const rest = segments.slice(1)
       return rest.length ? `/${rest.join("/")}` : "/"
     }
   }
 
+  /* en-US：无地区前缀 */
   return pathOnly.startsWith("/") ? pathOnly : `/${pathOnly}`
 }

@@ -1,21 +1,28 @@
 import type {StaticImageData} from "next/image"
 
-export const data: {
-  items: {
-    icon?: StaticImageData|string
-    name: string
-    url: string
-  }[]
-} = {
-  items: [
+export type FriendlyLinkItem = {
+  icon?: StaticImageData | string
+  name: string
+  url: string
+}
+
+export function getFriendlyLinkItems(locale: string): FriendlyLinkItem[] {
+  const isEn = locale === "en-US"
+  const isHant = locale === "zh-Hant"
+
+  return [
     {
       icon: undefined,
-      name: "www. M(assive) O(pen) O(nline) C(ourses) .edu.rs",
+      name: isEn
+        ? "www.mooc.edu.rs (Massive Open Online Courses)"
+        : isHant
+          ? "www.mooc.edu.rs（大規模開放線上課程）"
+          : "www.mooc.edu.rs（大规模开放式在线课程）",
       url: "https://www.mooc.edu.rs/",
     },
     {
       icon: undefined,
-      name: "目标网",
+      name: isEn ? "Mubiao.org" : isHant ? "目標網" : "目标网",
       url: "https://www.mubiao.org/",
     },
     {
@@ -25,8 +32,12 @@ export const data: {
     },
     {
       icon: "https://imuslab.com/favicon.png",
-      name: "imuslab - 托比的創客實驗室",
+      name: isEn
+        ? "imuslab — Toby's maker lab"
+        : isHant
+          ? "imuslab - 托比的創客實驗室"
+          : "imuslab - 托比的创客实验室",
       url: "https://imuslab.com/",
     },
-  ],
-} as const
+  ]
+}

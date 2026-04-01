@@ -36,7 +36,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = async () => {
               </OutsideLink>
             </p>
             <p className={styles.copyright_github}>
-              <GithubOutlined /> GitHub Repository:{" "}
+              <GithubOutlined /> {t("githubRepo")}{" "}
               <OutsideLink href={"https://github.com/cw1997/www.changwei.me"} />
             </p>
             <div style={{marginTop: 8}}>

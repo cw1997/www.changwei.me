@@ -22,12 +22,32 @@ type Props = {
   params: Promise<{locale: string}>
 }
 
+const baseSiteKeywords = [
+  "Chang Wei",
+  "cw1997",
+  "changwei",
+  "changwei1006",
+  "changwei1997",
+  "profile",
+  "CV",
+  "Curriculum Vitae",
+  "Resume",
+  "personal website",
+] as const
+
+const localeExtraKeywords: Record<string, readonly string[]> = {
+  "zh-Hans": ["昌维", "昌維", "昌维001", "昌维cw", "个人网站", "简历"],
+  "zh-Hant": ["昌維", "昌维", "昌维001", "昌维cw", "個人網站", "履歷", "簡歷"],
+  "en-US": [],
+}
+
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {locale} = await params
   const t = await getTranslations({locale, namespace: "metadata"})
 
   const title = t("title")
   const description = t("description")
+  const extra = localeExtraKeywords[locale] ?? []
 
   return {
     metadataBase: new URL(url),
@@ -37,24 +57,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     },
     description,
     authors: [{name: "Chang Wei", url: "https://github.com/cw1997"}],
-    keywords: [
-      "Chang Wei",
-      "昌维",
-      "昌維",
-      "昌维001",
-      "昌维cw",
-      "cw1997",
-      "changwei",
-      "changwei1006",
-      "changwei1997",
-      "personal website",
-      "个人网站",
-      "简历",
-      "profile",
-      "CV",
-      "Curriculum Vitae",
-      "Resume",
-    ],
+    keywords: [...baseSiteKeywords, ...extra],
 
     openGraph: {
       siteName: title,

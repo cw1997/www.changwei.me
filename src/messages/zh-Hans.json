@@ -30,7 +30,8 @@
     "isUnder": "使用",
     "poweredBy": "技术支持",
     "hostedOn": "托管于",
-    "cdn": "CDN："
+    "cdn": "CDN：",
+    "githubRepo": "GitHub 仓库："
   },
   "profile": {
     "trueName": "真实姓名：",
@@ -48,7 +49,21 @@
     "photoDescription": "昌维参加了在台北101 Google台北办公室举办的「GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team」活动。",
     "datetime": "时间：",
     "photoLocation": "地点：",
-    "exif": "EXIF："
+    "exif": "EXIF：",
+    "birthdayValue": "1997/10/06 UTC+08:00（CST，中国标准时间）",
+    "locationValue": "台湾（+886），台北市大安区",
+    "homeplaceValue": "中国大陆（+86），江西省吉安市吉州区",
+    "majorValue": "社会教育学系博士班｜Department of Adult and Continuing Education, Ph.D.",
+    "schoolValue": "国立台湾师范大学｜National Taiwan Normal University (NTNU)",
+    "langHans": "简体中文（中国大陆）Chinese (Simplified Han)",
+    "langHant": "繁体中文/正体中文（台湾）Chinese (Traditional Han)",
+    "langEnLabel": "英语 English",
+    "addressEnValue": "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)",
+    "addressZhValue": "106311 台北市大安区师大路 9 号",
+    "photoAlt": "昌维在 Google 台北办公室",
+    "photoPlaceLines": "台湾（+886），台北市（106），信义区 | 台北 101 14 楼（Google 台北办公室访客中心） | (25.033487,121.564922)",
+    "photoDatetimeValue": "2024年6月11日，星期二 21:11",
+    "photoExifValue": "小米 12S Ultra（索尼 IMX989）| f/1.9 1/90s ISO 945 8.7mm（等效焦距 23mm）无闪光灯"
   },
   "sections": {
     "role": "角色",
@@ -102,5 +117,113 @@
     "devTools": "开发工具",
     "electronic": "电子工程 / 嵌入式系统开发",
     "design": "设计 / 用户界面 / 用户体验"
+  },
+  "experience": {
+    "intern2Name": "实习生（第二期）",
+    "intern1Name": "实习生（第一期）",
+    "degreePhd": "博士",
+    "degreeMaster": "硕士",
+    "degreeBachelor": "学士",
+    "degreeJuniorCollege": "专科",
+    "orgRisingWave": "RisingWave Labs",
+    "orgPingCAP": "PingCAP",
+    "orgNTNU": "国立台湾师范大学",
+    "orgNTUST": "台湾科技大学",
+    "orgWSPC": "武汉船舶职业技术学院",
+    "deptWebFrontend": "Web 前端",
+    "deptACE": "社会教育学系（成人与继续教育）",
+    "deptECE": "电子工程系（电机工程）",
+    "deptSoftwareEngineering": "软件技术",
+    "locRemote": "远程",
+    "locBeijingHaidian": "中国大陆（+86），北京市海淀区",
+    "locTaipeiDaan": "台湾（+886），台北市（106）大安区",
+    "locWuhanHanyang": "中国大陆（+86），湖北省武汉市（430000）汉阳区",
+    "timeNow": "至今"
+  },
+  "error": {
+    "badge": "500 剧情反转",
+    "title": "页面刚才绊了一跤",
+    "description": "抱歉，页面在加载时遇到了意外错误。我们已经记录了该问题。",
+    "memeTitle": "调试现场",
+    "memeLine1": "我只改了一行代码。",
+    "memeLine2": "结果整个宇宙的状态都变了。",
+    "memeFace": "¯\\_(ツ)_/¯",
+    "digestLabel": "错误追踪号：",
+    "retry": "再试一次",
+    "goHome": "返回首页"
+  },
+  "roleDetail": {
+    "current": [
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（台湾师范大学）",
+        "role": "讲座讲师（Web 前端、Python、数据库与 SQL）"
+      },
+      {"name": "打开台大｜Open House NTUs", "role": "志愿者（活动组）"},
+      {
+        "name": "社会教育学系｜Department of Adult and Continuing Education（台湾师范大学）",
+        "role": "博士生"
+      },
+      {
+        "name": "钢琴社｜Piano club（台湾科技大学）",
+        "role": "成员"
+      }
+    ],
+    "former": [
+      {"name": "RisingWave Labs", "role": "Web 前端开发实习生"},
+      {"name": "PingCAP", "role": "Web 前端开发实习生"},
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（台湾大学）",
+        "role": "讲座讲师（效能工程、开发工具与 DevOps）"
+      },
+      {
+        "name": "谷歌学生开发者社群｜Google Developer Groups on Campus（台湾科技大学）",
+        "role": "讲座讲师（Web 前端）"
+      },
+      {
+        "name": "学生议会｜Student Council（台湾科技大学）",
+        "role": "副议长"
+      },
+      {
+        "name": "学生会｜Student Association（台湾科技大学）",
+        "role": "财务长（CFO）"
+      },
+      {
+        "name": "电子工程系｜Department of Electrical and Computer Engineering（台湾科技大学）",
+        "role": "硕士研究生"
+      },
+      {
+        "name": "电子工程系｜Department of Electrical and Computer Engineering（台湾科技大学）",
+        "role": "本科生"
+      },
+      {
+        "name": "软件技术专业｜Department of Software Engineering（武汉船舶职业技术学院）",
+        "role": "专科生"
+      }
+    ]
+  },
+  "contact": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "X（推特）",
+    "threads": "Threads",
+    "github": "GitHub",
+    "gitlab": "Gitlab",
+    "linkedin": "领英 LinkedIn",
+    "linkedinContact": "昌维，UID：967703134",
+    "zhihu": "知乎",
+    "segmentfault": "思否 SegmentFault",
+    "weibo": "微博",
+    "douban": "豆瓣",
+    "v2ex": "V2EX",
+    "bilibili": "哔哩哔哩",
+    "youtube": "YouTube",
+    "wechat": "微信",
+    "telegram": "Telegram",
+    "qq": "QQ",
+    "emailGlobal": "电子邮件（全球）",
+    "emailChina": "电子邮件（中国大陆）",
+    "messenger": "Facebook Messenger",
+    "discord": "Discord",
+    "line": "Line"
   }
 }

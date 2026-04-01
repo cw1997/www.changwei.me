@@ -3,15 +3,17 @@ import {Divider, Space} from "antd"
 import React from "react"
 
 import {OutsideLink} from "@/components/OutsideLink"
-import {getTranslations} from "next-intl/server"
+import {getLocale, getTranslations} from "next-intl/server"
 
-import {data} from "./data"
+import {getFriendlyLinkItems} from "./data"
 import styles from "./page.module.sass"
 
 export interface IPropsFriendlyLinkPage {}
 
 const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async () => {
   const t = await getTranslations("friendlyLink")
+  const locale = await getLocale()
+  const items = getFriendlyLinkItems(locale)
 
   return (
     <div className={styles.container}>
@@ -19,7 +21,7 @@ const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async 
         <h2 className={styles.title}>{t("title")}</h2>
         <Divider />
         <ul className={styles.list}>
-          {data.items.map((item) => (
+          {items.map((item) => (
             <li key={item.name}>
               <Space className={styles.item} wrap>
                 <div className={styles.item_icon}>

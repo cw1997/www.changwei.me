@@ -28,7 +28,7 @@ $header-narrow-max: 1024px
   box-sizing: border-box
   padding: 8px
   min-width: 0
-  max-width: 100%
+  // 与主体 @include page 一致（max-width: 1280px 居中），勿用 max-width: 100% 覆盖 mixin
   //text-align: center
   color: $color-font-2
   font-size: 14px

@@ -225,7 +225,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = async (
               {category.skills.map((skill) => (
                 skill.icon.src ? (
                   <Tooltip key={skill.name} title={skill.name} placement={"top"}>
-                    <div className={styles.category_skills_item}>
+                    <span className={styles.category_skills_item}>
                       <img
                         style={{height: 32, width: "auto"}}
                         src={skill.icon.src}
@@ -233,7 +233,7 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = async (
                         loading="lazy"
                         decoding="async"
                       />
-                    </div>
+                    </span>
                   </Tooltip>
                 ) : null
               ))}

@@ -1,18 +1,20 @@
+"use client"
+
 import logo_image from "@/assets/images/changwei-logo.svg"
 import {HeaderMenu} from "@/components/Header/HeaderMenu"
 import {LanguageSwitcher} from "@/components/Header/LanguageSwitcher"
 import {Space} from "antd"
 import Image from "next/image"
 import {Link} from "@/i18n/navigation"
-import {getTranslations} from "next-intl/server"
+import {useTranslations} from "next-intl"
 import React from "react"
 
 import styles from "./Header.module.sass"
 
 export interface IPropsHeader {}
 
-export const Header: React.FunctionComponent<IPropsHeader> = async () => {
-  const t = await getTranslations("header")
+export const Header: React.FunctionComponent<IPropsHeader> = () => {
+  const t = useTranslations("header")
 
   return (
     <header className={styles.container}>

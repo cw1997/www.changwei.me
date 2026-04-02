@@ -1,5 +1,8 @@
 import type {NextConfig} from "next"
 import {withSentryConfig} from "@sentry/nextjs"
+import createNextIntlPlugin from "next-intl/plugin"
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts")
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
@@ -26,7 +29,7 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withSentryConfig(nextConfig, {
+export default withSentryConfig(withNextIntl(nextConfig), {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
@@ -44,7 +47,7 @@ export default withSentryConfig(nextConfig, {
 
   // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
   // This can increase your server load as well as your hosting bill.
-  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+  // Note: Check that the configured route will not match with your Next.js proxy, otherwise reporting of client-
   // side errors will fail.
   tunnelRoute: "/monitoring",
 

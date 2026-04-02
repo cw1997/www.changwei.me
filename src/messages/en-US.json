@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "title": "Chang Wei's website",
+    "titleTemplate": "{title} | Chang Wei's website",
+    "description": "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more."
+  },
+  "nav": {
+    "home": "Home",
+    "homeSubtitle": "(Home)",
+    "portfolio": "Portfolio",
+    "portfolioSubtitle": "(Portfolio)",
+    "guestbook": "Guestbook",
+    "guestbookSubtitle": "(Guestbook)",
+    "friendlyLink": "Friendly Link",
+    "friendlyLinkSubtitle": "(Friendly Link)",
+    "resume": "Resume",
+    "resumeSubtitle": "(Resume)"
+  },
+  "header": {
+    "siteTitle": "Chang Wei's website",
+    "siteTitleLine1": "Chang Wei's website",
+    "siteTitleLine2": "",
+    "siteSubtitle": "www.changwei.me",
+    "logoAlt": "Chang Wei logo",
+    "selectLanguage": "Select language"
+  },
+  "footer": {
+    "copyright": "© {year}, Chang Wei, All rights reserved.",
+    "sourceCode": "Source code",
+    "isUnder": "is under",
+    "poweredBy": "Powered by",
+    "hostedOn": "Hosted on",
+    "cdn": "CDN:",
+    "githubRepo": "GitHub Repository:"
+  },
+  "profile": {
+    "trueName": "True Name:",
+    "birthday": "Birthday",
+    "location": "Location",
+    "homeplace": "Homeplace",
+    "majorDegree": "Major & Degree",
+    "school": "School",
+    "timezone": "Timezone",
+    "language": "Language",
+    "emailGlobal": "Email (Global):",
+    "emailChina": "Email (China Mainland):",
+    "addressEnLabel": "Address (English) (Accept package and mail[postcard exchange is available]):",
+    "addressZhLabel": "Address (中文) (接受物品包裹和信封[明信片交換可使用該地址]):",
+    "photoDescription": "Chang Wei attended the event “GDG Cloud Taipei AI Techtalk: Meet Google Cloud DevRel Team” at Google Taipei office in TAIPEI 101.",
+    "datetime": "Datetime:",
+    "photoLocation": "Location:",
+    "exif": "EXIF:",
+    "birthdayValue": "1997/10/06 UTC+08:00 (CST, China Standard Time)",
+    "locationValue": "Taiwan (+886), Taipei City, Da'an District (臺灣臺北市大安區)",
+    "homeplaceValue": "Chinese mainland (+86), JiangXi Province, Ji'an City, Ji'zhou District (江西省吉安市吉州区)",
+    "majorValue": "Department of Adult and Continuing Education, Ph.D. (社會教育學系博士班)",
+    "schoolValue": "National Taiwan Normal University (NTNU, 國立臺灣師範大學)",
+    "langHans": "Chinese (Simplified Han) 简体中文（中国大陆）",
+    "langHant": "Chinese (Traditional Han) 繁體中文/正體中文（臺灣）",
+    "langEnLabel": "English",
+    "addressEnValue": "No. 9, Shida Rd., Da'an Dist., Taipei City 106311, Taiwan (R.O.C.)",
+    "addressZhValue": "106311 臺北市大安區師大路 9 號",
+    "photoAlt": "Chang Wei at Google Taipei office",
+    "photoPlaceLines": "Taiwan (+886), Taipei City (106), Xinyi District, | Taipei 101 14F (visitor center of Google Taipei office) | (25.033487,121.564922)",
+    "photoDatetimeValue": "June 11, 2024, Tuesday 21:11",
+    "photoExifValue": "Xiaomi 12S Ultra (Sony IMX989) | f/1.9 1/90s ISO 945 8.7mm (Equivalent focal length 23mm) No-flash"
+  },
+  "sections": {
+    "role": "Role",
+    "socialAndContact": "Social and Contact",
+    "experience": "Experience",
+    "skill": "Skill",
+    "current": "Current",
+    "former": "Former",
+    "socialNetwork": "Social network",
+    "instantMessaging": "Instant Messaging",
+    "work": "Work",
+    "education": "Education"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "pageTitle": "Portfolio"
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "pageTitle": "Guestbook"
+  },
+  "friendlyLink": {
+    "title": "Friendly Link",
+    "pageTitle": "Friendly Link"
+  },
+  "resume": {
+    "title": "Resume",
+    "pageTitle": "Resume",
+    "download": "Download Resume",
+    "downloadGithub": "Download from GitHub",
+    "viewSource": "View source code (LaTeX)"
+  },
+  "notFound": {
+    "badge": "404 Quest Unlocked",
+    "title": "This page was stolen by an alien cat",
+    "description": "The address you visited may not exist, or it just moved to another universe branch.",
+    "memeTitle": "Today's meme subtitle",
+    "memeText": "When you copied the link, but missed the last path segment.",
+    "memeFace": "(╯°□°)╯︵ ┻━┻",
+    "browserTriedHard": "Browser: I really tried my best.",
+    "joke": "404 doesn't mean you're lost, it just means this path hasn't been committed yet.",
+    "goHome": "Go Home",
+    "goGuestbook": "Leave a message"
+  },
+  "skill": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "desktopApp": "Desktop application",
+    "operations": "Operations",
+    "devTools": "Development tools",
+    "electronic": "Electronic Engineering / Embedded system development",
+    "design": "Design / User Interface / User Experience"
+  },
+  "experience": {
+    "intern2Name": "Intern (2nd)",
+    "intern1Name": "Intern (1st)",
+    "degreePhd": "Ph.D.",
+    "degreeMaster": "Master's degree",
+    "degreeBachelor": "Bachelor's degree",
+    "degreeJuniorCollege": "Junior college",
+    "orgRisingWave": "RisingWave Labs",
+    "orgPingCAP": "PingCAP",
+    "orgNTNU": "National Taiwan Normal University",
+    "orgNTUST": "National Taiwan University of Science and Technology",
+    "orgWSPC": "Wuhan Institute of Shipbuilding Technology",
+    "deptWebFrontend": "Web Frontend",
+    "deptACE": "ACE (Adult and Continuing Education)",
+    "deptECE": "ECE (Electrical and Computer Engineering)",
+    "deptSoftwareEngineering": "Software Engineering",
+    "locRemote": "Remote",
+    "locBeijingHaidian": "Chinese mainland (+86), Beijing City, Haidian District",
+    "locTaipeiDaan": "Taiwan (+886), Taipei City (106), Da'an District",
+    "locWuhanHanyang": "Chinese mainland (+86), Hubei Province, Wuhan City (430000), Hanyang District",
+    "timeNow": "now"
+  },
+  "error": {
+    "badge": "500 Plot Twist",
+    "title": "This page just tripped",
+    "description": "Sorry, an unexpected error occurred while loading this page. We have recorded the issue.",
+    "memeTitle": "Debug scene",
+    "memeLine1": "I only changed one line of code.",
+    "memeLine2": "Then the state of the whole universe changed.",
+    "memeFace": "¯\\_(ツ)_/¯",
+    "digestLabel": "Error reference:",
+    "retry": "Try again",
+    "goHome": "Back to home"
+  },
+  "roleDetail": {
+    "current": [
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan Normal University)",
+        "role": "Lecture Speaker (Web Front-end, Python, Database & SQL)"
+      },
+      {
+        "name": "Open House NTUs",
+        "role": "Volunteer (Activities Section)"
+      },
+      {
+        "name": "Department of Adult and Continuing Education (National Taiwan Normal University)",
+        "role": "Ph.D. student"
+      },
+      {
+        "name": "Piano Club (National Taiwan University of Science and Technology)",
+        "role": "Member"
+      }
+    ],
+    "former": [
+      {"name": "RisingWave Labs", "role": "Web Front-end Developer (Intern)"},
+      {"name": "PingCAP", "role": "Web Front-end Developer (Intern)"},
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan University)",
+        "role": "Lecture Speaker (Efficiency Engineering, Devtools & DevOps)"
+      },
+      {
+        "name": "Google Developer Groups on Campus (National Taiwan University of Science and Technology)",
+        "role": "Lecture Speaker (Web Front-end)"
+      },
+      {
+        "name": "Student Council (National Taiwan University of Science and Technology)",
+        "role": "VP (Vice-President)"
+      },
+      {
+        "name": "Student Association (National Taiwan University of Science and Technology)",
+        "role": "CFO (Chief Finance Officer)"
+      },
+      {
+        "name": "Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
+        "role": "Master's degree student"
+      },
+      {
+        "name": "Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
+        "role": "Bachelor's degree student"
+      },
+      {
+        "name": "Department of Software Engineering (Wuhan Institute of Shipbuilding Technology)",
+        "role": "College student"
+      }
+    ]
+  },
+  "contact": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "X (Twitter)",
+    "threads": "Threads",
+    "github": "GitHub",
+    "gitlab": "Gitlab",
+    "linkedin": "LinkedIn",
+    "linkedinContact": "Chang Wei, UID: 967703134",
+    "zhihu": "Zhihu",
+    "segmentfault": "SegmentFault",
+    "weibo": "Weibo",
+    "douban": "Douban",
+    "v2ex": "V2EX",
+    "bilibili": "Bilibili",
+    "youtube": "Youtube",
+    "wechat": "Wechat",
+    "telegram": "Telegram",
+    "qq": "QQ",
+    "emailGlobal": "Email (Global)",
+    "emailChina": "Email (China mainland)",
+    "messenger": "Facebook Messenger",
+    "discord": "Discord",
+    "line": "Line"
+  }
+}

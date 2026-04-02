@@ -17,7 +17,7 @@
     "build": "next build",
     "build:webpack": "next build --webpack",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint",
     "test": "vitest run --project unit",
     "test:watch": "vitest --project unit",
     "test:storybook": "vitest run --project storybook",

@@ -33,8 +33,12 @@ jobs:
           locales+="]"
           echo "locales=$locales" >> "$GITHUB_OUTPUT"
 
-  test:
+  lint-test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [lint, test]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -61,11 +65,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Run tests
-        run: pnpm test
+      - name: Run pnpm ${{ matrix.task }}
+        run: pnpm ${{ matrix.task }}
 
   i18n-check:
     needs: discover-locales

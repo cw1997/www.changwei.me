@@ -2,6 +2,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import type { StorybookConfig } from "@storybook/nextjs-vite";
+import { mergeAlias } from "vite";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -25,18 +26,9 @@ const config: StorybookConfig = {
     const imageMockPath = path.resolve(dirname, "./NextImageMock.tsx");
 
     viteConfig.resolve ??= {};
-    if (!viteConfig.resolve.alias) {
-      viteConfig.resolve.alias = {};
-    }
-
-    if (Array.isArray(viteConfig.resolve.alias)) {
-      viteConfig.resolve.alias.push({
-        find: "next/image",
-        replacement: imageMockPath,
-      });
-    } else {
-      viteConfig.resolve.alias["next/image"] = imageMockPath;
-    }
+    viteConfig.resolve.alias = mergeAlias(viteConfig.resolve.alias, {
+      "next/image": imageMockPath,
+    });
 
     return viteConfig;
   },

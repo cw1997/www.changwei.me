@@ -6,7 +6,7 @@ import {LanguageSwitcher} from "@/components/Header/LanguageSwitcher"
 import {Space} from "antd"
 import Image from "next/image"
 import {Link} from "@/i18n/navigation"
-import {useTranslations} from "next-intl"
+import {useLocale, useTranslations} from "next-intl"
 import React from "react"
 
 import styles from "./Header.module.sass"
@@ -15,6 +15,7 @@ export interface IPropsHeader {}
 
 export const Header: React.FunctionComponent<IPropsHeader> = () => {
   const t = useTranslations("header")
+  const locale = useLocale()
 
   return (
     <header className={styles.container}>
@@ -29,9 +30,8 @@ export const Header: React.FunctionComponent<IPropsHeader> = () => {
             <div className={styles.split} />
             <Link href="/" className={styles.title_link}>
               <div className={styles.title}>
-                {t("siteTitleLine1")}
-                {t("siteTitleLine2") && <><br/>{t("siteTitleLine2")}</>}
-                <br/>
+                {t("siteTitleLine1")}<br/>
+                {locale === "en-US" ? "" : <>Chang Wei's website<br/></>}
                 <span style={{fontSize: 14, lineHeight: 1, color: "#8c8c8c"}}>{t("siteSubtitle")}</span>
               </div>
             </Link>

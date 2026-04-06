@@ -20,3 +20,12 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+      - name: Run Lingual i18n check (en-US)
+        run: pnpx @lingual/i18n-check@latest --source en-US --locales ./src/messages
+
+      - name: Run Lingual i18n check (zh-Hans)
+        run: pnpx @lingual/i18n-check@latest --source zh-Hans --locales ./src/messages
+
+      - name: Run Lingual i18n check (zh-Hant)
+        run: pnpx @lingual/i18n-check@latest --source zh-Hant --locales ./src/messages

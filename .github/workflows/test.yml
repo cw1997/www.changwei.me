@@ -33,7 +33,7 @@ jobs:
           locales+="]"
           echo "locales=$locales" >> "$GITHUB_OUTPUT"
 
-  docker:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

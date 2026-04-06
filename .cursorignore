@@ -1,0 +1,9 @@
+﻿# Cursor 索引忽略（与 .gitignore 类似，减轻 AI 上下文噪音）
+node_modules
+.next
+out
+build
+coverage
+storybook-static
+.vercel
+*.tsbuildinfo

@@ -9,6 +9,7 @@ import {OutsideLink} from "@/components/OutsideLink"
 import next_logo from "@/assets/images/logo/frontend/next.svg"
 import vercel_logo from "@/assets/images/logo/frontend/vercel.svg"
 import cloudflare_logo from "@/assets/images/logo/Cloudflare_Logo.svg"
+import tidb_cloud_logo from "@/assets/images/logo/database/TiDBCloud_Logo.png"
 import {useTranslations} from "next-intl"
 
 import styles from "./Footer.module.sass"
@@ -87,6 +88,12 @@ export const Footer: React.FunctionComponent<IPropsFooter> = () => {
               {t("cdn")}
               <OutsideLink className={styles.logo} href={"https://cloudflare.com"}>
                 <Image src={cloudflare_logo} alt="CloudFlare Logo" className={styles.logo_img} height={32} />
+              </OutsideLink>
+            </div>
+            <div className={styles.powered_by_item}>
+              {t("database")}
+              <OutsideLink className={styles.logo} href={"https://tidbcloud.com"}>
+                <Image src={tidb_cloud_logo} alt="TiDB Cloud Logo" className={styles.logo_img} height={32} />
               </OutsideLink>
             </div>
           </Space>

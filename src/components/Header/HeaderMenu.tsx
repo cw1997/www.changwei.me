@@ -34,6 +34,10 @@ export const HeaderMenu: React.FunctionComponent<IPropsHeader> = () => {
       label: (<>{t("resume")}<br />{t("resumeSubtitle")}</>),
       url: "/resume" as const,
     },
+    {
+      label: (<>{t("statistic")}<br />{t("statisticSubtitle")}</>),
+      url: "/statistic" as const,
+    },
   ]
 
   return (

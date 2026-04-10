@@ -14,7 +14,9 @@
     "friendlyLink": "Friendly Link",
     "friendlyLinkSubtitle": "(Friendly Link)",
     "resume": "Resume",
-    "resumeSubtitle": "(Resume)"
+    "resumeSubtitle": "(Resume)",
+    "statistic": "Statistic",
+    "statisticSubtitle": "(Statistic)"
   },
   "header": {
     "siteTitle": "Chang Wei's website",
@@ -30,6 +32,7 @@
     "poweredBy": "Powered by",
     "hostedOn": "Hosted on",
     "cdn": "CDN:",
+    "database": "Database:",
     "githubRepo": "GitHub Repository:"
   },
   "profile": {
@@ -87,6 +90,10 @@
   "friendlyLink": {
     "title": "Friendly Link",
     "pageTitle": "Friendly Link"
+  },
+  "statistic": {
+    "title": "Site Statistics",
+    "pageTitle": "Site Statistics"
   },
   "resume": {
     "title": "Resume",

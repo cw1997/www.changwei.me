@@ -14,7 +14,9 @@
     "friendlyLink": "友情連結",
     "friendlyLinkSubtitle": "(Friendly Link)",
     "resume": "履歷",
-    "resumeSubtitle": "(Resume)"
+    "resumeSubtitle": "(Resume)",
+    "statistic": "統計",
+    "statisticSubtitle": "(Statistic)"
   },
   "header": {
     "siteTitle": "昌維的網站",
@@ -30,6 +32,7 @@
     "poweredBy": "技術支持",
     "hostedOn": "託管於",
     "cdn": "CDN：",
+    "database": "資料庫：",
     "githubRepo": "GitHub 儲存庫："
   },
   "profile": {
@@ -87,6 +90,10 @@
   "friendlyLink": {
     "title": "友情連結",
     "pageTitle": "友情連結"
+  },
+  "statistic": {
+    "title": "網站統計",
+    "pageTitle": "網站統計"
   },
   "resume": {
     "title": "履歷",

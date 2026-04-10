@@ -1,5 +1,6 @@
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
+import {TrackPageView} from "@/components/TrackPageView/TrackPageView"
 import {AntdRegistry} from "@ant-design/nextjs-registry"
 import type {Metadata} from "next"
 import React from "react"
@@ -102,6 +103,7 @@ export default async function LocaleLayout({children, params}: Props) {
         <div className={styles.container} id={"container"}>
           {children}
           <Footer />
+          <TrackPageView />
         </div>
       </AntdRegistry>
     </NextIntlClientProvider>

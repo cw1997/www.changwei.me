@@ -14,7 +14,9 @@
     "friendlyLink": "友情链接",
     "friendlyLinkSubtitle": "(Friendly Link)",
     "resume": "简历",
-    "resumeSubtitle": "(Resume)"
+    "resumeSubtitle": "(Resume)",
+    "statistic": "统计",
+    "statisticSubtitle": "(Statistic)"
   },
   "header": {
     "siteTitle": "昌维的网站",
@@ -30,6 +32,7 @@
     "poweredBy": "技术支持",
     "hostedOn": "托管于",
     "cdn": "CDN：",
+    "database": "数据库：",
     "githubRepo": "GitHub 仓库："
   },
   "profile": {
@@ -87,6 +90,10 @@
   "friendlyLink": {
     "title": "友情链接",
     "pageTitle": "友情链接"
+  },
+  "statistic": {
+    "title": "网站统计",
+    "pageTitle": "网站统计"
   },
   "resume": {
     "title": "简历",

@@ -9,7 +9,9 @@ const client = connect({
     ca: fs.readFileSync('./isrgrootx1.pem').toString(),
     // minVersion: 'TLSv1.2',
     rejectUnauthorized: true
-  }
+  },
+  strict: true,
+  verbose: true,
 })
 
 export const db = drizzle({client, schema})

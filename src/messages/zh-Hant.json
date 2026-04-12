@@ -81,23 +81,28 @@
   },
   "portfolio": {
     "title": "作品集",
-    "pageTitle": "作品集"
+    "pageTitle": "作品集",
+    "description": "昌維的專案與開源作品，涵蓋前端、行動應用、嵌入式系統與網路工具。"
   },
   "guestbook": {
     "title": "留言板",
-    "pageTitle": "留言板"
+    "pageTitle": "留言板",
+    "description": "歡迎透過基於 GitHub Discussions 的留言板給昌維留言。"
   },
   "friendlyLink": {
     "title": "友情連結",
-    "pageTitle": "友情連結"
+    "pageTitle": "友情連結",
+    "description": "由昌維整理與推薦的網站與個人部落格連結。"
   },
   "statistic": {
     "title": "網站統計",
-    "pageTitle": "網站統計"
+    "pageTitle": "網站統計",
+    "description": "網站流量趨勢、地區分布、裝置、瀏覽器與系統使用情況公開看板。"
   },
   "resume": {
     "title": "履歷",
     "pageTitle": "履歷",
+    "description": "下載並線上預覽昌維最新履歷。",
     "download": "下載履歷",
     "downloadGithub": "從 GitHub 下載",
     "viewSource": "查看履歷 LaTeX 原始碼"

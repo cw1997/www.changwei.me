@@ -1,25 +1,18 @@
 "use client";
 
-import Head from "next/head";
 import * as Sentry from "@sentry/nextjs";
 
 export default function Page() {
   return (
-    <div>
-      <Head>
-        <title>Sentry Onboarding</title>
-        <meta name="description" content="Test Sentry for your Next.js app!" />
-      </Head>
-
-      <main
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
         <h1 style={{ fontSize: "4rem", margin: "14px 0" }}>
           <svg
             style={{
@@ -73,7 +66,6 @@ export default function Page() {
             https://docs.sentry.io/platforms/javascript/guides/nextjs/
           </a>
         </p>
-      </main>
-    </div>
+    </main>
   );
 }

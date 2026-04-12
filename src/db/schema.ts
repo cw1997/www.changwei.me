@@ -1,4 +1,14 @@
-import {bigint, datetime, int, json, mysqlTable, text, varchar} from "drizzle-orm/mysql-core"
+import {
+  bigint,
+  datetime,
+  decimal,
+  int,
+  json,
+  mysqlTable,
+  text,
+  uniqueIndex,
+  varchar,
+} from "drizzle-orm/mysql-core"
 
 export const pageVisits = mysqlTable("page_visits", {
   id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
@@ -20,4 +30,50 @@ export const pageVisits = mysqlTable("page_visits", {
   viewportWidth: int("viewport_width"),
   viewportHeight: int("viewport_height"),
   locale: varchar("locale", {length: 16}),
+  deviceVendor: varchar("device_vendor", {length: 128}),
+  deviceModel: varchar("device_model", {length: 128}),
+  cpuArchitecture: varchar("cpu_architecture", {length: 64}),
+  cpuCores: int("cpu_cores"),
+  deviceMemoryGb: int("device_memory_gb"),
+  networkType: varchar("network_type", {length: 64}),
+  networkDownlinkMbps: decimal("network_downlink_mbps", {precision: 8, scale: 2}),
+  networkRttMs: int("network_rtt_ms"),
+  networkSaveData: int("network_save_data"),
+  platform: varchar("platform", {length: 128}),
+  platformVersion: varchar("platform_version", {length: 64}),
+  uaFullVersion: varchar("ua_full_version", {length: 64}),
+  formFactor: varchar("form_factor", {length: 64}),
+  timezone: varchar("timezone", {length: 64}),
+})
+
+export const cronLocation = mysqlTable("cron_location", {
+  id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
+  ip: varchar("ip", {length: 64}),
+  ipType: varchar("ip_type", {length: 16}),
+  continent: varchar("continent", {length: 64}),
+  country: varchar("country", {length: 128}),
+  countryCode: varchar("country_code", {length: 8}),
+  region: varchar("region", {length: 128}),
+  city: varchar("city", {length: 128}),
+  latitude: decimal("latitude", {precision: 10, scale: 6}),
+  longitude: decimal("longitude", {precision: 10, scale: 6}),
+  timezone: varchar("timezone", {length: 64}),
+  isp: varchar("isp", {length: 255}),
+  org: varchar("org", {length: 255}),
+  source: varchar("source", {length: 64}).notNull().default("ipwho.is"),
+  rawPayload: json("raw_payload"),
+  createdAt: datetime("created_at", {fsp: 3}).notNull(),
+  updatedAt: datetime("updated_at", {fsp: 3}).notNull(),
+}, (table) => ({
+  ipUnique: uniqueIndex("cron_location_ip_unique").on(table.ip),
+}))
+
+export const statisticCache = mysqlTable("statistic_cache", {
+  id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
+  queryType: varchar("query_type", {length: 64}).primaryKey(),
+  payloadJson: json("payload_json").$type<Record<string, unknown>[]>().notNull(),
+  sqlText: text("sql_text").notNull(),
+  description: varchar("description", {length: 255}).notNull(),
+  executionTimeMs: decimal("execution_time_ms", {precision: 10, scale: 2}).notNull(),
+  cachedAt: datetime("cached_at", {fsp: 3}).notNull(),
 })

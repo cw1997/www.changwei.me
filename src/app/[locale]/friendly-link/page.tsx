@@ -1,6 +1,5 @@
 import {ExportOutlined} from "@ant-design/icons"
 import {Divider, Space} from "antd"
-import React from "react"
 
 import {OutsideLink} from "@/components/OutsideLink"
 import {getLocale, getTranslations} from "next-intl/server"
@@ -10,7 +9,7 @@ import styles from "./page.module.sass"
 
 export interface IPropsFriendlyLinkPage {}
 
-const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async () => {
+export default async function FriendlyLinkPage() {
   const t = await getTranslations("friendlyLink")
   const locale = await getLocale()
   const items = getFriendlyLinkItems(locale)
@@ -26,9 +25,11 @@ const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async 
               <Space className={styles.item} wrap>
                 <div className={styles.item_icon}>
                   <img
-                    style={{width: 16, height: "auto"}}
+                    style={{width: 16, height: 16, objectFit: "contain"}}
                     src={typeof item.icon === "string" ? item.icon : (item.icon?.src ?? `https://s2.googleusercontent.com/s2/favicons?domain_url=${item.url}`)}
                     alt={item.name}
+                    width={16}
+                    height={16}
                     loading="lazy"
                     decoding="async"
                   />
@@ -47,4 +48,3 @@ const FriendlyLinkPage: React.FunctionComponent<IPropsFriendlyLinkPage> = async 
     </div>
   )
 }
-export default FriendlyLinkPage

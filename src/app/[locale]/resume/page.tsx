@@ -1,4 +1,3 @@
-import React from "react"
 import styles from "./page.module.sass"
 import {Button, Divider, Space} from "antd"
 import {DownloadOutlined, EyeOutlined, GithubOutlined} from "@ant-design/icons"
@@ -8,7 +7,7 @@ import {getTranslations} from "next-intl/server"
 
 export interface IPropsResumePage {}
 
-const ResumePage: React.FunctionComponent<IPropsResumePage> = async () => {
+export default async function ResumePage() {
   const t = await getTranslations("resume")
 
   return (
@@ -28,10 +27,14 @@ const ResumePage: React.FunctionComponent<IPropsResumePage> = async () => {
           </OutsideLink>
         </Space>
         <div className={styles.resume}>
-          <embed src={url_resume_pdf_mirror} width="100%" height="800px" type="application/pdf"/>
+          <iframe
+            className={styles.resume_embed}
+            src={url_resume_pdf_mirror}
+            title={t("title")}
+            loading="lazy"
+          />
         </div>
       </main>
     </div>
   )
 }
-export default ResumePage

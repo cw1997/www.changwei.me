@@ -81,23 +81,28 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "pageTitle": "Portfolio"
+    "pageTitle": "Portfolio",
+    "description": "Projects and open-source work by Chang Wei, including frontend, mobile apps, embedded systems, and networking tools."
   },
   "guestbook": {
     "title": "Guestbook",
-    "pageTitle": "Guestbook"
+    "pageTitle": "Guestbook",
+    "description": "Leave a message for Chang Wei via the website guestbook powered by GitHub Discussions."
   },
   "friendlyLink": {
     "title": "Friendly Link",
-    "pageTitle": "Friendly Link"
+    "pageTitle": "Friendly Link",
+    "description": "Recommended websites and personal blogs curated by Chang Wei."
   },
   "statistic": {
     "title": "Site Statistics",
-    "pageTitle": "Site Statistics"
+    "pageTitle": "Site Statistics",
+    "description": "Public dashboard of website traffic trends, geography, device, browser, and system usage."
   },
   "resume": {
     "title": "Resume",
     "pageTitle": "Resume",
+    "description": "Download and preview the latest resume of Chang Wei.",
     "download": "Download Resume",
     "downloadGithub": "Download from GitHub",
     "viewSource": "View source code (LaTeX)"

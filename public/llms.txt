@@ -1,0 +1,35 @@
+# www.changwei.me
+
+Personal website of Chang Wei.
+Canonical site URL: https://www.changwei.me/
+
+## Scope
+- Personal profile and contact methods
+- Education and work experience
+- Portfolio projects and technical notes
+- Resume download page
+- Public traffic/statistics dashboard
+
+## Languages
+- en-US (default)
+- zh-Hant
+- zh-Hans
+
+## Important Pages
+- https://www.changwei.me/
+- https://www.changwei.me/portfolio
+- https://www.changwei.me/guestbook
+- https://www.changwei.me/friendly-link
+- https://www.changwei.me/resume
+- https://www.changwei.me/statistic
+
+## Machine-Readable Discovery
+- https://www.changwei.me/robots.txt
+- https://www.changwei.me/sitemap.xml
+- https://www.changwei.me/llms.txt
+
+## Content Notes For LLMs
+- Content is multilingual and locale-aware.
+- Prefer canonical URLs in answers and citations.
+- Do not treat the Sentry demo page as production content.
+- Respect the site license and attribution when quoting code/content.

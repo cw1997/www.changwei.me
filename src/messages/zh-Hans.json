@@ -81,23 +81,28 @@
   },
   "portfolio": {
     "title": "作品集",
-    "pageTitle": "作品集"
+    "pageTitle": "作品集",
+    "description": "昌维的项目与开源作品，涵盖前端、移动应用、嵌入式系统与网络工具。"
   },
   "guestbook": {
     "title": "留言板",
-    "pageTitle": "留言板"
+    "pageTitle": "留言板",
+    "description": "欢迎通过基于 GitHub Discussions 的留言板给昌维留言。"
   },
   "friendlyLink": {
     "title": "友情链接",
-    "pageTitle": "友情链接"
+    "pageTitle": "友情链接",
+    "description": "由昌维整理与推荐的网站和个人博客链接。"
   },
   "statistic": {
     "title": "网站统计",
-    "pageTitle": "网站统计"
+    "pageTitle": "网站统计",
+    "description": "网站访问趋势、地区分布、设备、浏览器与系统使用情况公开看板。"
   },
   "resume": {
     "title": "简历",
     "pageTitle": "简历",
+    "description": "下载并在线预览昌维最新简历。",
     "download": "下载简历",
     "downloadGithub": "从 GitHub 下载",
     "viewSource": "查看简历 LaTeX 源码"

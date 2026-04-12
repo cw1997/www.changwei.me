@@ -1,4 +1,3 @@
-import React from "react"
 import {
   ClockCircleOutlined,
   GithubOutlined,
@@ -166,7 +165,7 @@ function getData(locale: string) {
 
 export interface IPropsPortfolioPage {}
 
-const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = async () => {
+export default async function PortfolioPage() {
   const t = await getTranslations("portfolio")
   const locale = await getLocale()
   const data = getData(locale)
@@ -181,9 +180,11 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = async () => 
             <div key={item.name} className={styles.item}>
               <div className={styles.item_icon}>
                 <img
-                  style={{width: 64, height: "auto"}}
+                  style={{width: 64, height: 64, objectFit: "contain"}}
                   src={item.icon.src}
                   alt={item.name}
+                  width={64}
+                  height={64}
                   loading="lazy"
                   decoding="async"
                 />
@@ -242,4 +243,3 @@ const PortfolioPage: React.FunctionComponent<IPropsPortfolioPage> = async () => 
     </div>
   )
 }
-export default PortfolioPage

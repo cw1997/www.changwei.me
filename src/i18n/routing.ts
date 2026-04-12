@@ -16,6 +16,10 @@ export const localeHtmlLang: Record<Locale, string> = {
   "zh-Hans": "zh-Hans",
 }
 
+export function isLocale(value: string): value is Locale {
+  return locales.includes(value as Locale)
+}
+
 export const routing = defineRouting({
   locales,
   defaultLocale,

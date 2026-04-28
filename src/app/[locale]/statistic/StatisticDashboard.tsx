@@ -287,6 +287,7 @@ function buildDailyVisitsOption(data: Record<string, unknown>[]): echarts.EChart
     series: deviceTypes.map((device) => ({
       name: nameMap[device],
       type: "line",
+      stack: "visits",
       areaStyle: {},
       emphasis: {focus: "series"},
       color: colorMap[device],

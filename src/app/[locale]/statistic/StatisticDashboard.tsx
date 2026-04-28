@@ -1,7 +1,7 @@
 "use client"
 
 import React, {useEffect, useState, useCallback, useMemo} from "react"
-import {Card, Spin, Tag, Empty, Row, Col} from "antd"
+import {Card, Spin, Tag, Empty, Row, Col, Grid} from "antd"
 import {
   LoadingOutlined,
   CodeOutlined,
@@ -150,9 +150,11 @@ function ChartCard({
   requiresWorldMap?: boolean
   renderChart: (
     data: QueryResult["data"],
-    context: {worldMapReady: boolean},
+    context: {worldMapReady: boolean; isMobile: boolean},
   ) => echarts.EChartsCoreOption
 }) {
+  const screens = Grid.useBreakpoint()
+  const isMobile = !screens.md
   const [result, setResult] = useState<QueryResult | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -201,8 +203,9 @@ function ChartCard({
 
     return renderChart(result.data, {
       worldMapReady: worldMapReady && !worldMapLoadFailed,
+      isMobile,
     })
-  }, [renderChart, result, worldMapReady, worldMapLoadFailed])
+  }, [isMobile, renderChart, result, worldMapReady, worldMapLoadFailed])
 
   const waitingMap = requiresWorldMap && !worldMapReady && !worldMapLoadFailed
 
@@ -225,10 +228,10 @@ function ChartCard({
       )}
       {error && <Empty description="Failed to load data" />}
       {!loading && !waitingMap && !error && result && (
-        <Row gutter={[16, 16]} align="top">
+        <Row gutter={[isMobile ? 12 : 16, 16]} align="top">
           <Col xs={24} md={16}>
             {result.data.length > 0 && chartOption ? (
-              <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: 420}} notMerge />
+              <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: isMobile ? 320 : 420}} notMerge />
             ) : (
               <Empty description="No data yet" />
             )}
@@ -292,7 +295,7 @@ function buildDailyVisitsOption(data: Record<string, unknown>[]): echarts.EChart
   }
 }
 
-function buildPieOption(data: Record<string, unknown>[], nameKey: string): echarts.EChartsCoreOption {
+function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
   const values = data.map((row) => ({
     name: String(row[nameKey] ?? "Unknown"),
     value: Number(row.count ?? 0),
@@ -302,16 +305,25 @@ function buildPieOption(data: Record<string, unknown>[], nameKey: string): echar
     tooltip: {trigger: "item", formatter: "{b}: {c} ({d}%)"},
     legend: {
       type: "scroll",
-      orient: "vertical",
-      right: 8,
-      top: 16,
-      bottom: 16,
+      orient: isMobile ? "horizontal" : "vertical",
+      ...(isMobile
+        ? {
+            left: "center",
+            right: "auto",
+            bottom: 0,
+          }
+        : {
+            right: 8,
+            top: 16,
+            bottom: 16,
+          }),
     },
+    grid: isMobile ? {left: 8, right: 8, top: 8, bottom: 8, containLabel: true} : undefined,
     series: [
       {
         type: "pie",
-        center: ["34%", "50%"],
-        radius: ["40%", "68%"],
+        center: isMobile ? ["50%", "38%"] : ["34%", "50%"],
+        radius: isMobile ? ["38%", "56%"] : ["40%", "68%"],
         avoidLabelOverlap: true,
         itemStyle: {borderRadius: 6, borderColor: "#fff", borderWidth: 2},
         label: {show: false},
@@ -329,17 +341,17 @@ function buildPieOption(data: Record<string, unknown>[], nameKey: string): echar
   }
 }
 
-function buildBarOption(data: Record<string, unknown>[], nameKey: string): echarts.EChartsCoreOption {
+function buildBarOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
   return {
     tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
-    grid: {left: 12, right: 16, bottom: 64, containLabel: true},
+    grid: {left: 12, right: 16, bottom: isMobile ? 82 : 64, containLabel: true},
     xAxis: {
       type: "category",
       data: data.map((row) => String(row[nameKey] ?? "Unknown")),
       axisLabel: {
-        rotate: 24,
+        rotate: isMobile ? 36 : 24,
         interval: 0,
-        width: 92,
+        width: isMobile ? 70 : 92,
         overflow: "truncate",
       },
     },
@@ -357,10 +369,10 @@ function buildBarOption(data: Record<string, unknown>[], nameKey: string): echar
 
 function buildGeoMapOption(
   data: Record<string, unknown>[],
-  context: {worldMapReady: boolean},
+  context: {worldMapReady: boolean; isMobile: boolean},
 ): echarts.EChartsCoreOption {
   if (!context.worldMapReady) {
-    return buildBarOption(data, "country")
+    return buildBarOption(data, "country", context.isMobile)
   }
 
   const countryData = new Map<string, number>()
@@ -477,35 +489,35 @@ export function StatisticDashboard() {
         title="Language Distribution"
         icon={<GlobalOutlined />}
         queryType="languageDistribution"
-        renderChart={(data) => buildPieOption(data, "language")}
+        renderChart={(data, context) => buildPieOption(data, "language", context.isMobile)}
       />
 
       <ChartCard
         title="Device Type Distribution"
         icon={<MobileOutlined />}
         queryType="deviceDistribution"
-        renderChart={(data) => buildPieOption(data, "device_type")}
+        renderChart={(data, context) => buildPieOption(data, "device_type", context.isMobile)}
       />
 
       <ChartCard
         title="Browser Distribution"
         icon={<ChromeOutlined />}
         queryType="browserDistribution"
-        renderChart={(data) => buildBarOption(data, "browser_name")}
+        renderChart={(data, context) => buildBarOption(data, "browser_name", context.isMobile)}
       />
 
       <ChartCard
         title="Operating System Distribution"
         icon={<TabletOutlined />}
         queryType="osDistribution"
-        renderChart={(data) => buildBarOption(data, "os_name")}
+        renderChart={(data, context) => buildBarOption(data, "os_name", context.isMobile)}
       />
 
       <ChartCard
         title="Screen Resolution Distribution"
         icon={<DesktopOutlined />}
         queryType="screenDistribution"
-        renderChart={(data) => buildBarOption(data, "resolution")}
+        renderChart={(data, context) => buildBarOption(data, "resolution", context.isMobile)}
       />
     </div>
   )

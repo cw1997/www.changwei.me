@@ -9,6 +9,9 @@
 .chartCard
   width: 100%
 
+  :global(.ant-card-head-title)
+    white-space: normal
+
   :global(.ant-card-body)
     padding-top: 18px
 
@@ -48,8 +51,31 @@
   color: #6b7280
 
 @media (max-width: 992px)
+  .dashboard
+    gap: 16px
+
+  .cardTitle
+    align-items: flex-start
+    gap: 6px
+
+  .chartCard
+    :global(.ant-card-head)
+      min-height: auto
+      padding: 0 12px
+
+    :global(.ant-card-body)
+      padding: 12px
+      padding-top: 12px
+
+  .loading
+    height: 320px
+
   .sqlPanel
     position: static
+
+    :global(pre)
+      overflow-x: auto
+      -webkit-overflow-scrolling: touch
 
 @media (prefers-color-scheme: dark)
   .cardUpdatedAt,

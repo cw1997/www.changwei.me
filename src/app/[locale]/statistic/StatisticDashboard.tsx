@@ -465,13 +465,13 @@ export function StatisticDashboard() {
         renderChart={(data) => buildDailyVisitsOption(data)}
       />
 
-      <ChartCard
+      {/*<ChartCard
         title="Geographic Distribution"
         icon={<GlobalOutlined />}
         queryType="geoDistribution"
         requiresWorldMap
         renderChart={(data, context) => buildGeoMapOption(data, context)}
-      />
+      />*/}
 
       <ChartCard
         title="Language Distribution"

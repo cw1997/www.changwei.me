@@ -1,7 +1,7 @@
 "use client"
 
 import React, {useEffect, useState, useCallback, useMemo} from "react"
-import {Card, Spin, Tag, Empty, Row, Col, Grid} from "antd"
+import {Card, Spin, Tag, Empty, Grid, Table, Row, Col} from "antd"
 import {
   LoadingOutlined,
   CodeOutlined,
@@ -11,6 +11,7 @@ import {
   TabletOutlined,
   GlobalOutlined,
   ChromeOutlined,
+  TableOutlined,
 } from "@ant-design/icons"
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter"
 import {oneLight} from "react-syntax-highlighter/dist/esm/styles/prism"
@@ -137,6 +138,66 @@ function SqlPanel({
   )
 }
 
+function formatTableValue(value: unknown): React.ReactNode {
+  if (value === null || value === undefined) return "-"
+
+  if (typeof value === "object") {
+    try {
+      return JSON.stringify(value)
+    } catch {
+      return String(value)
+    }
+  }
+
+  return String(value)
+}
+
+function ResultTable({data}: {data: QueryResult["data"]}) {
+  const columns = useMemo(
+    () =>
+      Object.keys(data[0] ?? {}).map((key) => ({
+        title: key,
+        dataIndex: key,
+        key,
+        ellipsis: true,
+        render: (value: unknown) => formatTableValue(value),
+      })),
+    [data],
+  )
+
+  return (
+    <Card
+      size="small"
+      className={styles.tablePanel}
+      title={
+        <span>
+          <TableOutlined /> Query Result
+        </span>
+      }
+    >
+      {data.length > 0 ? (
+        <Table<Record<string, unknown>>
+          size="small"
+          columns={columns}
+          dataSource={data}
+          rowKey={(_, index) => String(index)}
+          pagination={
+            data.length > 10
+              ? {
+                  pageSize: 10,
+                  showSizeChanger: false,
+                }
+              : false
+          }
+          scroll={{x: "max-content"}}
+        />
+      ) : (
+        <Empty description="No data yet" />
+      )}
+    </Card>
+  )
+}
+
 function ChartCard({
   title,
   icon,
@@ -228,24 +289,33 @@ function ChartCard({
       )}
       {error && <Empty description="Failed to load data" />}
       {!loading && !waitingMap && !error && result && (
-        <Row gutter={[isMobile ? 12 : 16, 16]} align="top">
-          <Col xs={24} md={16}>
-            {result.data.length > 0 && chartOption ? (
-              <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: isMobile ? 320 : 420}} notMerge />
-            ) : (
-              <Empty description="No data yet" />
-            )}
-          </Col>
-          <Col xs={24} md={8}>
+        <div className={styles.cardContent}>
+          <Row gutter={[isMobile ? 12 : 16, 16]} className={styles.contentRow} align="top">
+            <Col xs={24} sm={24} md={14} lg={16} xl={16} className={styles.chartSection}>
+              {result.data.length > 0 && chartOption ? (
+                <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: isMobile ? 320 : 420}} notMerge />
+              ) : (
+                <Empty description="No data yet" />
+              )}
+            </Col>
+            <Col xs={24} sm={24} md={10} lg={8} xl={8} className={styles.tableSection}>
+              <ResultTable data={result.data} />
+            </Col>
+          </Row>
+          <div className={styles.sqlSection}>
             <SqlPanel
               sql={result.sql}
               executionTimeMs={result.executionTimeMs}
               cachedAt={result.cachedAt}
               fromCache={result.fromCache}
             />
-            {worldMapLoadFailed ? <Tag color="warning">World map failed to load, fallback chart is shown.</Tag> : null}
-          </Col>
-        </Row>
+            {worldMapLoadFailed ? (
+              <Tag color="warning" className={styles.mapWarning}>
+                World map failed to load, fallback chart is shown.
+              </Tag>
+            ) : null}
+          </div>
+        </div>
       )}
     </Card>
   )

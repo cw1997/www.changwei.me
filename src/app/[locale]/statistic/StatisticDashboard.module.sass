@@ -21,6 +21,25 @@
   align-items: center
   height: 420px
 
+.cardContent
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.contentRow
+  width: 100%
+
+.chartSection
+  width: 100%
+
+.tableSection
+  width: 100%
+
+.sqlSection
+  display: flex
+  flex-direction: column
+  gap: 10px
+
 .cardTitle
   display: flex
   align-items: center
@@ -37,6 +56,27 @@
     display: flex
     flex-direction: column
     gap: 10px
+
+.tablePanel
+  height: 100%
+
+  :global(.ant-card)
+    height: 100%
+
+  :global(.ant-card-body)
+    padding-top: 12px
+
+  :global(.ant-table-wrapper)
+    width: 100%
+
+  :global(.ant-table-thead > tr > th)
+    white-space: nowrap
+
+  :global(.ant-table-cell)
+    vertical-align: top
+
+.mapWarning
+  width: fit-content
 
 .sqlMeta
   display: flex
@@ -66,6 +106,17 @@
 
   .loading
     height: 320px
+
+  .cardContent
+    gap: 12px
+
+  .contentRow
+    margin-bottom: 0
+
+  .tablePanel
+    :global(.ant-table-content)
+      overflow-x: auto
+      -webkit-overflow-scrolling: touch
 
   .sqlPanel
     position: static

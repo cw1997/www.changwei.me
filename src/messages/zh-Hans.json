@@ -97,8 +97,7 @@
   "statistic": {
     "title": "网站统计",
     "pageTitle": "网站统计",
-    "description": "网站访问趋势、地区分布、设备、浏览器与系统使用情况公开看板。",
-    "dateWithWeekday": "{date} ({weekday})"
+    "description": "网站访问趋势、地区分布、设备、浏览器与系统使用情况公开看板。"
   },
   "resume": {
     "title": "简历",

@@ -97,8 +97,7 @@
   "statistic": {
     "title": "Site Statistics",
     "pageTitle": "Site Statistics",
-    "description": "Public dashboard of website traffic trends, geography, device, browser, and system usage.",
-    "dateWithWeekday": "{date} ({weekday})"
+    "description": "Public dashboard of website traffic trends, geography, device, browser, and system usage."
   },
   "resume": {
     "title": "Resume",

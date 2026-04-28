@@ -27,7 +27,7 @@ import {
   VisualMapComponent,
 } from "echarts/components"
 import {CanvasRenderer} from "echarts/renderers"
-import {useLocale, useTranslations} from "next-intl"
+import {useLocale} from "next-intl"
 
 import styles from "./StatisticDashboard.module.sass"
 
@@ -159,7 +159,7 @@ const intlLocaleByAppLocale: Record<string, string> = {
   "zh-Hant": "zh-TW",
 }
 
-function formatDateWithWeekday(value: unknown, locale: string, template: string): React.ReactNode {
+function formatDateWithWeekday(value: unknown, locale: string): React.ReactNode {
   const raw = String(value ?? "")
   const match = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)
   if (!match) return formatTableValue(value)
@@ -186,7 +186,7 @@ function formatDateWithWeekday(value: unknown, locale: string, template: string)
   }).format(date)
   const weekday = locale === "en-US" && !formattedWeekday.endsWith(".") ? `${formattedWeekday}.` : formattedWeekday
   const dateText = `${year}-${month}-${day}`
-  return template.replace("{date}", dateText).replace("{weekday}", weekday)
+  return `${dateText} (${weekday})`
 }
 
 function ResultTable({
@@ -197,12 +197,6 @@ function ResultTable({
   queryType: QueryType
 }) {
   const locale = useLocale()
-  const t = useTranslations("statistic")
-  const dateWithWeekdayTemplate = t("dateWithWeekday")
-  const safeDateWithWeekdayTemplate =
-    dateWithWeekdayTemplate.includes("{date}") && dateWithWeekdayTemplate.includes("{weekday}")
-      ? dateWithWeekdayTemplate
-      : "{date} ({weekday})"
 
   const tableData = useMemo(() => {
     if (queryType !== "dailyVisits") return data
@@ -257,7 +251,7 @@ function ResultTable({
           dataIndex: "date",
           key: "date",
           ellipsis: true,
-          render: (value: unknown) => formatDateWithWeekday(value, locale, safeDateWithWeekdayTemplate),
+          render: (value: unknown) => formatDateWithWeekday(value, locale),
         },
         {
           title: "desktop",
@@ -290,7 +284,7 @@ function ResultTable({
       ellipsis: true,
       render: (value: unknown) => formatTableValue(value),
     }))
-  }, [locale, queryType, safeDateWithWeekdayTemplate, tableData])
+  }, [locale, queryType, tableData])
 
   return (
     <Card

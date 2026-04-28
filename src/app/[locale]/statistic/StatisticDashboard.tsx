@@ -27,6 +27,7 @@ import {
   VisualMapComponent,
 } from "echarts/components"
 import {CanvasRenderer} from "echarts/renderers"
+import {useLocale, useTranslations} from "next-intl"
 
 import styles from "./StatisticDashboard.module.sass"
 
@@ -152,18 +153,144 @@ function formatTableValue(value: unknown): React.ReactNode {
   return String(value)
 }
 
-function ResultTable({data}: {data: QueryResult["data"]}) {
-  const columns = useMemo(
-    () =>
-      Object.keys(data[0] ?? {}).map((key) => ({
-        title: key,
-        dataIndex: key,
-        key,
-        ellipsis: true,
-        render: (value: unknown) => formatTableValue(value),
-      })),
-    [data],
-  )
+const intlLocaleByAppLocale: Record<string, string> = {
+  "en-US": "en-US",
+  "zh-Hans": "zh-CN",
+  "zh-Hant": "zh-TW",
+}
+
+function formatDateWithWeekday(value: unknown, locale: string, template: string): React.ReactNode {
+  const raw = String(value ?? "")
+  const match = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)
+  if (!match) return formatTableValue(value)
+
+  const year = Number(match[1])
+  const month = Number(match[2])
+  const day = Number(match[3])
+  const date = new Date(year, month - 1, day)
+
+  if (
+    !Number.isFinite(year) ||
+    !Number.isFinite(month) ||
+    !Number.isFinite(day) ||
+    Number.isNaN(date.getTime()) ||
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return formatTableValue(value)
+  }
+
+  const formattedWeekday = new Intl.DateTimeFormat(intlLocaleByAppLocale[locale] ?? "en-US", {
+    weekday: locale === "en-US" ? "short" : "long",
+  }).format(date)
+  const weekday = locale === "en-US" && !formattedWeekday.endsWith(".") ? `${formattedWeekday}.` : formattedWeekday
+  const dateText = `${year}-${month}-${day}`
+  return template.replace("{date}", dateText).replace("{weekday}", weekday)
+}
+
+function ResultTable({
+  data,
+  queryType,
+}: {
+  data: QueryResult["data"]
+  queryType: QueryType
+}) {
+  const locale = useLocale()
+  const t = useTranslations("statistic")
+  const dateWithWeekdayTemplate = t("dateWithWeekday")
+  const safeDateWithWeekdayTemplate =
+    dateWithWeekdayTemplate.includes("{date}") && dateWithWeekdayTemplate.includes("{weekday}")
+      ? dateWithWeekdayTemplate
+      : "{date} ({weekday})"
+
+  const tableData = useMemo(() => {
+    if (queryType !== "dailyVisits") return data
+
+    const grouped = new Map<
+      string,
+      {
+        date: string
+        "count(desktop)": number
+        "count(tablet)": number
+        "count(mobile)": number
+      }
+    >()
+
+    for (const row of data) {
+      const date = String(row.date ?? "").slice(0, 10)
+      if (!date) continue
+
+      const device = String(row.device_type ?? "desktop").toLowerCase()
+      const count = Number(row.count ?? 0)
+      const safeCount = Number.isFinite(count) ? count : 0
+
+      if (!grouped.has(date)) {
+        grouped.set(date, {
+          date,
+          "count(desktop)": 0,
+          "count(tablet)": 0,
+          "count(mobile)": 0,
+        })
+      }
+
+      const current = grouped.get(date)
+      if (!current) continue
+
+      if (device === "tablet") {
+        current["count(tablet)"] += safeCount
+      } else if (device === "mobile") {
+        current["count(mobile)"] += safeCount
+      } else {
+        current["count(desktop)"] += safeCount
+      }
+    }
+
+    return Array.from(grouped.values()).sort((a, b) => a.date.localeCompare(b.date))
+  }, [data, queryType])
+
+  const columns = useMemo(() => {
+    if (queryType === "dailyVisits") {
+      return [
+        {
+          title: "date",
+          dataIndex: "date",
+          key: "date",
+          ellipsis: true,
+          render: (value: unknown) => formatDateWithWeekday(value, locale, safeDateWithWeekdayTemplate),
+        },
+        {
+          title: "desktop",
+          dataIndex: "count(desktop)",
+          key: "count(desktop)",
+          ellipsis: true,
+          render: (value: unknown) => formatTableValue(value),
+        },
+        {
+          title: "tablet",
+          dataIndex: "count(tablet)",
+          key: "count(tablet)",
+          ellipsis: true,
+          render: (value: unknown) => formatTableValue(value),
+        },
+        {
+          title: "mobile",
+          dataIndex: "count(mobile)",
+          key: "count(mobile)",
+          ellipsis: true,
+          render: (value: unknown) => formatTableValue(value),
+        },
+      ]
+    }
+
+    return Object.keys(tableData[0] ?? {}).map((key) => ({
+      title: key,
+      dataIndex: key,
+      key,
+      ellipsis: true,
+      render: (value: unknown) => formatTableValue(value),
+    }))
+  }, [locale, queryType, safeDateWithWeekdayTemplate, tableData])
 
   return (
     <Card
@@ -175,16 +302,16 @@ function ResultTable({data}: {data: QueryResult["data"]}) {
         </span>
       }
     >
-      {data.length > 0 ? (
+      {tableData.length > 0 ? (
         <Table<Record<string, unknown>>
           size="small"
           columns={columns}
-          dataSource={data}
+          dataSource={tableData}
           rowKey={(_, index) => String(index)}
           pagination={
-            data.length > 10
+            tableData.length > 7
               ? {
-                  pageSize: 10,
+                  pageSize: 7,
                   showSizeChanger: false,
                 }
               : false
@@ -299,7 +426,7 @@ function ChartCard({
               )}
             </Col>
             <Col xs={24} sm={24} md={10} lg={8} xl={8} className={styles.tableSection}>
-              <ResultTable data={result.data} />
+              <ResultTable data={result.data} queryType={queryType} />
             </Col>
           </Row>
           <div className={styles.sqlSection}>

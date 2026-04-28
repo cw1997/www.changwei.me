@@ -97,7 +97,8 @@
   "statistic": {
     "title": "網站統計",
     "pageTitle": "網站統計",
-    "description": "網站流量趨勢、地區分布、裝置、瀏覽器與系統使用情況公開看板。"
+    "description": "網站流量趨勢、地區分布、裝置、瀏覽器與系統使用情況公開看板。",
+    "dateWithWeekday": "{date} ({weekday})"
   },
   "resume": {
     "title": "履歷",

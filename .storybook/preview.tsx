@@ -3,7 +3,7 @@ import {Noto_Sans_SC} from "next/font/google"
 import {NextIntlClientProvider} from "next-intl"
 import React from "react"
 
-import "../src/app/globals.scss"
+import "../src/app/globals.css"
 import {
   defaultLocale,
   localeHtmlLang,

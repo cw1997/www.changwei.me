@@ -4,15 +4,16 @@ import photo_image from "./changwei_at_google_taipei.jpg"
 import {Now} from "./Now"
 import {OutsideLink} from "@/components/OutsideLink"
 import {
-  CameraOutlined,
-  ClockCircleOutlined,
-  EnvironmentOutlined,
-  MailOutlined,
-} from "@ant-design/icons"
-import {Divider, Space, Tag, Image} from "antd"
+  Camera,
+  Clock,
+  Mail,
+  MapPin,
+} from "lucide-react"
 import {useTranslations} from "next-intl"
 import React from "react"
-import styles from "./ProfileSection.module.sass"
+import Image from "next/image"
+import {Badge} from "@/components/ui/badge"
+import {Separator} from "@/components/ui/separator"
 
 function getProfileRows(t: (key: string) => string) {
   return [
@@ -69,20 +70,20 @@ function getProfileRows(t: (key: string) => string) {
       rowKey: "language",
       label: t("language"),
       value: (
-        <Space orientation={"vertical"}>
-          <div>
-            <Tag>zh-Hans-CN</Tag>
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Badge variant="outline">zh-Hans-CN</Badge>
             <span>{t("langHans")}</span>
           </div>
-          <div>
-            <Tag>zh-Hant-TW</Tag>
+          <div className="flex items-center gap-2">
+            <Badge variant="outline">zh-Hant-TW</Badge>
             <span>{t("langHant")}</span>
           </div>
-          <div>
-            <Tag>en</Tag>
+          <div className="flex items-center gap-2">
+            <Badge variant="outline">en</Badge>
             <span>{t("langEnLabel")}</span>
           </div>
-        </Space>
+        </div>
       ),
     },
   ]
@@ -123,157 +124,131 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
   const profile = getProfileRows(t)
 
   return (
-    <div className={styles.profile}>
-      <div className={styles.profile_info}>
-        <Space className={styles.profile_info_name} wrap>
-          <div className={styles.profile_info_name_key}>{t("trueName")}</div>
-          <h1 className={styles.profile_info_name_value}>
-            <Space separator={"/"} wrap>
+    <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="space-y-6">
+        <div className="flex flex-wrap items-start gap-3 border-b border-slate-200 pb-4">
+          <div className="text-sm text-slate-500">{t("trueName")}</div>
+          <h1 className="text-2xl font-light text-slate-900">
+            <div className="flex flex-wrap items-start gap-6 text-base">
               <div>
-                <div className={styles.pronounce}>[tʃɑŋ weɪ]</div>
-                <Space>
-                  <strong>Chang, Wei</strong>
-                  <Tag>en</Tag>
-                </Space>
+                <div className="text-sm text-slate-500">[tʃɑŋ weɪ]</div>
+                <div className="mt-1 flex items-center gap-2">
+                  <strong className="font-semibold text-slate-900">Chang, Wei</strong>
+                  <Badge variant="outline">en</Badge>
+                </div>
               </div>
+              <Separator orientation="vertical" className="h-10" />
               <div>
-                <div className={styles.pronounce}>Chāng Wéi</div>
-                <Space>
-                  <strong>昌维</strong>
-                  <Tag>zh-Hans</Tag>
-                </Space>
+                <div className="text-sm text-slate-500">Chāng Wéi</div>
+                <div className="mt-1 flex items-center gap-2">
+                  <strong className="font-semibold text-slate-900">昌维</strong>
+                  <Badge variant="outline">zh-Hans</Badge>
+                </div>
               </div>
+              <Separator orientation="vertical" className="h-10" />
               <div>
-                <div className={styles.pronounce}>ㄔㄤ ㄨㄟˊ</div>
-                <Space>
-                  <strong>昌維</strong>
-                  <Tag>zh-Hant</Tag>
-                </Space>
+                <div className="text-sm text-slate-500">ㄔㄤ ㄨㄟˊ</div>
+                <div className="mt-1 flex items-center gap-2">
+                  <strong className="font-semibold text-slate-900">昌維</strong>
+                  <Badge variant="outline">zh-Hant</Badge>
+                </div>
               </div>
-            </Space>
+            </div>
           </h1>
-        </Space>
-        <table className={styles.profile_info_list}>
-          <tbody className={styles.profile_info_list_desktop}>
+        </div>
+
+        <table className="hidden w-full text-sm text-slate-600 md:table">
+          <tbody>
             {profile.map((item) => (
-              <tr
-                key={item.rowKey}
-                className={styles.profile_info_list_desktop_item}
-              >
-                <td className={styles.profile_info_list_desktop_item_key}>
+              <tr key={item.rowKey}>
+                <td className="w-40 py-2 pr-4 text-right text-slate-500">
                   {item.label}:
                 </td>
-                <td className={styles.profile_info_list_desktop_item_value}>
-                  {item.value}
-                </td>
+                <td className="py-2 text-slate-700">{item.value}</td>
               </tr>
             ))}
           </tbody>
-          <tbody className={styles.profile_info_list_mobile}>
-            {profile.map((item) => (
-              <React.Fragment key={item.rowKey}>
-                <tr className={styles.profile_info_list_mobile_item}>
-                  <td className={styles.profile_info_list_mobile_item_key}>
-                    {item.label}:
-                  </td>
-                </tr>
-                <tr className={styles.profile_info_list_mobile_item}>
-                  <td className={styles.profile_info_list_mobile_item_value}>
-                    {item.value}
-                  </td>
-                </tr>
-              </React.Fragment>
-            ))}
-          </tbody>
         </table>
-        <div className={styles.profile_contact}>
-          <Space
-            className={styles.profile_contact_list}
-            separator={<Divider orientation={"vertical"} />}
-          >
-            <div className={styles.profile_contact_list_item}>
-              <span className={styles.profile_contact_list_item_key}>
-                <MailOutlined /> {t("emailGlobal")}{" "}
-              </span>
-              <span className={styles.profile_contact_list_item_value}>
-                <a href="mailto:changwei1006@gmail.com">
-                  changwei1006@gmail.com
-                </a>
-              </span>
+
+        <div className="space-y-4 md:hidden">
+          {profile.map((item) => (
+            <div key={item.rowKey}>
+              <div className="text-sm text-slate-500">{item.label}:</div>
+              <div className="mt-1 text-sm text-slate-700">{item.value}</div>
             </div>
-            <div className={styles.profile_contact_list_item}>
-              <span className={styles.profile_contact_list_item_key}>
-                <MailOutlined /> {t("emailChina")}{" "}
-              </span>
-              <span className={styles.profile_contact_list_item_value}>
-                <a href="mailto:changwei1006@qq.com">changwei1006@qq.com</a>
-              </span>
-            </div>
-          </Space>
+          ))}
         </div>
-        <div className={styles.profile_location}>
-          <Space
-            className={styles.profile_location_list}
-            orientation={"vertical"}
-            wrap
-          >
-            <div className={styles.profile_location_list_item}>
-              <div className={styles.profile_location_list_item_key}>
-                <EnvironmentOutlined /> {t("addressEnLabel")}{" "}
+
+        <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+          <div className="flex items-center gap-2">
+            <Mail className="h-4 w-4" /> {t("emailGlobal")}:
+            <a href="mailto:changwei1006@gmail.com">changwei1006@gmail.com</a>
+          </div>
+          <div className="flex items-center gap-2">
+            <Mail className="h-4 w-4" /> {t("emailChina")}:
+            <a href="mailto:changwei1006@qq.com">changwei1006@qq.com</a>
+          </div>
+        </div>
+
+        <div className="border-t border-dashed border-slate-200 pt-4 text-sm text-slate-600">
+          <div className="space-y-3">
+            <div>
+              <div className="flex items-center gap-2 text-slate-500">
+                <MapPin className="h-4 w-4" /> {t("addressEnLabel")}
               </div>
-              <div className={styles.profile_location_list_item_value}>
+              <div className="pl-6">
                 <OutsideLink href="https://maps.app.goo.gl/nXxbx9iaARZxa5hEA">
                   {t("addressEnValue")}
                 </OutsideLink>
               </div>
             </div>
-            <div className={styles.profile_location_list_item}>
-              <div className={styles.profile_location_list_item_key}>
-                <EnvironmentOutlined /> {t("addressZhLabel")}{" "}
+            <div>
+              <div className="flex items-center gap-2 text-slate-500">
+                <MapPin className="h-4 w-4" /> {t("addressZhLabel")}
               </div>
-              <div className={styles.profile_location_list_item_value}>
+              <div className="pl-6">
                 <OutsideLink href="https://maps.app.goo.gl/nXxbx9iaARZxa5hEA">
                   {t("addressZhValue")}
                 </OutsideLink>
               </div>
             </div>
-          </Space>
+          </div>
         </div>
       </div>
 
-      <div className={styles.profile_photo}>
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
         <Image
-          rootClassName={styles.profile_photo_image}
-          src={photo_image.src}
+          src={photo_image}
           alt={t("photoAlt")}
+          width={photo_image.width}
+          height={photo_image.height}
+          className="h-auto w-full object-cover"
         />
-        <div className={styles.profile_photo_description}>
+        <div className="px-6 py-3 text-center text-sm text-slate-500">
           {t("photoDescription")}
         </div>
-        <div className={styles.profile_photo_info}>
-          <table className={styles.profile_photo_info_list}>
+        <div className="px-6 pb-5 text-sm text-slate-600">
+          <table className="w-full">
             <tbody>
-              <tr className={styles.profile_photo_info_list_item}>
-                <td className={styles.profile_photo_info_list_item_key}>
-                  <ClockCircleOutlined /> {t("datetime")}
+              <tr>
+                <td className="w-32 py-2 pr-3 text-right text-slate-500">
+                  <Clock className="inline h-4 w-4" /> {t("datetime")}
                 </td>
-                <td className={styles.profile_photo_info_list_item_value}>
-                  {t("photoDatetimeValue")}
-                </td>
+                <td className="py-2">{t("photoDatetimeValue")}</td>
               </tr>
-              <tr className={styles.profile_photo_info_list_item}>
-                <td className={styles.profile_photo_info_list_item_key}>
-                  <EnvironmentOutlined /> {t("photoLocation")}
+              <tr>
+                <td className="w-32 py-2 pr-3 text-right text-slate-500">
+                  <MapPin className="inline h-4 w-4" /> {t("photoLocation")}
                 </td>
-                <td className={styles.profile_photo_info_list_item_value}>
+                <td className="py-2">
                   <PhotoPlaceValue t={t} />
                 </td>
               </tr>
-              <tr className={styles.profile_photo_info_list_item}>
-                <td className={styles.profile_photo_info_list_item_key}>
-                  <CameraOutlined /> {t("exif")}
+              <tr>
+                <td className="w-32 py-2 pr-3 text-right text-slate-500">
+                  <Camera className="inline h-4 w-4" /> {t("exif")}
                 </td>
-                <td className={styles.profile_photo_info_list_item_value}>
+                <td className="py-2">
                   <PhotoExifValue t={t} />
                 </td>
               </tr>

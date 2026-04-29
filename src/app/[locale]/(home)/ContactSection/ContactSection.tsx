@@ -8,21 +8,22 @@ import wechat_qrcode_image_url from "@/assets/images/contact/wechat_changwei1006
 import zhihu_qrcode_image_url from "@/assets/images/contact/zhihu_changwei1006.jpg"
 import {OutsideLink} from "@/components/OutsideLink"
 import {
-  BilibiliOutlined,
-  DiscordOutlined,
-  FacebookOutlined,
-  GithubOutlined,
-  GitlabOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
-  MailOutlined,
-  QqOutlined,
-  WechatOutlined,
-  WeiboOutlined,
-  XOutlined,
-  YoutubeOutlined,
-  ZhihuOutlined,
-} from "@ant-design/icons"
+  AtSign,
+  Briefcase,
+  BookOpen,
+  Camera,
+  Check,
+  Copy,
+  GitBranch,
+  GitMerge,
+  Globe,
+  Mail,
+  MessageCircle,
+  MessagesSquare,
+  Play,
+  Share2,
+  Tv,
+} from "lucide-react"
 import {
   faFacebookMessenger,
   faLine,
@@ -30,11 +31,12 @@ import {
   faThreads,
 } from "@fortawesome/free-brands-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {Popover, QRCode, Space, Typography} from "antd"
 import {useTranslations} from "next-intl"
 import React from "react"
+import QRCode from "react-qr-code"
 
-import styles from "./ContactSection.module.sass"
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover"
+import {Button} from "@/components/ui/button"
 
 type LabelKey =
   | "facebook"
@@ -73,7 +75,7 @@ type ItemDef = {
 
 const segmentfaultIcon = (
   <svg
-    className="icon"
+    className="h-4 w-4 text-slate-600"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +98,7 @@ const segmentfaultIcon = (
 
 const doubanIcon = (
   <svg
-    className="icon"
+    className="h-4 w-4 text-slate-600"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +121,7 @@ const doubanIcon = (
 
 const v2exIcon = (
   <svg
-    className="icon"
+    className="h-4 w-4 text-slate-600"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -134,47 +136,68 @@ const v2exIcon = (
   </svg>
 )
 
+function CopyButton({value}: {value: string}) {
+  const [copied, setCopied] = React.useState(false)
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      setCopied(false)
+    }
+  }
+
+  return (
+    <Button variant="outline" size="sm" onClick={handleCopy}>
+      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      {copied ? "Copied" : "Copy"}
+    </Button>
+  )
+}
+
 const socialItems: ItemDef[] = [
-  {labelKey: "facebook", icon: <FacebookOutlined />, contact: "changwei1006", url: "https://www.facebook.com/changwei1006/"},
+  {labelKey: "facebook", icon: <Globe className="h-4 w-4" />, contact: "changwei1006", url: "https://www.facebook.com/changwei1006/"},
   {
     labelKey: "instagram",
-    icon: <InstagramOutlined />,
+    icon: <Camera className="h-4 w-4" />,
     contact: "changwei1997",
     url: "https://instagram.com/changwei1997",
     content: <img src={instagram_qrcode_image_url.src} alt="https://instagram.com/changwei1997" loading="lazy" decoding="async" />,
     qrcode_image_url: instagram_qrcode_image_url.src,
   },
-  {labelKey: "x", icon: <XOutlined />, contact: "changwei1006", url: "https://twitter.com/changwei1006"},
+  {labelKey: "x", icon: <AtSign className="h-4 w-4" />, contact: "changwei1006", url: "https://twitter.com/changwei1006"},
   {labelKey: "threads", icon: <FontAwesomeIcon icon={faThreads} />, contact: "changwei1997", url: "https://www.threads.net/@changwei1997"},
-  {labelKey: "github", icon: <GithubOutlined />, contact: "cw1997", url: "https://github.com/cw1997"},
-  {labelKey: "gitlab", icon: <GitlabOutlined />, contact: "cw1997", url: "https://gitlab.com/cw1997"},
+  {labelKey: "github", icon: <GitBranch className="h-4 w-4" />, contact: "cw1997", url: "https://github.com/cw1997"},
+  {labelKey: "gitlab", icon: <GitMerge className="h-4 w-4" />, contact: "cw1997", url: "https://gitlab.com/cw1997"},
   {
     labelKey: "linkedin",
-    icon: <LinkedinOutlined />,
+    icon: <Briefcase className="h-4 w-4" />,
     contact: "",
     useLinkedinContact: true,
     url: "https://www.linkedin.com/in/%E7%B6%AD-%E6%98%8C-967703134/",
   },
   {
     labelKey: "zhihu",
-    icon: <ZhihuOutlined />,
+    icon: <BookOpen className="h-4 w-4" />,
     contact: "changwei1006",
     url: "https://www.zhihu.com/people/changwei1006",
     content: <img src={zhihu_qrcode_image_url.src} alt="https://www.zhihu.com/people/changwei1006" loading="lazy" decoding="async" />,
     qrcode_image_url: zhihu_qrcode_image_url.src,
   },
   {labelKey: "segmentfault", icon: segmentfaultIcon, contact: "changwei", url: "https://segmentfault.com/u/changwei"},
-  {labelKey: "weibo", icon: <WeiboOutlined />, contact: "changweicw", url: "https://weibo.com/changweicw"},
+  {labelKey: "weibo", icon: <Share2 className="h-4 w-4" />, contact: "changweicw", url: "https://weibo.com/changweicw"},
   {labelKey: "douban", icon: doubanIcon, contact: "UID: 27225472", url: "https://www.douban.com/people/27225472/?_i=9769701ynDeuaL"},
   {labelKey: "v2ex", icon: v2exIcon, contact: "changwei", url: "https://www.v2ex.com/member/changwei"},
-  {labelKey: "bilibili", icon: <BilibiliOutlined />, contact: "UID: 4654368", url: "https://space.bilibili.com/4654368"},
-  {labelKey: "youtube", icon: <YoutubeOutlined />, contact: "changwei1006", url: "https://www.youtube.com/@changwei1006"},
+  {labelKey: "bilibili", icon: <Tv className="h-4 w-4" />, contact: "UID: 4654368", url: "https://space.bilibili.com/4654368"},
+  {labelKey: "youtube", icon: <Play className="h-4 w-4" />, contact: "changwei1006", url: "https://www.youtube.com/@changwei1006"},
 ]
 
 const imItems: ItemDef[] = [
   {
     labelKey: "wechat",
-    icon: <WechatOutlined />,
+    icon: <MessageCircle className="h-4 w-4" />,
     contact: "changwei1006",
     content: <img src={wechat_qrcode_image_url.src} alt="changwei1006" loading="lazy" decoding="async" />,
     qrcode_image_url: wechat_qrcode_image_url.src,
@@ -189,15 +212,15 @@ const imItems: ItemDef[] = [
   },
   {
     labelKey: "qq",
-    icon: <QqOutlined />,
+    icon: <MessageCircle className="h-4 w-4" />,
     contact: "867597730",
     content: <img src={qq_qrcode_image_url.src} alt="867597730" loading="lazy" decoding="async" />,
     qrcode_image_url: qq_qrcode_image_url.src,
   },
-  {labelKey: "emailGlobal", icon: <MailOutlined />, contact: "changwei1006@gmail.com", url: "mailto:changwei1006@gmail.com"},
-  {labelKey: "emailChina", icon: <MailOutlined />, contact: "changwei1006@qq.com", url: "mailto:changwei1006@qq.com"},
+  {labelKey: "emailGlobal", icon: <Mail className="h-4 w-4" />, contact: "changwei1006@gmail.com", url: "mailto:changwei1006@gmail.com"},
+  {labelKey: "emailChina", icon: <Mail className="h-4 w-4" />, contact: "changwei1006@qq.com", url: "mailto:changwei1006@qq.com"},
   {labelKey: "messenger", icon: <FontAwesomeIcon icon={faFacebookMessenger} />, contact: "changwei1006", url: "https://www.facebook.com/changwei1006/"},
-  {labelKey: "discord", icon: <DiscordOutlined />, contact: "changwei1006"},
+  {labelKey: "discord", icon: <MessagesSquare className="h-4 w-4" />, contact: "changwei1006"},
   {
     labelKey: "line",
     icon: <FontAwesomeIcon icon={faLine} />,
@@ -220,66 +243,70 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
   const tc = useTranslations("contact")
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>{t("socialAndContact")}</h2>
-      <Space orientation={"vertical"} size={16}>
+    <section className="space-y-6">
+      <h2 className="text-2xl font-semibold text-slate-900">{t("socialAndContact")}</h2>
+      <div className="space-y-6">
         {data.map((category) => (
-          <div key={category.category_key} className={styles.category}>
-            <h3 className={styles.category_name}>{t(category.category_key)}</h3>
-            <Space className={styles.list} size={8} wrap>
+          <div key={category.category_key} className="space-y-4">
+            <h3 className="text-lg font-medium text-slate-600">{t(category.category_key)}</h3>
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {category.items.map((item) => {
                 const label = tc(item.labelKey)
                 const contactText = item.useLinkedinContact ? tc("linkedinContact") : item.contact
-                const triggerHref = item.url ?? item.qrcode_image_url
                 const triggerBody = (
-                  <>
-                    <div className={styles.item_icon}>{item.icon}</div>
-                    <div className={styles.item_info}>
-                      <div className={styles.item_info_contact}>{contactText}</div>
-                      {item.note && <div className={styles.item_info_note}>{item.note}</div>}
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+                      {item.icon}
                     </div>
-                  </>
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium text-slate-900">{label}</div>
+                      <div className="truncate text-xs text-slate-500">{contactText}</div>
+                    </div>
+                  </div>
                 )
+
+                const triggerClass =
+                  "flex w-full items-center rounded-xl border border-slate-200 bg-white p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow"
+
                 return (
-                  <Popover
-                    trigger={["focus", "hover"]}
-                    key={item.labelKey}
-                    placement={"right"}
-                    title={
-                      <Space>
-                        {item.icon} {label}
-                      </Space>
-                    }
-                    content={
-                      <Space orientation={"vertical"} className={styles.item_popup}>
-                        <Typography.Text copyable>{contactText}</Typography.Text>
+                  <Popover key={item.labelKey}>
+                    <PopoverTrigger asChild>
+                      <button className={triggerClass} type="button">
+                        {triggerBody}
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent align="start" className="w-72">
+                      <div className="space-y-3">
+                        <div className="text-sm font-semibold text-slate-900">
+                          {item.icon} {label}
+                        </div>
+                        <div className="text-sm text-slate-600">{contactText}</div>
+                        <div>
+                          <CopyButton value={contactText} />
+                        </div>
                         {item.url && (
-                          <Space orientation={"vertical"}>
-                            <QRCode errorLevel="H" value={item.url} />
+                          <div className="space-y-2">
+                            <div className="rounded-lg border bg-white p-3">
+                              <QRCode value={item.url} size={140} />
+                            </div>
                             <OutsideLink href={item.url} />
-                          </Space>
+                          </div>
                         )}
-                        <div className={styles.item_popup_content}>{item.content}</div>
-                        {item.note && <p>{item.note}</p>}
-                      </Space>
-                    }
-                  >
-                    {triggerHref ? (
-                      <OutsideLink className={styles.item} href={triggerHref}>
-                        {triggerBody}
-                      </OutsideLink>
-                    ) : (
-                      <span className={styles.item} role="button" tabIndex={0}>
-                        {triggerBody}
-                      </span>
-                    )}
+                        {item.content ? (
+                          <div className="overflow-hidden rounded-lg border">
+                            {item.content}
+                          </div>
+                        ) : null}
+                        {item.note && <p className="text-xs text-slate-500">{item.note}</p>}
+                      </div>
+                    </PopoverContent>
                   </Popover>
                 )
               })}
-            </Space>
+            </div>
           </div>
         ))}
-      </Space>
-    </div>
+      </div>
+    </section>
   )
 }

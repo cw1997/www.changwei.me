@@ -1,12 +1,11 @@
-import {LoadingOutlined} from "@ant-design/icons";
-import styles from "./loading.module.sass";
+import {Loader2} from "lucide-react"
 
 export default function Loading() {
   // Or a custom loading skeleton component
   return (
-    <div className={styles.container}>
-      <div><LoadingOutlined style={{fontSize: 64}} /></div>
-      <div style={{fontSize: 24}}>Loading...</div>
+    <div className="flex flex-col items-center justify-center gap-3 py-16 text-slate-600">
+      <Loader2 className="h-12 w-12 animate-spin" />
+      <div className="text-lg">Loading...</div>
     </div>
   )
 }

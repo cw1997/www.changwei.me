@@ -1,12 +1,10 @@
 "use client"
 
 import {OutsideLink} from "@/components/OutsideLink"
-import {Col, Row, Space} from "antd"
 import React from "react"
 import Image from "next/image"
 import {useTranslations} from "next-intl"
 
-import styles from "./RoleSection.module.sass"
 import Open_House_NTUs_logo_image from "@/assets/images/logo/Open_House_NTUs.png"
 import ntnu_logo_image from "@/assets/images/logo/ntnu_red.png"
 import ntnu_gdsc_logo_image from "@/assets/images/logo/ntnu_gdsc_logo.jpg"
@@ -129,33 +127,40 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
   const t = useTranslations("sections")
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>{t("role")}</h2>
-      <Space orientation={"vertical"} size={24}>
+    <section className="space-y-6">
+      <h2 className="text-2xl font-semibold text-slate-900">{t("role")}</h2>
+      <div className="space-y-6">
         {data.map((category) => (
-          <div key={category.nameKey}>
-            <h3 className={styles.category_name}>{t(category.nameKey)}</h3>
-            <Row gutter={[16, 16]} align={"stretch"}>
+          <div key={category.nameKey} className="space-y-4">
+            <h3 className="text-lg font-medium text-slate-600">{t(category.nameKey)}</h3>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {category.items.map((item) => (
-                <Col key={item.name + item.role} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
-                  <div className={styles.item}>
-                    <Space align={"start"}>
-                      <div className={styles.item_icon}>{item.icon}</div>
-                      <div className={styles.item_info}>
-                        <OutsideLink href={item.url} className={styles.item_info_name}>{item.name}</OutsideLink>
-                        <div className={styles.item_info_role}>{item.role}</div>
-                      </div>
-                    </Space>
-                    {item.description && (
-                      <div className={styles.item_description}>{item.description}</div>
-                    )}
+                <div
+                  key={item.name + item.role}
+                  className="flex h-full flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="shrink-0">{item.icon}</div>
+                    <div>
+                      {item.url ? (
+                        <OutsideLink href={item.url} className="font-medium text-slate-900">
+                          {item.name}
+                        </OutsideLink>
+                      ) : (
+                        <div className="font-medium text-slate-900">{item.name}</div>
+                      )}
+                      <div className="mt-1 text-sm text-slate-600">{item.role}</div>
+                    </div>
                   </div>
-                </Col>
+                  {item.description && (
+                    <div className="text-sm text-slate-600">{item.description}</div>
+                  )}
+                </div>
               ))}
-            </Row>
+            </div>
           </div>
         ))}
-      </Space>
-    </div>
+      </div>
+    </section>
   )
 }

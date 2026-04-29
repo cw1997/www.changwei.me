@@ -1,7 +1,7 @@
 import {OutsideLink} from "@/components/OutsideLink"
-import {GithubOutlined, LinkOutlined, ZhihuCircleFilled} from "@ant-design/icons"
 import React from "react"
 import type {Locale} from "@/i18n/routing"
+import {BookOpen, GitBranch, Link} from "lucide-react"
 
 export function experienceNoteFor(
   locale: Locale,
@@ -34,7 +34,7 @@ function RisingWaveNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          开发与维护官方网站 <LinkOutlined /> <OutsideLink href="https://risingwave.com/" />
+          开发与维护官方网站 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://risingwave.com/" />
         </li>
       </ul>
     )
@@ -43,7 +43,7 @@ function RisingWaveNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          開發與維護官方網站 <LinkOutlined /> <OutsideLink href="https://risingwave.com/" />
+          開發與維護官方網站 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://risingwave.com/" />
         </li>
       </ul>
     )
@@ -51,7 +51,7 @@ function RisingWaveNote({locale}: {locale: Locale}) {
   return (
     <ul>
       <li>
-        Develop and maintain the official website <LinkOutlined />{" "}
+        Develop and maintain the official website <Link className="inline h-3.5 w-3.5" />{" "}
         <OutsideLink href="https://risingwave.com/" />
       </li>
     </ul>
@@ -63,13 +63,13 @@ function PingcapNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          开发与维护中文官网 <LinkOutlined /> <OutsideLink href="https://cn.pingcap.com/" /> 与{" "}
-          <LinkOutlined /> <OutsideLink href="https://pingcap.cn/" />
+          开发与维护中文官网 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://cn.pingcap.com/" /> 与{" "}
+          <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://pingcap.cn/" />
         </li>
         <li>
-          开发与维护 TiDB 开发者社区网站 <LinkOutlined /> <OutsideLink href="https://tidb.net/" />
+          开发与维护 TiDB 开发者社区网站 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://tidb.net/" />
           ，<br />
-          其为源码可得项目，GitHub 仓库为 <GithubOutlined />{" "}
+          其为源码可得项目，GitHub 仓库为 <GitBranch className="inline h-3.5 w-3.5" />{" "}
           <OutsideLink href="https://github.com/pingcap-inc/tidb.io" />
         </li>
       </ul>
@@ -79,13 +79,13 @@ function PingcapNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          開發與維護中文官網 <LinkOutlined /> <OutsideLink href="https://cn.pingcap.com/" /> 與{" "}
-          <LinkOutlined /> <OutsideLink href="https://pingcap.cn/" />
+          開發與維護中文官網 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://cn.pingcap.com/" /> 與{" "}
+          <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://pingcap.cn/" />
         </li>
         <li>
-          開發與維護 TiDB 開發者社群網站 <LinkOutlined /> <OutsideLink href="https://tidb.net/" />
+          開發與維護 TiDB 開發者社群網站 <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://tidb.net/" />
           ，<br />
-          其為原始碼可得專案，GitHub 儲存庫為 <GithubOutlined />{" "}
+          其為原始碼可得專案，GitHub 儲存庫為 <GitBranch className="inline h-3.5 w-3.5" />{" "}
           <OutsideLink href="https://github.com/pingcap-inc/tidb.io" />
         </li>
       </ul>
@@ -94,15 +94,15 @@ function PingcapNote({locale}: {locale: Locale}) {
   return (
     <ul>
       <li>
-        Develop and maintain the Chinese official website <LinkOutlined />{" "}
-        <OutsideLink href="https://cn.pingcap.com/" /> and <LinkOutlined />{" "}
+        Develop and maintain the Chinese official website <Link className="inline h-3.5 w-3.5" />{" "}
+        <OutsideLink href="https://cn.pingcap.com/" /> and <Link className="inline h-3.5 w-3.5" />{" "}
         <OutsideLink href="https://pingcap.cn/" />
       </li>
       <li>
         Develop and maintain the TiDB developer community website{" "}
-        <LinkOutlined /> <OutsideLink href="https://tidb.net/" /> ,<br />
+        <Link className="inline h-3.5 w-3.5" /> <OutsideLink href="https://tidb.net/" /> ,<br />
         it is a source available project and its GitHub repository is{" "}
-        <GithubOutlined />{" "}
+        <GitBranch className="inline h-3.5 w-3.5" />{" "}
         <OutsideLink href="https://github.com/pingcap-inc/tidb.io" />
       </li>
     </ul>
@@ -248,11 +248,11 @@ function BachelorNote({locale}: {locale: Locale}) {
         <ul>
           <li>
             {osIntro}
-            <GithubOutlined /> <OutsideLink href="https://github.com/cw1997/ez-rtos" />
+            <GitBranch className="inline h-3.5 w-3.5" /> <OutsideLink href="https://github.com/cw1997/ez-rtos" />
           </li>
           {urls.map((href, i) => (
             <li key={href}>
-              <ZhihuCircleFilled />{" "}
+              <BookOpen className="inline h-3.5 w-3.5" />{" "}
               <OutsideLink href={href}>{z[i]}</OutsideLink>
             </li>
           ))}
@@ -262,14 +262,14 @@ function BachelorNote({locale}: {locale: Locale}) {
         {isa}
         <ul>
           <li>
-            <GithubOutlined />{" "}
+            <GitBranch className="inline h-3.5 w-3.5" />{" "}
             <OutsideLink href="https://github.com/cw1997/SDRAM-Controller" />
           </li>
           <li>
-            <GithubOutlined /> <OutsideLink href="https://github.com/risc-v-cpu" />
+            <GitBranch className="inline h-3.5 w-3.5" /> <OutsideLink href="https://github.com/risc-v-cpu" />
           </li>
           <li>
-            <GithubOutlined /> <OutsideLink href="https://github.com/openx86" />
+            <GitBranch className="inline h-3.5 w-3.5" /> <OutsideLink href="https://github.com/openx86" />
           </li>
         </ul>
       </li>
@@ -277,10 +277,10 @@ function BachelorNote({locale}: {locale: Locale}) {
         {net}
         <ul>
           <li>
-            <GithubOutlined /> <OutsideLink href="https://github.com/cw1997/inetutils" />
+            <GitBranch className="inline h-3.5 w-3.5" /> <OutsideLink href="https://github.com/cw1997/inetutils" />
           </li>
           <li>
-            <GithubOutlined />{" "}
+            <GitBranch className="inline h-3.5 w-3.5" />{" "}
             <OutsideLink href="https://github.com/cw1997/ez-mysql/tree/develop" />
           </li>
         </ul>

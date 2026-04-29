@@ -1,7 +1,6 @@
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
 import {TrackPageView} from "@/components/TrackPageView/TrackPageView"
-import {AntdRegistry} from "@ant-design/nextjs-registry"
 import type {Metadata} from "next"
 import React from "react"
 import {NextIntlClientProvider} from "next-intl"
@@ -10,7 +9,6 @@ import {notFound} from "next/navigation"
 import {defaultLocale, isLocale, routing} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
 import {buildLocalizedMetadata} from "@/lib/seo"
-import styles from "./layout.module.sass"
 
 type Props = {
   children: React.ReactNode
@@ -79,16 +77,16 @@ export default async function LocaleLayout({children, params}: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <AntdRegistry>
-        <div id={"header"}>
+      <div className="min-h-screen bg-background">
+        <div id="header">
           <Header />
         </div>
-        <div className={styles.container} id={"container"}>
+        <main className="mx-auto flex w-full max-w-6xl flex-col px-4 pb-16 pt-24" id="container">
           {children}
-          <Footer />
-          <TrackPageView />
-        </div>
-      </AntdRegistry>
+        </main>
+        <Footer />
+        <TrackPageView />
+      </div>
     </NextIntlClientProvider>
   )
 }

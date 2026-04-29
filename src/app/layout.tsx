@@ -4,7 +4,7 @@ import {Noto_Sans_SC} from "next/font/google"
 import {getLocale} from "next-intl/server"
 import Script from "next/script"
 import React from "react"
-import "@/app/globals.scss"
+import "@/app/globals.css"
 import {localeHtmlLang} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
 
@@ -20,7 +20,7 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLang}>
-      <body className={font_Noto_Sans_SC.className}>
+      <body className={`${font_Noto_Sans_SC.className} min-h-screen bg-background text-foreground antialiased`}>
         <Script
           id={"googletagmanager"}
           src="https://www.googletagmanager.com/gtag/js?id=G-GPVC7Z21XH"

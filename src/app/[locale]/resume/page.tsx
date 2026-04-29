@@ -1,9 +1,9 @@
-import styles from "./page.module.sass"
-import {Button, Divider, Space} from "antd"
-import {DownloadOutlined, EyeOutlined, GithubOutlined} from "@ant-design/icons"
 import {OutsideLink} from "@/components/OutsideLink"
 import {url_resume_pdf_mirror, url_resume_pdf_release, url_resume_pdf_source} from "@/data"
 import {getTranslations} from "next-intl/server"
+import {Button} from "@/components/ui/button"
+import {Separator} from "@/components/ui/separator"
+import {Download, Eye, GitBranch} from "lucide-react"
 
 export interface IPropsResumePage {}
 
@@ -11,30 +11,37 @@ export default async function ResumePage() {
   const t = await getTranslations("resume")
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
-        <Divider />
-        <Space wrap size={"large"}>
-          <OutsideLink href={url_resume_pdf_mirror}>
-            <Button type="primary" icon={<DownloadOutlined />}>{t("download")}</Button>
-          </OutsideLink>
-          <OutsideLink href={url_resume_pdf_release}>
-            <Button type="primary" ghost icon={<GithubOutlined />}>{t("downloadGithub")}</Button>
-          </OutsideLink>
-          <OutsideLink href={url_resume_pdf_source}>
-            <Button type="default" icon={<EyeOutlined />}>{t("viewSource")}</Button>
-          </OutsideLink>
-        </Space>
-        <div className={styles.resume}>
-          <iframe
-            className={styles.resume_embed}
-            src={url_resume_pdf_mirror}
-            title={t("title")}
-            loading="lazy"
-          />
-        </div>
-      </main>
-    </div>
+    <main className="space-y-4">
+      <h2 className="text-2xl font-semibold text-slate-900">{t("title")}</h2>
+      <Separator />
+      <div className="flex flex-wrap gap-3">
+        <OutsideLink href={url_resume_pdf_mirror}>
+          <Button>
+            <Download className="h-4 w-4" />
+            {t("download")}
+          </Button>
+        </OutsideLink>
+        <OutsideLink href={url_resume_pdf_release}>
+          <Button variant="secondary">
+            <GitBranch className="h-4 w-4" />
+            {t("downloadGithub")}
+          </Button>
+        </OutsideLink>
+        <OutsideLink href={url_resume_pdf_source}>
+          <Button variant="outline">
+            <Eye className="h-4 w-4" />
+            {t("viewSource")}
+          </Button>
+        </OutsideLink>
+      </div>
+      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <iframe
+          className="h-[800px] w-full"
+          src={url_resume_pdf_mirror}
+          title={t("title")}
+          loading="lazy"
+        />
+      </div>
+    </main>
   )
 }

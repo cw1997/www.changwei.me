@@ -4,10 +4,15 @@ import {useLocale, useTranslations} from "next-intl"
 import {useRouter, usePathname} from "@/i18n/navigation"
 import {locales, localeLabels} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
-import {Select} from "antd"
 import React, {useTransition} from "react"
 
-import styles from "./Header.module.sass"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export const LanguageSwitcher: React.FunctionComponent = () => {
   const t = useTranslations("header")
@@ -22,19 +27,25 @@ export const LanguageSwitcher: React.FunctionComponent = () => {
   }))
 
   return (
-    <Select<Locale>
-      className={styles.language_switcher}
+    <Select
       value={locale as Locale}
-      options={options}
       disabled={isPending}
-      aria-label={t("selectLanguage")}
-      popupMatchSelectWidth={false}
-      styles={{popup: {root: {zIndex: 100_000}}}}
-      onChange={(nextLocale) => {
+      onValueChange={(nextLocale) => {
         startTransition(() => {
           router.replace(pathname, {locale: nextLocale})
         })
       }}
-    />
+    >
+      <SelectTrigger aria-label={t("selectLanguage")} className="h-9">
+        <SelectValue placeholder={t("selectLanguage")} />
+      </SelectTrigger>
+      <SelectContent align="end">
+        {options.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }

@@ -1,12 +1,17 @@
 "use client"
 
-import {MenuOutlined} from "@ant-design/icons"
-import {Button, ConfigProvider, Divider, Dropdown, Space} from "antd"
 import {Link, usePathname} from "@/i18n/navigation"
 import {useTranslations} from "next-intl"
 import React from "react"
+import {Menu} from "lucide-react"
 
-import styles from "./Header.module.sass"
+import {Button} from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export interface IPropsHeader {}
 
@@ -56,61 +61,44 @@ type MenuItem = {
 const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({items}) => {
   const pathname = usePathname()
   return (
-    <Space
-      align={"center"}
-      className={styles.menu_desktop}
-      separator={<Divider orientation={"vertical"} />}
-    >
+    <nav className="hidden items-center gap-4 lg:flex">
       {items.map((item) => {
         const is_current = item.url === "/" ? pathname === "/" : pathname?.startsWith(item.url)
         return (
           <Link
             key={item.url}
             href={item.url}
-            className={styles.menu_item}
-            style={{
-              fontWeight: is_current ? "700" : "400",
-              textDecoration: is_current ? "underline" : "",
-            }}
+            className={`text-sm font-medium transition ${
+              is_current ? "text-slate-900 underline" : "text-slate-600 hover:text-slate-900"
+            }`}
           >
             {item.label}
           </Link>
         )
       })}
-    </Space>
+    </nav>
   )
 }
 
 const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({items}) => {
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Dropdown: {
-            paddingBlock: 8,
-            fontSize: 16,
-          },
-        },
-      }}
-    >
-      <div className={styles.menu_mobile}>
-        <Dropdown
-          menu={{
-            items: items.map((item) => ({
-              key: item.url,
-              label: (
-                <Link key={item.url} href={item.url} className={styles.menu_item}>
-                  {item.label}
-                </Link>
-              ),
-            })),
-          }}
-          styles={{root: {zIndex: 99999}}}
-          trigger={["click"]}
-        >
-          <Button icon={<MenuOutlined />} size={"large"} />
-        </Dropdown>
-      </div>
-    </ConfigProvider>
+    <div className="lg:hidden">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" size="icon" aria-label="Open menu">
+            <Menu className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-56">
+          {items.map((item) => (
+            <DropdownMenuItem key={item.url} asChild>
+              <Link href={item.url} className="flex w-full flex-col text-sm">
+                {item.label}
+              </Link>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

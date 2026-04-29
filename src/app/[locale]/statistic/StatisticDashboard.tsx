@@ -1,18 +1,16 @@
 "use client"
 
 import React, {useEffect, useState, useCallback, useMemo} from "react"
-import {Card, Spin, Tag, Empty, Grid, Table, Row, Col} from "antd"
 import {
-  LoadingOutlined,
-  CodeOutlined,
-  ClockCircleOutlined,
-  DesktopOutlined,
-  MobileOutlined,
-  TabletOutlined,
-  GlobalOutlined,
-  ChromeOutlined,
-  TableOutlined,
-} from "@ant-design/icons"
+  Clock,
+  Code,
+  Globe,
+  Loader2,
+  Monitor,
+  Smartphone,
+  Tablet,
+  Table as TableIcon,
+} from "lucide-react"
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter"
 import {oneLight} from "react-syntax-highlighter/dist/esm/styles/prism"
 import ReactEChartsCore from "echarts-for-react/lib/core"
@@ -29,7 +27,38 @@ import {
 import {CanvasRenderer} from "echarts/renderers"
 import {useLocale} from "next-intl"
 
-import styles from "./StatisticDashboard.module.sass"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import {Separator} from "@/components/ui/separator"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+const WORLD_MAP_NAME = "world"
+const WORLD_MAP_GEOJSON_URL = "https://fastly.jsdelivr.net/npm/echarts@5/map/json/world.json"
+
+let worldMapPromise: Promise<void> | null = null
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const mq = window.matchMedia("(max-width: 767px)")
+    const onChange = (event: MediaQueryListEvent) => setIsMobile(event.matches)
+    setIsMobile(mq.matches)
+    mq.addEventListener("change", onChange)
+    return () => mq.removeEventListener("change", onChange)
+  }, [])
+
+  return isMobile
+}
 
 echarts.use([
   LineChart,
@@ -64,11 +93,6 @@ type QueryType =
   | "osDistribution"
   | "screenDistribution"
 
-const WORLD_MAP_NAME = "world"
-const WORLD_MAP_GEOJSON_URL = "https://fastly.jsdelivr.net/npm/echarts@5/map/json/world.json"
-
-let worldMapPromise: Promise<void> | null = null
-
 async function ensureWorldMapRegistered() {
   if (echarts.getMap(WORLD_MAP_NAME)) return
 
@@ -97,6 +121,14 @@ function formatUpdatedAt(value: string): string {
   return date.toLocaleString()
 }
 
+function EmptyState({message}: {message: string}) {
+  return (
+    <div className="flex h-full items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-8 text-sm text-slate-500">
+      {message}
+    </div>
+  )
+}
+
 function SqlPanel({
   sql,
   executionTimeMs,
@@ -109,32 +141,41 @@ function SqlPanel({
   fromCache: boolean
 }) {
   return (
-    <Card
-      size="small"
-      className={styles.sqlPanel}
-      title={
-        <span>
-          <CodeOutlined /> SQL Query
-        </span>
-      }
-    >
-      <div className={styles.sqlMeta}>
-        <Tag color="blue" bordered={false}>
-          <ClockCircleOutlined /> {executionTimeMs} ms
-        </Tag>
-        <Tag color={fromCache ? "green" : "gold"} bordered={false}>
-          {fromCache ? "Cached" : "Refreshed"}
-        </Tag>
-      </div>
-      <div className={styles.updatedAt}>Updated: {formatUpdatedAt(cachedAt)}</div>
-      <SyntaxHighlighter
-        language="sql"
-        style={oneLight}
-        customStyle={{margin: 0, borderRadius: 8, fontSize: 12, lineHeight: 1.55}}
-        wrapLongLines
-      >
-        {sql}
-      </SyntaxHighlighter>
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="text-base">
+          <span className="inline-flex items-center gap-2">
+            <Code className="h-4 w-4" /> SQL Query
+          </span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex flex-wrap gap-2">
+          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">
+            <Clock className="h-3.5 w-3.5" /> {executionTimeMs} ms
+          </Badge>
+          <Badge
+            className={
+              fromCache
+                ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-100"
+                : "bg-amber-100 text-amber-700 hover:bg-amber-100"
+            }
+          >
+            {fromCache ? "Cached" : "Refreshed"}
+          </Badge>
+        </div>
+        <div className="text-xs text-slate-500">
+          Updated: {formatUpdatedAt(cachedAt)}
+        </div>
+        <SyntaxHighlighter
+          language="sql"
+          style={oneLight}
+          customStyle={{margin: 0, borderRadius: 8, fontSize: 12, lineHeight: 1.55}}
+          wrapLongLines
+        >
+          {sql}
+        </SyntaxHighlighter>
+      </CardContent>
     </Card>
   )
 }
@@ -181,10 +222,16 @@ function formatDateWithWeekday(value: unknown, locale: string): React.ReactNode 
     return formatTableValue(value)
   }
 
-  const formattedWeekday = new Intl.DateTimeFormat(intlLocaleByAppLocale[locale] ?? "en-US", {
-    weekday: locale === "en-US" ? "short" : "long",
-  }).format(date)
-  const weekday = locale === "en-US" && !formattedWeekday.endsWith(".") ? `${formattedWeekday}.` : formattedWeekday
+  const formattedWeekday = new Intl.DateTimeFormat(
+    intlLocaleByAppLocale[locale] ?? "en-US",
+    {
+      weekday: locale === "en-US" ? "short" : "long",
+    },
+  ).format(date)
+  const weekday =
+    locale === "en-US" && !formattedWeekday.endsWith(".")
+      ? `${formattedWeekday}.`
+      : formattedWeekday
   const dateText = `${year}-${month}-${day}`
   return `${dateText} (${weekday})`
 }
@@ -197,6 +244,8 @@ function ResultTable({
   queryType: QueryType
 }) {
   const locale = useLocale()
+  const pageSize = 7
+  const [page, setPage] = useState(1)
 
   const tableData = useMemo(() => {
     if (queryType !== "dailyVisits") return data
@@ -250,28 +299,24 @@ function ResultTable({
           title: "date",
           dataIndex: "date",
           key: "date",
-          ellipsis: true,
           render: (value: unknown) => formatDateWithWeekday(value, locale),
         },
         {
           title: "desktop",
           dataIndex: "count(desktop)",
           key: "count(desktop)",
-          ellipsis: true,
           render: (value: unknown) => formatTableValue(value),
         },
         {
           title: "tablet",
           dataIndex: "count(tablet)",
           key: "count(tablet)",
-          ellipsis: true,
           render: (value: unknown) => formatTableValue(value),
         },
         {
           title: "mobile",
           dataIndex: "count(mobile)",
           key: "count(mobile)",
-          ellipsis: true,
           render: (value: unknown) => formatTableValue(value),
         },
       ]
@@ -281,40 +326,80 @@ function ResultTable({
       title: key,
       dataIndex: key,
       key,
-      ellipsis: true,
       render: (value: unknown) => formatTableValue(value),
     }))
   }, [locale, queryType, tableData])
 
+  useEffect(() => {
+    setPage(1)
+  }, [tableData.length, queryType])
+
+  const pageCount = Math.max(1, Math.ceil(tableData.length / pageSize))
+  const pageStart = (page - 1) * pageSize
+  const pageData = tableData.slice(pageStart, pageStart + pageSize)
+
   return (
-    <Card
-      size="small"
-      className={styles.tablePanel}
-      title={
-        <span>
-          <TableOutlined /> Query Result
-        </span>
-      }
-    >
-      {tableData.length > 0 ? (
-        <Table<Record<string, unknown>>
-          size="small"
-          columns={columns}
-          dataSource={tableData}
-          rowKey={(_, index) => String(index)}
-          pagination={
-            tableData.length > 7
-              ? {
-                  pageSize: 7,
-                  showSizeChanger: false,
-                }
-              : false
-          }
-          scroll={{x: "max-content"}}
-        />
-      ) : (
-        <Empty description="No data yet" />
-      )}
+    <Card className="h-full">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-base">
+          <span className="inline-flex items-center gap-2">
+            <TableIcon className="h-4 w-4" /> Query Result
+          </span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {tableData.length > 0 ? (
+          <>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableHead key={column.key}>{column.title}</TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {pageData.map((row, rowIndex) => (
+                  <TableRow key={`${rowIndex}-${String(rowIndex)}`}>
+                    {columns.map((column) => (
+                      <TableCell key={column.key}>
+                        {column.render(row[column.dataIndex as keyof typeof row])}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            {pageCount > 1 ? (
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                <span>
+                  Page {page} of {pageCount}
+                </span>
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+                    disabled={page === 1}
+                  >
+                    Prev
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setPage((prev) => Math.min(pageCount, prev + 1))}
+                    disabled={page === pageCount}
+                  >
+                    Next
+                  </Button>
+                </div>
+              </div>
+            ) : null}
+          </>
+        ) : (
+          <EmptyState message="No data yet" />
+        )}
+      </CardContent>
     </Card>
   )
 }
@@ -335,8 +420,7 @@ function ChartCard({
     context: {worldMapReady: boolean; isMobile: boolean},
   ) => echarts.EChartsCoreOption
 }) {
-  const screens = Grid.useBreakpoint()
-  const isMobile = !screens.md
+  const isMobile = useIsMobile()
   const [result, setResult] = useState<QueryResult | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -392,52 +476,70 @@ function ChartCard({
   const waitingMap = requiresWorldMap && !worldMapReady && !worldMapLoadFailed
 
   return (
-    <Card
-      title={
-        <div className={styles.cardTitle}>
-          <span>
-            {icon} {title}
-          </span>
-          {result ? <span className={styles.cardUpdatedAt}>Updated: {formatUpdatedAt(result.cachedAt)}</span> : null}
+    <Card>
+      <CardHeader className="space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <CardTitle className="text-base">
+            <span className="inline-flex items-center gap-2">
+              {icon} {title}
+            </span>
+          </CardTitle>
+          {result ? (
+            <span className="text-xs text-slate-500">
+              Updated: {formatUpdatedAt(result.cachedAt)}
+            </span>
+          ) : null}
         </div>
-      }
-      className={styles.chartCard}
-    >
-      {(loading || waitingMap) && (
-        <div className={styles.loading}>
-          <Spin indicator={<LoadingOutlined spin />} size="large" />
-        </div>
-      )}
-      {error && <Empty description="Failed to load data" />}
-      {!loading && !waitingMap && !error && result && (
-        <div className={styles.cardContent}>
-          <Row gutter={[isMobile ? 12 : 16, 16]} className={styles.contentRow} align="top">
-            <Col xs={24} sm={24} md={14} lg={16} xl={16} className={styles.chartSection}>
-              {result.data.length > 0 && chartOption ? (
-                <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: isMobile ? 320 : 420}} notMerge />
-              ) : (
-                <Empty description="No data yet" />
-              )}
-            </Col>
-            <Col xs={24} sm={24} md={10} lg={8} xl={8} className={styles.tableSection}>
-              <ResultTable data={result.data} queryType={queryType} />
-            </Col>
-          </Row>
-          <div className={styles.sqlSection}>
-            <SqlPanel
-              sql={result.sql}
-              executionTimeMs={result.executionTimeMs}
-              cachedAt={result.cachedAt}
-              fromCache={result.fromCache}
-            />
-            {worldMapLoadFailed ? (
-              <Tag color="warning" className={styles.mapWarning}>
-                World map failed to load, fallback chart is shown.
-              </Tag>
-            ) : null}
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {(loading || waitingMap) && (
+          <div className="flex h-[320px] items-center justify-center text-slate-500">
+            <Loader2 className="h-6 w-6 animate-spin" />
           </div>
-        </div>
-      )}
+        )}
+        {error && <EmptyState message="Failed to load data" />}
+        {!loading && !waitingMap && !error && result && (
+          <div className="space-y-4">
+            <div
+              className={`grid gap-4 ${
+                isMobile
+                  ? "grid-cols-1"
+                  : "grid-cols-[minmax(0,1fr)_minmax(240px,320px)]"
+              }`}
+            >
+              <div className="min-h-[320px]">
+                {result.data.length > 0 && chartOption ? (
+                  <ReactEChartsCore
+                    echarts={echarts}
+                    option={chartOption}
+                    style={{height: isMobile ? 320 : 420}}
+                    notMerge
+                  />
+                ) : (
+                  <EmptyState message="No data yet" />
+                )}
+              </div>
+              <div className="min-w-0">
+                <ResultTable data={result.data} queryType={queryType} />
+              </div>
+            </div>
+            <Separator />
+            <div className="space-y-3">
+              <SqlPanel
+                sql={result.sql}
+                executionTimeMs={result.executionTimeMs}
+                cachedAt={result.cachedAt}
+                fromCache={result.fromCache}
+              />
+              {worldMapLoadFailed ? (
+                <Badge className="w-fit bg-amber-100 text-amber-700 hover:bg-amber-100">
+                  World map failed to load, fallback chart is shown.
+                </Badge>
+              ) : null}
+            </div>
+          </div>
+        )}
+      </CardContent>
     </Card>
   )
 }
@@ -487,7 +589,11 @@ function buildDailyVisitsOption(data: Record<string, unknown>[]): echarts.EChart
   }
 }
 
-function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
+function buildPieOption(
+  data: Record<string, unknown>[],
+  nameKey: string,
+  isMobile: boolean,
+): echarts.EChartsCoreOption {
   const values = data.map((row) => ({
     name: String(row[nameKey] ?? "Unknown"),
     value: Number(row.count ?? 0),
@@ -533,7 +639,11 @@ function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobi
   }
 }
 
-function buildBarOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
+function buildBarOption(
+  data: Record<string, unknown>[],
+  nameKey: string,
+  isMobile: boolean,
+): echarts.EChartsCoreOption {
   return {
     tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
     grid: {left: 12, right: 16, bottom: isMobile ? 82 : 64, containLabel: true},
@@ -661,17 +771,17 @@ function buildGeoMapOption(
 
 export function StatisticDashboard() {
   return (
-    <div className={styles.dashboard}>
+    <div className="flex flex-col gap-6">
       <ChartCard
         title="Daily Visits"
-        icon={<DesktopOutlined />}
+        icon={<Monitor className="h-4 w-4" />}
         queryType="dailyVisits"
         renderChart={(data) => buildDailyVisitsOption(data)}
       />
 
       {/*<ChartCard
         title="Geographic Distribution"
-        icon={<GlobalOutlined />}
+        icon={<Globe className="h-4 w-4" />}
         queryType="geoDistribution"
         requiresWorldMap
         renderChart={(data, context) => buildGeoMapOption(data, context)}
@@ -679,35 +789,35 @@ export function StatisticDashboard() {
 
       <ChartCard
         title="Language Distribution"
-        icon={<GlobalOutlined />}
+        icon={<Globe className="h-4 w-4" />}
         queryType="languageDistribution"
         renderChart={(data, context) => buildPieOption(data, "language", context.isMobile)}
       />
 
       <ChartCard
         title="Device Type Distribution"
-        icon={<MobileOutlined />}
+        icon={<Smartphone className="h-4 w-4" />}
         queryType="deviceDistribution"
         renderChart={(data, context) => buildPieOption(data, "device_type", context.isMobile)}
       />
 
       <ChartCard
         title="Browser Distribution"
-        icon={<ChromeOutlined />}
+        icon={<Globe className="h-4 w-4" />}
         queryType="browserDistribution"
         renderChart={(data, context) => buildBarOption(data, "browser_name", context.isMobile)}
       />
 
       <ChartCard
         title="Operating System Distribution"
-        icon={<TabletOutlined />}
+        icon={<Tablet className="h-4 w-4" />}
         queryType="osDistribution"
         renderChart={(data, context) => buildBarOption(data, "os_name", context.isMobile)}
       />
 
       <ChartCard
         title="Screen Resolution Distribution"
-        icon={<DesktopOutlined />}
+        icon={<Monitor className="h-4 w-4" />}
         queryType="screenDistribution"
         renderChart={(data, context) => buildBarOption(data, "resolution", context.isMobile)}
       />

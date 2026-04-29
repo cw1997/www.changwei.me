@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import {Space, Tooltip} from "antd"
 import {useTranslations} from "next-intl"
 
 import html5_logo from "@/assets/images/logo/frontend/html5-badge-h-solo.png"
@@ -120,7 +119,12 @@ import premiere_logo from "@/assets/images/logo/design/Adobe_Premiere_Pro_CC_ico
 import diagrams_logo from "@/assets/images/logo/design/Diagrams.net_Logo.svg"
 import visio_logo from "@/assets/images/logo/design/Microsoft_Office_Visio_(2013–2019).svg"
 
-import styles from "./SkillSection.module.sass"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 type SkillCategoryKey = "frontend" | "backend" | "database" | "desktopApp" | "operations" | "devTools" | "electronic" | "design"
 
@@ -217,32 +221,37 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = () => {
   const tSkill = useTranslations("skill")
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>{tSection("skill")}</h2>
-      <Space orientation={"vertical"} size={16} style={{width: "100%"}}>
-        {data.map((category) => (
-          <div key={category.category_key} className={styles.category}>
-            <h3 className={styles.category_name}>{tSkill(category.category_key)}</h3>
-            <Space className={styles.category_skills} size={8} wrap>
-              {category.skills.map((skill) => (
-                skill.icon.src ? (
-                  <Tooltip key={skill.name} title={skill.name} placement={"top"}>
-                    <span className={styles.category_skills_item}>
-                      <img
-                        style={{height: 32, width: "auto"}}
-                        src={skill.icon.src}
-                        alt={skill.name}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                  </Tooltip>
-                ) : null
-              ))}
-            </Space>
-          </div>
-        ))}
-      </Space>
-    </div>
+    <section className="space-y-6">
+      <h2 className="text-2xl font-semibold text-slate-900">{tSection("skill")}</h2>
+      <TooltipProvider delayDuration={120}>
+        <div className="space-y-5">
+          {data.map((category) => (
+            <div key={category.category_key} className="space-y-3">
+              <h3 className="text-lg font-medium text-slate-600">{tSkill(category.category_key)}</h3>
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill) =>
+                  skill.icon.src ? (
+                    <Tooltip key={skill.name}>
+                      <TooltipTrigger asChild>
+                        <span className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+                          <img
+                            className="h-8 w-auto"
+                            src={skill.icon.src}
+                            alt={skill.name}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>{skill.name}</TooltipContent>
+                    </Tooltip>
+                  ) : null,
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </TooltipProvider>
+    </section>
   )
 }

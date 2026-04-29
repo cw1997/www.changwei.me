@@ -1,15 +1,10 @@
-import {
-  ClockCircleOutlined,
-  GithubOutlined,
-  LinkOutlined,
-  TagsOutlined,
-} from "@ant-design/icons"
-import {Divider, Space, Tag} from "antd"
+import {Clock, GitBranch, Link as LinkIcon, Tags} from "lucide-react"
 
 import {OutsideLink} from "@/components/OutsideLink"
 import {getTranslations, getLocale} from "next-intl/server"
 
-import styles from "./page.module.sass"
+import {Separator} from "@/components/ui/separator"
+import {Badge} from "@/components/ui/badge"
 import ntust_lib_icon from "./ntust_lib_icon.png"
 import rtos_icon from "./rtos_icon.png"
 import sdram_controller_icon from "./dram.jpg"
@@ -171,75 +166,65 @@ export default async function PortfolioPage() {
   const data = getData(locale)
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
-        <Divider />
-        <Space className={styles.list} orientation={"vertical"} size={32}>
-          {data.items.map((item) => (
-            <div key={item.name} className={styles.item}>
-              <div className={styles.item_icon}>
-                <img
-                  style={{width: 64, height: 64, objectFit: "contain"}}
-                  src={item.icon.src}
-                  alt={item.name}
-                  width={64}
-                  height={64}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className={styles.item_info}>
-                <div className={styles.item_info_organization}>{item.name}</div>
-                <div className={styles.item_info_name}>
-                  <Space
-                    separator={<Divider orientation={"vertical"} />}
-                    size={[0, 4]}
-                    wrap
-                  >
-                    <div>{item.type}</div>
-                  </Space>
-                </div>
-                <div className={styles.item_info_organization_url}>
-                  {item.url && (
-                    <div>
-                      <LinkOutlined /> <OutsideLink href={item.url} />
-                    </div>
-                  )}
-                  {item.source_code_url && (
-                    <div>
-                      <GithubOutlined />{" "}
-                      <OutsideLink href={item.source_code_url} />
-                    </div>
-                  )}
-                </div>
-                <div className={styles.item_info_meta}>
-                  <Space
-                    separator={<Divider orientation={"vertical"} />}
-                    size={[0, 4]}
-                    wrap
-                  >
-                    <div>
-                      <ClockCircleOutlined /> {item.create_datetime}
-                    </div>
-                  </Space>
-                </div>
-                {item.note && (
-                  <div className={styles.item_info_note}>{item.note}</div>
-                )}
-                {(item.tags?.length ?? 0) > 0 && (
-                  <Space className={styles.item_info_tags} wrap>
-                    <TagsOutlined />{" "}
-                    {item.tags.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
-                  </Space>
-                )}
-              </div>
+    <main className="space-y-4">
+      <h2 className="text-2xl font-semibold text-slate-900">{t("title")}</h2>
+      <Separator />
+      <div className="space-y-6">
+        {data.items.map((item) => (
+          <div
+            key={item.name}
+            className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:flex-row"
+          >
+            <div className="shrink-0">
+              <img
+                className="h-16 w-16 object-contain"
+                src={item.icon.src}
+                alt={item.name}
+                width={64}
+                height={64}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-          ))}
-        </Space>
-      </main>
-    </div>
+            <div className="space-y-2 text-sm text-slate-600">
+              <div className="text-lg font-semibold text-slate-900">{item.name}</div>
+              <div className="text-sm text-slate-700">{item.type}</div>
+              <div className="space-y-1 text-xs text-slate-500">
+                {item.url && (
+                  <div className="flex items-center gap-2">
+                    <LinkIcon className="h-3.5 w-3.5" />
+                    <OutsideLink href={item.url} />
+                  </div>
+                )}
+                {item.source_code_url && (
+                  <div className="flex items-center gap-2">
+                    <GitBranch className="h-3.5 w-3.5" />
+                    <OutsideLink href={item.source_code_url} />
+                  </div>
+                )}
+              </div>
+              <div className="text-xs text-slate-500">
+                <span className="inline-flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5" /> {item.create_datetime}
+                </span>
+              </div>
+              {item.note && (
+                <div className="text-sm text-slate-600">{item.note}</div>
+              )}
+              {(item.tags?.length ?? 0) > 0 && (
+                <div className="flex flex-wrap items-center gap-2 pt-2 text-xs">
+                  <Tags className="h-3.5 w-3.5 text-slate-500" />
+                  {item.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
   )
 }

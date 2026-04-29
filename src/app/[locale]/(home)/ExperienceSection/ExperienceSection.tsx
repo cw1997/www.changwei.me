@@ -3,17 +3,17 @@
 import {OutsideLink} from "@/components/OutsideLink"
 import type {Locale} from "@/i18n/routing"
 import {
-  ClockCircleOutlined,
-  EnvironmentOutlined,
-  LinkOutlined,
-  TagsOutlined,
-} from "@ant-design/icons"
-import {Divider, Space, Tag} from "antd"
+  Clock,
+  Link,
+  MapPin,
+  Tags,
+} from "lucide-react"
 import {useLocale, useTranslations} from "next-intl"
 import React from "react"
 
-import styles from "./ExperienceSection.module.sass"
 import {getExperienceData} from "./buildExperienceData"
+import {Badge} from "@/components/ui/badge"
+import {Separator} from "@/components/ui/separator"
 
 export interface IPropsExperienceSection {}
 
@@ -26,90 +26,76 @@ export const ExperienceSection: React.FunctionComponent<
   const data = getExperienceData(locale, tExperience)
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>{t("experience")}</h2>
-      <Space orientation={"vertical"} size={32} style={{width: "100%"}}>
+    <section className="space-y-6">
+      <h2 className="text-2xl font-semibold text-slate-900">{t("experience")}</h2>
+      <div className="space-y-8">
         {data.map((category) => (
-          <div key={category.category_key} className={styles.category}>
-            <h3 className={styles.category_name}>{t(category.category_key)}</h3>
-            <Space
-              className={styles.list}
-              orientation={"vertical"}
-              size={32}
-            >
+          <div key={category.category_key} className="space-y-4">
+            <h3 className="text-lg font-medium text-slate-600">{t(category.category_key)}</h3>
+            <div className="space-y-6">
               {category.items.map((item) => (
-                <div key={item.id} className={styles.item}>
-                  <div className={styles.item_icon}>
+                <div
+                  key={item.id}
+                  className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:flex-row"
+                >
+                  <div className="shrink-0">
                     <img
-                      style={{width: 64, height: "auto"}}
+                      className="h-16 w-auto transition hover:scale-105"
                       src={item.icon.src}
                       alt={item.name}
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.item_info}>
-                    <div className={styles.item_info_organization}>
+                  <div className="space-y-2 text-sm text-slate-600">
+                    <div className="text-lg font-semibold text-slate-900">
                       {item.organization}
                     </div>
-                    <div className={styles.item_info_name}>
-                      <Space
-                        separator={<Divider orientation={"vertical"} />}
-                        size={[0, 4]}
-                        wrap
-                      >
-                        <div>{item.name}</div>
-                        <div>
-                          {item.department_url ? (
-                            <OutsideLink
-                              href={item.department_url}
-                              style={{color: "unset"}}
-                            >
-                              {item.department}
-                            </OutsideLink>
-                          ) : (
-                            item.department
-                          )}
-                        </div>
-                      </Space>
+                    <div className="flex flex-wrap items-center gap-2 text-slate-700">
+                      <div>{item.name}</div>
+                      <Separator orientation="vertical" className="h-4" />
+                      <div>
+                        {item.department_url ? (
+                          <OutsideLink href={item.department_url}>
+                            {item.department}
+                          </OutsideLink>
+                        ) : (
+                          item.department
+                        )}
+                      </div>
                     </div>
-                    <div className={styles.item_info_organization_url}>
-                      <LinkOutlined />{" "}
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <Link className="h-3.5 w-3.5" />
                       <OutsideLink href={item.organization_url} />
                     </div>
-                    <div className={styles.item_info_meta}>
-                      <Space
-                        separator={<Divider orientation={"vertical"} />}
-                        size={[0, 4]}
-                        wrap
-                      >
-                        <div>
-                          <ClockCircleOutlined /> {item.time_range.start} ~{" "}
-                          {item.time_range.end}
-                        </div>
-                        <div>
-                          <EnvironmentOutlined /> {item.location}
-                        </div>
-                      </Space>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+                      <span className="inline-flex items-center gap-1">
+                        <Clock className="h-3.5 w-3.5" /> {item.time_range.start} ~ {item.time_range.end}
+                      </span>
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5" /> {item.location}
+                      </span>
                     </div>
                     {item.note && (
-                      <div className={styles.item_info_note}>{item.note}</div>
+                      <div className="text-sm text-slate-600">{item.note}</div>
                     )}
                     {(item.tags?.length ?? 0) > 0 && (
-                      <Space className={styles.item_info_tags} wrap>
-                        <TagsOutlined />{" "}
+                      <div className="flex flex-wrap items-center gap-2 pt-2 text-xs">
+                        <Tags className="h-3.5 w-3.5 text-slate-500" />
                         {item.tags.map((tag) => (
-                          <Tag key={tag}>{tag}</Tag>
+                          <Badge key={tag} variant="secondary">
+                            {tag}
+                          </Badge>
                         ))}
-                      </Space>
+                      </div>
                     )}
                   </div>
                 </div>
               ))}
-            </Space>
+            </div>
           </div>
         ))}
-      </Space>
-    </div>
+      </div>
+    </section>
   )
 }

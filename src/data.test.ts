@@ -13,7 +13,7 @@ describe('resume URL constants', () => {
     expect(url_resume_pdf_release).toBe(
       'https://github.com/cw1997/resume/releases',
     );
-    expect(url_resume_pdf_mirror).toBe('/api/changwei-resume.pdf');
+    expect(url_resume_pdf_mirror).toBe('/api/changwei-resume-pdf');
     expect(url_resume_pdf_source).toBe('https://github.com/cw1997/resume');
   });
 });

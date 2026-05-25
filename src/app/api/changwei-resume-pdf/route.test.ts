@@ -5,7 +5,7 @@ import { describe, expect, it, vi, afterEach } from 'vitest';
 
 import { GET } from './route';
 
-describe('GET /api/changwei-resume.pdf', () => {
+describe('GET /api/changwei-resume-pdf', () => {
   const originalFetch = globalThis.fetch;
 
   afterEach(() => {

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   url_resume_pdf_github,
+  url_resume_pdf_github_english,
   url_resume_pdf_mirror,
   url_resume_pdf_release,
   url_resume_pdf_source,
@@ -10,6 +11,8 @@ import {
 describe('resume URL constants', () => {
   it('exports stable GitHub release and mirror paths', () => {
     expect(url_resume_pdf_github).toMatch(/^https:\/\/github\.com\/cw1997\/resume\/releases\/download\//);
+    expect(url_resume_pdf_github_english).toMatch(/^https:\/\/github\.com\/cw1997\/resume\/releases\/download\//);
+    expect(url_resume_pdf_github_english).toContain('changwei-resume-english.pdf');
     expect(url_resume_pdf_release).toBe(
       'https://github.com/cw1997/resume/releases',
     );

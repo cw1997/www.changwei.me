@@ -5,10 +5,15 @@ import {OutsideLink} from "@/components/OutsideLink"
 import {url_resume_pdf_mirror, url_resume_pdf_release, url_resume_pdf_source} from "@/data"
 import {getTranslations} from "next-intl/server"
 
-export interface IPropsResumePage {}
+export interface IPropsResumePage {
+  params: Promise<{locale: string}>
+}
 
-export default async function ResumePage() {
+export default async function ResumePage({params}: IPropsResumePage) {
+  const {locale} = await params
   const t = await getTranslations("resume")
+
+  const resumePdfUrl = `${url_resume_pdf_mirror}?locale=${locale}`
 
   return (
     <div className={styles.container}>
@@ -16,7 +21,7 @@ export default async function ResumePage() {
         <h2 className={styles.title}>{t("title")}</h2>
         <Divider />
         <Space wrap size={"large"}>
-          <OutsideLink href={url_resume_pdf_mirror}>
+          <OutsideLink href={resumePdfUrl}>
             <Button type="primary" icon={<DownloadOutlined />}>{t("download")}</Button>
           </OutsideLink>
           <OutsideLink href={url_resume_pdf_release}>
@@ -29,18 +34,18 @@ export default async function ResumePage() {
         <div className={styles.resume}>
           <object
             className={styles.resume_embed}
-            data={url_resume_pdf_mirror}
+            data={resumePdfUrl}
             type="application/pdf"
             aria-label={t("title")}
           >
             <embed
               className={styles.resume_embed}
-              src={url_resume_pdf_mirror}
+              src={resumePdfUrl}
               type="application/pdf"
             />
             <p className={styles.resume_fallback}>
               {t("inlineUnsupportedTip")}{" "}
-              <OutsideLink href={url_resume_pdf_mirror}>{t("download")}</OutsideLink>
+              <OutsideLink href={resumePdfUrl}>{t("download")}</OutsideLink>
             </p>
           </object>
         </div>

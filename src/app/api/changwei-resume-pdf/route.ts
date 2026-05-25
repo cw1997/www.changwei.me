@@ -1,11 +1,21 @@
 import {NextResponse} from "next/server"
-import {url_resume_pdf_github} from "@/data"
+import {url_resume_pdf_github, url_resume_pdf_github_english} from "@/data"
 
 export const revalidate = 3600
 
-export async function GET() {
+function isChineseLocale(locale: string): boolean {
+  return locale === "zh-Hans" || locale === "zh-Hant"
+}
+
+export async function GET(request: Request) {
   try {
-    const res = await fetch(url_resume_pdf_github, {
+    const {searchParams} = new URL(request.url)
+    const locale = searchParams.get("locale") ?? "en-US"
+    const isChinese = isChineseLocale(locale)
+    const pdfUrl = isChinese ? url_resume_pdf_github : url_resume_pdf_github_english
+    const filename = isChinese ? "changwei-resume.pdf" : "changwei-resume-english.pdf"
+
+    const res = await fetch(pdfUrl, {
       next: {revalidate},
     })
 
@@ -18,7 +28,7 @@ export async function GET() {
 
     const headers = new Headers({
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'inline; filename="changwei-resume.pdf"',
+      "Content-Disposition": `inline; filename="${filename}"`,
       "X-Content-Type-Options": "nosniff",
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
     })

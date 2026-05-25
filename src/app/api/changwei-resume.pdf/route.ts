@@ -17,8 +17,9 @@ export async function GET() {
     }
 
     const headers = new Headers({
-      "Content-Type": res.headers?.get?.("content-type") ?? "application/pdf",
+      "Content-Type": "application/pdf",
       "Content-Disposition": 'inline; filename="changwei-resume.pdf"',
+      "X-Content-Type-Options": "nosniff",
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
     })
 

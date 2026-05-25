@@ -27,12 +27,22 @@ export default async function ResumePage() {
           </OutsideLink>
         </Space>
         <div className={styles.resume}>
-          <iframe
+          <object
             className={styles.resume_embed}
-            src={url_resume_pdf_mirror}
-            title={t("title")}
-            loading="lazy"
-          />
+            data={url_resume_pdf_mirror}
+            type="application/pdf"
+            aria-label={t("title")}
+          >
+            <embed
+              className={styles.resume_embed}
+              src={url_resume_pdf_mirror}
+              type="application/pdf"
+            />
+            <p className={styles.resume_fallback}>
+              {t("inlineUnsupportedTip")}{" "}
+              <OutsideLink href={url_resume_pdf_mirror}>{t("download")}</OutsideLink>
+            </p>
+          </object>
         </div>
       </main>
     </div>

@@ -105,7 +105,8 @@
     "description": "下載並線上預覽昌維最新履歷。",
     "download": "下載履歷",
     "downloadGithub": "從 GitHub 下載",
-    "viewSource": "查看履歷 LaTeX 原始碼"
+    "viewSource": "查看履歷 LaTeX 原始碼",
+    "inlineUnsupportedTip": "你的瀏覽器無法在頁面內預覽 PDF，請"
   },
   "notFound": {
     "badge": "404 任務解鎖",

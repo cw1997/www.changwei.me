@@ -105,7 +105,8 @@
     "description": "Download and preview the latest resume of Chang Wei.",
     "download": "Download Resume",
     "downloadGithub": "Download from GitHub",
-    "viewSource": "View source code (LaTeX)"
+    "viewSource": "View source code (LaTeX)",
+    "inlineUnsupportedTip": "Your browser can't preview the PDF inline. Please"
   },
   "notFound": {
     "badge": "404 Quest Unlocked",

@@ -27,6 +27,8 @@ describe('GET /api/changwei-resume.pdf', () => {
     expect(res.headers.get('Content-Disposition')).toContain(
       'changwei-resume.pdf',
     );
+    expect(res.headers.get('Content-Disposition')).toMatch(/^inline/);
+    expect(res.headers.get('X-Content-Type-Options')).toBe('nosniff');
   });
 
   it('returns JSON error when upstream responds with non-OK', async () => {

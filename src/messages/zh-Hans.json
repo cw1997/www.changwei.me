@@ -105,7 +105,8 @@
     "description": "下载并在线预览昌维最新简历。",
     "download": "下载简历",
     "downloadGithub": "从 GitHub 下载",
-    "viewSource": "查看简历 LaTeX 源码"
+    "viewSource": "查看简历 LaTeX 源码",
+    "inlineUnsupportedTip": "你的浏览器无法在页面内预览 PDF，请"
   },
   "notFound": {
     "badge": "404 任务解锁",

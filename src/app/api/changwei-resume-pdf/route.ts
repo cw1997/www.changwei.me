@@ -1,7 +1,9 @@
 import {NextResponse} from "next/server"
 import {url_resume_pdf_github, url_resume_pdf_github_english} from "@/data"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
+
+const PDF_REVALIDATE_SECONDS = 3600
 
 function isChineseLocale(locale: string): boolean {
   return locale === "zh-Hans" || locale === "zh-Hant"
@@ -16,7 +18,7 @@ export async function GET(request: Request) {
     const filename = isChinese ? "changwei-resume.pdf" : "changwei-resume-english.pdf"
 
     const res = await fetch(pdfUrl, {
-      next: {revalidate},
+      next: {revalidate: PDF_REVALIDATE_SECONDS},
     })
 
     if (!res.ok) {

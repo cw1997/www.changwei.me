@@ -1,5 +1,4 @@
 import type {Metadata} from "next"
-import type {ReactNode} from "react"
 
 export const metadata: Metadata = {
   title: "Sentry Onboarding",
@@ -16,10 +15,7 @@ export const metadata: Metadata = {
   },
 }
 
-type Props = Readonly<{
-  children: ReactNode
-}>
-
-export default function SentryExamplePageLayout({children}: Props) {
+export default function SentryExamplePageLayout(props: LayoutProps<'/sentry-example-page'>) {
+  const {children} = props
   return children
 }

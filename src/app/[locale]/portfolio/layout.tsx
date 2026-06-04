@@ -3,12 +3,10 @@ import {getTranslations} from "next-intl/server"
 import {defaultLocale, isLocale, type Locale} from "@/i18n/routing"
 import {buildLocalizedMetadata} from "@/lib/seo"
 
-type Props = {
-  children: React.ReactNode
-  params: Promise<{locale: string}>
-}
+type Props = LayoutProps<'/[locale]/portfolio'>
 
-export async function generateMetadata({params}: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const {params} = props
   const {locale} = await params
   const localeValue: Locale = isLocale(locale) ? locale : defaultLocale
   const [t, tMetadata] = await Promise.all([
@@ -25,8 +23,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   })
 }
 
-export default function PortfolioLayout({
-  children,
-}: Readonly<Props>) {
+export default function PortfolioLayout(props: Props) {
+  const {children} = props
   return children
 }

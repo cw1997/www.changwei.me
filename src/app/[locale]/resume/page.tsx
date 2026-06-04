@@ -1,17 +1,17 @@
+"use client"
+
 import styles from "./page.module.sass"
 import {Button, Divider, Space} from "antd"
 import {DownloadOutlined, EyeOutlined, GithubOutlined} from "@ant-design/icons"
 import {OutsideLink} from "@/components/OutsideLink"
 import {url_resume_pdf_mirror, url_resume_pdf_release, url_resume_pdf_source} from "@/data"
-import {getTranslations} from "next-intl/server"
+import {useLocale, useTranslations} from "next-intl"
 
-export interface IPropsResumePage {
-  params: Promise<{locale: string}>
-}
+type Props = PageProps<'/[locale]/resume'>
 
-export default async function ResumePage({params}: IPropsResumePage) {
-  const {locale} = await params
-  const t = await getTranslations("resume")
+export default function ResumePage(_props: Props) {
+  const locale = useLocale()
+  const t = useTranslations("resume")
 
   const resumePdfUrl = `${url_resume_pdf_mirror}?locale=${locale}`
 

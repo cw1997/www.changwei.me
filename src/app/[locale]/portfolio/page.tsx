@@ -1,3 +1,5 @@
+"use client"
+
 import {
   ClockCircleOutlined,
   GithubOutlined,
@@ -7,7 +9,7 @@ import {
 import {Divider, Space, Tag} from "antd"
 
 import {OutsideLink} from "@/components/OutsideLink"
-import {getTranslations, getLocale} from "next-intl/server"
+import {useLocale, useTranslations} from "next-intl"
 
 import styles from "./page.module.sass"
 import ntust_lib_icon from "./ntust_lib_icon.png"
@@ -163,11 +165,9 @@ function getData(locale: string) {
   } as const
 }
 
-export interface IPropsPortfolioPage {}
-
-export default async function PortfolioPage() {
-  const t = await getTranslations("portfolio")
-  const locale = await getLocale()
+export default function PortfolioPage(_props: PageProps<'/[locale]/portfolio'>) {
+  const t = useTranslations("portfolio")
+  const locale = useLocale()
   const data = getData(locale)
 
   return (

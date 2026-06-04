@@ -1,12 +1,11 @@
 "use client"
 
 import {Divider} from "antd"
-import React from "react"
 import styles from "./page.module.sass"
 import Giscus from "@giscus/react"
-import {useTranslations, useLocale} from "next-intl"
+import {useLocale, useTranslations} from "next-intl"
 
-export default function GuestbookPage() {
+export default function GuestbookPage(_props: PageProps<'/[locale]/guestbook'>) {
   const t = useTranslations("guestbook")
   const locale = useLocale()
 

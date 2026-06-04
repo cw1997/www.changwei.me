@@ -2,7 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-export default function Page() {
+export default function Page(_props: PageProps<'/sentry-example-page'>) {
   return (
     <main
       style={{

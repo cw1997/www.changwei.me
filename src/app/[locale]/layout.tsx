@@ -12,10 +12,7 @@ import type {Locale} from "@/i18n/routing"
 import {buildLocalizedMetadata} from "@/lib/seo"
 import styles from "./layout.module.sass"
 
-type Props = {
-  children: React.ReactNode
-  params: Promise<{locale: string}>
-}
+type Props = LayoutProps<'/[locale]'>
 
 const baseSiteKeywords = [
   "Chang Wei",
@@ -36,7 +33,8 @@ const localeExtraKeywords: Record<Locale, readonly string[]> = {
   "en-US": [],
 }
 
-export async function generateMetadata({params}: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const {params} = props
   const {locale} = await params
   const localeValue: Locale = isLocale(locale) ? locale : defaultLocale
   const t = await getTranslations({locale: localeValue, namespace: "metadata"})
@@ -68,7 +66,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}))
 }
 
-export default async function LocaleLayout({children, params}: Props) {
+export default async function LocaleLayout(props: Props) {
+  const {children, params} = props
   const {locale} = await params
 
   if (!isLocale(locale)) {

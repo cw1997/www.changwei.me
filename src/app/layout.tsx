@@ -3,18 +3,14 @@ import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Noto_Sans_SC} from "next/font/google"
 import {getLocale} from "next-intl/server"
 import Script from "next/script"
-import React from "react"
 import "@/app/globals.scss"
 import {localeHtmlLang} from "@/i18n/routing"
 import type {Locale} from "@/i18n/routing"
 
 const font_Noto_Sans_SC = Noto_Sans_SC({subsets: ["latin-ext"]})
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default async function RootLayout(props: LayoutProps<'/'>) {
+  const {children} = props
   const locale = await getLocale()
   const htmlLang = localeHtmlLang[locale as Locale] ?? "en"
 

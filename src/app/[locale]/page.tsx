@@ -1,3 +1,5 @@
+"use client"
+
 import {Space} from "antd"
 
 import {ProfileSection} from "./(home)/ProfileSection/ProfileSection"
@@ -7,7 +9,7 @@ import {SkillSection} from "./(home)/SkillSection/SkillSection"
 import {ExperienceSection} from "./(home)/ExperienceSection/ExperienceSection"
 import styles from "./page.module.sass"
 
-export default function HomePage() {
+export default function HomePage(_props: PageProps<'/[locale]'>) {
   return (
     <Space className={styles.main} orientation={"vertical"} size={48}>
       <ProfileSection />

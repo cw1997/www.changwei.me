@@ -13,6 +13,11 @@ export function getFriendlyLinkItems(locale: string): FriendlyLinkItem[] {
   return [
     {
       icon: undefined,
+      name: isEn ? "Chang Wei's Blog" : isHant ? "昌維的博客" : "昌维的博客",
+      url: "https://blog.changwei.me/",
+    },
+    {
+      icon: undefined,
       name: isEn
         ? "www.mooc.edu.rs (Massive Open Online Courses)"
         : isHant

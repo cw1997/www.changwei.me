@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: self-hosted
+    runs-on: ["cw1997-pi4"]
     steps:
       - name: Check hostname and deploy
         run: |

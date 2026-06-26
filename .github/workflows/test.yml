@@ -7,7 +7,7 @@ on:
 
 jobs:
   discover-locales:
-    runs-on: ubuntu-latest
+    runs-on: ["cw1997-pi4"]
     outputs:
       locales: ${{ steps.set.outputs.locales }}
     steps:
@@ -34,7 +34,7 @@ jobs:
           echo "locales=$locales" >> "$GITHUB_OUTPUT"
 
   lint-test:
-    runs-on: ubuntu-latest
+    runs-on: ["cw1997-pi4"]
     strategy:
       fail-fast: false
       matrix:

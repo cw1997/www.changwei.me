@@ -29,11 +29,11 @@ jobs:
 
       - name: Stop and remove Docker container
         run: |
-          docker stop changwei-homepage || true
-          docker rm changwei-homepage || true
+          sudo docker stop changwei-homepage || true
+          sudo docker rm changwei-homepage || true
 
       - name: Run Docker container
         run: |
-          docker run -d --name changwei-homepage -p 3000:3000 --restart unless-stopped \
+          sudo docker run -d --name changwei-homepage -p 3000:3000 --restart unless-stopped \
             ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest
 

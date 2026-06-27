@@ -14,7 +14,7 @@ jobs:
     runs-on: ["cw1997-pi4"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 

@@ -6,6 +6,7 @@
 # This Dockerfile uses Node.js 24.13.0-slim, which was the latest LTS version at the time of writing.
 # To ensure security and compatibility, regularly update the NODE_VERSION ARG to the latest LTS version.
 ARG NODE_VERSION=24.13.0-slim
+ARG PORT=31006
 
 FROM node:${NODE_VERSION} AS dependencies
 
@@ -78,7 +79,7 @@ WORKDIR /app
 
 # Set production environment variables
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=${PORT}
 ENV HOSTNAME="0.0.0.0"
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -105,8 +106,12 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 # Switch to non-root user for security best practices
 USER node
 
-# Expose port 3000 to allow HTTP traffic
-EXPOSE 3000
+# Expose port 31006 to allow HTTP traffic
+EXPOSE ${PORT}
+
+# Health check: verify the server process is listening on the configured port
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:${PORT}', (r) => { process.exit(r.statusCode >= 200 && r.statusCode < 500 ? 0 : 1) }).on('error', () => process.exit(1))"
 
 # Start Next.js standalone server
 CMD ["node", "server.js"]

@@ -189,12 +189,13 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
         </Space>
         <div className={styles.iframe_wrap}>
           <iframe
+            style={{width: "100%", height: 1280}}
             src={GOOGLE_CALENDAR_EMBED_URL}
             title={t("pageTitle")}
-            width="100%"
-            height="600"
+            // width="100%"
+            // height="600"
             loading="lazy"
-            scrolling="no"
+            // scrolling="no"
           />
         </div>
       </main>

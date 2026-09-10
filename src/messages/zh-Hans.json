@@ -16,7 +16,9 @@
     "resume": "简历",
     "resumeSubtitle": "(Resume)",
     "statistic": "统计",
-    "statisticSubtitle": "(Statistic)"
+    "statisticSubtitle": "(Statistic)",
+    "calendar": "日历",
+    "calendarSubtitle": "(Calendar)"
   },
   "header": {
     "siteTitle": "昌维的网站",
@@ -107,6 +109,43 @@
     "downloadGithub": "从 GitHub 下载",
     "viewSource": "查看简历 LaTeX 源码",
     "inlineUnsupportedTip": "你的浏览器无法在页面内预览 PDF，请"
+  },
+  "calendar": {
+    "title": "日历",
+    "pageTitle": "日历",
+    "description": "查看昌维的日历日程，包括个人活动和各地公共节假日。",
+    "book": "预约"
+  },
+  "calendarRequest": {
+    "title": "发起请求",
+    "languageLabel": "邮件语言",
+    "languageZHT": "繁体中文（繁體中文）",
+    "languageZHS": "简体中文（简体中文）",
+    "languageEN": "英文",
+    "recipientLabel": "收件邮箱",
+    "recipientGmail": "Gmail（海外）：changwei1006@gmail.com",
+    "recipientQQ": "QQ（中国大陆）：changwei1006@qq.com",
+    "startTimeLabel": "起始时间",
+    "durationLabel": "时长（分钟）",
+    "endTimeLabel": "结束时间（与起始时间和时长自动联动）",
+    "endTimeHelp": "起始时间或时长变化时自动更新；手动修改会自动回写时长。",
+    "endTimeError": "结束时间必须晚于起始时间",
+    "subjectLabel": "预约事项（支持多行）",
+    "locationLabel": "地点（地址、Google Map 链接或线上会议链接）",
+    "locationHelp": "输入 URL 时视为线上/Google Map 链接，否则按实体位置处理。",
+    "submitLabel": "生成邮件",
+    "cancelLabel": "取消",
+    "mailTitle": "预约请求",
+    "messageGreeting": "您好昌维，",
+    "messageIntro": "希望能与您预约时间，以下是预约信息：",
+    "messageStartTime": "起始时间",
+    "messageEndTime": "结束时间",
+    "messageDuration": "时长",
+    "messageSubject": "预约事项",
+    "messageLocation": "地点",
+    "messageMinute": "分钟",
+    "messageClosing": "期待您的回复。",
+    "messageSignOff": "此致\n敬礼"
   },
   "notFound": {
     "badge": "404 任务解锁",

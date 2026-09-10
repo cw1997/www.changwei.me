@@ -15,28 +15,74 @@ export const HeaderMenu: React.FunctionComponent<IPropsHeader> = () => {
 
   const items = [
     {
-      label: (<>{t("home")}<br />{t("homeSubtitle")}</>),
+      label: (
+        <>
+          {t("home")}
+          <br />
+          {t("homeSubtitle")}
+        </>
+      ),
       url: "/" as const,
     },
     {
-      label: (<>{t("portfolio")}<br />{t("portfolioSubtitle")}</>),
+      label: (
+        <>
+          {t("portfolio")}
+          <br />
+          {t("portfolioSubtitle")}
+        </>
+      ),
       url: "/portfolio" as const,
     },
     {
-      label: (<>{t("guestbook")}<br />{t("guestbookSubtitle")}</>),
+      label: (
+        <>
+          {t("guestbook")}
+          <br />
+          {t("guestbookSubtitle")}
+        </>
+      ),
       url: "/guestbook" as const,
     },
     {
-      label: (<>{t("friendlyLink")}<br />{t("friendlyLinkSubtitle")}</>),
+      label: (
+        <>
+          {t("friendlyLink")}
+          <br />
+          {t("friendlyLinkSubtitle")}
+        </>
+      ),
       url: "/friendly-link" as const,
     },
     {
-      label: (<>{t("resume")}<br />{t("resumeSubtitle")}</>),
+      label: (
+        <>
+          {t("resume")}
+          <br />
+          {t("resumeSubtitle")}
+        </>
+      ),
       url: "/resume" as const,
     },
     {
-      label: (<>{t("statistic")}<br />{t("statisticSubtitle")}</>),
+      label: (
+        <>
+          {t("statistic")}
+          <br />
+          {t("statisticSubtitle")}
+        </>
+      ),
       url: "/statistic" as const,
+    },
+    {
+      label: (
+        <>
+          {t("calendar")}
+          <br />
+          {t("calendarSubtitle")}
+        </>
+      ),
+      url: "/calendar" as const,
     },
   ]
 
@@ -53,7 +99,9 @@ type MenuItem = {
   url: string
 }
 
-const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({items}) => {
+const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({
+  items,
+}) => {
   const pathname = usePathname()
   return (
     <Space
@@ -62,7 +110,8 @@ const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({items}
       separator={<Divider orientation={"vertical"} />}
     >
       {items.map((item) => {
-        const is_current = item.url === "/" ? pathname === "/" : pathname?.startsWith(item.url)
+        const is_current =
+          item.url === "/" ? pathname === "/" : pathname?.startsWith(item.url)
         return (
           <Link
             key={item.url}
@@ -81,7 +130,9 @@ const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({items}
   )
 }
 
-const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({items}) => {
+const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({
+  items,
+}) => {
   return (
     <ConfigProvider
       theme={{
@@ -99,7 +150,11 @@ const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({items})
             items: items.map((item) => ({
               key: item.url,
               label: (
-                <Link key={item.url} href={item.url} className={styles.menu_item}>
+                <Link
+                  key={item.url}
+                  href={item.url}
+                  className={styles.menu_item}
+                >
                   {item.label}
                 </Link>
               ),

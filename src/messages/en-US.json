@@ -16,7 +16,9 @@
     "resume": "Resume",
     "resumeSubtitle": "(Resume)",
     "statistic": "Statistic",
-    "statisticSubtitle": "(Statistic)"
+    "statisticSubtitle": "(Statistic)",
+    "calendar": "Calendar",
+    "calendarSubtitle": "(Calendar)"
   },
   "header": {
     "siteTitle": "Chang Wei's website",
@@ -107,6 +109,43 @@
     "downloadGithub": "Download from GitHub",
     "viewSource": "View source code (LaTeX)",
     "inlineUnsupportedTip": "Your browser can't preview the PDF inline. Please"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "pageTitle": "Calendar",
+    "description": "View Chang Wei's calendar schedule, including personal events and public holidays.",
+    "book": "Book"
+  },
+  "calendarRequest": {
+    "title": "Request",
+    "languageLabel": "Email Language",
+    "languageZHT": "Traditional Chinese (繁體中文)",
+    "languageZHS": "Simplified Chinese (简体中文)",
+    "languageEN": "English",
+    "recipientLabel": "Recipient Mailbox",
+    "recipientGmail": "Gmail (Global): changwei1006@gmail.com",
+    "recipientQQ": "QQ (China mainland): changwei1006@qq.com",
+    "startTimeLabel": "Start Time",
+    "durationLabel": "Duration (minutes)",
+    "endTimeLabel": "End Time (auto-synced with start time and duration)",
+    "endTimeHelp": "Automatically updated when start time or duration changes. Manually adjusting it will update the duration.",
+    "endTimeError": "End time must be after start time",
+    "subjectLabel": "Subject / Purpose (multiline supported)",
+    "locationLabel": "Location (address, Google Maps link, or online meeting link)",
+    "locationHelp": "URL detected as online/Google Maps link, otherwise treated as physical address.",
+    "submitLabel": "Generate Email",
+    "cancelLabel": "Cancel",
+    "mailTitle": "Appointment Request",
+    "messageGreeting": "Dear Chang Wei,",
+    "messageIntro": "I would like to schedule an appointment with you. Here are the details:",
+    "messageStartTime": "Start Time",
+    "messageEndTime": "End Time",
+    "messageDuration": "Duration",
+    "messageSubject": "Subject",
+    "messageLocation": "Location",
+    "messageMinute": "minute(s)",
+    "messageClosing": "Looking forward to hearing from you.",
+    "messageSignOff": "Best regards"
   },
   "notFound": {
     "badge": "404 Quest Unlocked",

@@ -9,6 +9,7 @@ const indexedRouteConfigs = [
   {pathname: "/friendly-link", changeFrequency: "weekly", priority: 0.7},
   {pathname: "/resume", changeFrequency: "weekly", priority: 0.9},
   {pathname: "/statistic", changeFrequency: "daily", priority: 0.6},
+  {pathname: "/calendar", changeFrequency: "daily", priority: 0.7},
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -16,7 +16,9 @@
     "resume": "履歷",
     "resumeSubtitle": "(Resume)",
     "statistic": "統計",
-    "statisticSubtitle": "(Statistic)"
+    "statisticSubtitle": "(Statistic)",
+    "calendar": "日曆",
+    "calendarSubtitle": "(Calendar)"
   },
   "header": {
     "siteTitle": "昌維的網站",
@@ -107,6 +109,43 @@
     "downloadGithub": "從 GitHub 下載",
     "viewSource": "查看履歷 LaTeX 原始碼",
     "inlineUnsupportedTip": "你的瀏覽器無法在頁面內預覽 PDF，請"
+  },
+  "calendar": {
+    "title": "日曆",
+    "pageTitle": "日曆",
+    "description": "查看昌維的日曆日程，包括個人活動與各地公共假日。",
+    "book": "預約"
+  },
+  "calendarRequest": {
+    "title": "發起請求",
+    "languageLabel": "郵件語言",
+    "languageZHT": "繁體中文（繁體中文）",
+    "languageZHS": "簡體中文（簡體中文）",
+    "languageEN": "英文",
+    "recipientLabel": "收件信箱",
+    "recipientGmail": "Gmail（海外）：changwei1006@gmail.com",
+    "recipientQQ": "QQ（中國大陸）：changwei1006@qq.com",
+    "startTimeLabel": "起始時間",
+    "durationLabel": "時長（分鐘）",
+    "endTimeLabel": "結束時間（與起始時間和時長自動連動）",
+    "endTimeHelp": "起始時間或時長變化時自動更新；手動修改會自動回寫時長。",
+    "endTimeError": "結束時間必須晚於起始時間",
+    "subjectLabel": "預約事項（支援多行）",
+    "locationLabel": "地點（地址、Google Map 連結或線上會議連結）",
+    "locationHelp": "輸入 URL 時視為線上/Google Map 連結，否則按實體位置處理。",
+    "submitLabel": "產生郵件",
+    "cancelLabel": "取消",
+    "mailTitle": "預約請求",
+    "messageGreeting": "您好昌維，",
+    "messageIntro": "希望能與您預約時間，以下是預約資訊：",
+    "messageStartTime": "起始時間",
+    "messageEndTime": "結束時間",
+    "messageDuration": "時長",
+    "messageSubject": "預約事項",
+    "messageLocation": "地點",
+    "messageMinute": "分鐘",
+    "messageClosing": "期待您的回覆。",
+    "messageSignOff": "此致\n敬禮"
   },
   "notFound": {
     "badge": "404 任務解鎖",

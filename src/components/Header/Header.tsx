@@ -24,15 +24,30 @@ export const Header: React.FunctionComponent<IPropsHeader> = () => {
           <Space align={"center"} className={styles.main_space}>
             <Link href="/">
               <div className={styles.logo}>
-                <Image src={logo_image} width={48} height={48} alt={t("logoAlt")} />
+                <Image
+                  src={logo_image}
+                  width={48}
+                  height={48}
+                  alt={t("logoAlt")}
+                />
               </div>
             </Link>
             <div className={styles.split} />
             <Link href="/" className={styles.title_link}>
               <div className={styles.title}>
-                {t("siteTitleLine1")}<br/>
-                {locale === "en-US" ? "" : <>Chang Wei's website<br/></>}
-                <span style={{fontSize: 14, lineHeight: 1, color: "#8c8c8c"}}>{t("siteSubtitle")}</span>
+                {t("siteTitleLine1")}
+                <br />
+                {locale === "en-US" ? (
+                  ""
+                ) : (
+                  <>
+                    Chang Wei's website
+                    <br />
+                  </>
+                )}
+                <span style={{fontSize: 14, lineHeight: 1, color: "#8c8c8c"}}>
+                  {t("siteSubtitle")}
+                </span>
               </div>
             </Link>
           </Space>

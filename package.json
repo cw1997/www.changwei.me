@@ -67,7 +67,7 @@
     "@storybook/addon-onboarding": "^10.6.0",
     "@storybook/addon-vitest": "^10.6.0",
     "@storybook/nextjs-vite": "^10.6.0",
-    "@testing-library/jest-dom": "^6.10.0",
+    "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/node": "^26.4.0",
     "@types/react": "^19.3.0",
@@ -75,8 +75,8 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/ua-parser-js": "^0.7.39",
     "@vitejs/plugin-react": "^6.1.1",
-    "@vitest/browser-playwright": "^4.1.11",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/browser-playwright": "^5.0.0",
+    "@vitest/coverage-v8": "^5.0.0",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "drizzle-kit": "^0.31.10",
     "eslint": "^10.10.0",
@@ -88,7 +88,7 @@
     "eslint-plugin-storybook": "^10.6.0",
     "eslint-plugin-turbo": "^2.10.12",
     "globals": "^17.12.0",
-    "jsdom": "^29.1.1",
+    "jsdom": "^30.0.1",
     "playwright": "^1.63.0",
     "prettier": "^3.9.6",
     "sass": "^1.104.0",
@@ -96,7 +96,7 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0",
     "vite": "^8.3.0",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   },
   "packageManager": "pnpm@12.3.4"
 }

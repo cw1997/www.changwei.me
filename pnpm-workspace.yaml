@@ -30,3 +30,21 @@ minimumReleaseAgeExclude:
   - eslint-plugin-storybook@10.5.8
   - next@16.3.1
   - storybook@10.5.8
+  - '@sentry/browser-utils@10.74.0'
+  - '@sentry/browser@10.74.0'
+  - '@sentry/core@10.74.0'
+  - '@sentry/feedback@10.74.0'
+  - '@sentry/nextjs@10.74.0'
+  - '@sentry/node-core@10.74.0'
+  - '@sentry/node@10.74.0'
+  - '@sentry/opentelemetry@10.74.0'
+  - '@sentry/react@10.74.0'
+  - '@sentry/replay-canvas@10.74.0'
+  - '@sentry/replay@10.74.0'
+  - '@sentry/server-utils@10.74.0'
+  - '@sentry/vercel-edge@10.74.0'
+  - '@types/react-dom@19.3.0'
+  - '@types/react@19.3.0'
+  - react-dom@19.3.0
+  - react@19.3.0
+  - scheduler@0.28.0

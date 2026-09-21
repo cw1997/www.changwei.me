@@ -48,9 +48,11 @@ minimumReleaseAgeExclude:
   - react-dom@19.3.0
   - react@19.3.0
   - scheduler@0.28.0
-  - icu-minify@4.14.3
-  - next-intl-swc-plugin-extractor@4.14.3
-  - next-intl@4.14.3
-  - use-intl@4.14.3
+  - icu-minify@4.14.3 || 4.14.6
+  - next-intl-swc-plugin-extractor@4.14.3 || 4.14.6
+  - next-intl@4.14.3 || 4.14.6
+  - use-intl@4.14.3 || 4.14.6
   - vite@8.3.0
   - antd@6.6.5
+  - drizzle-kit@0.31.11
+  - drizzle-orm@0.45.3

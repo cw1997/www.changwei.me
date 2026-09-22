@@ -7,7 +7,7 @@ on:
 
 jobs:
   discover-locales:
-    runs-on: ["self-hosted", "ubuntu-latest"]
+    runs-on: ["self-hosted", "debian"]
     outputs:
       locales: ${{ steps.set.outputs.locales }}
     steps:

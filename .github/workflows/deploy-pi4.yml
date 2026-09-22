@@ -2,7 +2,7 @@ name: Deploy To cw1997-pi4
 
 on:
   workflow_run:
-    workflows: ["Docker Build and Push"]
+    workflows: ["Test"]
     types:
       - completed
     branches:

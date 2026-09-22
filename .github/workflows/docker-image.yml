@@ -8,10 +8,14 @@ on:
     branches:
       - main
 
+concurrency:
+  group: docker-image-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
+
 jobs:
   docker:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ["cw1997-pi4"]
+    runs-on: ["self-hosted", "debian"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -22,7 +26,14 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build Docker image
-        run: sudo docker build -t ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest .
+        run: |
+          DOCKER_BUILDKIT=1 sudo docker build -t ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest .
 
-      - name: Push Docker image
-        run: sudo docker push ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest
+      - name: Tag Docker image with commit SHA
+        run: |
+          sudo docker tag ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:${{ github.event.workflow_run.head_sha }}
+
+      - name: Push Docker images
+        run: |
+          sudo docker push ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:latest
+          sudo docker push ${{ secrets.DOCKER_USERNAME }}/changwei-homepage:${{ github.event.workflow_run.head_sha }}

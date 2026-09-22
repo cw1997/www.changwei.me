@@ -1,0 +1,102 @@
+name: Deploy Production
+
+on:
+  workflow_run:
+    workflows: ["Docker Build and Push"]
+    types:
+      - completed
+    branches:
+      - main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ["self-hosted", "debian"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          printf "Host production.lan\n  HostName production.lan\n  User changwei\n  StrictHostKeyChecking no\n  UserKnownHostsFile /dev/null\n" > ~/.ssh/config
+          chmod 600 ~/.ssh/config
+
+      - name: Upload compose.yml to production
+        run: |
+          ssh changwei@production.lan "mkdir -p ~/changwei-homepage"
+          scp compose.yml changwei@production.lan:~/changwei-homepage/compose.yml
+
+      - name: Deploy to production
+        run: |
+          ssh changwei@production.lan bash -s <<EOF
+            set -eu
+
+            IMAGE="${{ secrets.DOCKER_USERNAME }}/changwei-homepage"
+            NAME=changwei-homepage
+            SHA="${{ github.event.workflow_run.head_sha }}"
+            COMPOSE_DIR=~/changwei-homepage
+
+            if docker info >/dev/null 2>&1; then
+              D=docker
+            else
+              D="sudo docker"
+            fi
+
+            echo "${{ secrets.DOCKER_PASSWORD }}" | \$D login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin || true
+
+            if \$D image inspect "\$IMAGE:latest" >/dev/null 2>&1; then
+              echo "Snapshotting current latest image as old"
+              \$D tag "\$IMAGE:latest" "\$IMAGE:old"
+            else
+              echo "No local latest image, pulling baseline and tagging as old"
+              \$D pull "\$IMAGE:latest"
+              \$D tag "\$IMAGE:latest" "\$IMAGE:old"
+            fi
+
+            echo "Pulling new latest image (\$SHA)"
+            \$D pull "\$IMAGE:latest"
+
+            echo "Starting container via docker compose"
+            \$D stop "\$NAME" 2>/dev/null || true
+            \$D rm "\$NAME" 2>/dev/null || true
+            printf 'CHANGWEI_IMAGE=%s\n' "\$IMAGE:latest" > "\$COMPOSE_DIR/.env"
+            \$D compose -f "\$COMPOSE_DIR/compose.yml" pull
+            \$D compose -f "\$COMPOSE_DIR/compose.yml" up -d --remove-orphans
+
+            echo "Waiting for health check"
+            healthy=""
+            for i in \$(seq 1 36); do
+              sleep 5
+              status=\$(\$D inspect --format '{{.State.Health.Status}}' "\$NAME" 2>/dev/null || echo "unknown")
+              running=\$(\$D inspect --format '{{.State.Running}}' "\$NAME" 2>/dev/null || echo "false")
+              echo "Attempt \$i: running=\$running health=\$status"
+              if [ "\$running" = "true" ] && [ "\$status" = "healthy" ]; then
+                healthy=1
+                break
+              fi
+              if [ "\$running" != "true" ]; then
+                break
+              fi
+            done
+
+            if [ "\$healthy" = "1" ]; then
+              echo "Deployment succeeded: \$IMAGE:latest (\$SHA) is healthy"
+              exit 0
+            fi
+
+            echo "Health check failed, rolling back to old image"
+            \$D stop "\$NAME" 2>/dev/null || true
+            \$D rm "\$NAME" 2>/dev/null || true
+            printf 'CHANGWEI_IMAGE=%s\n' "\$IMAGE:old" > "\$COMPOSE_DIR/.env"
+            \$D compose -f "\$COMPOSE_DIR/compose.yml" up -d --remove-orphans
+            echo "Rolled back to \$IMAGE:old"
+          EOF

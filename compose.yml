@@ -1,0 +1,9 @@
+name: changwei-homepage
+
+services:
+  changwei-homepage:
+    image: ${CHANGWEI_IMAGE:-changwei-homepage:latest}
+    container_name: changwei-homepage
+    ports:
+      - "1997:1997"
+    restart: unless-stopped

@@ -34,7 +34,7 @@ jobs:
           echo "locales=$locales" >> "$GITHUB_OUTPUT"
 
   lint-test:
-    runs-on: ["self-hosted", "ubuntu-latest"]
+    runs-on: ["self-hosted", "debian"]
     strategy:
       fail-fast: false
       matrix:
@@ -70,7 +70,7 @@ jobs:
 
   i18n-check:
     needs: discover-locales
-    runs-on: ["self-hosted", "ubuntu-latest"]
+    runs-on: ["self-hosted", "debian"]
     strategy:
       fail-fast: false
       matrix:

@@ -6,16 +6,16 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@next/env@16.3.1'
-  - '@next/eslint-plugin-next@16.3.1'
-  - '@next/swc-darwin-arm64@16.3.1'
-  - '@next/swc-darwin-x64@16.3.1'
-  - '@next/swc-linux-arm64-gnu@16.3.1'
-  - '@next/swc-linux-arm64-musl@16.3.1'
-  - '@next/swc-linux-x64-gnu@16.3.1'
-  - '@next/swc-linux-x64-musl@16.3.1'
-  - '@next/swc-win32-arm64-msvc@16.3.1'
-  - '@next/swc-win32-x64-msvc@16.3.1'
+  - '@next/env@16.3.1 || 16.3.6'
+  - '@next/eslint-plugin-next@16.3.1 || 16.3.6'
+  - '@next/swc-darwin-arm64@16.3.1 || 16.3.6'
+  - '@next/swc-darwin-x64@16.3.1 || 16.3.6'
+  - '@next/swc-linux-arm64-gnu@16.3.1 || 16.3.6'
+  - '@next/swc-linux-arm64-musl@16.3.1 || 16.3.6'
+  - '@next/swc-linux-x64-gnu@16.3.1 || 16.3.6'
+  - '@next/swc-linux-x64-musl@16.3.1 || 16.3.6'
+  - '@next/swc-win32-arm64-msvc@16.3.1 || 16.3.6'
+  - '@next/swc-win32-x64-msvc@16.3.1 || 16.3.6'
   - '@storybook/addon-a11y@10.5.8'
   - '@storybook/addon-docs@10.5.8'
   - '@storybook/addon-onboarding@10.5.8'
@@ -26,23 +26,23 @@ minimumReleaseAgeExclude:
   - '@storybook/react-dom-shim@10.5.8'
   - '@storybook/react-vite@10.5.8'
   - '@storybook/react@10.5.8'
-  - eslint-config-next@16.3.1
+  - eslint-config-next@16.3.1 || 16.3.6
   - eslint-plugin-storybook@10.5.8
-  - next@16.3.1
+  - next@16.3.1 || 16.3.6
   - storybook@10.5.8
-  - '@sentry/browser-utils@10.74.0'
-  - '@sentry/browser@10.74.0'
-  - '@sentry/core@10.74.0'
-  - '@sentry/feedback@10.74.0'
-  - '@sentry/nextjs@10.74.0'
-  - '@sentry/node-core@10.74.0'
-  - '@sentry/node@10.74.0'
-  - '@sentry/opentelemetry@10.74.0'
-  - '@sentry/react@10.74.0'
-  - '@sentry/replay-canvas@10.74.0'
-  - '@sentry/replay@10.74.0'
-  - '@sentry/server-utils@10.74.0'
-  - '@sentry/vercel-edge@10.74.0'
+  - '@sentry/browser-utils@10.74.0 || 10.75.2'
+  - '@sentry/browser@10.74.0 || 10.75.2'
+  - '@sentry/core@10.74.0 || 10.75.2'
+  - '@sentry/feedback@10.74.0 || 10.75.2'
+  - '@sentry/nextjs@10.74.0 || 10.75.2'
+  - '@sentry/node-core@10.74.0 || 10.75.2'
+  - '@sentry/node@10.74.0 || 10.75.2'
+  - '@sentry/opentelemetry@10.74.0 || 10.75.2'
+  - '@sentry/react@10.74.0 || 10.75.2'
+  - '@sentry/replay-canvas@10.74.0 || 10.75.2'
+  - '@sentry/replay@10.74.0 || 10.75.2'
+  - '@sentry/server-utils@10.74.0 || 10.75.2'
+  - '@sentry/vercel-edge@10.74.0 || 10.75.2'
   - '@types/react-dom@19.3.0'
   - '@types/react@19.3.0'
   - react-dom@19.3.0
@@ -56,3 +56,6 @@ minimumReleaseAgeExclude:
   - antd@6.6.5
   - drizzle-kit@0.31.11
   - drizzle-orm@0.45.3
+  - eslint-plugin-turbo@2.11.3
+  - jsdom@30.1.1
+  - sass@1.105.0

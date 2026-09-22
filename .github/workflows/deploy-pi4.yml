@@ -1,0 +1,37 @@
+name: Deploy To cw1997-pi4
+
+on:
+  workflow_run:
+    workflows: ["Docker Build and Push"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ["self-hosted", "cw1997-pi4"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Check hostname and deploy
+        run: |
+          if [ "$(hostname)" != "cw1997-pi4" ]; then
+            echo "Not on cw1997-pi4, skipping deployment"
+            exit 0
+          fi
+
+      - name: Build Docker image locally
+        run: |
+          DOCKER_BUILDKIT=1 sudo docker build --build-arg PORT=1997 -t changwei-homepage:local .
+
+      - name: Start container via docker compose
+        run: |
+          printf 'CHANGWEI_IMAGE=%s\n' "changwei-homepage:local" > .env
+          sudo docker rm -f changwei-homepage || true
+          sudo docker compose -f compose.yml up -d --remove-orphans
+          rm -f .env

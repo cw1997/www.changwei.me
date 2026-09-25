@@ -48,14 +48,14 @@ minimumReleaseAgeExclude:
   - react-dom@19.3.0
   - react@19.3.0
   - scheduler@0.28.0
-  - icu-minify@4.14.3 || 4.14.6
-  - next-intl-swc-plugin-extractor@4.14.3 || 4.14.6
-  - next-intl@4.14.3 || 4.14.6
-  - use-intl@4.14.3 || 4.14.6
-  - vite@8.3.0
+  - icu-minify@4.14.3 || 4.14.6 || 4.14.7
+  - next-intl-swc-plugin-extractor@4.14.3 || 4.14.6 || 4.14.7
+  - next-intl@4.14.3 || 4.14.6 || 4.14.7
+  - use-intl@4.14.3 || 4.14.6 || 4.14.7
+  - vite@8.3.0 || 8.3.1
   - antd@6.6.5
   - drizzle-kit@0.31.11
   - drizzle-orm@0.45.3
-  - eslint-plugin-turbo@2.11.3
+  - eslint-plugin-turbo@2.11.3 || 2.11.4
   - jsdom@30.1.1
   - sass@1.105.0

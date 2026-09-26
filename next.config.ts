@@ -56,13 +56,15 @@ export default withSentryConfig(withNextIntl(nextConfig), {
     deleteSourcemapsAfterUpload: false,
   },
 
+  // Automatically annotate React components to show their full name in breadcrumbs and session replay.
+  // Set at the top level since v11 so it applies to both webpack and Turbopack builds.
+  reactComponentAnnotation: {
+    enabled: true,
+  },
+
   webpack: {
     // Enables automatic instrumentation of Vercel Cron Monitors.
     automaticVercelMonitors: true,
-    // Automatically annotate React components to show their full name in breadcrumbs and session replay.
-    reactComponentAnnotation: {
-      enabled: true,
-    },
     // Automatically tree-shake Sentry logger statements to reduce bundle size.
     treeshake: {
       removeDebugLogging: true,

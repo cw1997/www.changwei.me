@@ -14,11 +14,13 @@ Sentry.init({
   debug: false,
 
   // Adds request headers and IP for users, for more info visit:
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
-  sendDefaultPii: true,
+  // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#dataCollection
+  // Note: since v11 the v10 `sendDefaultPii: true` behaviour is the default. Use `dataCollection`
+  // to narrow down which categories of data are collected.
 
   // Enable logs to be sent to Sentry
-  _experiments: { enableLogs: true },
+  // Note: since v11 there is no option to enable logs. They are captured whenever you use
+  // `Sentry.logger.*` or add a logging integration such as `Sentry.consoleLoggingIntegration()`.
 
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so

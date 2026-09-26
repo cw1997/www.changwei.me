@@ -39,7 +39,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@giscus/react": "^3.1.0",
-    "@sentry/nextjs": "^10.75.2",
+    "@sentry/nextjs": "^11.0.0",
     "@tidbcloud/serverless": "^0.3.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
@@ -69,14 +69,14 @@
     "@storybook/nextjs-vite": "^10.6.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
-    "@types/node": "^26.6.2",
+    "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/ua-parser-js": "^0.7.39",
     "@vitejs/plugin-react": "^6.1.1",
-    "@vitest/browser-playwright": "^5.0.1",
-    "@vitest/coverage-v8": "^5.0.1",
+    "@vitest/browser-playwright": "^5.0.2",
+    "@vitest/coverage-v8": "^5.0.2",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "drizzle-kit": "^0.31.11",
     "eslint": "^10.11.0",
@@ -96,7 +96,7 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.3.1",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.2"
   },
   "packageManager": "pnpm@12.6.0"
 }

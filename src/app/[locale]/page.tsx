@@ -11,12 +11,16 @@ import styles from "./page.module.sass"
 
 export default function HomePage(_props: PageProps<'/[locale]'>) {
   return (
-    <Space className={styles.main} orientation={"vertical"} size={48}>
-      <ProfileSection />
-      <RoleSection />
-      <ContactSection />
-      <SkillSection />
-      <ExperienceSection />
-    </Space>
+    // Every other route wraps its content in <main>; the home page was the only
+    // one without a main landmark, which screen readers use to skip navigation.
+    <main className={styles.main}>
+      <Space orientation={"vertical"} size={48} style={{width: "100%"}}>
+        <ProfileSection />
+        <RoleSection />
+        <ContactSection />
+        <SkillSection />
+        <ExperienceSection />
+      </Space>
+    </main>
   )
 }

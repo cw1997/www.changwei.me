@@ -25,12 +25,36 @@
     flex-direction: column
     padding: 16px
   &_icon
+    position: relative
+    flex: 0 0 auto
+    width: 64px
+    height: 64px
+    display: flex
+    align-items: center
+    justify-content: center
     img
       @include transition()
       &:hover
-        transform: scale(1.5)
+        // Lift above neighbouring siblings so the zoom does not overlap them.
+        z-index: 1
+        transform: scale(1.35)
+    & .item_monogram
+      width: 64px
+      height: 64px
+      border-radius: 12px
+      display: flex
+      align-items: center
+      justify-content: center
+      background: $gray-3
+      border: 1px solid $color-border-2
+      color: $color-font-3
+      font-size: 28px
+      font-weight: 600
+      line-height: 1
+      user-select: none
   &_info
     margin-left: 24px
+    min-width: 0
     color: $color-font-2
     @include on-mobile()
       margin-left: 0
@@ -39,11 +63,18 @@
       margin-top: 6px
       font-size: 13px
       color: $color-font-4
+      word-break: break-all
       a
         @include link
     &_organization
       font-size: 20px
       color: $color-font-1
+    &_legal_entity
+      display: block
+      margin-top: 2px
+      font-size: 12px
+      font-weight: 400
+      color: $color-font-4
     &_name
       margin-top: 4px
       font-size: 16px
@@ -52,16 +83,14 @@
       margin-top: 12px
       font-size: 13px
       color: $color-font-3
-    //&_location
-    //  font-size: 16px
     &_note
-      //color: $color-font-2
       margin-top: 8px
-      //font-weight: 300
       font-size: 14px
       line-height: 1.5
+      overflow-wrap: anywhere
       ul
         padding-left: 24px
+        margin-bottom: 0
         li
           margin-top: 4px
     &_tags

@@ -3,15 +3,23 @@ import ntust_logo from "@/assets/images/logo/ntust.png"
 import pingcap_logo from "@/assets/images/logo/PingCAP.svg"
 import risingwave_logo from "@/assets/images/logo/risingwave.png"
 import wspc_logo from "@/assets/images/logo/wspc.jpg"
+// Stored as Mininggoat.jfif; `.jfif` is not a Next.js recognised image extension
+// (see next/image-types/global.d.ts), so a static import of it resolves to a bare
+// URL string instead of StaticImageData and yields no width/height. The identical
+// JPEG is therefore committed as .jpg.
+import mininggoat_logo from "@/assets/images/logo/Mininggoat.jpg"
 import type {Locale} from "@/i18n/routing"
 import React from "react"
 import {experienceNoteFor} from "./experienceNotes"
 
 export type ExperienceItem = {
   id: string
-  icon: {src: string}
+  /** Optional logo. When absent a monogram badge is derived from the organization. */
+  icon?: {src: string}
   name: string
   organization: string
+  /** Registered legal entity of the organization, shown as supplementary detail. */
+  legal_entity?: string
   organization_url: string
   time_range: {start: string; end: string}
   location: string
@@ -30,6 +38,26 @@ export function getExperienceData(
   locale: Locale,
   t: (key: string) => string,
 ): ExperienceCategory[] {
+  const tagsMininggoat = [
+    "React",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "Sass",
+    "TailwindCSS",
+    "GitHub",
+    "Git",
+    "Github Actions",
+    "Cursor",
+    "Grok",
+    "OpenCode",
+    "DeepSeek",
+    "Linux",
+    "Docker",
+    "System Operations",
+  ] as const
+
   const tagsRisingwave = [
     "React",
     "Node.js",
@@ -161,10 +189,25 @@ export function getExperienceData(
       category_key: "work",
       items: [
         {
+          id: "mininggoat",
+          icon: mininggoat_logo,
+          name: t("roleFrontendSysOps"),
+          organization: t("orgMininggoat"),
+          legal_entity: t("legalEntityMininggoat"),
+          organization_url: "https://washuyang.com/",
+          time_range: {start: "2026/01", end: "2026/09"},
+          location: t("locRemote"),
+          department: t("deptWebFrontendSysOps"),
+          department_url: "",
+          note: experienceNoteFor(locale, "mininggoat"),
+          tags: [...tagsMininggoat],
+        },
+        {
           id: "risingwave",
           icon: risingwave_logo,
-          name: t("intern2Name"),
+          name: t("roleFrontend"),
           organization: t("orgRisingWave"),
+          legal_entity: t("legalEntityRisingWave"),
           organization_url: "https://risingwave.com/",
           time_range: {start: "2024/05", end: "2025/02"},
           location: t("locRemote"),
@@ -176,11 +219,12 @@ export function getExperienceData(
         {
           id: "pingcap",
           icon: pingcap_logo,
-          name: t("intern1Name"),
+          name: t("roleFrontend"),
           organization: t("orgPingCAP"),
+          legal_entity: t("legalEntityPingCAP"),
           organization_url: "https://www.pingcap.com/",
           time_range: {start: "2020/10", end: "2024/04"},
-          location: t("locBeijingHaidian"),
+          location: t("locBeijingShenzhenRemote"),
           department: t("deptWebFrontend"),
           department_url: "",
           note: experienceNoteFor(locale, "pingcap"),
@@ -236,7 +280,7 @@ export function getExperienceData(
           name: t("degreeJuniorCollege"),
           organization: t("orgWSPC"),
           organization_url: "https://www.wspc.edu.cn/",
-          time_range: {start: "2015/09", end: "2018/07"},
+          time_range: {start: "2015/09", end: "2018/08"},
           location: t("locWuhanHanyang"),
           department: t("deptSoftwareEngineering"),
           department_url: "",

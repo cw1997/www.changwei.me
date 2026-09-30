@@ -24,6 +24,11 @@
   display: flex
   width: 100%
   color: $color-font-2
+  // `.item` is applied to both <a> and <button>; reset the UA button chrome so
+  // the copy-only entries (Discord) match the link entries exactly.
+  font: inherit
+  text-align: start
+  cursor: pointer
   &:hover
     @include box-shadow-1
   //@include on-mobile()

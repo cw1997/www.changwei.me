@@ -215,6 +215,37 @@ const data: {category_key: "socialNetwork" | "instantMessaging"; items: ItemDef[
 
 export interface IPropsContactSection {}
 
+/**
+ * Copies `text` to the clipboard and reports the outcome.
+ * Falls back to a hidden textarea when the async Clipboard API is unavailable
+ * (non-secure context / older browsers).
+ */
+function copyToClipboard(text: string): void {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    void navigator.clipboard.writeText(text).catch(() => {
+      legacyCopy(text)
+    })
+    return
+  }
+  legacyCopy(text)
+}
+
+function legacyCopy(text: string): void {
+  if (typeof document === "undefined") return
+  const textarea = document.createElement("textarea")
+  textarea.value = text
+  textarea.setAttribute("readonly", "")
+  textarea.style.position = "fixed"
+  textarea.style.opacity = "0"
+  document.body.appendChild(textarea)
+  textarea.select()
+  try {
+    document.execCommand("copy")
+  } finally {
+    document.body.removeChild(textarea)
+  }
+}
+
 export const ContactSection: React.FunctionComponent<IPropsContactSection> = () => {
   const t = useTranslations("sections")
   const tc = useTranslations("contact")
@@ -269,9 +300,16 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
                         {triggerBody}
                       </OutsideLink>
                     ) : (
-                      <span className={styles.item} role="button" tabIndex={0}>
+                      // No URL and no QR code (Discord): make the control actually
+                      // copy its own value instead of advertising role="button"
+                      // and doing nothing.
+                      <button
+                        type="button"
+                        className={styles.item}
+                        onClick={() => copyToClipboard(contactText)}
+                      >
                         {triggerBody}
-                      </span>
+                      </button>
                     )}
                   </Popover>
                 )

@@ -13,12 +13,12 @@ const indexedRouteConfigs = [
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
-
+  // Intentionally no `lastModified`: stamping every URL with the regeneration
+  // time told crawlers all 21 pages changed on every deploy, which is both
+  // inaccurate and a signal that pushes crawl budget onto static pages.
   return indexedRouteConfigs.flatMap((route) =>
     locales.map((locale) => ({
       url: toAbsoluteUrl(getLocalizedPath(locale, route.pathname)),
-      lastModified,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),

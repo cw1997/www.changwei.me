@@ -7,7 +7,12 @@ export const dynamic = "force-dynamic"
 function isAuthorized(request: NextRequest): boolean {
   const expectedSecret = process.env.CRON_SECRET
   if (!expectedSecret) {
-    return true
+    // Fail closed. Failing open would expose an endpoint that performs up to 200
+    // outbound geolocation lookups plus a full-table rewrite to anyone who asks.
+    console.error(
+      "CRON_SECRET is not configured; refusing to run /api/cron/location",
+    )
+    return false
   }
 
   const authorization = request.headers.get("authorization")

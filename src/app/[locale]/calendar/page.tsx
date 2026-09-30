@@ -23,7 +23,7 @@ import enUS from "antd/locale/en_US"
 import zhCN from "antd/locale/zh_CN"
 import zhTW from "antd/locale/zh_TW"
 import {useLocale, useTranslations} from "next-intl"
-import React, {useCallback, useEffect, useState} from "react"
+import React, {useCallback, useState} from "react"
 import styles from "./page.module.sass"
 
 const GOOGLE_CALENDAR_EMBED_URL =
@@ -42,6 +42,23 @@ const RECIPIENT_EMAILS: Record<Recipient, string> = {
 
 const DATE_TIME_FORMAT = "YYYY-MM-DD HH:mm"
 const TIME_FORMAT = "HH:mm"
+
+// Keep in sync with the `duration` InputNumber min/max and step below.
+const DURATION_MIN_MINUTES = 15
+const DURATION_MAX_MINUTES = 480
+const DURATION_STEP_MINUTES = 15
+
+/** Snaps a duration onto the allowed {min, step, max} grid. */
+function clampDuration(minutes: number): number {
+  if (!Number.isFinite(minutes)) return DURATION_MIN_MINUTES
+  const clamped = Math.min(
+    DURATION_MAX_MINUTES,
+    Math.max(DURATION_MIN_MINUTES, Math.round(minutes)),
+  )
+  const steps = Math.round((clamped - DURATION_MIN_MINUTES) / DURATION_STEP_MINUTES)
+  const snapped = DURATION_MIN_MINUTES + steps * DURATION_STEP_MINUTES
+  return Math.min(DURATION_MAX_MINUTES, Math.max(DURATION_MIN_MINUTES, snapped))
+}
 
 const dayjsLocaleByAppLocale: Record<AppLocale, string> = {
   "en-US": "en",
@@ -67,9 +84,12 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
   const [language, setLanguage] = useState<RequestLanguage>("zh-Hant")
   const [form] = Form.useForm()
 
-  useEffect(() => {
-    dayjs.locale(dayjsLocaleByAppLocale[appLocale])
-  }, [appLocale])
+  const djLocale = dayjsLocaleByAppLocale[appLocale]
+
+  // `dayjs.locale(...)` mutates module-global state, which leaks into every other
+  // component relying on the ambient locale (the clock on the home page, for
+  // example). Scope it to this page's antd ConfigProvider via a Dayjs locale
+  // object and pass the locale explicitly wherever a date is formatted.
 
   const openBook = useCallback(() => {
     window.open(BOOK_URL, "_blank", "noopener,noreferrer")
@@ -94,7 +114,11 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
     duration: number | null | undefined,
   ) => {
     if (startTime && duration) {
-      form.setFieldValue("endTime", startTime.add(duration, "minute"))
+      // `.locale()` scopes the locale to this instance rather than dayjs's global state.
+      form.setFieldValue(
+        "endTime",
+        startTime.add(clampDuration(duration), "minute").locale(djLocale),
+      )
     }
   }
 
@@ -110,7 +134,13 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
     const startTime = form.getFieldValue("startTime") as Dayjs | undefined
     if (startTime && value) {
       const diffMinutes = Math.round(value.diff(startTime, "minute", true))
-      form.setFieldValue("duration", Math.max(0, diffMinutes))
+      // Clamp to the same range the duration control enforces. Without this an
+      // end time days away wrote e.g. 2880 into the form, producing an
+      // "Duration: 2880 minute(s)" request that contradicted its own input.
+      form.setFieldValue(
+        "duration",
+        clampDuration(diffMinutes),
+      )
     }
   }
 
@@ -137,8 +167,8 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
     } catch {
       return
     }
-    const startText = values.startTime.format(DATE_TIME_FORMAT)
-    const endText = values.endTime.format(DATE_TIME_FORMAT)
+    const startText = values.startTime.locale(djLocale).format(DATE_TIME_FORMAT)
+    const endText = values.endTime.locale(djLocale).format(DATE_TIME_FORMAT)
     const durationText = `${values.duration} ${tr("messageMinute")}`
     const body = [
       `${tr("messageGreeting")}\n${tr("messageIntro")}`,
@@ -161,7 +191,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("pageTitle")}</h2>
+        <h1 className={styles.title}>{t("pageTitle")}</h1>
         <Divider />
         <Space className={styles.toolbar}>
           <Button
@@ -192,10 +222,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             src={GOOGLE_CALENDAR_EMBED_URL}
             title={t("pageTitle")}
             style={{width: "100%", height: "1280px"}}
-            // width="100%"
-            // height="600"
             loading="lazy"
-            // scrolling="no"
           />
         </div>
       </main>
@@ -235,7 +262,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             <Form.Item
               name="startTime"
               label={tr("startTimeLabel")}
-              rules={[{required: true, message: tr("startTimeLabel")}]}
+              rules={[{required: true, message: tr("startTimeRequired")}]}
             >
               <DatePicker
                 showTime={{format: TIME_FORMAT}}
@@ -247,13 +274,21 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             <Form.Item
               name="duration"
               label={tr("durationLabel")}
-              initialValue={30}
-              rules={[{required: true, message: tr("durationLabel")}]}
+              initialValue={DURATION_MIN_MINUTES * 2}
+              rules={[
+                {required: true, message: tr("durationRequired")},
+                {
+                  type: "number",
+                  min: DURATION_MIN_MINUTES,
+                  max: DURATION_MAX_MINUTES,
+                  message: tr("durationRangeError"),
+                },
+              ]}
             >
               <InputNumber
-                min={15}
-                max={480}
-                step={15}
+                min={DURATION_MIN_MINUTES}
+                max={DURATION_MAX_MINUTES}
+                step={DURATION_STEP_MINUTES}
                 addonAfter={tr("messageMinute")}
                 onChange={handleDurationChange}
               />
@@ -263,7 +298,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
               label={tr("endTimeLabel")}
               extra={tr("endTimeHelp")}
               rules={[
-                {required: true, message: tr("endTimeLabel")},
+                {required: true, message: tr("endTimeRequired")},
                 {validator: endTimeValidator},
               ]}
             >
@@ -277,7 +312,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             <Form.Item
               name="subject"
               label={tr("subjectLabel")}
-              rules={[{required: true, message: tr("subjectLabel")}]}
+              rules={[{required: true, message: tr("subjectRequired")}]}
             >
               <Input.TextArea rows={3} />
             </Form.Item>
@@ -285,7 +320,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
               name="location"
               label={tr("locationLabel")}
               extra={tr("locationHelp")}
-              rules={[{required: true, message: tr("locationLabel")}]}
+              rules={[{required: true, message: tr("locationRequired")}]}
             >
               <Input.TextArea rows={2} />
             </Form.Item>

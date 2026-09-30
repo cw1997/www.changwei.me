@@ -1,5 +1,5 @@
 import {sql} from "drizzle-orm"
-import {db} from "@/db"
+import {getDb} from "@/db"
 import {cronLocation} from "@/db/schema"
 
 const DEFAULT_BATCH_SIZE = 200
@@ -126,7 +126,7 @@ async function fetchLocation(ip: string): Promise<IpWhoIsResponse | null> {
 async function upsertLocation(ip: string, payload: IpWhoIsResponse) {
   const now = new Date()
 
-  await db
+  await getDb()
     .insert(cronLocation)
     .values({
       ip,
@@ -167,7 +167,7 @@ async function upsertLocation(ip: string, payload: IpWhoIsResponse) {
 }
 
 async function backfillVisitGeoColumns() {
-  await db.execute(sql.raw(`UPDATE page_visits pv
+  await getDb().execute(sql.raw(`UPDATE page_visits pv
 JOIN cron_location cl
   ON JSON_UNQUOTE(JSON_EXTRACT(pv.ip_chain, '$[0]')) = cl.ip
 SET
@@ -177,7 +177,7 @@ WHERE pv.country IS NULL OR pv.city IS NULL`))
 }
 
 export async function resolveLocationsFromVisits(batchSize = DEFAULT_BATCH_SIZE) {
-  const rowsResult = await db.execute(sql.raw(`SELECT DISTINCT ip FROM (
+  const rowsResult = await getDb().execute(sql.raw(`SELECT DISTINCT ip FROM (
   SELECT JSON_UNQUOTE(JSON_EXTRACT(ip_chain, '$[0]')) AS ip
   FROM page_visits
 ) source

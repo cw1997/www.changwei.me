@@ -1,5 +1,5 @@
 import {eq, sql} from "drizzle-orm"
-import {db} from "@/db"
+import {getDb} from "@/db"
 import {statisticCache} from "@/db/schema"
 
 export const STATISTIC_CACHE_TTL_MS = 60 * 60 * 1000
@@ -143,6 +143,7 @@ export function getQueryDef(type: QueryType): QueryDef {
 async function runSourceQuery(type: QueryType): Promise<Omit<StatisticResult, "fromCache">> {
   const queryDef = queries[type]
   const started = performance.now()
+  const db = getDb()
   const result = await db.execute(sql.raw(queryDef.sql))
   const executionTimeMs = Math.round((performance.now() - started) * 100) / 100
   const data = asRows(result)
@@ -178,6 +179,7 @@ async function runSourceQuery(type: QueryType): Promise<Omit<StatisticResult, "f
 }
 
 export async function getStatistic(type: QueryType, forceRefresh = false): Promise<StatisticResult> {
+  const db = getDb()
   const cachedRows = await db
     .select()
     .from(statisticCache)

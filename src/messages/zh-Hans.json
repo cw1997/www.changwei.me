@@ -1,7 +1,6 @@
 {
   "metadata": {
     "title": "昌维的网站",
-    "titleTemplate": "{title} | 昌维的网站",
     "description": "昌维的个人网站，包括个人资料、联系方式、教育经历和工作经历、作品集等。"
   },
   "nav": {
@@ -18,7 +17,8 @@
     "statistic": "统计",
     "statisticSubtitle": "(Statistic)",
     "calendar": "日历",
-    "calendarSubtitle": "(Calendar)"
+    "calendarSubtitle": "(Calendar)",
+    "menu": "打开导航菜单"
   },
   "header": {
     "siteTitle": "昌维的网站",
@@ -130,6 +130,12 @@
     "endTimeLabel": "结束时间（与起始时间和时长自动联动）",
     "endTimeHelp": "起始时间或时长变化时自动更新；手动修改会自动回写时长。",
     "endTimeError": "结束时间必须晚于起始时间",
+    "startTimeRequired": "请选择起始时间",
+    "durationRequired": "请填写时长",
+    "durationRangeError": "时长必须介于 15 至 480 分钟之间",
+    "endTimeRequired": "请选择结束时间",
+    "subjectRequired": "请填写主题或事由",
+    "locationRequired": "请填写地点",
     "subjectLabel": "预约事项（支持多行）",
     "locationLabel": "地点（地址、Google Map 链接或线上会议链接）",
     "locationHelp": "输入 URL 时视为线上/Google Map 链接，否则按实体位置处理。",
@@ -170,25 +176,32 @@
     "design": "设计 / 用户界面 / 用户体验"
   },
   "experience": {
-    "intern2Name": "实习生（第二期）",
-    "intern1Name": "实习生（第一期）",
-    "degreePhd": "博士",
-    "degreeMaster": "硕士",
-    "degreeBachelor": "学士",
-    "degreeJuniorCollege": "专科",
+    "roleFrontendSysOps": "前端开发与系统运维",
+    "roleFrontend": "前端开发",
+    "degreePhd": "博士（在读）",
+    "degreeMaster": "工学硕士",
+    "degreeBachelor": "工学学士",
+    "degreeJuniorCollege": "专科／高职",
+    "orgMininggoat": "Mininggoat",
     "orgRisingWave": "RisingWave Labs",
     "orgPingCAP": "PingCAP",
     "orgNTNU": "国立台湾师范大学",
     "orgNTUST": "台湾科技大学",
     "orgWSPC": "武汉船舶职业技术学院",
+    "deptWebFrontendSysOps": "Web 前端与系统运维",
     "deptWebFrontend": "Web 前端",
     "deptACE": "社会教育学系（成人与继续教育）",
     "deptECE": "电子工程系（电机工程）",
     "deptSoftwareEngineering": "软件技术",
     "locRemote": "远程",
-    "locBeijingHaidian": "中国大陆（+86），北京市海淀区",
+    "locBeijingShenzhenRemote": "中国大陆（+86），北京、深圳，以及远程",
     "locTaipeiDaan": "台湾（+886），台北市（106）大安区",
     "locWuhanHanyang": "中国大陆（+86），湖北省武汉市（430000）汉阳区",
+    "legalEntityMininggoat": "北京明光振铎数据科技有限公司",
+    "legalEntityRisingWave": "北京奇点无限数据科技有限公司",
+    "legalEntityPingCAP": "北京平凯星辰科技发展有限公司",
+    "awardUniversityScholarship": "获校级奖学金",
+    "awardAcademicExcellence": "获书卷奖（班级排名第一）",
     "timeNow": "至今"
   },
   "error": {

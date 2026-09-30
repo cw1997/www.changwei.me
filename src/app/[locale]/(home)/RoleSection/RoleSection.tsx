@@ -23,41 +23,36 @@ import wspc_logo_image from "@/assets/images/logo/wspc.jpg"
 
 const logo_size = 64
 
+type RoleNameKey = "current" | "former"
+type TranslatedRole = {name: string; role: string}
+
+/**
+ * Icons and links are locale-independent, so they live in code. The human-readable
+ * `name` / `role` strings come from the `roleDetail` message namespace so they are
+ * translated; the two lists are matched positionally, and a length mismatch
+ * degrades gracefully instead of rendering "undefined".
+ */
 const data: {
-  nameKey: "current" | "former"
-  items: {
-    icon: React.ReactNode
-    name: string
-    role: string
-    url?: string
-    description?: React.ReactNode
-  }[]
+  nameKey: RoleNameKey
+  items: {icon: React.ReactNode; url?: string}[]
 }[] = [
   {
     nameKey: "current",
     items: [
       {
         icon: <Image src={ntnu_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "谷歌學生開發者社群｜Google Developer Groups on Campus (National Taiwan Normal University)",
-        role: "Lecture Speaker (Web Front-end, Python, Database & SQL)",
         url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/",
       },
       {
         icon: <Image src={Open_House_NTUs_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "打開台大｜Open House NTUs",
-        role: "Volunteer (Activities Section)",
         url: "https://www.facebook.com/openhousentus/?locale=zh_TW",
       },
       {
         icon: <Image src={ntnu_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "社會教育學系｜Department of Adult and Continuing Education (National Taiwan Normal University)",
-        role: "Ph.D. student",
         url: "https://www.ace.ntnu.edu.tw/",
       },
       {
         icon: <Image src={ntust_piano_club_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "鋼琴社｜Piano club (National Taiwan University of Science and Technology)",
-        role: "Member",
         url: "https://www.instagram.com/ntust_piano/",
       },
     ],
@@ -67,94 +62,113 @@ const data: {
     items: [
       {
         icon: <Image src={risingwave_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "RisingWave Labs",
-        role: "Web Front-end Developer (Intern)",
         url: "https://risingwave.com/",
       },
       {
         icon: <Image src={pingcap_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "PingCAP",
-        role: "Web Front-end Developer (Intern)",
         url: "https://pingcap.com/",
       },
       {
         icon: <Image src={ntu_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "谷歌學生開發者社群｜Google Developer Groups on Campus (National Taiwan University)",
-        role: "Lecture Speaker (Efficiency Engineering & Devtools & DevOps)",
         url: "https://www.instagram.com/gdg.ntu/",
       },
       {
         icon: <Image src={ntust_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "谷歌學生開發者社群｜Google Developer Groups on Campus (National Taiwan University of Science and Technology)",
-        role: "Lecture Speaker (Web Front-end)",
         url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-of-science-and-technology-taipei-taiwan/",
       },
       {
         icon: <Image src={ntust_student_council_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "學生議會｜Student Council (National Taiwan University of Science and Technology)",
-        role: "VP (Vice-President)",
         url: "https://www.facebook.com/ntustsc/",
       },
       {
         icon: <Image src={ntust_student_association_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "學生會｜Student Association (National Taiwan University of Science and Technology)",
-        role: "CFO (Chief Finance Officer)",
         url: "https://www.facebook.com/ntustsa/",
       },
       {
         icon: <Image src={ntust_ece_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "電子工程系｜Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
-        role: "Master's degree student",
         url: "https://ece.ntust.edu.tw/",
       },
       {
         icon: <Image src={ntust_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "電子工程系｜Department of Electrical and Computer Engineering (National Taiwan University of Science and Technology)",
-        role: "Bachelor's degree student",
         url: "https://ece.ntust.edu.tw/",
       },
       {
         icon: <Image src={wspc_logo_image} alt={""} width={logo_size} height={logo_size} />,
-        name: "软件技术专业｜Department of Software Engineering (Wuhan Institute of Shipbuilding Technology)",
-        role: "College student",
         url: "https://www.wspc.edu.cn/",
       },
     ],
   },
 ]
 
+function readTranslatedRoles(
+  raw: unknown,
+  expectedCount: number,
+  nameKey: RoleNameKey,
+): TranslatedRole[] {
+  const rows = Array.isArray(raw) ? (raw as TranslatedRole[]) : []
+
+  if (rows.length !== expectedCount && process.env.NODE_ENV !== "production") {
+    console.warn(
+      `[RoleSection] message key "roleDetail.${nameKey}" has ${rows.length} entries but the component defines ${expectedCount}.`,
+    )
+  }
+
+  return Array.from({length: Math.max(rows.length, expectedCount)}, (_, index) => {
+    const row = rows[index]
+    return {
+      name: row?.name ?? "",
+      role: row?.role ?? "",
+    }
+  })
+}
+
 export interface IPropsRoleSection {}
 
 export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
   const t = useTranslations("sections")
+  const tDetail = useTranslations("roleDetail")
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>{t("role")}</h2>
       <Space orientation={"vertical"} size={24}>
-        {data.map((category) => (
-          <div key={category.nameKey}>
-            <h3 className={styles.category_name}>{t(category.nameKey)}</h3>
-            <Row gutter={[16, 16]} align={"stretch"}>
-              {category.items.map((item) => (
-                <Col key={item.name + item.role} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
-                  <div className={styles.item}>
-                    <Space align={"start"}>
-                      <div className={styles.item_icon}>{item.icon}</div>
-                      <div className={styles.item_info}>
-                        <OutsideLink href={item.url} className={styles.item_info_name}>{item.name}</OutsideLink>
-                        <div className={styles.item_info_role}>{item.role}</div>
+        {data.map((category) => {
+          const translated = readTranslatedRoles(
+            tDetail.raw(category.nameKey),
+            category.items.length,
+            category.nameKey,
+          )
+
+          return (
+            <section key={category.nameKey}>
+              <h3 className={styles.category_name}>{t(category.nameKey)}</h3>
+              <Row gutter={[16, 16]} align={"stretch"}>
+                {category.items.map((item, index) => {
+                  const entry = translated[index]
+                  return (
+                    <Col key={`${category.nameKey}-${index}`} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
+                      <div className={styles.item}>
+                        <Space align={"start"}>
+                          <div className={styles.item_icon}>{item.icon}</div>
+                          <div className={styles.item_info}>
+                            {item.url ? (
+                              <OutsideLink href={item.url} className={styles.item_info_name}>
+                                {entry.name}
+                              </OutsideLink>
+                            ) : (
+                              <div className={styles.item_info_name}>{entry.name}</div>
+                            )}
+                            <div className={styles.item_info_role}>{entry.role}</div>
+                          </div>
+                        </Space>
                       </div>
-                    </Space>
-                    {item.description && (
-                      <div className={styles.item_description}>{item.description}</div>
-                    )}
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        ))}
+                    </Col>
+                  )
+                })}
+              </Row>
+            </section>
+          )
+        })}
       </Space>
     </div>
   )

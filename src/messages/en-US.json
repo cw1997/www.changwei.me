@@ -1,7 +1,6 @@
 {
   "metadata": {
     "title": "Chang Wei's website",
-    "titleTemplate": "{title} | Chang Wei's website",
     "description": "Chang Wei's personal website, including profile, contacts, education and work experiences, portfolio and more."
   },
   "nav": {
@@ -18,7 +17,8 @@
     "statistic": "Statistic",
     "statisticSubtitle": "(Statistic)",
     "calendar": "Calendar",
-    "calendarSubtitle": "(Calendar)"
+    "calendarSubtitle": "(Calendar)",
+    "menu": "Open navigation menu"
   },
   "header": {
     "siteTitle": "Chang Wei's website",
@@ -130,6 +130,12 @@
     "endTimeLabel": "End Time (auto-synced with start time and duration)",
     "endTimeHelp": "Automatically updated when start time or duration changes. Manually adjusting it will update the duration.",
     "endTimeError": "End time must be after start time",
+    "startTimeRequired": "Please choose a start time",
+    "durationRequired": "Please enter a duration",
+    "durationRangeError": "Duration must be between 15 and 480 minutes",
+    "endTimeRequired": "Please choose an end time",
+    "subjectRequired": "Please enter a subject or purpose",
+    "locationRequired": "Please enter a location",
     "subjectLabel": "Subject / Purpose (multiline supported)",
     "locationLabel": "Location (address, Google Maps link, or online meeting link)",
     "locationHelp": "URL detected as online/Google Maps link, otherwise treated as physical address.",
@@ -170,25 +176,32 @@
     "design": "Design / User Interface / User Experience"
   },
   "experience": {
-    "intern2Name": "Intern (2nd)",
-    "intern1Name": "Intern (1st)",
-    "degreePhd": "Ph.D.",
+    "roleFrontendSysOps": "Frontend Developer & System Operations",
+    "roleFrontend": "Frontend Developer",
+    "degreePhd": "Ph.D. (in progress)",
     "degreeMaster": "Master's degree",
     "degreeBachelor": "Bachelor's degree",
     "degreeJuniorCollege": "Junior college",
+    "orgMininggoat": "Mininggoat",
     "orgRisingWave": "RisingWave Labs",
     "orgPingCAP": "PingCAP",
     "orgNTNU": "National Taiwan Normal University",
     "orgNTUST": "National Taiwan University of Science and Technology",
     "orgWSPC": "Wuhan Institute of Shipbuilding Technology",
+    "deptWebFrontendSysOps": "Web Frontend & Site Operations",
     "deptWebFrontend": "Web Frontend",
     "deptACE": "ACE (Adult and Continuing Education)",
     "deptECE": "ECE (Electrical and Computer Engineering)",
     "deptSoftwareEngineering": "Software Engineering",
     "locRemote": "Remote",
-    "locBeijingHaidian": "Chinese mainland (+86), Beijing City, Haidian District",
+    "locBeijingShenzhenRemote": "Chinese mainland (+86), Beijing & Shenzhen, and Remote",
     "locTaipeiDaan": "Taiwan (+886), Taipei City (106), Da'an District",
     "locWuhanHanyang": "Chinese mainland (+86), Hubei Province, Wuhan City (430000), Hanyang District",
+    "legalEntityMininggoat": "Beijing Mingguang Zhenduo Data Technology Co., Ltd.",
+    "legalEntityRisingWave": "Beijing Qidian Wuxian Data Technology Co., Ltd.",
+    "legalEntityPingCAP": "Beijing PingCAP Xingchen Technology Development Co., Ltd.",
+    "awardUniversityScholarship": "Awarded a university-level scholarship",
+    "awardAcademicExcellence": "Awarded the Academic Excellence Award (ranked first in the class)",
     "timeNow": "now"
   },
   "error": {

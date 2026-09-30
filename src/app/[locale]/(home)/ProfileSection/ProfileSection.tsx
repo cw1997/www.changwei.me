@@ -9,7 +9,8 @@ import {
   EnvironmentOutlined,
   MailOutlined,
 } from "@ant-design/icons"
-import {Divider, Space, Tag, Image} from "antd"
+import {Divider, Space, Tag} from "antd"
+import NextImage from "next/image"
 import {useTranslations} from "next-intl"
 import React from "react"
 import styles from "./ProfileSection.module.sass"
@@ -242,10 +243,16 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
       </div>
 
       <div className={styles.profile_photo}>
-        <Image
-          rootClassName={styles.profile_photo_image}
-          src={photo_image.src}
+        <NextImage
+          className={styles.profile_photo_image}
+          src={photo_image}
           alt={t("photoAlt")}
+          width={photo_image.width}
+          height={photo_image.height}
+          // The photo is rendered at most 384px wide; without `sizes` the full
+          // camera-resolution JPEG was downloaded and nothing reserved layout space.
+          sizes="(max-width: 768px) 100vw, 384px"
+          priority
         />
         <div className={styles.profile_photo_description}>
           {t("photoDescription")}

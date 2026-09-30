@@ -1,7 +1,6 @@
 {
   "metadata": {
     "title": "昌維的網站",
-    "titleTemplate": "{title} | 昌維的網站",
     "description": "昌維的個人網站，包括個人資料、聯繫方式、教育經歷和工作經歷、作品集等。"
   },
   "nav": {
@@ -18,7 +17,8 @@
     "statistic": "統計",
     "statisticSubtitle": "(Statistic)",
     "calendar": "日曆",
-    "calendarSubtitle": "(Calendar)"
+    "calendarSubtitle": "(Calendar)",
+    "menu": "開啟導覽選單"
   },
   "header": {
     "siteTitle": "昌維的網站",
@@ -130,6 +130,12 @@
     "endTimeLabel": "結束時間（與起始時間和時長自動連動）",
     "endTimeHelp": "起始時間或時長變化時自動更新；手動修改會自動回寫時長。",
     "endTimeError": "結束時間必須晚於起始時間",
+    "startTimeRequired": "請選擇起始時間",
+    "durationRequired": "請填寫時長",
+    "durationRangeError": "時長必須介於 15 至 480 分鐘之間",
+    "endTimeRequired": "請選擇結束時間",
+    "subjectRequired": "請填寫主題或事由",
+    "locationRequired": "請填寫地點",
     "subjectLabel": "預約事項（支援多行）",
     "locationLabel": "地點（地址、Google Map 連結或線上會議連結）",
     "locationHelp": "輸入 URL 時視為線上/Google Map 連結，否則按實體位置處理。",
@@ -170,25 +176,32 @@
     "design": "設計 / 使用者介面 / 使用者體驗"
   },
   "experience": {
-    "intern2Name": "實習生（第二期）",
-    "intern1Name": "實習生（第一期）",
-    "degreePhd": "博士",
-    "degreeMaster": "碩士",
-    "degreeBachelor": "學士",
-    "degreeJuniorCollege": "專科",
+    "roleFrontendSysOps": "前端開發與系統維運",
+    "roleFrontend": "前端開發",
+    "degreePhd": "博士（在讀）",
+    "degreeMaster": "工學碩士",
+    "degreeBachelor": "工學學士",
+    "degreeJuniorCollege": "專科／高職",
+    "orgMininggoat": "Mininggoat",
     "orgRisingWave": "RisingWave Labs",
     "orgPingCAP": "PingCAP",
     "orgNTNU": "國立臺灣師範大學",
     "orgNTUST": "國立臺灣科技大學",
     "orgWSPC": "武漢船舶職業技術學院",
+    "deptWebFrontendSysOps": "Web 前端與系統維運",
     "deptWebFrontend": "Web 前端",
     "deptACE": "社會教育學系（成人與繼續教育）",
     "deptECE": "電子工程系（電機工程）",
     "deptSoftwareEngineering": "軟體技術",
     "locRemote": "遠端",
-    "locBeijingHaidian": "中國大陸（+86），北京市海淀區",
+    "locBeijingShenzhenRemote": "中國大陸（+86），北京、深圳，以及遠端",
     "locTaipeiDaan": "臺灣（+886），臺北市（106）大安區",
     "locWuhanHanyang": "中國大陸（+86），湖北省武漢市（430000）漢陽區",
+    "legalEntityMininggoat": "北京明光振鐸數據科技有限公司",
+    "legalEntityRisingWave": "北京奇點無限數據科技有限公司",
+    "legalEntityPingCAP": "北京平凱星辰科技發展有限公司",
+    "awardUniversityScholarship": "獲校級獎學金",
+    "awardAcademicExcellence": "獲書卷獎（班級排名第一）",
     "timeNow": "至今"
   },
   "error": {

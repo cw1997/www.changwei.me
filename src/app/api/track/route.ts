@@ -1,7 +1,8 @@
 import {NextRequest, NextResponse} from "next/server"
 import {UAParser} from "ua-parser-js"
 import type {IDevice} from "ua-parser-js"
-import {db} from "@/db"
+import * as Sentry from "@sentry/nextjs"
+import {getDb} from "@/db"
 import {pageVisits} from "@/db/schema"
 
 interface TrackBody {
@@ -84,10 +85,34 @@ function toNullableDecimalString(value: unknown): string | null {
   return numeric.toFixed(2)
 }
 
-export async function POST(request: NextRequest) {
-  try {
-    const body = (await request.json()) as TrackBody
+const MAX_BODY_BYTES = 8 * 1024
 
+export async function POST(request: NextRequest) {
+  // Guard the payload before parsing: this endpoint is an open write path into
+  // the public statistics, so an unbounded body would be a cheap way to waste
+  // memory and disk.
+  const contentType = request.headers.get("content-type") ?? ""
+  if (!contentType.toLowerCase().includes("application/json")) {
+    return NextResponse.json({error: "Unsupported Media Type"}, {status: 415})
+  }
+
+  const declaredLength = Number(request.headers.get("content-length") ?? "")
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    return NextResponse.json({error: "Payload Too Large"}, {status: 413})
+  }
+
+  let body: TrackBody
+  try {
+    const parsed: unknown = await request.json()
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      return NextResponse.json({error: "Invalid payload"}, {status: 400})
+    }
+    body = parsed as TrackBody
+  } catch {
+    return NextResponse.json({error: "Invalid JSON"}, {status: 400})
+  }
+
+  try {
     const userAgent = request.headers.get("user-agent") ?? undefined
     const referer = request.headers.get("referer") ?? undefined
     const ipChain = parseIpChain(request)
@@ -98,17 +123,17 @@ export async function POST(request: NextRequest) {
     const device = parser.getDevice()
     const cpu = parser.getCPU()
 
-    await db.insert(pageVisits).values({
+    await getDb().insert(pageVisits).values({
       visitedAt: new Date(),
       path: normalizeTrackedPath(body.path),
       ipChain,
-      userAgent: userAgent ?? null,
+      userAgent: toNullableString(userAgent, 512),
       referer: toNullableString(referer, 2048),
       language: toNullableString(body.language, 64),
-      screenWidth: body.screenWidth ?? null,
-      screenHeight: body.screenHeight ?? null,
-      viewportWidth: body.viewportWidth ?? null,
-      viewportHeight: body.viewportHeight ?? null,
+      screenWidth: toNullableInteger(body.screenWidth),
+      screenHeight: toNullableInteger(body.screenHeight),
+      viewportWidth: toNullableInteger(body.viewportWidth),
+      viewportHeight: toNullableInteger(body.viewportHeight),
       deviceType: classifyDevice(device),
       browserName: browser.name ?? null,
       browserVersion: browser.version ?? null,
@@ -135,7 +160,10 @@ export async function POST(request: NextRequest) {
 
     return new NextResponse(null, {status: 204})
   } catch (error) {
+    // Previously this also returned 204, so a completely broken database was
+    // invisible: no client signal, no error rate, nothing in the dashboards.
     console.error("Failed to track page visit:", error)
-    return new NextResponse(null, {status: 204})
+    Sentry.captureException(error)
+    return NextResponse.json({error: "Failed to record page view"}, {status: 500})
   }
 }

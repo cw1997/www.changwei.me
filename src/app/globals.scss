@@ -8,8 +8,12 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  // `max-width: 100vw` forced a horizontal scrollbar on Windows/Linux because
+  // `vw` includes the scrollbar gutter. `clip` (rather than `hidden`) still
+  // contains stray overflow without creating a scroll container, so
+  // `position: sticky` keeps working.
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {

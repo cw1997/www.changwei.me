@@ -11,6 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    // No `host` field: it is a deprecated Yandex-era directive that other crawlers
+    // ignore, and it is not part of the MetadataRoute.Robots contract.
   }
 }

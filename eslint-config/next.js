@@ -39,6 +39,11 @@ export const nextJsConfig = [
     rules: {
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs["core-web-vitals"].rules,
+      // Deliberately disabled: the remaining raw <img> tags are small
+      // organisation/skill logos served from the local bundle. They need a
+      // bespoke width/height + object-fit wrapper to be migrated to
+      // next/image safely, so it is tracked as a follow-up rather than
+      // re-enabled blindly. Photos and other content images already use it.
       "@next/next/no-img-element": "off",
     },
   },

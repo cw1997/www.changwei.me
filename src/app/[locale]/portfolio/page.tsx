@@ -173,7 +173,7 @@ export default function PortfolioPage(_props: PageProps<'/[locale]/portfolio'>) 
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
+        <h1 className={styles.title}>{t("title")}</h1>
         <Divider />
         <Space className={styles.list} orientation={"vertical"} size={32}>
           {data.items.map((item) => (

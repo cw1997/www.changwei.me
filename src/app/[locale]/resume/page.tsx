@@ -1,15 +1,22 @@
 "use client"
 
-import styles from "./page.module.sass"
 import {Button, Divider, Space} from "antd"
 import {DownloadOutlined, EyeOutlined, GithubOutlined} from "@ant-design/icons"
 import {OutsideLink} from "@/components/OutsideLink"
-import {url_resume_pdf_mirror, url_resume_pdf_release, url_resume_pdf_source} from "@/data"
+import {
+  url_resume_pdf_mirror,
+  url_resume_pdf_release,
+  url_resume_pdf_source,
+} from "@/data"
 import {useLocale, useTranslations} from "next-intl"
 
-type Props = PageProps<'/[locale]/resume'>
+import styles from "./page.module.sass"
 
-export default function ResumePage(_props: Props) {
+/**
+ * Stays a client component: antd's package barrel calls `createContext` at module
+ * evaluation time, which throws when imported from a server component.
+ */
+export default function ResumePage(_props: PageProps<"/[locale]/resume">) {
   const locale = useLocale()
   const t = useTranslations("resume")
 
@@ -18,31 +25,38 @@ export default function ResumePage(_props: Props) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
+        <h1 className={styles.title}>{t("title")}</h1>
         <Divider />
         <Space wrap size={"large"}>
           <OutsideLink href={resumePdfUrl}>
-            <Button type="primary" icon={<DownloadOutlined />}>{t("download")}</Button>
+            <Button type={"primary"} icon={<DownloadOutlined />}>
+              {t("download")}
+            </Button>
           </OutsideLink>
           <OutsideLink href={url_resume_pdf_release}>
-            <Button type="primary" ghost icon={<GithubOutlined />}>{t("downloadGithub")}</Button>
+            <Button type={"primary"} ghost icon={<GithubOutlined />}>
+              {t("downloadGithub")}
+            </Button>
           </OutsideLink>
           <OutsideLink href={url_resume_pdf_source}>
-            <Button type="default" icon={<EyeOutlined />}>{t("viewSource")}</Button>
+            <Button type={"default"} icon={<EyeOutlined />}>
+              {t("viewSource")}
+            </Button>
           </OutsideLink>
         </Space>
         <div className={styles.resume}>
+          {/*
+            `<object>` gets the native PDF viewer in current browsers. Its content
+            model allows exactly one transparent fallback; the previous markup put
+            an `<embed>` and a `<p>` side by side, so the paragraph was silently
+            dropped wherever the embed rendered.
+          */}
           <object
             className={styles.resume_embed}
             data={resumePdfUrl}
             type="application/pdf"
             aria-label={t("title")}
           >
-            <embed
-              className={styles.resume_embed}
-              src={resumePdfUrl}
-              type="application/pdf"
-            />
             <p className={styles.resume_fallback}>
               {t("inlineUnsupportedTip")}{" "}
               <OutsideLink href={resumePdfUrl}>{t("download")}</OutsideLink>

@@ -14,7 +14,7 @@ export default function GuestbookPage(_props: PageProps<'/[locale]/guestbook'>) 
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
+        <h1 className={styles.title}>{t("title")}</h1>
         <Divider />
         <Giscus
           id="comments"

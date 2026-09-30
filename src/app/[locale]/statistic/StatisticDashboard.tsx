@@ -1,7 +1,7 @@
 "use client"
 
 import React, {useEffect, useState, useCallback, useMemo} from "react"
-import {Card, Spin, Tag, Empty, Grid, Table, Row, Col} from "antd"
+import {Button, Card, Spin, Tag, Empty, Grid, Table, Row, Col} from "antd"
 import {
   LoadingOutlined,
   CodeOutlined,
@@ -91,10 +91,28 @@ async function ensureWorldMapRegistered() {
   }
 }
 
-function formatUpdatedAt(value: string): string {
+const intlLocaleByAppLocale: Record<string, string> = {
+  "en-US": "en-US",
+  "zh-Hans": "zh-CN",
+  "zh-Hant": "zh-TW",
+}
+
+/**
+ * Formats a timestamp with an explicit locale and time zone.
+ *
+ * `toLocaleString()` without arguments resolves from the host environment, so the
+ * server-rendered markup and the first client render disagreed (e.g.
+ * `2024/6/11 21:11:00` vs `6/11/2024, 9:11:00 PM`) and triggered a hydration
+ * mismatch. Pinning both the locale and the zone makes SSR and CSR agree.
+ */
+function formatUpdatedAt(value: string, locale: string): string {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return "-"
-  return date.toLocaleString()
+  return new Intl.DateTimeFormat(intlLocaleByAppLocale[locale] ?? "en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Taipei",
+  }).format(date)
 }
 
 function SqlPanel({
@@ -102,11 +120,13 @@ function SqlPanel({
   executionTimeMs,
   cachedAt,
   fromCache,
+  locale,
 }: {
   sql: string
   executionTimeMs: number
   cachedAt: string
   fromCache: boolean
+  locale: string
 }) {
   return (
     <Card
@@ -114,19 +134,21 @@ function SqlPanel({
       className={styles.sqlPanel}
       title={
         <span>
-          <CodeOutlined /> SQL Query
+          <CodeOutlined aria-hidden={true} /> SQL Query
         </span>
       }
     >
       <div className={styles.sqlMeta}>
         <Tag color="blue" bordered={false}>
-          <ClockCircleOutlined /> {executionTimeMs} ms
+          <ClockCircleOutlined aria-hidden={true} /> {executionTimeMs} ms
         </Tag>
         <Tag color={fromCache ? "green" : "gold"} bordered={false}>
           {fromCache ? "Cached" : "Refreshed"}
         </Tag>
       </div>
-      <div className={styles.updatedAt}>Updated: {formatUpdatedAt(cachedAt)}</div>
+      <div className={styles.updatedAt}>
+        Updated: {formatUpdatedAt(cachedAt, locale)}
+      </div>
       <SyntaxHighlighter
         language="sql"
         style={oneLight}
@@ -151,12 +173,6 @@ function formatTableValue(value: unknown): React.ReactNode {
   }
 
   return String(value)
-}
-
-const intlLocaleByAppLocale: Record<string, string> = {
-  "en-US": "en-US",
-  "zh-Hans": "zh-CN",
-  "zh-Hant": "zh-TW",
 }
 
 function formatDateWithWeekday(value: unknown, locale: string): React.ReactNode {
@@ -337,11 +353,17 @@ function ChartCard({
 }) {
   const screens = Grid.useBreakpoint()
   const isMobile = !screens.md
-  const [result, setResult] = useState<QueryResult | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const locale = useLocale()
+  const [state, setState] = useState<{
+    status: "loading" | "error" | "ready"
+    result: QueryResult | null
+  }>({status: "loading", result: null})
+  const [retryCount, setRetryCount] = useState(0)
   const [worldMapReady, setWorldMapReady] = useState(!requiresWorldMap)
   const [worldMapLoadFailed, setWorldMapLoadFailed] = useState(false)
+
+  const {status, result} = state
+  const loading = status === "loading"
 
   useEffect(() => {
     if (!requiresWorldMap) return
@@ -361,24 +383,39 @@ function ChartCard({
     }
   }, [requiresWorldMap])
 
-  const fetchData = useCallback(async () => {
-    setLoading(true)
-    setError(false)
-    try {
-      const res = await fetch(`/api/statistic?type=${queryType}`)
-      if (!res.ok) throw new Error("fetch failed")
-      const json: QueryResult = await res.json()
-      setResult(json)
-    } catch {
-      setError(true)
-    } finally {
-      setLoading(false)
-    }
-  }, [queryType])
-
+  // Note: no synchronous `setState` here. The previous version called
+  // `setLoading(true)` / `setError(false)` at the top of the effect body, which
+  // triggered a cascading render (react-hooks/set-state-in-effect) and left the
+  // card permanently stuck on "failed" with no way to retry.
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    let active = true
+    const controller = new AbortController()
+
+    ;(async () => {
+      try {
+        const res = await fetch(`/api/statistic?type=${queryType}`, {
+          signal: controller.signal,
+        })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const json: QueryResult = await res.json()
+        if (active) setState({status: "ready", result: json})
+      } catch {
+        // Ignore aborts so unmounting or re-querying does not flash an error.
+        if (active && !controller.signal.aborted) {
+          setState({status: "error", result: null})
+        }
+      }
+    })()
+
+    return () => {
+      active = false
+      controller.abort()
+    }
+  }, [queryType, retryCount])
+
+  const retry = useCallback(() => {
+    setRetryCount((count) => count + 1)
+  }, [])
 
   const chartOption = useMemo(() => {
     if (!result) return null
@@ -398,7 +435,7 @@ function ChartCard({
           <span>
             {icon} {title}
           </span>
-          {result ? <span className={styles.cardUpdatedAt}>Updated: {formatUpdatedAt(result.cachedAt)}</span> : null}
+          {result ? <span className={styles.cardUpdatedAt}>Updated: {formatUpdatedAt(result.cachedAt, locale)}</span> : null}
         </div>
       }
       className={styles.chartCard}
@@ -408,8 +445,13 @@ function ChartCard({
           <Spin indicator={<LoadingOutlined spin />} size="large" />
         </div>
       )}
-      {error && <Empty description="Failed to load data" />}
-      {!loading && !waitingMap && !error && result && (
+      {status === "error" && (
+        <div className={styles.errorState}>
+          <Empty description="Failed to load data" />
+          <Button onClick={retry}>Retry</Button>
+        </div>
+      )}
+      {!loading && !waitingMap && status !== "error" && result && (
         <div className={styles.cardContent}>
           <Row gutter={[isMobile ? 12 : 16, 16]} className={styles.contentRow} align="top">
             <Col xs={24} sm={24} md={14} lg={16} xl={16} className={styles.chartSection}>
@@ -429,6 +471,7 @@ function ChartCard({
               executionTimeMs={result.executionTimeMs}
               cachedAt={result.cachedAt}
               fromCache={result.fromCache}
+              locale={locale}
             />
             {worldMapLoadFailed ? (
               <Tag color="warning" className={styles.mapWarning}>

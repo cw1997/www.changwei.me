@@ -32,7 +32,7 @@ export default async function StatisticPage(_props: Props) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("pageTitle")}</h2>
+        <h1 className={styles.title}>{t("pageTitle")}</h1>
         <hr style={{margin: "0 0 16px", border: 0, borderTop: "1px solid rgba(0, 0, 0, 0.12)"}} />
         <StatisticDashboard />
       </main>

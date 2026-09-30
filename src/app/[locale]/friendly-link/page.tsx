@@ -14,7 +14,7 @@ export default function FriendlyLinkPage(_props: PageProps<'/[locale]/friendly-l
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h2 className={styles.title}>{t("title")}</h2>
+        <h1 className={styles.title}>{t("title")}</h1>
         <hr style={{margin: "0 0 16px", border: 0, borderTop: "1px solid rgba(0, 0, 0, 0.12)"}} />
         <ul className={styles.list}>
           {items.map((item) => (

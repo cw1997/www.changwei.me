@@ -14,10 +14,17 @@ import {useTranslations} from "next-intl"
 
 import styles from "./Footer.module.sass"
 
-export interface IPropsFooter {}
+export interface IPropsFooter {
+  /**
+   * Resolved by the server layout. Computing the year inside this client component
+   * made server and client disagree across a New Year boundary (hydration
+   * mismatch), and doing it in an effect to avoid that is exactly the
+   * cascading-render pattern `react-hooks/set-state-in-effect` rejects.
+   */
+  year: number
+}
 
-export const Footer: React.FunctionComponent<IPropsFooter> = () => {
-  const year = new Date().getFullYear()
+export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
   const t = useTranslations("footer")
 
   return (

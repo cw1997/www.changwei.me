@@ -42,6 +42,6 @@
   &:hover
     border: 1px solid $color-gray-3
 
-@media (prefers-color-scheme: dark)
-  .logo_img
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)
+// The site ships a light theme only (see globals.scss), so an OS dark-mode
+// inversion here turned the Next.js / Vercel wordmarks white-on-light-grey and
+// made them effectively invisible.

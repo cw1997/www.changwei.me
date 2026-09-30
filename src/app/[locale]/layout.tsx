@@ -84,7 +84,7 @@ export default async function LocaleLayout(props: Props) {
         </div>
         <div className={styles.container} id={"container"}>
           {children}
-          <Footer />
+          <Footer year={new Date().getFullYear()} />
           <TrackPageView />
         </div>
       </AntdRegistry>

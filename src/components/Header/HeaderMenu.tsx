@@ -133,6 +133,7 @@ const HeaderMenuDesktop: React.FunctionComponent<{items: MenuItem[]}> = ({
 const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({
   items,
 }) => {
+  const t = useTranslations("nav")
   return (
     <ConfigProvider
       theme={{
@@ -163,7 +164,12 @@ const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({
           styles={{root: {zIndex: 99999}}}
           trigger={["click"]}
         >
-          <Button icon={<MenuOutlined />} size={"large"} />
+          <Button
+            icon={<MenuOutlined aria-hidden={true} />}
+            size={"large"}
+            aria-label={t("menu")}
+            aria-haspopup={"menu"}
+          />
         </Dropdown>
       </div>
     </ConfigProvider>

@@ -22,7 +22,9 @@ export interface IProps extends React.ComponentPropsWithoutRef<"span"> {}
 
 export const Now: React.FC<IProps> = () => {
   const locale = useLocale()
-  const [now, setNow] = useState(dayjs())
+  // `useState(dayjs())` re-evaluated the constructor on every render and threw the
+  // result away after mount. The lazy initializer only runs once.
+  const [now, setNow] = useState(() => dayjs())
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(dayjs()), 1000)
@@ -33,6 +35,8 @@ export const Now: React.FC<IProps> = () => {
   }, [])
 
   const djLocale = dayjsLocaleByAppLocale[locale] ?? "en"
+  // `.locale()` is an instance method, so it does not mutate dayjs's global
+  // locale the way `dayjs.locale()` would.
   const text = now
     .tz("Asia/Taipei")
     .locale(djLocale)

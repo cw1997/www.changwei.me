@@ -20,7 +20,7 @@ $header-narrow-max: 1024px
   backdrop-filter: blur(4px)
   position: fixed
   top: 0
-  z-index: 99998
+  z-index: $z-index-header
   box-sizing: border-box
 
 .main
@@ -135,34 +135,30 @@ $header-narrow-max: 1024px
     //@include link
     text-align: center
 
+// antd v6 renders the bordered box as the `.ant-select` root itself — the old
+// `.ant-select-selector` wrapper and the single-mode `.ant-select-selection-item`
+// no longer exist, so those selectors are dead CSS. Border colours now go through
+// antd's own `--ant-select-border-color` variable (the supported v6 theming hook)
+// and the value text is a direct child of `.ant-select-content`. The `!important`
+// flags are required because antd sets the same variable with a higher-specificity
+// rule; the transparent background and focus ring come from the theme tokens set
+// in `LanguageSwitcher.tsx`.
 .language_switcher
   min-width: 148px
   max-width: 180px
-  :global(.ant-select-selector)
-    border-color: $color-border-0 !important
-    background-color: transparent !important
-    @include transition()
-  &:hover :global(.ant-select-selector)
-    border-color: $color-gray-3 !important
-  &:global(.ant-select-focused:not(.ant-select-disabled)) :global(.ant-select-selector)
-    border-color: $color-font-1 !important
-    box-shadow: 0 0 0 2px rgba($color-font-1, 0.12) !important
-  :global(.ant-select-selection-item)
+  @include transition()
+  &:global(.ant-select-outlined)
+    --ant-select-border-color: #{$color-border-0} !important
+    &:hover:not(:global(.ant-select-disabled))
+      --ant-select-border-color: #{$color-gray-3} !important
+    &:global(.ant-select-focused:not(.ant-select-disabled))
+      --ant-select-border-color: #{$color-font-1} !important
+  :global(.ant-select-content)
     color: $color-font-2
     font-size: 13px
-    line-height: 26px !important
   @include header-narrow()
     min-width: 0 !important
     width: 100%
     max-width: 100%
-    :global(.ant-select-selector)
-      max-width: 100%
-      overflow: hidden
-    :global(.ant-select-selection-item)
+    :global(.ant-select-content)
       font-size: 12px
-      overflow: hidden
-      text-overflow: ellipsis
-
-@media (prefers-color-scheme: dark)
-  .logo_img
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70)

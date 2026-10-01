@@ -161,7 +161,6 @@ const HeaderMenuMobile: React.FunctionComponent<{items: MenuItem[]}> = ({
               ),
             })),
           }}
-          styles={{root: {zIndex: 99999}}}
           trigger={["click"]}
         >
           <Button

@@ -13,14 +13,14 @@ export default function FriendlyLinkPage(_props: PageProps<'/[locale]/friendly-l
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>{t("title")}</h1>
         <hr style={{margin: "0 0 16px", border: 0, borderTop: "1px solid rgba(0, 0, 0, 0.12)"}} />
         <ul className={styles.list}>
           {items.map((item) => (
             <li key={item.name}>
               <div className={styles.item} style={{display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap"}}>
-                <div className={styles.item_icon}>
+                <div>
                   <img
                     style={{width: 16, height: 16, objectFit: "contain"}}
                     src={typeof item.icon === "string" ? item.icon : (item.icon?.src ?? `https://s2.googleusercontent.com/s2/favicons?domain_url=${item.url}`)}

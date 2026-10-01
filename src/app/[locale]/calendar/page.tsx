@@ -190,7 +190,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>{t("pageTitle")}</h1>
         <Divider />
         <Space className={styles.toolbar}>
@@ -245,7 +245,11 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             initialValues={{recipient: "gmail" as Recipient}}
           >
             <Form.Item label={tr("languageLabel")}>
+              {/* This Form.Item has no `name`, so antd renders the <label>
+                  without a `for`, and a `role="radiogroup"` div is not a
+                  labelable element anyway — name the group directly. */}
               <Radio.Group
+                aria-label={tr("languageLabel")}
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as RequestLanguage)}
                 options={languageItems}
@@ -253,6 +257,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
             </Form.Item>
             <Form.Item name="recipient" label={tr("recipientLabel")}>
               <Radio.Group
+                aria-label={tr("recipientLabel")}
                 options={[
                   {label: tr("recipientGmail"), value: "gmail"},
                   {label: tr("recipientQQ"), value: "qq"},
@@ -289,7 +294,6 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
                 min={DURATION_MIN_MINUTES}
                 max={DURATION_MAX_MINUTES}
                 step={DURATION_STEP_MINUTES}
-                addonAfter={tr("messageMinute")}
                 onChange={handleDurationChange}
               />
             </Form.Item>

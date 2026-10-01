@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState, useCallback, useMemo} from "react"
 import {Button, Card, Spin, Tag, Empty, Grid, Table, Row, Col} from "antd"
+import type {TableColumnsType} from "antd"
 import {
   LoadingOutlined,
   CodeOutlined,
@@ -139,10 +140,10 @@ function SqlPanel({
       }
     >
       <div className={styles.sqlMeta}>
-        <Tag color="blue" bordered={false}>
+        <Tag color="blue" variant="filled">
           <ClockCircleOutlined aria-hidden={true} /> {executionTimeMs} ms
         </Tag>
-        <Tag color={fromCache ? "green" : "gold"} bordered={false}>
+        <Tag color={fromCache ? "green" : "gold"} variant="filled">
           {fromCache ? "Cached" : "Refreshed"}
         </Tag>
       </div>
@@ -259,7 +260,16 @@ function ResultTable({
     return Array.from(grouped.values()).sort((a, b) => a.date.localeCompare(b.date))
   }, [data, queryType])
 
-  const columns = useMemo(() => {
+  // Every query groups by its first column (date / language / browser_name / …),
+  // which makes that column a natural, stable row identity. Deriving `rowKey`
+  // from it keeps rows stable across refetches instead of keying on the array
+  // position, which antd no longer guarantees.
+  const rowKeyField = useMemo(() => {
+    if (queryType === "dailyVisits") return "date"
+    return Object.keys(tableData[0] ?? {})[0] ?? "key"
+  }, [queryType, tableData])
+
+  const columns = useMemo<TableColumnsType<Record<string, unknown>>>(() => {
     if (queryType === "dailyVisits") {
       return [
         {
@@ -317,7 +327,7 @@ function ResultTable({
           size="small"
           columns={columns}
           dataSource={tableData}
-          rowKey={(_, index) => String(index)}
+          rowKey={rowKeyField}
           pagination={
             tableData.length > 7
               ? {

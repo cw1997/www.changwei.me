@@ -60,7 +60,9 @@
 .tablePanel
   height: 100%
 
-  :global(.ant-card)
+  // `styles.tablePanel` is antd Card's own `className`, so it lands on the same
+  // element as `.ant-card` — a nested `.ant-card` selector would never match.
+  &:global(.ant-card)
     height: 100%
 
   :global(.ant-card-body)
@@ -87,6 +89,15 @@
   font-size: 12px
   color: #6b7280
 
+// Kept outside the `max-width: 992px` block on purpose: the failure state used to
+// render completely unstyled on desktop.
+.errorState
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 8px
+  padding: 48px 0
+
 @media (max-width: 992px)
   .dashboard
     gap: 16px
@@ -102,23 +113,12 @@
 
     :global(.ant-card-body)
       padding: 12px
-      padding-top: 12px
 
   .loading
     height: 320px
 
-  .errorState
-    display: flex
-    flex-direction: column
-    align-items: center
-    gap: 8px
-    padding: 48px 0
-
   .cardContent
     gap: 12px
-
-  .contentRow
-    margin-bottom: 0
 
   .tablePanel
     :global(.ant-table-content)
@@ -126,13 +126,6 @@
       -webkit-overflow-scrolling: touch
 
   .sqlPanel
-    position: static
-
     :global(pre)
       overflow-x: auto
       -webkit-overflow-scrolling: touch
-
-@media (prefers-color-scheme: dark)
-  .cardUpdatedAt,
-  .updatedAt
-    color: #9ca3af

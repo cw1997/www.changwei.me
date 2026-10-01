@@ -30,8 +30,8 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
   return (
     <footer className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.text}>
-          <p className={styles.copyright}>
+        <div>
+          <p>
             {t("copyright", {year})}
           </p>
           <div className={styles.nerd_info}>
@@ -45,7 +45,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
                 Apache License, Version 2.0 (Apache 2.0)
               </OutsideLink>
             </p>
-            <p className={styles.copyright_github}>
+            <p>
               <GithubOutlined /> {t("githubRepo")}{" "}
               <OutsideLink href={"https://github.com/cw1997/www.changwei.me"} />
             </p>
@@ -72,7 +72,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
           </div>
         </div>
         <Divider />
-        <div className={styles.powered_by}>
+        <div>
           <Space
             align={"center"}
             className={styles.powered_by_list}
@@ -82,25 +82,25 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
             <div className={styles.powered_by_item}>
               {t("poweredBy")}
               <OutsideLink className={styles.logo} href={"https://nextjs.org/"}>
-                <Image src={next_logo} alt="NextJS Logo" className={styles.logo_img} height={16} />
+                <Image src={next_logo} alt="NextJS Logo" height={16} />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
               {t("hostedOn")}
               <OutsideLink className={styles.logo} href={"https://vercel.com"}>
-                <Image src={vercel_logo} alt="Vercel Logo" className={styles.logo_img} height={16} />
+                <Image src={vercel_logo} alt="Vercel Logo" height={16} />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
               {t("cdn")}
               <OutsideLink className={styles.logo} href={"https://cloudflare.com"}>
-                <Image src={cloudflare_logo} alt="CloudFlare Logo" className={styles.logo_img} height={32} />
+                <Image src={cloudflare_logo} alt="CloudFlare Logo" height={32} />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
               {t("database")}
               <OutsideLink className={styles.logo} href={"https://tidbcloud.com"}>
-                <Image src={tidb_cloud_logo} alt="TiDB Cloud Logo" className={styles.logo_img} height={32} />
+                <Image src={tidb_cloud_logo} alt="TiDB Cloud Logo" height={32} />
               </OutsideLink>
             </div>
           </Space>

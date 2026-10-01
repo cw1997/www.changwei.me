@@ -6,16 +6,16 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@next/env@16.3.1 || 16.3.6'
-  - '@next/eslint-plugin-next@16.3.1 || 16.3.6'
-  - '@next/swc-darwin-arm64@16.3.1 || 16.3.6'
-  - '@next/swc-darwin-x64@16.3.1 || 16.3.6'
-  - '@next/swc-linux-arm64-gnu@16.3.1 || 16.3.6'
-  - '@next/swc-linux-arm64-musl@16.3.1 || 16.3.6'
-  - '@next/swc-linux-x64-gnu@16.3.1 || 16.3.6'
-  - '@next/swc-linux-x64-musl@16.3.1 || 16.3.6'
-  - '@next/swc-win32-arm64-msvc@16.3.1 || 16.3.6'
-  - '@next/swc-win32-x64-msvc@16.3.1 || 16.3.6'
+  - '@next/env@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/eslint-plugin-next@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-darwin-arm64@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-darwin-x64@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-linux-arm64-gnu@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-linux-arm64-musl@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-linux-x64-gnu@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-linux-x64-musl@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-win32-arm64-msvc@16.3.1 || 16.3.6 || 16.3.8'
+  - '@next/swc-win32-x64-msvc@16.3.1 || 16.3.6 || 16.3.8'
   - '@storybook/addon-a11y@10.5.8 || 10.6.1'
   - '@storybook/addon-docs@10.5.8 || 10.6.1'
   - '@storybook/addon-onboarding@10.5.8 || 10.6.1'
@@ -26,9 +26,9 @@ minimumReleaseAgeExclude:
   - '@storybook/react-dom-shim@10.5.8 || 10.6.1'
   - '@storybook/react-vite@10.5.8 || 10.6.1'
   - '@storybook/react@10.5.8 || 10.6.1'
-  - eslint-config-next@16.3.1 || 16.3.6
+  - eslint-config-next@16.3.1 || 16.3.6 || 16.3.8
   - eslint-plugin-storybook@10.5.8 || 10.6.1
-  - next@16.3.1 || 16.3.6
+  - next@16.3.1 || 16.3.6 || 16.3.8
   - storybook@10.5.8 || 10.6.1
   - '@sentry/browser-utils@10.74.0 || 10.75.2'
   - '@sentry/browser@10.74.0 || 10.75.2'
@@ -56,7 +56,7 @@ minimumReleaseAgeExclude:
   - antd@6.6.5
   - drizzle-kit@0.31.11
   - drizzle-orm@0.45.3
-  - eslint-plugin-turbo@2.11.3 || 2.11.4
+  - eslint-plugin-turbo@2.11.3 || 2.11.4 || 2.11.6
   - jsdom@30.1.1
   - sass@1.105.0 || 1.105.1
   - '@vitest/browser-playwright@5.0.3'
@@ -70,3 +70,5 @@ minimumReleaseAgeExclude:
   - mysql2@3.24.5
   - vite-plugin-storybook-nextjs@10.6.1
   - vitest@5.0.3
+  - '@chromatic-com/storybook@5.4.0'
+  - globals@17.13.0

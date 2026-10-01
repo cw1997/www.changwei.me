@@ -129,7 +129,7 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
   const tDetail = useTranslations("roleDetail")
 
   return (
-    <div className={styles.container}>
+    <div>
       <h2 className={styles.title}>{t("role")}</h2>
       <Space orientation={"vertical"} size={24}>
         {data.map((category) => {
@@ -149,7 +149,7 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
                     <Col key={`${category.nameKey}-${index}`} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
                       <div className={styles.item}>
                         <Space align={"start"}>
-                          <div className={styles.item_icon}>{item.icon}</div>
+                          <div>{item.icon}</div>
                           <div className={styles.item_info}>
                             {item.url ? (
                               <OutsideLink href={item.url} className={styles.item_info_name}>

@@ -217,13 +217,13 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = () => {
   const tSkill = useTranslations("skill")
 
   return (
-    <div className={styles.container}>
+    <div>
       <h2 className={styles.title}>{tSection("skill")}</h2>
       <Space orientation={"vertical"} size={16} style={{width: "100%"}}>
         {data.map((category) => (
-          <div key={category.category_key} className={styles.category}>
+          <div key={category.category_key}>
             <h3 className={styles.category_name}>{tSkill(category.category_key)}</h3>
-            <Space className={styles.category_skills} size={8} wrap>
+            <Space size={8} wrap>
               {category.skills.map((skill) => (
                 skill.icon.src ? (
                   <Tooltip key={skill.name} title={skill.name} placement={"top"}>

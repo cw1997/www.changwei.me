@@ -37,7 +37,7 @@ export const ExperienceSection: React.FunctionComponent<
   const data = getExperienceData(safeLocale, tExperience)
 
   return (
-    <div className={styles.container}>
+    <div>
       <h2 className={styles.title}>{t("experience")}</h2>
       <Space orientation={"vertical"} size={32} style={{width: "100%"}}>
         {data.map((category) => (

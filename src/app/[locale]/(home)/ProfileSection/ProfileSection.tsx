@@ -117,15 +117,15 @@ function PhotoExifValue({t}: {t: (key: string) => string}) {
   )
 }
 
-export interface IPropsSkillSection {}
+export interface IPropsProfileSection {}
 
-export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () => {
+export const ProfileSection: React.FunctionComponent<IPropsProfileSection> = () => {
   const t = useTranslations("profile")
   const profile = getProfileRows(t)
 
   return (
     <div className={styles.profile}>
-      <div className={styles.profile_info}>
+      <div>
         <Space className={styles.profile_info_name} wrap>
           <div className={styles.profile_info_name_key}>{t("trueName")}</div>
           <h1 className={styles.profile_info_name_value}>
@@ -187,12 +187,12 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
             ))}
           </tbody>
         </table>
-        <div className={styles.profile_contact}>
+        <div>
           <Space
             className={styles.profile_contact_list}
             separator={<Divider orientation={"vertical"} />}
           >
-            <div className={styles.profile_contact_list_item}>
+            <div>
               <span className={styles.profile_contact_list_item_key}>
                 <MailOutlined /> {t("emailGlobal")}{" "}
               </span>
@@ -202,7 +202,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
                 </a>
               </span>
             </div>
-            <div className={styles.profile_contact_list_item}>
+            <div>
               <span className={styles.profile_contact_list_item_key}>
                 <MailOutlined /> {t("emailChina")}{" "}
               </span>
@@ -218,7 +218,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
             orientation={"vertical"}
             wrap
           >
-            <div className={styles.profile_location_list_item}>
+            <div>
               <div className={styles.profile_location_list_item_key}>
                 <EnvironmentOutlined /> {t("addressEnLabel")}{" "}
               </div>
@@ -228,7 +228,7 @@ export const ProfileSection: React.FunctionComponent<IPropsSkillSection> = () =>
                 </OutsideLink>
               </div>
             </div>
-            <div className={styles.profile_location_list_item}>
+            <div>
               <div className={styles.profile_location_list_item_key}>
                 <EnvironmentOutlined /> {t("addressZhLabel")}{" "}
               </div>

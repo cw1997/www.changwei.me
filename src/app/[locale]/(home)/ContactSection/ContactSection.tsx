@@ -251,11 +251,11 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
   const tc = useTranslations("contact")
 
   return (
-    <div className={styles.container}>
+    <div>
       <h2 className={styles.title}>{t("socialAndContact")}</h2>
       <Space orientation={"vertical"} size={16}>
         {data.map((category) => (
-          <div key={category.category_key} className={styles.category}>
+          <div key={category.category_key}>
             <h3 className={styles.category_name}>{t(category.category_key)}</h3>
             <Space className={styles.list} size={8} wrap>
               {category.items.map((item) => {
@@ -264,7 +264,7 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
                 const triggerHref = item.url ?? item.qrcode_image_url
                 const triggerBody = (
                   <>
-                    <div className={styles.item_icon}>{item.icon}</div>
+                    <div>{item.icon}</div>
                     <div className={styles.item_info}>
                       <div className={styles.item_info_contact}>{contactText}</div>
                       {item.note && <div className={styles.item_info_note}>{item.note}</div>}
@@ -282,7 +282,7 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
                       </Space>
                     }
                     content={
-                      <Space orientation={"vertical"} className={styles.item_popup}>
+                      <Space orientation={"vertical"}>
                         <Typography.Text copyable>{contactText}</Typography.Text>
                         {item.url && (
                           <Space orientation={"vertical"}>

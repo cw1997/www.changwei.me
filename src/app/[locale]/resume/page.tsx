@@ -24,7 +24,7 @@ export default function ResumePage(_props: PageProps<"/[locale]/resume">) {
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>{t("title")}</h1>
         <Divider />
         <Space wrap size={"large"}>

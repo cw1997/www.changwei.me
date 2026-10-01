@@ -5,6 +5,12 @@ $size-padding-page: 24px
 $size-padding-top-page: $size-height-header + $size-height-navbar
 $size-height-page: calc(100vh - #{$size-padding-top-page})
 
+//z-index
+// Fixed header layer. Must stay well below antd's `zIndexPopupBase` (1000) so
+// that Select popups, Dropdowns, Tooltips and Modals — which antd portals to
+// <body> — are painted above the header instead of being trapped under it.
+$z-index-header: 100
+
 //color
 $gray-1 : #ffffff
 $gray-2 : #fafafa

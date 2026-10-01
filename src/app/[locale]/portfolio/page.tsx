@@ -172,13 +172,13 @@ export default function PortfolioPage(_props: PageProps<'/[locale]/portfolio'>) 
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>{t("title")}</h1>
         <Divider />
         <Space className={styles.list} orientation={"vertical"} size={32}>
           {data.items.map((item) => (
             <div key={item.name} className={styles.item}>
-              <div className={styles.item_icon}>
+              <div>
                 <img
                   style={{width: 64, height: 64, objectFit: "contain"}}
                   src={item.icon.src}

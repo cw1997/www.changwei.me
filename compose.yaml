@@ -1,9 +1,11 @@
 name: changwei-homepage
 
 services:
-  changwei-homepage:
-    image: ${CHANGWEI_IMAGE:-changwei-homepage:latest}
+  changwei-homepage-nextjs:
+    image: changwei-homepage:latest
     container_name: changwei-homepage
+    env_file:
+      - .env
     ports:
       - "1997:1997"
     restart: unless-stopped

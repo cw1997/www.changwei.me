@@ -3,9 +3,9 @@
 # ============================================
 
 # IMPORTANT: Node.js Version Maintenance
-# This Dockerfile uses Node.js 24.13.0-slim, which was the latest LTS version at the time of writing.
+# This Dockerfile uses Node.js 26-slim, which was the latest LTS version at the time of writing.
 # To ensure security and compatibility, regularly update the NODE_VERSION ARG to the latest LTS version.
-ARG NODE_VERSION=24-slim
+ARG NODE_VERSION=26-slim
 ARG PORT=3000
 
 FROM node:${NODE_VERSION} AS dependencies
@@ -23,9 +23,9 @@ RUN --mount=type=cache,target=/root/.npm \
   if [ -f package-lock.json ]; then \
     npm ci --no-audit --no-fund; \
   elif [ -f yarn.lock ]; then \
-    corepack enable yarn && yarn install --frozen-lockfile --production=false; \
+    npm install -g yarn && yarn install --frozen-lockfile --production=false; \
   elif [ -f pnpm-lock.yaml ]; then \
-    corepack enable pnpm && pnpm install --frozen-lockfile; \
+    npm install -g pnpm && pnpm install --frozen-lockfile; \
   else \
     echo "No lockfile found." && exit 1; \
   fi
@@ -61,9 +61,9 @@ ENV NODE_ENV=production
 RUN if [ -f package-lock.json ]; then \
     npm run build; \
   elif [ -f yarn.lock ]; then \
-    corepack enable yarn && yarn build; \
+    npm install -g yarn && yarn build; \
   elif [ -f pnpm-lock.yaml ]; then \
-    corepack enable pnpm && pnpm build; \
+    npm install -g pnpm && pnpm build; \
   else \
     echo "No lockfile found." && exit 1; \
   fi

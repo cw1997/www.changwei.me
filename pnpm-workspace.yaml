@@ -48,10 +48,10 @@ minimumReleaseAgeExclude:
   - react-dom@19.3.0
   - react@19.3.0
   - scheduler@0.28.0
-  - icu-minify@4.14.3 || 4.14.6 || 4.14.7
-  - next-intl-swc-plugin-extractor@4.14.3 || 4.14.6 || 4.14.7
-  - next-intl@4.14.3 || 4.14.6 || 4.14.7
-  - use-intl@4.14.3 || 4.14.6 || 4.14.7
+  - icu-minify@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
+  - next-intl-swc-plugin-extractor@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
+  - next-intl@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
+  - use-intl@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
   - vite@8.3.0 || 8.3.1
   - antd@6.6.5
   - drizzle-kit@0.31.11
@@ -72,3 +72,4 @@ minimumReleaseAgeExclude:
   - vitest@5.0.3
   - '@chromatic-com/storybook@5.4.0'
   - globals@17.13.0
+  - '@types/node@26.6.4 || 26.6.5'

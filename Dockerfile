@@ -78,7 +78,6 @@ RUN if [ -f package-lock.json ]; then \
 # ============================================
 
 FROM node:${NODE_VERSION} AS runner
-ARG PORT=3000
 
 # Set working directory
 WORKDIR /app

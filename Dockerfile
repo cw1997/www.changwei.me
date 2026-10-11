@@ -6,9 +6,12 @@
 # This Dockerfile uses Node.js 26-slim, which was the latest LTS version at the time of writing.
 # To ensure security and compatibility, regularly update the NODE_VERSION ARG to the latest LTS version.
 ARG NODE_VERSION=26-slim
+ARG PNPM_VERSION=12.11.2
 ARG PORT=3000
 
 FROM node:${NODE_VERSION} AS dependencies
+# Global ARGs are reset after each FROM, so re-declare the ones used in this stage.
+ARG PNPM_VERSION
 
 # Set working directory
 WORKDIR /app
@@ -25,7 +28,7 @@ RUN --mount=type=cache,target=/root/.npm \
   elif [ -f yarn.lock ]; then \
     npm install -g yarn && yarn install --frozen-lockfile --production=false; \
   elif [ -f pnpm-lock.yaml ]; then \
-    npm install -g pnpm && pnpm install --frozen-lockfile; \
+    npm install -g pnpm@${PNPM_VERSION} && pnpm install --frozen-lockfile; \
   else \
     echo "No lockfile found." && exit 1; \
   fi
@@ -35,6 +38,8 @@ RUN --mount=type=cache,target=/root/.npm \
 # ============================================
 
 FROM node:${NODE_VERSION} AS builder
+# Global ARGs are reset after each FROM, so re-declare the ones used in this stage.
+ARG PNPM_VERSION
 
 # Set working directory
 WORKDIR /app
@@ -63,7 +68,7 @@ RUN if [ -f package-lock.json ]; then \
   elif [ -f yarn.lock ]; then \
     npm install -g yarn && yarn build; \
   elif [ -f pnpm-lock.yaml ]; then \
-    npm install -g pnpm && pnpm build; \
+    npm install -g pnpm@${PNPM_VERSION} && pnpm build; \
   else \
     echo "No lockfile found." && exit 1; \
   fi

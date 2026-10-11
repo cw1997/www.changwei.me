@@ -1,11 +1,31 @@
+# Deployed to production.lan by the Jenkinsfile at $DEPLOY_DIR/compose.yaml.
+# The image tag managed by the pipeline is always ":latest"; ":old" holds the
+# previous release during a deploy and is removed once the new one is healthy.
+#
+# The host is expected to already provide a `.env` next to this file (env_file
+# below). The pipeline never ships secrets.
 name: changwei-homepage
 
 services:
   changwei-homepage-nextjs:
-    image: changwei-homepage:latest
-    container_name: changwei-homepage
+    image: changwei-homepage-nextjs:latest
+    container_name: changwei-homepage-nextjs
+    restart: unless-stopped
     env_file:
       - .env
+    environment:
+      # The image defaults to PORT=3000; pin it so the container listens on the
+      # port that is published and probed below. `environment` wins over .env.
+      PORT: "1997"
     ports:
       - "1997:1997"
-    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "require('http').get('http://127.0.0.1:1997', r => process.exit(r.statusCode >= 200 && r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      start_period: 15s
+      retries: 6

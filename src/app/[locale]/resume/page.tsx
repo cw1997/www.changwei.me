@@ -45,23 +45,11 @@ export default function ResumePage(_props: PageProps<"/[locale]/resume">) {
           </OutsideLink>
         </Space>
         <div className={styles.resume}>
-          {/*
-            `<object>` gets the native PDF viewer in current browsers. Its content
-            model allows exactly one transparent fallback; the previous markup put
-            an `<embed>` and a `<p>` side by side, so the paragraph was silently
-            dropped wherever the embed rendered.
-          */}
-          <object
+          <iframe
             className={styles.resume_embed}
-            data={resumePdfUrl}
-            type="application/pdf"
-            aria-label={t("title")}
-          >
-            <p className={styles.resume_fallback}>
-              {t("inlineUnsupportedTip")}{" "}
-              <OutsideLink href={resumePdfUrl}>{t("download")}</OutsideLink>
-            </p>
-          </object>
+            src={resumePdfUrl}
+            title={t("title")}
+          />
         </div>
       </main>
     </div>

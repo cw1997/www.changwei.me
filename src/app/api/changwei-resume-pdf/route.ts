@@ -3,8 +3,6 @@ import {url_resume_pdf_github, url_resume_pdf_github_english} from "@/data"
 
 export const dynamic = "force-dynamic"
 
-const PDF_REVALIDATE_SECONDS = 3600
-
 function isChineseLocale(locale: string): boolean {
   return locale === "zh-Hans" || locale === "zh-Hant"
 }
@@ -18,7 +16,9 @@ export async function GET(request: Request) {
     const filename = isChinese ? "changwei-resume.pdf" : "changwei-resume-english.pdf"
 
     const res = await fetch(pdfUrl, {
-      next: {revalidate: PDF_REVALIDATE_SECONDS},
+      // Cache the response at the CDN, without depending on a writable Next.js
+      // data cache in the standalone deployment.
+      cache: "no-store",
     })
 
     if (!res.ok) {
@@ -35,12 +35,9 @@ export async function GET(request: Request) {
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
     })
 
-    const upstreamContentLength = res.headers?.get?.("content-length")
-    if (upstreamContentLength) {
-      headers.set("Content-Length", upstreamContentLength)
-    }
-
-    const responseBody = res.body ?? (await res.arrayBuffer())
+    // Finish reading before sending headers so upstream read errors are caught.
+    const responseBody = await res.arrayBuffer()
+    headers.set("Content-Length", String(responseBody.byteLength))
     return new NextResponse(responseBody, {headers})
   } catch (err) {
     console.error("Proxy error:", err)

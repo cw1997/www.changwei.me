@@ -16,33 +16,33 @@ minimumReleaseAgeExclude:
   - '@next/swc-linux-x64-musl@16.3.1 || 16.3.6 || 16.3.8'
   - '@next/swc-win32-arm64-msvc@16.3.1 || 16.3.6 || 16.3.8'
   - '@next/swc-win32-x64-msvc@16.3.1 || 16.3.6 || 16.3.8'
-  - '@storybook/addon-a11y@10.5.8 || 10.6.1'
-  - '@storybook/addon-docs@10.5.8 || 10.6.1'
-  - '@storybook/addon-onboarding@10.5.8 || 10.6.1'
-  - '@storybook/addon-vitest@10.5.8 || 10.6.1'
-  - '@storybook/builder-vite@10.5.8 || 10.6.1'
+  - '@storybook/addon-a11y@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/addon-docs@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/addon-onboarding@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/addon-vitest@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/builder-vite@10.5.8 || 10.6.1 || 10.6.2'
   - '@storybook/csf-plugin@10.5.8'
-  - '@storybook/nextjs-vite@10.5.8 || 10.6.1'
-  - '@storybook/react-dom-shim@10.5.8 || 10.6.1'
-  - '@storybook/react-vite@10.5.8 || 10.6.1'
-  - '@storybook/react@10.5.8 || 10.6.1'
+  - '@storybook/nextjs-vite@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/react-dom-shim@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/react-vite@10.5.8 || 10.6.1 || 10.6.2'
+  - '@storybook/react@10.5.8 || 10.6.1 || 10.6.2'
   - eslint-config-next@16.3.1 || 16.3.6 || 16.3.8
-  - eslint-plugin-storybook@10.5.8 || 10.6.1
+  - eslint-plugin-storybook@10.5.8 || 10.6.1 || 10.6.2
   - next@16.3.1 || 16.3.6 || 16.3.8
-  - storybook@10.5.8 || 10.6.1
-  - '@sentry/browser-utils@10.74.0 || 10.75.2'
-  - '@sentry/browser@10.74.0 || 10.75.2'
-  - '@sentry/core@10.74.0 || 10.75.2'
-  - '@sentry/feedback@10.74.0 || 10.75.2'
-  - '@sentry/nextjs@10.74.0 || 10.75.2'
+  - storybook@10.5.8 || 10.6.1 || 10.6.2
+  - '@sentry/browser-utils@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/browser@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/core@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/feedback@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/nextjs@10.74.0 || 10.75.2 || 11.7.0'
   - '@sentry/node-core@10.74.0 || 10.75.2'
-  - '@sentry/node@10.74.0 || 10.75.2'
-  - '@sentry/opentelemetry@10.74.0 || 10.75.2'
-  - '@sentry/react@10.74.0 || 10.75.2'
-  - '@sentry/replay-canvas@10.74.0 || 10.75.2'
-  - '@sentry/replay@10.74.0 || 10.75.2'
-  - '@sentry/server-utils@10.74.0 || 10.75.2'
-  - '@sentry/vercel-edge@10.74.0 || 10.75.2'
+  - '@sentry/node@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/opentelemetry@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/react@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/replay-canvas@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/replay@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/server-utils@10.74.0 || 10.75.2 || 11.7.0'
+  - '@sentry/vercel-edge@10.74.0 || 10.75.2 || 11.7.0'
   - '@types/react-dom@19.3.0'
   - '@types/react@19.3.0'
   - react-dom@19.3.0
@@ -53,23 +53,37 @@ minimumReleaseAgeExclude:
   - next-intl@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
   - use-intl@4.14.3 || 4.14.6 || 4.14.7 || 4.14.9
   - vite@8.3.0 || 8.3.1
-  - antd@6.6.5
+  - antd@6.6.5 || 6.6.6
   - drizzle-kit@0.31.11
   - drizzle-orm@0.45.3
   - eslint-plugin-turbo@2.11.3 || 2.11.4 || 2.11.6
   - jsdom@30.1.1
   - sass@1.105.0 || 1.105.1
-  - '@vitest/browser-playwright@5.0.3'
-  - '@vitest/browser@5.0.3'
-  - '@vitest/coverage-v8@5.0.3'
-  - '@vitest/mocker@5.0.3'
-  - '@vitest/pretty-format@5.0.3'
-  - '@vitest/spy@5.0.3'
-  - '@vitest/ui@5.0.3'
-  - '@vitest/utils@5.0.3'
+  - '@vitest/browser-playwright@5.0.3 || 5.0.4'
+  - '@vitest/browser@5.0.3 || 5.0.4'
+  - '@vitest/coverage-v8@5.0.3 || 5.0.4'
+  - '@vitest/mocker@5.0.3 || 5.0.4'
+  - '@vitest/pretty-format@5.0.3 || 5.0.4'
+  - '@vitest/spy@5.0.3 || 5.0.4'
+  - '@vitest/ui@5.0.3 || 5.0.4'
+  - '@vitest/utils@5.0.3 || 5.0.4'
   - mysql2@3.24.5
-  - vite-plugin-storybook-nextjs@10.6.1
-  - vitest@5.0.3
-  - '@chromatic-com/storybook@5.4.0'
+  - vite-plugin-storybook-nextjs@10.6.1 || 10.6.2
+  - vitest@5.0.3 || 5.0.4
+  - '@chromatic-com/storybook@5.4.0 || 5.5.0 || 5.5.1'
   - globals@17.13.0
   - '@types/node@26.6.4 || 26.6.5'
+  - '@sentry/bundler-plugins@11.7.0'
+  - '@sentry/cloudflare@11.7.0'
+  - '@sentry/server-runtime-injection@11.7.0'
+  - '@typescript-eslint/eslint-plugin@8.71.2'
+  - '@typescript-eslint/parser@8.71.2'
+  - '@typescript-eslint/project-service@8.71.2'
+  - '@typescript-eslint/scope-manager@8.71.2'
+  - '@typescript-eslint/tsconfig-utils@8.71.2'
+  - '@typescript-eslint/type-utils@8.71.2'
+  - '@typescript-eslint/types@8.71.2'
+  - '@typescript-eslint/typescript-estree@8.71.2'
+  - '@typescript-eslint/utils@8.71.2'
+  - '@typescript-eslint/visitor-keys@8.71.2'
+  - typescript-eslint@8.71.2

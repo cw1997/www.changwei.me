@@ -12,7 +12,7 @@ import type {Locale} from "@/i18n/routing"
 import {buildLocalizedMetadata} from "@/lib/seo"
 import styles from "./layout.module.sass"
 
-type Props = LayoutProps<'/[locale]'>
+type Props = LayoutProps<"/[locale]">
 
 const baseSiteKeywords = [
   "Chang Wei",

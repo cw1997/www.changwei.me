@@ -135,19 +135,51 @@ const v2exIcon = (
 )
 
 const socialItems: ItemDef[] = [
-  {labelKey: "facebook", icon: <FacebookOutlined />, contact: "changwei1006", url: "https://www.facebook.com/changwei1006/"},
+  {
+    labelKey: "facebook",
+    icon: <FacebookOutlined />,
+    contact: "changwei1006",
+    url: "https://www.facebook.com/changwei1006/",
+  },
   {
     labelKey: "instagram",
     icon: <InstagramOutlined />,
     contact: "changwei1997",
     url: "https://instagram.com/changwei1997",
-    content: <img src={instagram_qrcode_image_url.src} alt="https://instagram.com/changwei1997" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={instagram_qrcode_image_url.src}
+        alt="https://instagram.com/changwei1997"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: instagram_qrcode_image_url.src,
   },
-  {labelKey: "x", icon: <XOutlined />, contact: "changwei1006", url: "https://twitter.com/changwei1006"},
-  {labelKey: "threads", icon: <FontAwesomeIcon icon={faThreads} />, contact: "changwei1997", url: "https://www.threads.net/@changwei1997"},
-  {labelKey: "github", icon: <GithubOutlined />, contact: "cw1997", url: "https://github.com/cw1997"},
-  {labelKey: "gitlab", icon: <GitlabOutlined />, contact: "cw1997", url: "https://gitlab.com/cw1997"},
+  {
+    labelKey: "x",
+    icon: <XOutlined />,
+    contact: "changwei1006",
+    url: "https://twitter.com/changwei1006",
+  },
+  {
+    labelKey: "threads",
+    icon: <FontAwesomeIcon icon={faThreads} />,
+    contact: "changwei1997",
+    url: "https://www.threads.net/@changwei1997",
+  },
+  {
+    labelKey: "github",
+    icon: <GithubOutlined />,
+    contact: "cw1997",
+    url: "https://github.com/cw1997",
+  },
+  {
+    labelKey: "gitlab",
+    icon: <GitlabOutlined />,
+    contact: "cw1997",
+    url: "https://gitlab.com/cw1997",
+  },
   {
     labelKey: "linkedin",
     icon: <LinkedinOutlined />,
@@ -160,15 +192,52 @@ const socialItems: ItemDef[] = [
     icon: <ZhihuOutlined />,
     contact: "changwei1006",
     url: "https://www.zhihu.com/people/changwei1006",
-    content: <img src={zhihu_qrcode_image_url.src} alt="https://www.zhihu.com/people/changwei1006" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={zhihu_qrcode_image_url.src}
+        alt="https://www.zhihu.com/people/changwei1006"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: zhihu_qrcode_image_url.src,
   },
-  {labelKey: "segmentfault", icon: segmentfaultIcon, contact: "changwei", url: "https://segmentfault.com/u/changwei"},
-  {labelKey: "weibo", icon: <WeiboOutlined />, contact: "changweicw", url: "https://weibo.com/changweicw"},
-  {labelKey: "douban", icon: doubanIcon, contact: "UID: 27225472", url: "https://www.douban.com/people/27225472/?_i=9769701ynDeuaL"},
-  {labelKey: "v2ex", icon: v2exIcon, contact: "changwei", url: "https://www.v2ex.com/member/changwei"},
-  {labelKey: "bilibili", icon: <BilibiliOutlined />, contact: "UID: 4654368", url: "https://space.bilibili.com/4654368"},
-  {labelKey: "youtube", icon: <YoutubeOutlined />, contact: "changwei1006", url: "https://www.youtube.com/@changwei1006"},
+  {
+    labelKey: "segmentfault",
+    icon: segmentfaultIcon,
+    contact: "changwei",
+    url: "https://segmentfault.com/u/changwei",
+  },
+  {
+    labelKey: "weibo",
+    icon: <WeiboOutlined />,
+    contact: "changweicw",
+    url: "https://weibo.com/changweicw",
+  },
+  {
+    labelKey: "douban",
+    icon: doubanIcon,
+    contact: "UID: 27225472",
+    url: "https://www.douban.com/people/27225472/?_i=9769701ynDeuaL",
+  },
+  {
+    labelKey: "v2ex",
+    icon: v2exIcon,
+    contact: "changwei",
+    url: "https://www.v2ex.com/member/changwei",
+  },
+  {
+    labelKey: "bilibili",
+    icon: <BilibiliOutlined />,
+    contact: "UID: 4654368",
+    url: "https://space.bilibili.com/4654368",
+  },
+  {
+    labelKey: "youtube",
+    icon: <YoutubeOutlined />,
+    contact: "changwei1006",
+    url: "https://www.youtube.com/@changwei1006",
+  },
 ]
 
 const imItems: ItemDef[] = [
@@ -176,7 +245,14 @@ const imItems: ItemDef[] = [
     labelKey: "wechat",
     icon: <WechatOutlined />,
     contact: "changwei1006",
-    content: <img src={wechat_qrcode_image_url.src} alt="changwei1006" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={wechat_qrcode_image_url.src}
+        alt="changwei1006"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: wechat_qrcode_image_url.src,
   },
   {
@@ -184,31 +260,70 @@ const imItems: ItemDef[] = [
     icon: <FontAwesomeIcon icon={faTelegram} />,
     contact: "changwei1006",
     url: "https://t.me/changwei1006",
-    content: <img src={telegram_qrcode_image_url.src} alt="changwei1006" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={telegram_qrcode_image_url.src}
+        alt="changwei1006"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: telegram_qrcode_image_url.src,
   },
   {
     labelKey: "qq",
     icon: <QqOutlined />,
     contact: "867597730",
-    content: <img src={qq_qrcode_image_url.src} alt="867597730" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={qq_qrcode_image_url.src}
+        alt="867597730"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: qq_qrcode_image_url.src,
   },
-  {labelKey: "emailGlobal", icon: <MailOutlined />, contact: "changwei1006@gmail.com", url: "mailto:changwei1006@gmail.com"},
-  {labelKey: "emailChina", icon: <MailOutlined />, contact: "changwei1006@qq.com", url: "mailto:changwei1006@qq.com"},
-  {labelKey: "messenger", icon: <FontAwesomeIcon icon={faFacebookMessenger} />, contact: "changwei1006", url: "https://www.facebook.com/changwei1006/"},
+  {
+    labelKey: "emailGlobal",
+    icon: <MailOutlined />,
+    contact: "changwei1006@gmail.com",
+    url: "mailto:changwei1006@gmail.com",
+  },
+  {
+    labelKey: "emailChina",
+    icon: <MailOutlined />,
+    contact: "changwei1006@qq.com",
+    url: "mailto:changwei1006@qq.com",
+  },
+  {
+    labelKey: "messenger",
+    icon: <FontAwesomeIcon icon={faFacebookMessenger} />,
+    contact: "changwei1006",
+    url: "https://www.facebook.com/changwei1006/",
+  },
   {labelKey: "discord", icon: <DiscordOutlined />, contact: "changwei1006"},
   {
     labelKey: "line",
     icon: <FontAwesomeIcon icon={faLine} />,
     contact: "+886-0912-***-***",
     url: "https://line.me/ti/p/b_9gnmE0Ob",
-    content: <img src={line_qrcode_image_url.src} alt="https://line.me/ti/p/b_9gnmE0Ob" loading="lazy" decoding="async" />,
+    content: (
+      <img
+        src={line_qrcode_image_url.src}
+        alt="https://line.me/ti/p/b_9gnmE0Ob"
+        loading="lazy"
+        decoding="async"
+      />
+    ),
     qrcode_image_url: line_qrcode_image_url.src,
   },
 ]
 
-const data: {category_key: "socialNetwork" | "instantMessaging"; items: ItemDef[]}[] = [
+const data: {
+  category_key: "socialNetwork" | "instantMessaging"
+  items: ItemDef[]
+}[] = [
   {category_key: "socialNetwork", items: socialItems},
   {category_key: "instantMessaging", items: imItems},
 ]
@@ -246,7 +361,9 @@ function legacyCopy(text: string): void {
   }
 }
 
-export const ContactSection: React.FunctionComponent<IPropsContactSection> = () => {
+export const ContactSection: React.FunctionComponent<
+  IPropsContactSection
+> = () => {
   const t = useTranslations("sections")
   const tc = useTranslations("contact")
 
@@ -260,14 +377,20 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
             <Space className={styles.list} size={8} wrap>
               {category.items.map((item) => {
                 const label = tc(item.labelKey)
-                const contactText = item.useLinkedinContact ? tc("linkedinContact") : item.contact
+                const contactText = item.useLinkedinContact
+                  ? tc("linkedinContact")
+                  : item.contact
                 const triggerHref = item.url ?? item.qrcode_image_url
                 const triggerBody = (
                   <>
                     <div>{item.icon}</div>
                     <div className={styles.item_info}>
-                      <div className={styles.item_info_contact}>{contactText}</div>
-                      {item.note && <div className={styles.item_info_note}>{item.note}</div>}
+                      <div className={styles.item_info_contact}>
+                        {contactText}
+                      </div>
+                      {item.note && (
+                        <div className={styles.item_info_note}>{item.note}</div>
+                      )}
                     </div>
                   </>
                 )
@@ -283,14 +406,18 @@ export const ContactSection: React.FunctionComponent<IPropsContactSection> = () 
                     }
                     content={
                       <Space orientation={"vertical"}>
-                        <Typography.Text copyable>{contactText}</Typography.Text>
+                        <Typography.Text copyable>
+                          {contactText}
+                        </Typography.Text>
                         {item.url && (
                           <Space orientation={"vertical"}>
                             <QRCode errorLevel="H" value={item.url} />
                             <OutsideLink href={item.url} />
                           </Space>
                         )}
-                        <div className={styles.item_popup_content}>{item.content}</div>
+                        <div className={styles.item_popup_content}>
+                          {item.content}
+                        </div>
                         {item.note && <p>{item.note}</p>}
                       </Space>
                     }

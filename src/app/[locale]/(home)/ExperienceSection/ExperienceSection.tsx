@@ -96,9 +96,8 @@ export const ExperienceSection: React.FunctionComponent<
                       </Space>
                     </div>
                     <div className={styles.item_info_organization_url}>
-                      <LinkOutlined aria-hidden={true} /> <OutsideLink
-                        href={item.organization_url}
-                      />
+                      <LinkOutlined aria-hidden={true} />{" "}
+                      <OutsideLink href={item.organization_url} />
                     </div>
                     <div className={styles.item_info_meta}>
                       <Space

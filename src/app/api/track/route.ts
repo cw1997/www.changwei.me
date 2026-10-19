@@ -57,7 +57,10 @@ function toNullableString(value: unknown, maxLength: number): string | null {
 function parseIpChain(request: NextRequest): string[] {
   const forwarded = request.headers.get("x-forwarded-for")
   if (forwarded) {
-    return forwarded.split(",").map((ip) => ip.trim()).filter(Boolean)
+    return forwarded
+      .split(",")
+      .map((ip) => ip.trim())
+      .filter(Boolean)
   }
   const realIp = request.headers.get("x-real-ip")
   if (realIp) {
@@ -104,7 +107,11 @@ export async function POST(request: NextRequest) {
   let body: TrackBody
   try {
     const parsed: unknown = await request.json()
-    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    if (
+      typeof parsed !== "object" ||
+      parsed === null ||
+      Array.isArray(parsed)
+    ) {
       return NextResponse.json({error: "Invalid payload"}, {status: 400})
     }
     body = parsed as TrackBody
@@ -123,40 +130,47 @@ export async function POST(request: NextRequest) {
     const device = parser.getDevice()
     const cpu = parser.getCPU()
 
-    await getDb().insert(pageVisits).values({
-      visitedAt: new Date(),
-      path: normalizeTrackedPath(body.path),
-      ipChain,
-      userAgent: toNullableString(userAgent, 512),
-      referer: toNullableString(referer, 2048),
-      language: toNullableString(body.language, 64),
-      screenWidth: toNullableInteger(body.screenWidth),
-      screenHeight: toNullableInteger(body.screenHeight),
-      viewportWidth: toNullableInteger(body.viewportWidth),
-      viewportHeight: toNullableInteger(body.viewportHeight),
-      deviceType: classifyDevice(device),
-      browserName: browser.name ?? null,
-      browserVersion: browser.version ?? null,
-      osName: os.name ?? null,
-      osVersion: os.version ?? null,
-      locale: toNullableString(body.locale, 16),
-      country: null,
-      city: null,
-      deviceVendor: device.vendor ?? null,
-      deviceModel: toNullableString(body.deviceModel, 128) ?? device.model ?? null,
-      cpuArchitecture: toNullableString(body.cpuArchitecture, 64) ?? cpu.architecture ?? null,
-      cpuCores: toNullableInteger(body.cpuCores),
-      deviceMemoryGb: toNullableInteger(body.deviceMemoryGb),
-      networkType: toNullableString(body.networkType, 64),
-      networkDownlinkMbps: toNullableDecimalString(body.networkDownlinkMbps),
-      networkRttMs: toNullableInteger(body.networkRttMs),
-      networkSaveData: body.networkSaveData == null ? null : body.networkSaveData ? 1 : 0,
-      platform: toNullableString(body.platform, 128),
-      platformVersion: toNullableString(body.platformVersion, 64),
-      uaFullVersion: toNullableString(body.uaFullVersion, 64),
-      formFactor: toNullableString(body.formFactor, 64),
-      timezone: toNullableString(body.timezone, 64),
-    })
+    await getDb()
+      .insert(pageVisits)
+      .values({
+        visitedAt: new Date(),
+        path: normalizeTrackedPath(body.path),
+        ipChain,
+        userAgent: toNullableString(userAgent, 512),
+        referer: toNullableString(referer, 2048),
+        language: toNullableString(body.language, 64),
+        screenWidth: toNullableInteger(body.screenWidth),
+        screenHeight: toNullableInteger(body.screenHeight),
+        viewportWidth: toNullableInteger(body.viewportWidth),
+        viewportHeight: toNullableInteger(body.viewportHeight),
+        deviceType: classifyDevice(device),
+        browserName: browser.name ?? null,
+        browserVersion: browser.version ?? null,
+        osName: os.name ?? null,
+        osVersion: os.version ?? null,
+        locale: toNullableString(body.locale, 16),
+        country: null,
+        city: null,
+        deviceVendor: device.vendor ?? null,
+        deviceModel:
+          toNullableString(body.deviceModel, 128) ?? device.model ?? null,
+        cpuArchitecture:
+          toNullableString(body.cpuArchitecture, 64) ??
+          cpu.architecture ??
+          null,
+        cpuCores: toNullableInteger(body.cpuCores),
+        deviceMemoryGb: toNullableInteger(body.deviceMemoryGb),
+        networkType: toNullableString(body.networkType, 64),
+        networkDownlinkMbps: toNullableDecimalString(body.networkDownlinkMbps),
+        networkRttMs: toNullableInteger(body.networkRttMs),
+        networkSaveData:
+          body.networkSaveData == null ? null : body.networkSaveData ? 1 : 0,
+        platform: toNullableString(body.platform, 128),
+        platformVersion: toNullableString(body.platformVersion, 64),
+        uaFullVersion: toNullableString(body.uaFullVersion, 64),
+        formFactor: toNullableString(body.formFactor, 64),
+        timezone: toNullableString(body.timezone, 64),
+      })
 
     return new NextResponse(null, {status: 204})
   } catch (error) {
@@ -164,6 +178,9 @@ export async function POST(request: NextRequest) {
     // invisible: no client signal, no error rate, nothing in the dashboards.
     console.error("Failed to track page visit:", error)
     Sentry.captureException(error)
-    return NextResponse.json({error: "Failed to record page view"}, {status: 500})
+    return NextResponse.json(
+      {error: "Failed to record page view"},
+      {status: 500},
+    )
   }
 }

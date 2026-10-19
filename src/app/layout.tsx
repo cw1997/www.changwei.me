@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 }
 
-export default async function RootLayout(props: LayoutProps<'/'>) {
+export default async function RootLayout(props: LayoutProps<"/">) {
   const {children} = props
   const locale = await getLocale()
   const htmlLang = localeHtmlLang[locale as Locale] ?? "en"

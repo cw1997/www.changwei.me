@@ -140,7 +140,9 @@ export function getQueryDef(type: QueryType): QueryDef {
   return queries[type]
 }
 
-async function runSourceQuery(type: QueryType): Promise<Omit<StatisticResult, "fromCache">> {
+async function runSourceQuery(
+  type: QueryType,
+): Promise<Omit<StatisticResult, "fromCache">> {
   const queryDef = queries[type]
   const started = performance.now()
   const db = getDb()
@@ -178,7 +180,10 @@ async function runSourceQuery(type: QueryType): Promise<Omit<StatisticResult, "f
   }
 }
 
-export async function getStatistic(type: QueryType, forceRefresh = false): Promise<StatisticResult> {
+export async function getStatistic(
+  type: QueryType,
+  forceRefresh = false,
+): Promise<StatisticResult> {
   const db = getDb()
   const cachedRows = await db
     .select()

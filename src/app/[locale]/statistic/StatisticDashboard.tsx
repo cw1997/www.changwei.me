@@ -18,7 +18,13 @@ import {Prism as SyntaxHighlighter} from "react-syntax-highlighter"
 import {oneLight} from "react-syntax-highlighter/dist/esm/styles/prism"
 import ReactEChartsCore from "echarts-for-react/lib/core"
 import * as echarts from "echarts/core"
-import {LineChart, PieChart, BarChart, MapChart, EffectScatterChart} from "echarts/charts"
+import {
+  LineChart,
+  PieChart,
+  BarChart,
+  MapChart,
+  EffectScatterChart,
+} from "echarts/charts"
 import {
   GridComponent,
   TooltipComponent,
@@ -66,7 +72,8 @@ type QueryType =
   | "screenDistribution"
 
 const WORLD_MAP_NAME = "world"
-const WORLD_MAP_GEOJSON_URL = "https://fastly.jsdelivr.net/npm/echarts@5/map/json/world.json"
+const WORLD_MAP_GEOJSON_URL =
+  "https://fastly.jsdelivr.net/npm/echarts@5/map/json/world.json"
 
 let worldMapPromise: Promise<void> | null = null
 
@@ -153,7 +160,12 @@ function SqlPanel({
       <SyntaxHighlighter
         language="sql"
         style={oneLight}
-        customStyle={{margin: 0, borderRadius: 8, fontSize: 12, lineHeight: 1.55}}
+        customStyle={{
+          margin: 0,
+          borderRadius: 8,
+          fontSize: 12,
+          lineHeight: 1.55,
+        }}
         wrapLongLines
       >
         {sql}
@@ -176,7 +188,10 @@ function formatTableValue(value: unknown): React.ReactNode {
   return String(value)
 }
 
-function formatDateWithWeekday(value: unknown, locale: string): React.ReactNode {
+function formatDateWithWeekday(
+  value: unknown,
+  locale: string,
+): React.ReactNode {
   const raw = String(value ?? "")
   const match = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)
   if (!match) return formatTableValue(value)
@@ -198,10 +213,16 @@ function formatDateWithWeekday(value: unknown, locale: string): React.ReactNode 
     return formatTableValue(value)
   }
 
-  const formattedWeekday = new Intl.DateTimeFormat(intlLocaleByAppLocale[locale] ?? "en-US", {
-    weekday: locale === "en-US" ? "short" : "long",
-  }).format(date)
-  const weekday = locale === "en-US" && !formattedWeekday.endsWith(".") ? `${formattedWeekday}.` : formattedWeekday
+  const formattedWeekday = new Intl.DateTimeFormat(
+    intlLocaleByAppLocale[locale] ?? "en-US",
+    {
+      weekday: locale === "en-US" ? "short" : "long",
+    },
+  ).format(date)
+  const weekday =
+    locale === "en-US" && !formattedWeekday.endsWith(".")
+      ? `${formattedWeekday}.`
+      : formattedWeekday
   const dateText = `${year}-${month}-${day}`
   return `${dateText} (${weekday})`
 }
@@ -257,7 +278,9 @@ function ResultTable({
       }
     }
 
-    return Array.from(grouped.values()).sort((a, b) => a.date.localeCompare(b.date))
+    return Array.from(grouped.values()).sort((a, b) =>
+      a.date.localeCompare(b.date),
+    )
   }, [data, queryType])
 
   // Every query groups by its first column (date / language / browser_name / …),
@@ -445,7 +468,11 @@ function ChartCard({
           <span>
             {icon} {title}
           </span>
-          {result ? <span className={styles.cardUpdatedAt}>Updated: {formatUpdatedAt(result.cachedAt, locale)}</span> : null}
+          {result ? (
+            <span className={styles.cardUpdatedAt}>
+              Updated: {formatUpdatedAt(result.cachedAt, locale)}
+            </span>
+          ) : null}
         </div>
       }
       className={styles.chartCard}
@@ -463,15 +490,38 @@ function ChartCard({
       )}
       {!loading && !waitingMap && status !== "error" && result && (
         <div className={styles.cardContent}>
-          <Row gutter={[isMobile ? 12 : 16, 16]} className={styles.contentRow} align="top">
-            <Col xs={24} sm={24} md={14} lg={16} xl={16} className={styles.chartSection}>
+          <Row
+            gutter={[isMobile ? 12 : 16, 16]}
+            className={styles.contentRow}
+            align="top"
+          >
+            <Col
+              xs={24}
+              sm={24}
+              md={14}
+              lg={16}
+              xl={16}
+              className={styles.chartSection}
+            >
               {result.data.length > 0 && chartOption ? (
-                <ReactEChartsCore echarts={echarts} option={chartOption} style={{height: isMobile ? 320 : 420}} notMerge />
+                <ReactEChartsCore
+                  echarts={echarts}
+                  option={chartOption}
+                  style={{height: isMobile ? 320 : 420}}
+                  notMerge
+                />
               ) : (
                 <Empty description="No data yet" />
               )}
             </Col>
-            <Col xs={24} sm={24} md={10} lg={8} xl={8} className={styles.tableSection}>
+            <Col
+              xs={24}
+              sm={24}
+              md={10}
+              lg={8}
+              xl={8}
+              className={styles.tableSection}
+            >
               <ResultTable data={result.data} queryType={queryType} />
             </Col>
           </Row>
@@ -495,7 +545,9 @@ function ChartCard({
   )
 }
 
-function buildDailyVisitsOption(data: Record<string, unknown>[]): echarts.EChartsCoreOption {
+function buildDailyVisitsOption(
+  data: Record<string, unknown>[],
+): echarts.EChartsCoreOption {
   const dateSet = new Set<string>()
   const deviceTypes = ["desktop", "tablet", "mobile"]
   const deviceMap: Record<string, Record<string, number>> = {}
@@ -540,7 +592,11 @@ function buildDailyVisitsOption(data: Record<string, unknown>[]): echarts.EChart
   }
 }
 
-function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
+function buildPieOption(
+  data: Record<string, unknown>[],
+  nameKey: string,
+  isMobile: boolean,
+): echarts.EChartsCoreOption {
   const values = data.map((row) => ({
     name: String(row[nameKey] ?? "Unknown"),
     value: Number(row.count ?? 0),
@@ -563,7 +619,9 @@ function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobi
             bottom: 16,
           }),
     },
-    grid: isMobile ? {left: 8, right: 8, top: 8, bottom: 8, containLabel: true} : undefined,
+    grid: isMobile
+      ? {left: 8, right: 8, top: 8, bottom: 8, containLabel: true}
+      : undefined,
     series: [
       {
         type: "pie",
@@ -586,7 +644,11 @@ function buildPieOption(data: Record<string, unknown>[], nameKey: string, isMobi
   }
 }
 
-function buildBarOption(data: Record<string, unknown>[], nameKey: string, isMobile: boolean): echarts.EChartsCoreOption {
+function buildBarOption(
+  data: Record<string, unknown>[],
+  nameKey: string,
+  isMobile: boolean,
+): echarts.EChartsCoreOption {
   return {
     tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
     grid: {left: 12, right: 16, bottom: isMobile ? 82 : 64, containLabel: true},
@@ -631,7 +693,11 @@ function buildGeoMapOption(
 
     countryData.set(country, (countryData.get(country) || 0) + count)
 
-    if (Number.isFinite(latitude) && Number.isFinite(longitude) && country !== "Unknown") {
+    if (
+      Number.isFinite(latitude) &&
+      Number.isFinite(longitude) &&
+      country !== "Unknown"
+    ) {
       points.push({
         name: country,
         value: [longitude, latitude, count],
@@ -639,8 +705,14 @@ function buildGeoMapOption(
     }
   }
 
-  const mapData = Array.from(countryData.entries()).map(([name, value]) => ({name, value}))
-  const maxValue = Math.max(1, ...mapData.map((item) => Number(item.value || 0)))
+  const mapData = Array.from(countryData.entries()).map(([name, value]) => ({
+    name,
+    value,
+  }))
+  const maxValue = Math.max(
+    1,
+    ...mapData.map((item) => Number(item.value || 0)),
+  )
 
   return {
     tooltip: {
@@ -694,9 +766,7 @@ function buildGeoMapOption(
         name: "Geo Points",
         type: "effectScatter",
         coordinateSystem: "geo",
-        data: points
-          .sort((a, b) => b.value[2] - a.value[2])
-          .slice(0, 120),
+        data: points.sort((a, b) => b.value[2] - a.value[2]).slice(0, 120),
         symbolSize: (value: unknown) => {
           const count = Array.isArray(value) ? Number(value[2] ?? 0) : 0
           return Math.max(6, Math.sqrt(Math.max(count, 1)) * 1.8)
@@ -734,35 +804,45 @@ export function StatisticDashboard() {
         title="Language Distribution"
         icon={<GlobalOutlined />}
         queryType="languageDistribution"
-        renderChart={(data, context) => buildPieOption(data, "language", context.isMobile)}
+        renderChart={(data, context) =>
+          buildPieOption(data, "language", context.isMobile)
+        }
       />
 
       <ChartCard
         title="Device Type Distribution"
         icon={<MobileOutlined />}
         queryType="deviceDistribution"
-        renderChart={(data, context) => buildPieOption(data, "device_type", context.isMobile)}
+        renderChart={(data, context) =>
+          buildPieOption(data, "device_type", context.isMobile)
+        }
       />
 
       <ChartCard
         title="Browser Distribution"
         icon={<ChromeOutlined />}
         queryType="browserDistribution"
-        renderChart={(data, context) => buildBarOption(data, "browser_name", context.isMobile)}
+        renderChart={(data, context) =>
+          buildBarOption(data, "browser_name", context.isMobile)
+        }
       />
 
       <ChartCard
         title="Operating System Distribution"
         icon={<TabletOutlined />}
         queryType="osDistribution"
-        renderChart={(data, context) => buildBarOption(data, "os_name", context.isMobile)}
+        renderChart={(data, context) =>
+          buildBarOption(data, "os_name", context.isMobile)
+        }
       />
 
       <ChartCard
         title="Screen Resolution Distribution"
         icon={<DesktopOutlined />}
         queryType="screenDistribution"
-        renderChart={(data, context) => buildBarOption(data, "resolution", context.isMobile)}
+        renderChart={(data, context) =>
+          buildBarOption(data, "resolution", context.isMobile)
+        }
       />
     </div>
   )

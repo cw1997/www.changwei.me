@@ -12,8 +12,12 @@ export async function GET(request: Request) {
     const {searchParams} = new URL(request.url)
     const locale = searchParams.get("locale") ?? "en-US"
     const isChinese = isChineseLocale(locale)
-    const pdfUrl = isChinese ? url_resume_pdf_github : url_resume_pdf_github_english
-    const filename = isChinese ? "changwei-resume.pdf" : "changwei-resume-english.pdf"
+    const pdfUrl = isChinese
+      ? url_resume_pdf_github
+      : url_resume_pdf_github_english
+    const filename = isChinese
+      ? "changwei-resume.pdf"
+      : "changwei-resume-english.pdf"
 
     const res = await fetch(pdfUrl, {
       // Cache the response at the CDN, without depending on a writable Next.js
@@ -41,9 +45,6 @@ export async function GET(request: Request) {
     return new NextResponse(responseBody, {headers})
   } catch (err) {
     console.error("Proxy error:", err)
-    return NextResponse.json(
-      {error: "Internal Server Error"},
-      {status: 500},
-    )
+    return NextResponse.json({error: "Internal Server Error"}, {status: 500})
   }
 }

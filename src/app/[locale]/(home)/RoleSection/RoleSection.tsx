@@ -40,19 +40,47 @@ const data: {
     nameKey: "current",
     items: [
       {
-        icon: <Image src={ntnu_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntnu_gdsc_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/",
       },
       {
-        icon: <Image src={Open_House_NTUs_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={Open_House_NTUs_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.facebook.com/openhousentus/?locale=zh_TW",
       },
       {
-        icon: <Image src={ntnu_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntnu_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.ace.ntnu.edu.tw/",
       },
       {
-        icon: <Image src={ntust_piano_club_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_piano_club_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.instagram.com/ntust_piano/",
       },
     ],
@@ -61,39 +89,102 @@ const data: {
     nameKey: "former",
     items: [
       {
-        icon: <Image src={risingwave_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={risingwave_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://risingwave.com/",
       },
       {
-        icon: <Image src={pingcap_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={pingcap_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://pingcap.com/",
       },
       {
-        icon: <Image src={ntu_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntu_gdsc_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.instagram.com/gdg.ntu/",
       },
       {
-        icon: <Image src={ntust_gdsc_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_gdsc_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://gdg.community.dev/gdg-on-campus-national-taiwan-university-of-science-and-technology-taipei-taiwan/",
       },
       {
-        icon: <Image src={ntust_student_council_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_student_council_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.facebook.com/ntustsc/",
       },
       {
-        icon: <Image src={ntust_student_association_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_student_association_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.facebook.com/ntustsa/",
       },
       {
-        icon: <Image src={ntust_ece_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_ece_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://ece.ntust.edu.tw/",
       },
       {
-        icon: <Image src={ntust_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={ntust_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://ece.ntust.edu.tw/",
       },
       {
-        icon: <Image src={wspc_logo_image} alt={""} width={logo_size} height={logo_size} />,
+        icon: (
+          <Image
+            src={wspc_logo_image}
+            alt={""}
+            width={logo_size}
+            height={logo_size}
+          />
+        ),
         url: "https://www.wspc.edu.cn/",
       },
     ],
@@ -113,13 +204,16 @@ function readTranslatedRoles(
     )
   }
 
-  return Array.from({length: Math.max(rows.length, expectedCount)}, (_, index) => {
-    const row = rows[index]
-    return {
-      name: row?.name ?? "",
-      role: row?.role ?? "",
-    }
-  })
+  return Array.from(
+    {length: Math.max(rows.length, expectedCount)},
+    (_, index) => {
+      const row = rows[index]
+      return {
+        name: row?.name ?? "",
+        role: row?.role ?? "",
+      }
+    },
+  )
 }
 
 export interface IPropsRoleSection {}
@@ -146,19 +240,34 @@ export const RoleSection: React.FunctionComponent<IPropsRoleSection> = () => {
                 {category.items.map((item, index) => {
                   const entry = translated[index]
                   return (
-                    <Col key={`${category.nameKey}-${index}`} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
+                    <Col
+                      key={`${category.nameKey}-${index}`}
+                      xs={24}
+                      sm={24}
+                      md={12}
+                      lg={8}
+                      xl={8}
+                      xxl={8}
+                    >
                       <div className={styles.item}>
                         <Space align={"start"}>
                           <div>{item.icon}</div>
                           <div className={styles.item_info}>
                             {item.url ? (
-                              <OutsideLink href={item.url} className={styles.item_info_name}>
+                              <OutsideLink
+                                href={item.url}
+                                className={styles.item_info_name}
+                              >
                                 {entry.name}
                               </OutsideLink>
                             ) : (
-                              <div className={styles.item_info_name}>{entry.name}</div>
+                              <div className={styles.item_info_name}>
+                                {entry.name}
+                              </div>
                             )}
-                            <div className={styles.item_info_role}>{entry.role}</div>
+                            <div className={styles.item_info_role}>
+                              {entry.role}
+                            </div>
                           </div>
                         </Space>
                       </div>

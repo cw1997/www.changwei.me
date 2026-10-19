@@ -16,7 +16,8 @@ export default function NotFound() {
         <div className={styles.meme_box}>
           <p className={styles.meme_title}>{t("memeTitle")}</p>
           <p className={styles.meme_text}>
-            {t("memeText")}<br />
+            {t("memeText")}
+            <br />
             {t("browserTriedHard")}
           </p>
           <p className={styles.meme_face}>{t("memeFace")}</p>
@@ -25,10 +26,16 @@ export default function NotFound() {
         <p className={styles.joke}>{t("joke")}</p>
 
         <div className={styles.actions}>
-          <Link className={`${styles.button} ${styles.button_primary}`} href="/">
+          <Link
+            className={`${styles.button} ${styles.button_primary}`}
+            href="/"
+          >
             {t("goHome")}
           </Link>
-          <Link className={`${styles.button} ${styles.button_ghost}`} href="/guestbook">
+          <Link
+            className={`${styles.button} ${styles.button_ghost}`}
+            href="/guestbook"
+          >
             {t("goGuestbook")}
           </Link>
         </div>

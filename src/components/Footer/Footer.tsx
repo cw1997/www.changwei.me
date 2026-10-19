@@ -31,9 +31,7 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
     <footer className={styles.container}>
       <div className={styles.content}>
         <div>
-          <p>
-            {t("copyright", {year})}
-          </p>
+          <p>{t("copyright", {year})}</p>
           <div className={styles.nerd_info}>
             <p>
               <CodeOutlined /> {t("sourceCode")} [
@@ -52,20 +50,70 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
             <div style={{marginTop: 8}}>
               <div>
                 <Space wrap>
-                  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cw1997/www.changwei.me" loading="lazy" decoding="async" />
-                  <img alt="GitHub Repo watchers" src="https://img.shields.io/github/watchers/cw1997/www.changwei.me" loading="lazy" decoding="async" />
-                  <img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/cw1997/www.changwei.me" loading="lazy" decoding="async" />
-                  <img alt="GitHub branch status" src="https://img.shields.io/github/checks-status/cw1997/www.changwei.me/main" loading="lazy" decoding="async" />
-                  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/cw1997/www.changwei.me?style=flat" loading="lazy" decoding="async" />
-                  <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/cw1997/www.changwei.me" loading="lazy" decoding="async" />
-                  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/cw1997/www.changwei.me" loading="lazy" decoding="async" />
+                  <img
+                    alt="GitHub Repo stars"
+                    src="https://img.shields.io/github/stars/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub Repo watchers"
+                    src="https://img.shields.io/github/watchers/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub Repo forks"
+                    src="https://img.shields.io/github/forks/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub branch status"
+                    src="https://img.shields.io/github/checks-status/cw1997/www.changwei.me/main"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub last commit"
+                    src="https://img.shields.io/github/last-commit/cw1997/www.changwei.me?style=flat"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub Created At"
+                    src="https://img.shields.io/github/created-at/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub repo size"
+                    src="https://img.shields.io/github/repo-size/cw1997/www.changwei.me"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </Space>
               </div>
               <div>
                 <Space wrap>
-                  <img alt="GitHub followers" src="https://img.shields.io/github/followers/cw1997" loading="lazy" decoding="async" />
-                  <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/cw1997" loading="lazy" decoding="async" />
-                  <img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/changwei1006" loading="lazy" decoding="async" />
+                  <img
+                    alt="GitHub followers"
+                    src="https://img.shields.io/github/followers/cw1997"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="GitHub User's stars"
+                    src="https://img.shields.io/github/stars/cw1997"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    alt="X (formerly Twitter) Follow"
+                    src="https://img.shields.io/twitter/follow/changwei1006"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </Space>
               </div>
             </div>
@@ -93,14 +141,28 @@ export const Footer: React.FunctionComponent<IPropsFooter> = ({year}) => {
             </div>
             <div className={styles.powered_by_item}>
               {t("cdn")}
-              <OutsideLink className={styles.logo} href={"https://cloudflare.com"}>
-                <Image src={cloudflare_logo} alt="CloudFlare Logo" height={32} />
+              <OutsideLink
+                className={styles.logo}
+                href={"https://cloudflare.com"}
+              >
+                <Image
+                  src={cloudflare_logo}
+                  alt="CloudFlare Logo"
+                  height={32}
+                />
               </OutsideLink>
             </div>
             <div className={styles.powered_by_item}>
               {t("database")}
-              <OutsideLink className={styles.logo} href={"https://tidbcloud.com"}>
-                <Image src={tidb_cloud_logo} alt="TiDB Cloud Logo" height={32} />
+              <OutsideLink
+                className={styles.logo}
+                href={"https://tidbcloud.com"}
+              >
+                <Image
+                  src={tidb_cloud_logo}
+                  alt="TiDB Cloud Logo"
+                  height={32}
+                />
               </OutsideLink>
             </div>
           </Space>

@@ -6,7 +6,7 @@ import {buildLocalizedMetadata} from "@/lib/seo"
 import {StatisticDashboard} from "./StatisticDashboard"
 import styles from "./page.module.sass"
 
-type Props = PageProps<'/[locale]/statistic'>
+type Props = PageProps<"/[locale]/statistic">
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const {params} = props
@@ -33,7 +33,13 @@ export default async function StatisticPage(_props: Props) {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>{t("pageTitle")}</h1>
-        <hr style={{margin: "0 0 16px", border: 0, borderTop: "1px solid rgba(0, 0, 0, 0.12)"}} />
+        <hr
+          style={{
+            margin: "0 0 16px",
+            border: 0,
+            borderTop: "1px solid rgba(0, 0, 0, 0.12)",
+          }}
+        />
         <StatisticDashboard />
       </main>
     </div>

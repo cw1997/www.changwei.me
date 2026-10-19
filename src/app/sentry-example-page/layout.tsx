@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function SentryExamplePageLayout(props: LayoutProps<'/sentry-example-page'>) {
+export default function SentryExamplePageLayout(
+  props: LayoutProps<"/sentry-example-page">,
+) {
   const {children} = props
   return children
 }

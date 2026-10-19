@@ -90,7 +90,9 @@ function getProfileRows(t: (key: string) => string) {
 }
 
 function PhotoPlaceValue({t}: {t: (key: string) => string}) {
-  const parts = t("photoPlaceLines").split(" | ").map((s) => s.trim())
+  const parts = t("photoPlaceLines")
+    .split(" | ")
+    .map((s) => s.trim())
   return (
     <OutsideLink href="https://www.google.com/maps/place/Google+Taipei/@25.0339808,121.561964,17z/data=!3m1!4b1!4m6!3m5!1s0x3442abb6da80a7ad:0xdfbc764cc6880ac8!8m2!3d25.033976!4d121.5645389!16s%2Fg%2F12ll42d15?entry=ttu">
       {parts.map((line, i) => (
@@ -104,7 +106,9 @@ function PhotoPlaceValue({t}: {t: (key: string) => string}) {
 }
 
 function PhotoExifValue({t}: {t: (key: string) => string}) {
-  const parts = t("photoExifValue").split(" | ").map((s) => s.trim())
+  const parts = t("photoExifValue")
+    .split(" | ")
+    .map((s) => s.trim())
   return (
     <>
       {parts.map((line, i) => (
@@ -119,7 +123,9 @@ function PhotoExifValue({t}: {t: (key: string) => string}) {
 
 export interface IPropsProfileSection {}
 
-export const ProfileSection: React.FunctionComponent<IPropsProfileSection> = () => {
+export const ProfileSection: React.FunctionComponent<
+  IPropsProfileSection
+> = () => {
   const t = useTranslations("profile")
   const profile = getProfileRows(t)
 

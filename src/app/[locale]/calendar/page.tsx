@@ -55,7 +55,9 @@ function clampDuration(minutes: number): number {
     DURATION_MAX_MINUTES,
     Math.max(DURATION_MIN_MINUTES, Math.round(minutes)),
   )
-  const steps = Math.round((clamped - DURATION_MIN_MINUTES) / DURATION_STEP_MINUTES)
+  const steps = Math.round(
+    (clamped - DURATION_MIN_MINUTES) / DURATION_STEP_MINUTES,
+  )
   const snapped = DURATION_MIN_MINUTES + steps * DURATION_STEP_MINUTES
   return Math.min(DURATION_MAX_MINUTES, Math.max(DURATION_MIN_MINUTES, snapped))
 }
@@ -137,10 +139,7 @@ export default function CalendarPage(_props: PageProps<"/[locale]/calendar">) {
       // Clamp to the same range the duration control enforces. Without this an
       // end time days away wrote e.g. 2880 into the form, producing an
       // "Duration: 2880 minute(s)" request that contradicted its own input.
-      form.setFieldValue(
-        "duration",
-        clampDuration(diffMinutes),
-      )
+      form.setFieldValue("duration", clampDuration(diffMinutes))
     }
   }
 

@@ -3,7 +3,7 @@ import {getTranslations} from "next-intl/server"
 import {defaultLocale, isLocale, type Locale} from "@/i18n/routing"
 import {buildLocalizedMetadata} from "@/lib/seo"
 
-type Props = LayoutProps<'/[locale]/friendly-link'>
+type Props = LayoutProps<"/[locale]/friendly-link">
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const {params} = props

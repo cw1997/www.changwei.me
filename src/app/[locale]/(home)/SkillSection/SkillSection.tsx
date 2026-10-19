@@ -122,89 +122,165 @@ import visio_logo from "@/assets/images/logo/design/Microsoft_Office_Visio_(2013
 
 import styles from "./SkillSection.module.sass"
 
-type SkillCategoryKey = "frontend" | "backend" | "database" | "desktopApp" | "operations" | "devTools" | "electronic" | "design"
+type SkillCategoryKey =
+  | "frontend"
+  | "backend"
+  | "database"
+  | "desktopApp"
+  | "operations"
+  | "devTools"
+  | "electronic"
+  | "design"
 
-const data: {category_key: SkillCategoryKey; skills: {name: string; icon: {src: string}}[]}[] = [
+const data: {
+  category_key: SkillCategoryKey
+  skills: {name: string; icon: {src: string}}[]
+}[] = [
   {
     category_key: "frontend",
     skills: [
-      {name: "HTML5", icon: html5_logo}, {name: "CSS3", icon: css3_logo}, {name: "ECMAScript", icon: ecmascript_logo},
-      {name: "JavaScript", icon: javascript_logo}, {name: "TypeScript", icon: typescript_logo}, {name: "React", icon: react_logo},
-      {name: "Vue", icon: vue_logo}, {name: "Sass", icon: sass_logo}, {name: "less", icon: less_logo},
-      {name: "styled-components", icon: styled_component_logo}, {name: "Redux", icon: redux_logo}, {name: "Vite", icon: vite_logo},
-      {name: "Webpack", icon: webpack_logo}, {name: "Gulp.js", icon: gulp_logo}, {name: "Babel", icon: babel_logo},
-      {name: "jQuery", icon: jquery_logo}, {name: "StoryBook", icon: storybook_logo}, {name: "ESLint", icon: eslint_logo},
-      {name: "Ant-Design", icon: ant_design_logo}, {name: "Tailwind CSS", icon: tailwind_css_logo},
-      {name: "TDesign", icon: tdesign_logo}, {name: "Expo", icon: expo_logo},
+      {name: "HTML5", icon: html5_logo},
+      {name: "CSS3", icon: css3_logo},
+      {name: "ECMAScript", icon: ecmascript_logo},
+      {name: "JavaScript", icon: javascript_logo},
+      {name: "TypeScript", icon: typescript_logo},
+      {name: "React", icon: react_logo},
+      {name: "Vue", icon: vue_logo},
+      {name: "Sass", icon: sass_logo},
+      {name: "less", icon: less_logo},
+      {name: "styled-components", icon: styled_component_logo},
+      {name: "Redux", icon: redux_logo},
+      {name: "Vite", icon: vite_logo},
+      {name: "Webpack", icon: webpack_logo},
+      {name: "Gulp.js", icon: gulp_logo},
+      {name: "Babel", icon: babel_logo},
+      {name: "jQuery", icon: jquery_logo},
+      {name: "StoryBook", icon: storybook_logo},
+      {name: "ESLint", icon: eslint_logo},
+      {name: "Ant-Design", icon: ant_design_logo},
+      {name: "Tailwind CSS", icon: tailwind_css_logo},
+      {name: "TDesign", icon: tdesign_logo},
+      {name: "Expo", icon: expo_logo},
     ],
   },
   {
     category_key: "backend",
     skills: [
-      {name: "Node.js", icon: nodejs_logo}, {name: "Fastify", icon: fastify_logo}, {name: "Express.js", icon: expressjs_logo},
-      {name: "Koa.js", icon: koajs_logo}, {name: "Nest.js", icon: nestjs_logo}, {name: "PHP", icon: php_logo},
-      {name: "Laravel", icon: laravel_logo}, {name: "Java", icon: java_logo}, {name: "Spring Framework", icon: spring_framework_logo},
-      {name: "Golang", icon: golang_logo}, {name: "Gin", icon: gin_logo}, {name: "Python", icon: python_logo},
-      {name: "Flask", icon: flask_logo}, {name: "ASP.NET", icon: asp_dotnet_logo},
+      {name: "Node.js", icon: nodejs_logo},
+      {name: "Fastify", icon: fastify_logo},
+      {name: "Express.js", icon: expressjs_logo},
+      {name: "Koa.js", icon: koajs_logo},
+      {name: "Nest.js", icon: nestjs_logo},
+      {name: "PHP", icon: php_logo},
+      {name: "Laravel", icon: laravel_logo},
+      {name: "Java", icon: java_logo},
+      {name: "Spring Framework", icon: spring_framework_logo},
+      {name: "Golang", icon: golang_logo},
+      {name: "Gin", icon: gin_logo},
+      {name: "Python", icon: python_logo},
+      {name: "Flask", icon: flask_logo},
+      {name: "ASP.NET", icon: asp_dotnet_logo},
     ],
   },
   {
     category_key: "database",
     skills: [
-      {name: "Postgres", icon: postgres_logo}, {name: "MySQL", icon: mysql_logo}, {name: "MariaDB", icon: mariadb_logo},
-      {name: "SQL Server", icon: sql_server_logo}, {name: "Microsoft Access", icon: access_logo}, {name: "MongoDB", icon: mongodb_logo},
-      {name: "Redis", icon: redis_logo}, {name: "Memcached", icon: memcached_logo}, {name: "Elasticsearch", icon: elasticsearch_logo},
-      {name: "DBeaver", icon: dbeaver_logo}, {name: "MySQL Workbench", icon: mysql_workbench_logo},
-      {name: "pgAdmin", icon: pgadmin_logo}, {name: "SAP PowerDesigner", icon: powerdesign_logo},
+      {name: "Postgres", icon: postgres_logo},
+      {name: "MySQL", icon: mysql_logo},
+      {name: "MariaDB", icon: mariadb_logo},
+      {name: "SQL Server", icon: sql_server_logo},
+      {name: "Microsoft Access", icon: access_logo},
+      {name: "MongoDB", icon: mongodb_logo},
+      {name: "Redis", icon: redis_logo},
+      {name: "Memcached", icon: memcached_logo},
+      {name: "Elasticsearch", icon: elasticsearch_logo},
+      {name: "DBeaver", icon: dbeaver_logo},
+      {name: "MySQL Workbench", icon: mysql_workbench_logo},
+      {name: "pgAdmin", icon: pgadmin_logo},
+      {name: "SAP PowerDesigner", icon: powerdesign_logo},
     ],
   },
   {
     category_key: "desktopApp",
     skills: [
-      {name: "C#", icon: csharp_logo}, {name: "Visual Basic 6.0", icon: vb6_logo},
-      {name: "WinForm", icon: winform_logo}, {name: ".NET", icon: dotnet_logo},
+      {name: "C#", icon: csharp_logo},
+      {name: "Visual Basic 6.0", icon: vb6_logo},
+      {name: "WinForm", icon: winform_logo},
+      {name: ".NET", icon: dotnet_logo},
     ],
   },
   {
     category_key: "operations",
     skills: [
-      {name: "Docker", icon: docker_logo}, {name: "Docker Compose", icon: docker_compose_logo},
-      {name: "Ansible", icon: ansible_logo}, {name: "Bash shell", icon: bash_shell_logo},
-      {name: "Linux", icon: linux_logo}, {name: "Ubuntu", icon: ubuntu_logo}, {name: "Debian", icon: debian_logo},
-      {name: "CentOS", icon: centos_logo}, {name: "Fedora", icon: fedora_logo},
-      {name: "Windows Server", icon: windows_server_logo}, {name: "ReactOS", icon: reactos_logo},
+      {name: "Docker", icon: docker_logo},
+      {name: "Docker Compose", icon: docker_compose_logo},
+      {name: "Ansible", icon: ansible_logo},
+      {name: "Bash shell", icon: bash_shell_logo},
+      {name: "Linux", icon: linux_logo},
+      {name: "Ubuntu", icon: ubuntu_logo},
+      {name: "Debian", icon: debian_logo},
+      {name: "CentOS", icon: centos_logo},
+      {name: "Fedora", icon: fedora_logo},
+      {name: "Windows Server", icon: windows_server_logo},
+      {name: "ReactOS", icon: reactos_logo},
     ],
   },
   {
     category_key: "devTools",
     skills: [
-      {name: "Git", icon: git_logo}, {name: "Visual Studio Code", icon: vscode_logo}, {name: "Sublime Text", icon: sublime_text_logo},
-      {name: "WebStorm", icon: webstorm_logo}, {name: "IntelliJ IDEA", icon: intellij_idea_logo}, {name: "GoLand", icon: goland_logo},
-      {name: "PyCharm", icon: pycharm_logo}, {name: "PhpStorm", icon: phpstorm_logo}, {name: "Visual Studio", icon: visual_studio_logo},
-      {name: "Sourcetree", icon: sourcetree_logo}, {name: "WinSCP", icon: winscp_logo},
-      {name: "Xshell", icon: xshell_logo}, {name: "Xftp", icon: xftp_logo}, {name: "Thunderbird", icon: thunderbird_logo},
+      {name: "Git", icon: git_logo},
+      {name: "Visual Studio Code", icon: vscode_logo},
+      {name: "Sublime Text", icon: sublime_text_logo},
+      {name: "WebStorm", icon: webstorm_logo},
+      {name: "IntelliJ IDEA", icon: intellij_idea_logo},
+      {name: "GoLand", icon: goland_logo},
+      {name: "PyCharm", icon: pycharm_logo},
+      {name: "PhpStorm", icon: phpstorm_logo},
+      {name: "Visual Studio", icon: visual_studio_logo},
+      {name: "Sourcetree", icon: sourcetree_logo},
+      {name: "WinSCP", icon: winscp_logo},
+      {name: "Xshell", icon: xshell_logo},
+      {name: "Xftp", icon: xftp_logo},
+      {name: "Thunderbird", icon: thunderbird_logo},
     ],
   },
   {
     category_key: "electronic",
     skills: [
-      {name: "Altera", icon: altera_logo}, {name: "Xilinx", icon: xilinx_logo}, {name: "Arduino", icon: arduino_logo},
-      {name: "ARM", icon: arm_logo}, {name: "Intel", icon: intel_logo}, {name: "Keil", icon: keil_logo},
-      {name: "Keil for ARM", icon: keil_arm_logo}, {name: "EasyEDA", icon: easyeda_logo}, {name: "Altium Designer", icon: altium_designer_logo},
-      {name: "KiCad", icon: kicad_logo}, {name: "MIPS", icon: mips_logo}, {name: "Quartus", icon: quartus_logo},
-      {name: "Raspberry Pi", icon: raspberrypi_logo}, {name: "RISC-V", icon: risc_v_logo},
-      {name: "SystemVerilogHDL", icon: systemverilog_logo}, {name: "Vivado", icon: vivado_logo},
-      {name: "STM32CubeIDE", icon: stm32cubeide_logo}, {name: "STM32", icon: stm32_logo},
+      {name: "Altera", icon: altera_logo},
+      {name: "Xilinx", icon: xilinx_logo},
+      {name: "Arduino", icon: arduino_logo},
+      {name: "ARM", icon: arm_logo},
+      {name: "Intel", icon: intel_logo},
+      {name: "Keil", icon: keil_logo},
+      {name: "Keil for ARM", icon: keil_arm_logo},
+      {name: "EasyEDA", icon: easyeda_logo},
+      {name: "Altium Designer", icon: altium_designer_logo},
+      {name: "KiCad", icon: kicad_logo},
+      {name: "MIPS", icon: mips_logo},
+      {name: "Quartus", icon: quartus_logo},
+      {name: "Raspberry Pi", icon: raspberrypi_logo},
+      {name: "RISC-V", icon: risc_v_logo},
+      {name: "SystemVerilogHDL", icon: systemverilog_logo},
+      {name: "Vivado", icon: vivado_logo},
+      {name: "STM32CubeIDE", icon: stm32cubeide_logo},
+      {name: "STM32", icon: stm32_logo},
     ],
   },
   {
     category_key: "design",
     skills: [
-      {name: "Figma", icon: figma_logo}, {name: "Axure RP", icon: axure_logo}, {name: "Adobe XD", icon: xd_logo},
-      {name: "Adobe Illustrator", icon: illustrator_logo}, {name: "Adobe Photoshop", icon: photoshop_logo},
-      {name: "Adobe AfterEffects", icon: after_effects_logo}, {name: "Adobe Animate", icon: animate_logo},
-      {name: "Adobe Flash", icon: flash_logo}, {name: "Adobe Indesign", icon: indesign_logo},
-      {name: "Adobe Premiere", icon: premiere_logo}, {name: "Diagrams.net (draw.io)", icon: diagrams_logo},
+      {name: "Figma", icon: figma_logo},
+      {name: "Axure RP", icon: axure_logo},
+      {name: "Adobe XD", icon: xd_logo},
+      {name: "Adobe Illustrator", icon: illustrator_logo},
+      {name: "Adobe Photoshop", icon: photoshop_logo},
+      {name: "Adobe AfterEffects", icon: after_effects_logo},
+      {name: "Adobe Animate", icon: animate_logo},
+      {name: "Adobe Flash", icon: flash_logo},
+      {name: "Adobe Indesign", icon: indesign_logo},
+      {name: "Adobe Premiere", icon: premiere_logo},
+      {name: "Diagrams.net (draw.io)", icon: diagrams_logo},
       {name: "Microsoft Visio", icon: visio_logo},
     ],
   },
@@ -222,11 +298,17 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = () => {
       <Space orientation={"vertical"} size={16} style={{width: "100%"}}>
         {data.map((category) => (
           <div key={category.category_key}>
-            <h3 className={styles.category_name}>{tSkill(category.category_key)}</h3>
+            <h3 className={styles.category_name}>
+              {tSkill(category.category_key)}
+            </h3>
             <Space size={8} wrap>
-              {category.skills.map((skill) => (
+              {category.skills.map((skill) =>
                 skill.icon.src ? (
-                  <Tooltip key={skill.name} title={skill.name} placement={"top"}>
+                  <Tooltip
+                    key={skill.name}
+                    title={skill.name}
+                    placement={"top"}
+                  >
                     <span className={styles.category_skills_item}>
                       <img
                         style={{height: 32, width: "auto"}}
@@ -237,8 +319,8 @@ export const SkillSection: React.FunctionComponent<IPropsSkillSection> = () => {
                       />
                     </span>
                   </Tooltip>
-                ) : null
-              ))}
+                ) : null,
+              )}
             </Space>
           </div>
         ))}

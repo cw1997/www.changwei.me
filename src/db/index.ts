@@ -21,7 +21,9 @@ export function getDb(): Db {
 
   const databaseUrl = process.env.TIDB_DATABASE_URL
   if (!databaseUrl) {
-    throw new Error("TIDB_DATABASE_URL is not set; cannot connect to the database")
+    throw new Error(
+      "TIDB_DATABASE_URL is not set; cannot connect to the database",
+    )
   }
 
   // Resolve against the process working directory rather than a bare "./..."

@@ -3,7 +3,8 @@ import {getDb} from "@/db"
 import {cronLocation} from "@/db/schema"
 
 const DEFAULT_BATCH_SIZE = 200
-const GEO_LOOKUP_BASE_URL = process.env.IP_GEOLOOKUP_API_BASE?.replace(/\/$/, "") || "https://ipwho.is"
+const GEO_LOOKUP_BASE_URL =
+  process.env.IP_GEOLOOKUP_API_BASE?.replace(/\/$/, "") || "https://ipwho.is"
 
 interface IpWhoIsResponse {
   success?: boolean
@@ -57,7 +58,10 @@ function normalizeIp(raw: string): string {
 
 function isPrivateIpv4(ip: string): boolean {
   const parts = ip.split(".").map((p) => Number(p))
-  if (parts.length !== 4 || parts.some((n) => Number.isNaN(n) || n < 0 || n > 255)) {
+  if (
+    parts.length !== 4 ||
+    parts.some((n) => Number.isNaN(n) || n < 0 || n > 255)
+  ) {
     return false
   }
 
@@ -105,12 +109,15 @@ async function fetchLocation(ip: string): Promise<IpWhoIsResponse | null> {
   const timeout = setTimeout(() => controller.abort(), 8000)
 
   try {
-    const res = await fetch(`${GEO_LOOKUP_BASE_URL}/${encodeURIComponent(ip)}`, {
-      method: "GET",
-      headers: {"accept": "application/json"},
-      signal: controller.signal,
-      cache: "no-store",
-    })
+    const res = await fetch(
+      `${GEO_LOOKUP_BASE_URL}/${encodeURIComponent(ip)}`,
+      {
+        method: "GET",
+        headers: {"accept": "application/json"},
+        signal: controller.signal,
+        cache: "no-store",
+      },
+    )
 
     if (!res.ok) return null
     const payload = (await res.json()) as IpWhoIsResponse
@@ -167,17 +174,22 @@ async function upsertLocation(ip: string, payload: IpWhoIsResponse) {
 }
 
 async function backfillVisitGeoColumns() {
-  await getDb().execute(sql.raw(`UPDATE page_visits pv
+  await getDb().execute(
+    sql.raw(`UPDATE page_visits pv
 JOIN cron_location cl
   ON JSON_UNQUOTE(JSON_EXTRACT(pv.ip_chain, '$[0]')) = cl.ip
 SET
   pv.country = COALESCE(cl.country, pv.country),
   pv.city = COALESCE(cl.city, pv.city)
-WHERE pv.country IS NULL OR pv.city IS NULL`))
+WHERE pv.country IS NULL OR pv.city IS NULL`),
+  )
 }
 
-export async function resolveLocationsFromVisits(batchSize = DEFAULT_BATCH_SIZE) {
-  const rowsResult = await getDb().execute(sql.raw(`SELECT DISTINCT ip FROM (
+export async function resolveLocationsFromVisits(
+  batchSize = DEFAULT_BATCH_SIZE,
+) {
+  const rowsResult = await getDb().execute(
+    sql.raw(`SELECT DISTINCT ip FROM (
   SELECT JSON_UNQUOTE(JSON_EXTRACT(ip_chain, '$[0]')) AS ip
   FROM page_visits
 ) source
@@ -185,7 +197,8 @@ LEFT JOIN cron_location cl ON source.ip = cl.ip
 WHERE source.ip IS NOT NULL
   AND source.ip <> ''
   AND cl.ip IS NULL
-LIMIT ${Math.max(1, Math.floor(batchSize))}`))
+LIMIT ${Math.max(1, Math.floor(batchSize))}`),
+  )
 
   const ips = asRows(rowsResult)
     .map((row) => String(row.ip ?? "").trim())

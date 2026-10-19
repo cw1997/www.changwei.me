@@ -1,5 +1,9 @@
 import {OutsideLink} from "@/components/OutsideLink"
-import {GithubOutlined, LinkOutlined, ZhihuCircleFilled} from "@ant-design/icons"
+import {
+  GithubOutlined,
+  LinkOutlined,
+  ZhihuCircleFilled,
+} from "@ant-design/icons"
 import React from "react"
 import {defaultLocale, type Locale} from "@/i18n/routing"
 
@@ -40,7 +44,8 @@ function MininggoatNote({locale}: {locale: Locale}) {
       <ul>
         <li>
           主要负责挖数羊智能数据交易平台 <LinkOutlined />{" "}
-          <OutsideLink href="https://washuyang.com/" /> 的前端开发与系统运维工作，包括平台前端功能开发、页面优化、系统维护及相关技术支持等。
+          <OutsideLink href="https://washuyang.com/" />{" "}
+          的前端开发与系统运维工作，包括平台前端功能开发、页面优化、系统维护及相关技术支持等。
         </li>
         <li>
           使用 React、Next.js 等技术栈，结合 Cursor、Grok、OpenCode（DeepSeek）
@@ -54,7 +59,8 @@ function MininggoatNote({locale}: {locale: Locale}) {
       <ul>
         <li>
           主要負責挖數羊智慧資料交易平台 <LinkOutlined />{" "}
-          <OutsideLink href="https://washuyang.com/" /> 的前端開發與系統維運工作，包括平臺前端功能開發、頁面最佳化、系統維護及相關技術支援等。
+          <OutsideLink href="https://washuyang.com/" />{" "}
+          的前端開發與系統維運工作，包括平臺前端功能開發、頁面最佳化、系統維護及相關技術支援等。
         </li>
         <li>
           使用 React、Next.js 等技術棧，結合 Cursor、Grok、OpenCode（DeepSeek）
@@ -67,10 +73,10 @@ function MininggoatNote({locale}: {locale: Locale}) {
     <ul>
       <li>
         Responsible for frontend development and system operations for the
-        Mininggoat intelligent data trading platform (Washuyang) <LinkOutlined />{" "}
-        <OutsideLink href="https://washuyang.com/" />, including frontend
-        feature development, page optimization, system maintenance and
-        technical support.
+        Mininggoat intelligent data trading platform (Washuyang){" "}
+        <LinkOutlined /> <OutsideLink href="https://washuyang.com/" />,
+        including frontend feature development, page optimization, system
+        maintenance and technical support.
       </li>
       <li>
         Accelerated development with React and Next.js, together with AI coding
@@ -116,8 +122,8 @@ function RisingWaveNote({locale}: {locale: Locale}) {
       <li>
         Develop and maintain the official website <LinkOutlined />{" "}
         <OutsideLink href="https://risingwave.com/" /> — maintained the legacy
-        WordPress site by extending its existing theme, and built new
-        WordPress plugins and templates.
+        WordPress site by extending its existing theme, and built new WordPress
+        plugins and templates.
       </li>
       <li>
         Rebuilt the website on React.js and Next.js, migrating it away from the
@@ -133,8 +139,9 @@ function PingcapNote({locale}: {locale: Locale}) {
       <ul>
         <li>
           从零开发 TiDB 中文社区官网 <LinkOutlined />{" "}
-          <OutsideLink href="https://tidb.net/" />，使用 React.js 与 Next.js
-          技术栈。 其为源码可得项目，GitHub 仓库为 <GithubOutlined />{" "}
+          <OutsideLink href="https://tidb.net/" />
+          ，使用 React.js 与 Next.js 技术栈。 其为源码可得项目，GitHub 仓库为{" "}
+          <GithubOutlined />{" "}
           <OutsideLink href="https://github.com/pingcap-inc/tidb.io" />
         </li>
         <li>
@@ -154,8 +161,9 @@ function PingcapNote({locale}: {locale: Locale}) {
       <ul>
         <li>
           從零開發 TiDB 中文社群官網 <LinkOutlined />{" "}
-          <OutsideLink href="https://tidb.net/" />，使用 React.js 與 Next.js
-          技術棧。 其為原始碼可得專案，GitHub 儲存庫為 <GithubOutlined />{" "}
+          <OutsideLink href="https://tidb.net/" />
+          ，使用 React.js 與 Next.js 技術棧。 其為原始碼可得專案，GitHub
+          儲存庫為 <GithubOutlined />{" "}
           <OutsideLink href="https://github.com/pingcap-inc/tidb.io" />
         </li>
         <li>
@@ -196,14 +204,18 @@ function PhdNote({locale}: {locale: Locale}) {
   if (locale === "zh-Hans") {
     return (
       <ul>
-        <li>研究助理，关注教育与 AI 融合相关主题。（技术栈：Dify + Next.js）。</li>
+        <li>
+          研究助理，关注教育与 AI 融合相关主题。（技术栈：Dify + Next.js）。
+        </li>
       </ul>
     )
   }
   if (locale === "zh-Hant") {
     return (
       <ul>
-        <li>研究助理，關注教育與 AI 融合相關主題。（技術棧：Dify + Next.js）。</li>
+        <li>
+          研究助理，關注教育與 AI 融合相關主題。（技術棧：Dify + Next.js）。
+        </li>
       </ul>
     )
   }
@@ -226,11 +238,12 @@ function MasterNote({locale}: {locale: Locale}) {
           FSS（频率选择表面）与微波开关。
         </li>
         <li>
-          研究基于 PCB 电路板、半导体元件与各种新型材料，设计毫米波空间滤波器／天线。
+          研究基于 PCB
+          电路板、半导体元件与各种新型材料，设计毫米波空间滤波器／天线。
         </li>
         <li>
-          电子系统组。研究优化 5GC（第五代核心网）。阅读 3GPP 规范以寻找增强／优化 5G
-          电信网络协议的方向。
+          电子系统组。研究优化 5GC（第五代核心网）。阅读 3GPP
+          规范以寻找增强／优化 5G 电信网络协议的方向。
         </li>
         <li>获校级奖学金。</li>
       </ul>
@@ -244,11 +257,12 @@ function MasterNote({locale}: {locale: Locale}) {
           FSS（頻率選擇表面）與微波開關。
         </li>
         <li>
-          研究以 PCB 電路板、半導體元件與各種新型材料，設計毫米波空間濾波器／天線。
+          研究以 PCB
+          電路板、半導體元件與各種新型材料，設計毫米波空間濾波器／天線。
         </li>
         <li>
-          系統組。研究最佳化 5GC（第五代核心網）。閱讀 3GPP 規範以尋找增強／最佳化 5G
-          電信網路協定的方向。
+          系統組。研究最佳化 5GC（第五代核心網）。閱讀 3GPP
+          規範以尋找增強／最佳化 5G 電信網路協定的方向。
         </li>
         <li>獲校級獎學金。</li>
       </ul>
@@ -266,8 +280,8 @@ function MasterNote({locale}: {locale: Locale}) {
         on PCB circuits, semiconductor devices and novel materials.
       </li>
       <li>
-        Group of Electronic System. Research to optimize 5GC(5th-generation
-        core network). Reading 3GPP specification to find the point of
+        Group of Electronic System. Research to optimize 5GC(5th-generation core
+        network). Reading 3GPP specification to find the point of
         enhance/optimize the protocol of 5G telecommunication network.
       </li>
       <li>Awarded a university-level scholarship.</li>
@@ -353,15 +367,14 @@ function BachelorNote({locale}: {locale: Locale}) {
 
   return (
     <ul>
-      <li>
-        {capstone}
-      </li>
+      <li>{capstone}</li>
       <li>
         {dig}
         <ul>
           <li>
             {osIntro}
-            <GithubOutlined /> <OutsideLink href="https://github.com/cw1997/ez-rtos" />
+            <GithubOutlined />{" "}
+            <OutsideLink href="https://github.com/cw1997/ez-rtos" />
           </li>
           {urls.map((href, i) => (
             <li key={href}>
@@ -391,7 +404,8 @@ function BachelorNote({locale}: {locale: Locale}) {
         {net}
         <ul>
           <li>
-            <GithubOutlined /> <OutsideLink href="https://github.com/cw1997/inetutils" />
+            <GithubOutlined />{" "}
+            <OutsideLink href="https://github.com/cw1997/inetutils" />
           </li>
           <li>
             <GithubOutlined />{" "}
@@ -409,9 +423,10 @@ function WspcNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          主要学习 Java／PHP 等 Web 前后端开发相关技术。Web
-          后端包括 Java 平台（JSP、Servlet、Spring 与 Spring MVC、Mybatis、Hibernate）、Microsoft.NET
-          平台（ASP.NET WebForm 与 ASP.NET MVC）、PHP（Laravel）、Python（Flask）、Golang（Beego、gin）
+          主要学习 Java／PHP 等 Web 前后端开发相关技术。Web 后端包括 Java
+          平台（JSP、Servlet、Spring 与 Spring
+          MVC、Mybatis、Hibernate）、Microsoft.NET 平台（ASP.NET WebForm 与
+          ASP.NET MVC）、PHP（Laravel）、Python（Flask）、Golang（Beego、gin）
         </li>
         <li>Web 前端开发，包括 jQuery、Vue.js、React</li>
         <li>担任班级学习委员，负责班级助教工作。获校级奖学金。</li>
@@ -422,9 +437,10 @@ function WspcNote({locale}: {locale: Locale}) {
     return (
       <ul>
         <li>
-          主要學習 Java／PHP 等 Web 前後端開發相關技術。Web
-          後端包括 Java 平臺（JSP、Servlet、Spring 與 Spring MVC、Mybatis、Hibernate）、Microsoft.NET
-          平臺（ASP.NET WebForm 與 ASP.NET MVC）、PHP（Laravel）、Python（Flask）、Golang（Beego、gin）
+          主要學習 Java／PHP 等 Web 前後端開發相關技術。Web 後端包括 Java
+          平臺（JSP、Servlet、Spring 與 Spring
+          MVC、Mybatis、Hibernate）、Microsoft.NET 平臺（ASP.NET WebForm 與
+          ASP.NET MVC）、PHP（Laravel）、Python（Flask）、Golang（Beego、gin）
         </li>
         <li>Web 前端開發，包括 jQuery、Vue.js、React</li>
         <li>擔任班級學習委員，負責班級助教工作。獲校級獎學金。</li>

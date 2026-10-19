@@ -35,7 +35,9 @@ function toNullableNumber(value: unknown): number | null {
   return Number.isFinite(n) ? n : null
 }
 
-async function getHighEntropyData(nav: NavigatorWithDeviceInfo): Promise<Record<string, unknown>> {
+async function getHighEntropyData(
+  nav: NavigatorWithDeviceInfo,
+): Promise<Record<string, unknown>> {
   if (!nav.userAgentData?.getHighEntropyValues) {
     return {}
   }
@@ -55,7 +57,9 @@ async function buildTrackPayload(pathname: string, locale: string) {
   const highEntropy = await getHighEntropyData(nav)
 
   const formFactors = Array.isArray(highEntropy.formFactors)
-    ? highEntropy.formFactors.filter((item): item is string => typeof item === "string")
+    ? highEntropy.formFactors.filter(
+        (item): item is string => typeof item === "string",
+      )
     : []
 
   return {
@@ -66,8 +70,12 @@ async function buildTrackPayload(pathname: string, locale: string) {
     viewportHeight: window.innerHeight,
     language: navigator.language,
     locale,
-    deviceModel: typeof highEntropy.model === "string" ? highEntropy.model : null,
-    cpuArchitecture: typeof highEntropy.architecture === "string" ? highEntropy.architecture : null,
+    deviceModel:
+      typeof highEntropy.model === "string" ? highEntropy.model : null,
+    cpuArchitecture:
+      typeof highEntropy.architecture === "string"
+        ? highEntropy.architecture
+        : null,
     cpuCores: toNullableNumber(navigator.hardwareConcurrency),
     deviceMemoryGb: toNullableNumber(nav.deviceMemory),
     networkType: connection?.effectiveType ?? null,
@@ -75,13 +83,25 @@ async function buildTrackPayload(pathname: string, locale: string) {
     networkRttMs: toNullableNumber(connection?.rtt),
     networkSaveData: connection?.saveData ?? null,
     platform:
-      (typeof nav.userAgentData?.platform === "string" ? nav.userAgentData.platform : null) ??
+      (typeof nav.userAgentData?.platform === "string"
+        ? nav.userAgentData.platform
+        : null) ??
       navigator.platform ??
       null,
     platformVersion:
-      typeof highEntropy.platformVersion === "string" ? highEntropy.platformVersion : null,
-    uaFullVersion: typeof highEntropy.uaFullVersion === "string" ? highEntropy.uaFullVersion : null,
-    formFactor: formFactors.length > 0 ? formFactors.join(",") : nav.userAgentData?.mobile ? "mobile" : "desktop",
+      typeof highEntropy.platformVersion === "string"
+        ? highEntropy.platformVersion
+        : null,
+    uaFullVersion:
+      typeof highEntropy.uaFullVersion === "string"
+        ? highEntropy.uaFullVersion
+        : null,
+    formFactor:
+      formFactors.length > 0
+        ? formFactors.join(",")
+        : nav.userAgentData?.mobile
+          ? "mobile"
+          : "desktop",
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone ?? null,
   }
 }
@@ -97,7 +117,9 @@ export const TrackPageView = () => {
       const payload = await buildTrackPayload(pathname, locale)
       if (cancelled) return
 
-      const blob = new Blob([JSON.stringify(payload)], {type: "application/json"})
+      const blob = new Blob([JSON.stringify(payload)], {
+        type: "application/json",
+      })
       const sent = navigator.sendBeacon("/api/track", blob)
 
       if (!sent) {

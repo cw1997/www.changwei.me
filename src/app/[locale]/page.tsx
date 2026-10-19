@@ -9,7 +9,7 @@ import {SkillSection} from "./(home)/SkillSection/SkillSection"
 import {ExperienceSection} from "./(home)/ExperienceSection/ExperienceSection"
 import styles from "./page.module.sass"
 
-export default function HomePage(_props: PageProps<'/[locale]'>) {
+export default function HomePage(_props: PageProps<"/[locale]">) {
   return (
     // Every other route wraps its content in <main>; the home page was the only
     // one without a main landmark, which screen readers use to skip navigation.

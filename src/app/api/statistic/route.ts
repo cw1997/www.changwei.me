@@ -1,5 +1,10 @@
 import {NextRequest, NextResponse} from "next/server"
-import {QUERY_TYPES, getQueryDef, getStatistic, isQueryType} from "@/lib/statistics"
+import {
+  QUERY_TYPES,
+  getQueryDef,
+  getStatistic,
+  isQueryType,
+} from "@/lib/statistics"
 
 export const dynamic = "force-dynamic"
 

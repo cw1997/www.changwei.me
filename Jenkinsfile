@@ -151,6 +151,18 @@ pipeline {
             }
         }
 
+        stage('Prettier Check') {
+            steps {
+                sh '''
+                    set -eu
+
+                    pnpm run prettier:check
+
+                    echo "Prettier check passed."
+                '''
+            }
+        }
+
         stage('Prepare Deployment Files') {
             steps {
                 withCredentials([

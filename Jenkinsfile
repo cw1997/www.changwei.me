@@ -194,8 +194,6 @@ pipeline {
                     set -eu
 
                     test -f Dockerfile
-                    test -s .env
-
                     CACHE_ARGS=""
 
                     if docker image inspect "${IMAGE_NAME}:buildcache" >/dev/null 2>&1; then
@@ -207,7 +205,6 @@ pipeline {
 
                     docker build \
                         --progress=plain \
-                        --secret id=app_env,src=.env \
                         --build-arg BUILDKIT_INLINE_CACHE=1 \
                         ${CACHE_ARGS} \
                         --tag "${IMAGE_NAME}:${IMAGE_TAG}" \

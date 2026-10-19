@@ -295,18 +295,22 @@ pipeline {
                         export IMAGE_NAME IMAGE_TAG CONTAINER_NAME
                         APP_DIR="/home/${DEPLOY_USER}/${DEPLOY_DIR}"
                         COMPOSE_FILE="${APP_DIR}/compose.yaml"
-                        PREVIOUS_IMAGE=""
+                        LATEST_REF="${IMAGE_NAME}:latest"
+                        ROLLBACK_IMAGE_ID=""
 
                         cd "${APP_DIR}"
 
-                        # Restrict lookup to containers: the image can have the same name.
-                        if docker container inspect "${CONTAINER_NAME}" >/dev/null 2>&1; then
-                            PREVIOUS_IMAGE="$(docker container inspect \
-                                --format '{{.Config.Image}}' \
+                        # Save immutable IDs before deployment, even when rebuilding the same commit.
+                        if docker image inspect "${LATEST_REF}" >/dev/null 2>&1; then
+                            ROLLBACK_IMAGE_ID="$(docker image inspect \
+                                --format '{{.Id}}' "${LATEST_REF}")"
+                        elif docker container inspect "${CONTAINER_NAME}" >/dev/null 2>&1; then
+                            ROLLBACK_IMAGE_ID="$(docker container inspect \
+                                --format '{{.Image}}' \
                                 "${CONTAINER_NAME}")"
                         fi
 
-                        echo "Previous image: ${PREVIOUS_IMAGE:-<none>}"
+                        echo "Rollback image ID: ${ROLLBACK_IMAGE_ID:-<none>}"
                         echo "Candidate image: ${IMAGE_REF}"
 
                         rollback() {
@@ -320,22 +324,21 @@ pipeline {
                             echo "Deployment or health verification failed. Rolling back..." >&2
                             docker compose -f "${COMPOSE_FILE}" logs --tail=100 >&2 || true
 
-                            if [ -n "${PREVIOUS_IMAGE}" ] && \
-                               [ "${PREVIOUS_IMAGE%:*}" = "${IMAGE_NAME}" ] && \
-                               docker image inspect "${PREVIOUS_IMAGE}" >/dev/null 2>&1; then
-                                PREVIOUS_TAG="${PREVIOUS_IMAGE##*:}"
-                                if IMAGE_NAME="${IMAGE_NAME}" \
+                            if [ -n "${ROLLBACK_IMAGE_ID}" ] && \
+                               docker image inspect "${ROLLBACK_IMAGE_ID}" >/dev/null 2>&1; then
+                                if docker tag "${ROLLBACK_IMAGE_ID}" "${LATEST_REF}" && \
+                                    IMAGE_NAME="${IMAGE_NAME}" \
                                     CONTAINER_NAME="${CONTAINER_NAME}" \
-                                    IMAGE_TAG="${PREVIOUS_TAG}" docker compose \
-                                    -f "${COMPOSE_FILE}" up -d --wait --wait-timeout 120; then
-                                    echo "Previous image restored: ${PREVIOUS_IMAGE}" >&2
+                                    IMAGE_TAG=latest docker compose \
+                                    -f "${COMPOSE_FILE}" up -d --force-recreate --pull never --wait --wait-timeout 120; then
+                                    echo "Rollback restored ${LATEST_REF}: ${ROLLBACK_IMAGE_ID}" >&2
                                 else
-                                    echo "ERROR: rollback failed for ${PREVIOUS_IMAGE}." >&2
+                                    echo "ERROR: rollback failed for ${ROLLBACK_IMAGE_ID}." >&2
                                     docker compose -f "${COMPOSE_FILE}" ps >&2 || true
                                     docker compose -f "${COMPOSE_FILE}" logs --tail=100 >&2 || true
                                 fi
                             else
-                                echo "No previous image is available; stopping the failed first deployment." >&2
+                                echo "ERROR: no rollback image is available; stopping the failed deployment." >&2
                                 docker compose -f "${COMPOSE_FILE}" down || true
                             fi
 
@@ -390,6 +393,10 @@ pipeline {
                         '
 
                         echo "Deployment and health checks passed."
+                        RUNNING_IMAGE_ID="$(docker container inspect \
+                            --format '{{.Image}}' "${CONTAINER_NAME}")"
+                        docker tag "${RUNNING_IMAGE_ID}" "${LATEST_REF}"
+                        echo "Promoted verified image ${RUNNING_IMAGE_ID} to ${LATEST_REF}."
                         trap - EXIT
 REMOTE_SCRIPT
 

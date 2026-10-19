@@ -6,7 +6,7 @@
 # This Dockerfile uses Node.js 26-slim, which was the latest LTS version at the time of writing.
 # To ensure security and compatibility, regularly update the NODE_VERSION ARG to the latest LTS version.
 ARG NODE_VERSION=26-slim
-ARG PNPM_VERSION=12.11.2
+ARG PNPM_VERSION=12.14.0
 ARG PORT=3000
 
 FROM node:${NODE_VERSION} AS dependencies

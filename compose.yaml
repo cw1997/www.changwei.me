@@ -1,15 +1,9 @@
-# Deployed to production.lan by the Jenkinsfile at $DEPLOY_DIR/compose.yaml.
-# The image tag managed by the pipeline is always ":latest"; ":old" holds the
-# previous release during a deploy and is removed once the new one is healthy.
-#
-# The host is expected to already provide a `.env` next to this file (env_file
-# below). The pipeline never ships secrets.
 name: changwei-homepage
 
 services:
-  changwei-homepage-nextjs:
-    image: changwei-homepage-nextjs:latest
-    container_name: changwei-homepage-nextjs
+  nextjs:
+    image: ${IMAGE_NAME:-changwei-homepage-nextjs}:${IMAGE_TAG:-latest}
+    container_name: ${CONTAINER_NAME:-changwei-homepage-nextjs}
     restart: unless-stopped
     env_file:
       - .env

@@ -24,7 +24,7 @@
     "test:all": "vitest run",
     "prettier:write": "prettier --write ./src",
     "prettier:check": "prettier --check ./src",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "db:push": "drizzle-kit push",

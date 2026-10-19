@@ -23,6 +23,7 @@
     "test:storybook": "vitest run --project storybook",
     "test:all": "vitest run",
     "format": "prettier --write ./src",
+    "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "db:push": "drizzle-kit push",

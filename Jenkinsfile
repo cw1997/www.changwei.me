@@ -299,8 +299,9 @@ pipeline {
 
                         cd "${APP_DIR}"
 
-                        if docker inspect "${CONTAINER_NAME}" >/dev/null 2>&1; then
-                            PREVIOUS_IMAGE="$(docker inspect \
+                        # Restrict lookup to containers: the image can have the same name.
+                        if docker container inspect "${CONTAINER_NAME}" >/dev/null 2>&1; then
+                            PREVIOUS_IMAGE="$(docker container inspect \
                                 --format '{{.Config.Image}}' \
                                 "${CONTAINER_NAME}")"
                         fi
@@ -360,13 +361,13 @@ pipeline {
                             --wait-timeout 120
 
                         echo "Checking expected image and running state..."
-                        RUNNING_IMAGE="$(docker inspect \
+                        RUNNING_IMAGE="$(docker container inspect \
                             --format '{{.Config.Image}}' \
                             "${CONTAINER_NAME}")"
-                        RUNNING_STATE="$(docker inspect \
+                        RUNNING_STATE="$(docker container inspect \
                             --format '{{.State.Status}}' \
                             "${CONTAINER_NAME}")"
-                        HEALTH_STATUS="$(docker inspect \
+                        HEALTH_STATUS="$(docker container inspect \
                             --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}missing{{end}}' \
                             "${CONTAINER_NAME}")"
 
